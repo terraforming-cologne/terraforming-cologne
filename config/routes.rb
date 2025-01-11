@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :passwords, param: :token
 
   resources :registrations, only: [:new, :create]
+  resources :participants, only: [:index]
+  resources :payments, only: [:new, :create]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -7,4 +7,12 @@ class User < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :email_address, presence: true, uniqueness: true
   has_secure_password
+
+  after_create_commit :deliver_welcome_email_later
+
+  private
+
+  def deliver_welcome_email_later
+    UserMailer.with(user: self).welcome.deliver_later
+  end
 end

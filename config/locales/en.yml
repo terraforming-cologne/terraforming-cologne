@@ -6,3 +6,11 @@ en:
         email_address: Email address
         password: Password
         password_confirmation: Password confirmation
+  user_mailer:
+    welcome:
+      subject: Welcome to terraforming-cologne.de
+    paid:
+      subject: Payment received
+  passwords_mailer:
+    reset:
+      subject: Reset your password

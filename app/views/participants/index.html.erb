@@ -1,0 +1,26 @@
+<div class="flex">
+  <div><%= User.human_attribute_name(:name) %></div>
+  <div><%= User.human_attribute_name(:email_address) %></div>
+  <div><%= Participant.human_attribute_name(:brings_basegame) %></div>
+  <div><%= Participant.human_attribute_name(:brings_prelude) %></div>
+  <div><%= Participant.human_attribute_name(:brings_hellas_and_elysium) %></div>
+  <div><%= Participant.human_attribute_name(:paid) %></div>
+</div>
+<% @participants.each do |participant| %>
+  <div class="flex">
+    <%= render participant %>
+    <% unless participant.paid? %>
+      <%=
+        button_to t(".paid"),
+                  :payments,
+                  method: :post,
+                  params: {
+                    participant_id: participant.id,
+                  },
+                  data: {
+                    turbo_confirm: t(".confirm"),
+                  }
+      %>
+    <% end %>
+  </div>
+<% end %>
