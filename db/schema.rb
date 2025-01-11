@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_11_114423) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_11_133507) do
+  create_table "participants", force: :cascade do |t|
+    t.boolean "brings_basegame", default: false, null: false
+    t.boolean "brings_prelude", default: false, null: false
+    t.boolean "brings_hellas_and_elysium", default: false, null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_participants_on_user_id"
+  end
+
   create_table "sessions", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "ip_address"
@@ -25,8 +35,11 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_11_114423) do
     t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name", null: false
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
+    t.index ["name"], name: "index_users_on_name", unique: true
   end
 
+  add_foreign_key "participants", "users"
   add_foreign_key "sessions", "users"
 end

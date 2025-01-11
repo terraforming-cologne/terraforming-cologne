@@ -1,0 +1,39 @@
+<%= form_with model: registration do |form| %>
+  <% if registration.user&.errors&.any? %>
+    <div class="mt-3 rounded-md bg-red-50 px-3 py-2 font-medium text-red-500">
+      <h2><%= pluralize(registration.user.errors.count, "error") %>
+        prohibited this registration from being saved:</h2>
+
+      <ul class="ml-6 list-disc">
+        <% registration.user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.fields_for :user_attributes do |user_form| %>
+    <%= user_form.text_field :name, value: registration.user&.name, placeholder: t(".user.name") %>
+    <%=
+      user_form.email_field :email_address,
+                            value: registration.user&.email_address,
+                            placeholder: t(".user.email_address")
+    %>
+    <%= user_form.password_field :password, placeholder: t(".user.password") %>
+    <%= user_form.password_field :password_confirmation, placeholder: t(".user.password_confirmation") %>
+  <% end %>
+
+  <%= form.fields_for :participant_attributes do |participant_form| %>
+    <%= participant_form.check_box :brings_basegame, checked: registration.participant&.brings_basegame %>
+    <%= participant_form.label :brings_basegame %>
+    <%= participant_form.check_box :brings_prelude, checked: registration.participant&.brings_prelude %>
+    <%= participant_form.label :brings_prelude %>
+    <%=
+      participant_form.check_box :brings_hellas_and_elysium,
+                                 checked: registration.participant&.brings_hellas_and_elysium
+    %>
+    <%= participant_form.label :brings_hellas_and_elysium %>
+  <% end %>
+
+  <%= form.submit %>
+<% end %>

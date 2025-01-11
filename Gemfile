@@ -68,6 +68,7 @@ gem "pundit", "~> 2.4"
 
 group :development do
   gem "erb-formatter", require: false, git: "https://github.com/pelletencate/erb-formatter", ref: "99601be"
+  gem "i18n-debug", "~> 1.2"
   gem "ruby-lsp", require: false
   gem "ruby-lsp-rails", require: false
   gem "standard", ">= 1.35.1", require: false
