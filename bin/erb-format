@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+npm exec tailwindcss-class-sorter-erb -- --write "$@"
+bundle exec erb-formatter --write --print-width 120 "$@"

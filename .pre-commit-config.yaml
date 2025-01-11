@@ -1,0 +1,20 @@
+repos:
+  - repo: local
+    hooks:
+      - id: standard
+        name: standard
+        language: system
+        types: ["ruby"]
+        entry: bundle
+        args: ["exec", "standardrb", "--fix", "--force-exclusion"]
+      - id: erb-format
+        name: erb-format
+        language: system
+        types: ["erb"]
+        exclude: \.json\.erb$
+        entry: bin/erb-format
+      - id: prettier
+        name: prettier
+        language: system
+        entry: npm
+        args: ["exec", "prettier", "--", "--write", "--ignore-unknown"]
