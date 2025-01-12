@@ -1,0 +1,5 @@
+<%= turbo_frame_tag @user do %>
+  <%= @user.name %>
+  <%= @user.email_address %>
+  <%= link_to t(".edit"), [:edit, @user] %>
+<% end %>

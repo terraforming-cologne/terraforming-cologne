@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
-  resource :session
-  resources :passwords, param: :token
+  resource :session, only: [:new, :create, :destroy]
+  resources :password_resets, only: [:new, :edit, :create, :update], param: :token
 
-  resources :registrations, only: [:new, :create]
-  resources :participants, only: [:index]
+  resources :participants, only: [:index, :show, :edit, :update, :destroy]
   resources :payments, only: [:new, :create]
+  resources :registrations, only: [:new, :create]
+  resource :password, only: [:edit, :update]
+  resource :profile, only: [:show]
+  resources :users, only: [:show, :edit, :update, :destroy]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

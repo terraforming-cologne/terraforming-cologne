@@ -1,0 +1,9 @@
+<%= form_with model: participant do |form| %>
+  <%= form.check_box :brings_basegame %>
+  <%= form.label :brings_basegame %>
+  <%= form.check_box :brings_prelude %>
+  <%= form.label :brings_prelude %>
+  <%= form.check_box :brings_hellas_and_elysium %>
+  <%= form.label :brings_hellas_and_elysium %>
+  <%= form.submit %>
+<% end %>
