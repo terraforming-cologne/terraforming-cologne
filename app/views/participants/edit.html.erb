@@ -1,3 +1,5 @@
 <%= turbo_frame_tag @participant do %>
   <%= render "form", participant: @participant %>
+  <%= link_to t(".cancel"), @participant %>
+  <%= button_to t(".delete"), @participant, method: :delete, data: { turbo_confirm: t(".delete.confirm") } %>
 <% end %>

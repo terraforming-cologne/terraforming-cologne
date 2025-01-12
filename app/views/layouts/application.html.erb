@@ -29,9 +29,10 @@
   <body>
     <main class="container mx-auto mt-28 px-5">
       <% if authenticated? %>
-        <%= button_to t(".logout"), :session, method: :delete %>
+        <%= Current.user.name %>
+        <%= button_to t(".logout"), :logout, method: :delete %>
       <% else %>
-        <%= link_to t(".login"), %i[new session] %>
+        <%= link_to t(".login"), :login %>
       <% end %>
       <%= yield %>
     </main>

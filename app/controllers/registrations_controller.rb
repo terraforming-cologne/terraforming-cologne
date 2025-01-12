@@ -3,21 +3,9 @@ class RegistrationsController < ApplicationController
   allow_unauthorized_access
 
   def new
-    @registration = Registration.new
-  end
+    redirect_to new_participant_path and return if authenticated?
 
-  def create
-    @registration = Registration.new(registration_params)
-    if @registration.save
-      redirect_to root_path
-    else
-      render :new, status: :unprocessable_entity
-    end
-  end
-
-  private
-
-  def registration_params
-    params.expect(registration: [user_attributes: [:name, :email_address, :password, :password_confirmation], participant_attributes: [:brings_basegame, :brings_prelude, :brings_hellas_and_elysium]])
+    @user = User.new
+    session[:return_to_after_authenticating] = new_participant_path
   end
 end

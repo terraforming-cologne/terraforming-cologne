@@ -1,0 +1,4 @@
+<%= turbo_frame_tag @user, target: "_top" do %>
+  <%= render "form", user: @user %>
+  <%= link_to t(".login"), :login %>
+<% end %>

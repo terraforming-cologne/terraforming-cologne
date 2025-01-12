@@ -1,13 +1,30 @@
 class ParticipantsController < ApplicationController
+  allow_unauthorized_access only: [:new, :create]
+
   before_action :set_participant, only: [:show, :edit, :update, :destroy]
 
   def index
     authorize Participant
-    @participants = Participant.all
+    @participants = Participant.active
   end
 
   def show
     authorize @participant
+  end
+
+  def new
+    redirect_to root_path and return if Current.user.participating?
+
+    @participant = Current.user.participants.new
+  end
+
+  def create
+    @participant = Current.user.participants.new(participant_params)
+    if @participant.save
+      redirect_to :profile
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
