@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  resource :session, only: [:create, :destroy]
-  resources :password_resets, only: [:new, :edit, :create, :update], param: :token
+  mount MissionControl::Jobs::Engine, at: "/jobs"
 
   resources :participants
   resource :password, only: [:edit, :update]
+  resources :password_resets, only: [:new, :edit, :create, :update], param: :token
   resources :payments, only: [:new, :create]
   resource :profile, only: [:show]
+  resource :session, only: [:create, :destroy]
   resources :users, only: [:create, :show, :edit, :update, :destroy]
 
   get :login, to: "sessions#new"

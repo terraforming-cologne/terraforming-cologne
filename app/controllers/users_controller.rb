@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   def destroy
     authorize @user
     @user.deactivate!
-    redirect_to root_path
+    redirect_to :root
   end
 
   private

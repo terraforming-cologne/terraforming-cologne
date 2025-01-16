@@ -1,6 +1,5 @@
-<%= form_with url: [:password], method: :patch do |form| %>
-  <%= form.password_field :password, placeholder: t(".password") %>
-  <%= form.password_field :password_confirmation, placeholder: t(".password_confirmation") %>
-  <%= form.submit %>
+<%= form_with url: password_path(params[:token]), method: :patch do |form| %>
+  <%= form.password_field :password, required: true, maxlength: 72 %>
+  <%= form.password_field :password_confirmation, required: true, maxlength: 72 %>
+  <%= form.submit t(".submit") %>
 <% end %>
-<%= link_to t(".cancel"), :profile %>

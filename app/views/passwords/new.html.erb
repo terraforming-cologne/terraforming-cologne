@@ -1,6 +1,4 @@
-<h1>Forgot your password?</h1>
-
-<%= form_with url: [:password_resets] do |form| %>
+<%= form_with url: [:passwords] do |form| %>
   <%= form.email_field :email_address, required: true %>
   <%= form.submit t(".submit") %>
 <% end %>

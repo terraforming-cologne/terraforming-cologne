@@ -1,10 +1,10 @@
 class SessionsController < ApplicationController
   allow_unauthenticated_access only: [:new, :create]
   allow_unauthorized_access only: [:new, :create, :destroy]
-  rate_limit to: 10, within: 3.minutes, only: :create, with: -> { redirect_to new_session_path, alert: "Try again later." }
+  rate_limit to: 10, within: 3.minutes, only: :create, with: -> { redirect_to :login }
 
   def new
-    redirect_to root_path if authenticated?
+    redirect_to :root if authenticated?
   end
 
   def create
@@ -12,12 +12,12 @@ class SessionsController < ApplicationController
       start_new_session_for user
       redirect_to after_authentication_path
     else
-      redirect_to new_session_path, alert: "Try another email address or password."
+      redirect_to :login
     end
   end
 
   def destroy
     terminate_session
-    redirect_to root_path
+    redirect_to :root
   end
 end

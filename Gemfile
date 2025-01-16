@@ -64,6 +64,7 @@ group :test do
   gem "selenium-webdriver"
 end
 
+gem "mission_control-jobs", "~> 1.0"
 gem "pundit", "~> 2.4"
 
 group :development do

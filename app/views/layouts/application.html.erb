@@ -27,9 +27,11 @@
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5">
+    <main class="container mx-auto">
+      <%= link_to "Terraforming Cologne", :root, class: "text-8xl font-bold" %>
       <% if authenticated? %>
         <%= Current.user.name %>
+        <%= link_to t(".profile"), :profile %>
         <%= button_to t(".logout"), :logout, method: :delete %>
       <% else %>
         <%= link_to t(".login"), :login %>

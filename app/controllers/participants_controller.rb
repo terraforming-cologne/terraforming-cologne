@@ -13,7 +13,7 @@ class ParticipantsController < ApplicationController
   end
 
   def new
-    redirect_to root_path and return if Current.user.participating?
+    redirect_to :root and return if authenticated? && Current.user.participating?
 
     @participant = Current.user.participants.new
   end

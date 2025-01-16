@@ -3,6 +3,6 @@ class PaymentsController < ApplicationController
     authorize :payment
     @participant = Participant.find(params.expect(:participant_id))
     @participant.update!(paid: true)
-    redirect_to participants_path
+    redirect_to :participants
   end
 end
