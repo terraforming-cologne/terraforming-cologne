@@ -1,0 +1,23 @@
+<div class="mb-4 flex gap-1">
+  <%= link_to "🏠", :root, class: "inline-block py-2" %>
+  <% if authenticated? %>
+    <%=
+      link_to t(".profile"),
+              :profile,
+              class: "ms-auto inline-block cursor-pointer rounded-lg bg-teal-300 px-4 py-2 font-bold hover:bg-teal-500"
+    %>
+    <%=
+      button_to t(".logout"),
+                :logout,
+                method: :delete,
+                class:
+                  "ms-auto inline-block cursor-pointer rounded-lg bg-teal-300 px-4 py-2 font-bold hover:bg-teal-500"
+    %>
+  <% else %>
+    <%=
+      link_to t(".login"),
+              :login,
+              class: "ms-auto inline-block cursor-pointer rounded-lg bg-teal-300 px-4 py-2 font-bold hover:bg-teal-500"
+    %>
+  <% end %>
+</div>

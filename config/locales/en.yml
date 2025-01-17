@@ -14,3 +14,13 @@ en:
   passwords_mailer:
     reset:
       subject: Reset your password
+  shared:
+    navigation:
+      profile: My profile
+      login: Login
+      logout: Logout
+  static_pages:
+    home:
+      terraforming_mars_tournament: Terraforming Mars Tournament 2025
+      register: Register now!
+      welcome_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu justo vel odio suscipit pellentesque. Suspendisse tellus ante, porttitor ac enim at, rhoncus iaculis libero. Quisque pharetra tellus sed ligula laoreet, sit amet maximus risus semper. Pellentesque ut sodales lorem, faucibus fringilla velit. Maecenas venenatis nisi risus. Phasellus rutrum placerat odio. Phasellus ac neque cursus, auctor odio euismod, pretium justo. Mauris sed congue turpis. Etiam id odio sapien. Nulla consequat sodales libero, vitae vulputate est posuere dignissim. Cras fringilla ipsum vitae tincidunt porta. Ut tempus rhoncus velit, a pharetra ex fringilla eu. Fusce ac sodales sem. Phasellus varius, metus ut rutrum ullamcorper, lacus nulla gravida quam, ut elementum tortor metus eu libero. Nam nec nulla et purus faucibus ultrices quis vel diam. Nunc aliquet vehicula tortor congue aliquet.

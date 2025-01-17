@@ -1,8 +1,19 @@
-<% if authenticated? && Current.user.participating? %>
-  <%= link_to t(".profile"), :profile %>
-<% else %>
-  <%= link_to t(".register"), :register %>
-<% end %>
+<h1 class="text-center text-3xl font-bold">Terraforming Cologne</h1>
+<h2 class="text-center"><%= t(".terraforming_mars_tournament") %></h2>
+
+<p>
+  <%= t(".welcome_text") %>
+</p>
+
+<div class="m-2 text-center">
+  <% unless authenticated? && Current.user.participating? %>
+    <%=
+      link_to t(".register"),
+              :register,
+              class: "inline-block cursor-pointer rounded-lg bg-teal-300 px-4 py-2 text-3xl font-bold hover:bg-teal-400"
+    %>
+  <% end %>
+</div>
 
 <% if authenticated? && Current.user.admin? %>
   <%= link_to t(".participants"), :participants %>
