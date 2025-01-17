@@ -1,7 +1,24 @@
-<%= form_with model: user do |form| %>
-  <%= form.text_field :name, required: true %>
-  <%= form.email_field :email_address, required: true %>
-  <%= form.password_field :password, required: true, maxlength: 72 %>
-  <%= form.password_field :password_confirmation, required: true, maxlength: 72 %>
+<%= form_with model: user, class: "flex flex-col gap-2" do |form| %>
+
+  <div class="flex flex-col gap-1">
+    <%= form.label :name %>
+    <%= form.text_field :name, required: true, class: "rounded" %>
+  </div>
+
+  <div class="flex flex-col gap-1">
+    <%= form.label :email_address %>
+    <%= form.email_field :email_address, required: true, class: "rounded" %>
+  </div>
+
+  <div class="flex flex-col gap-1">
+    <%= form.label :password %>
+    <%= form.password_field :password, required: true, maxlength: 72, class: "rounded" %>
+  </div>
+
+  <div class="flex flex-col gap-1">
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation, required: true, maxlength: 72, class: "rounded" %>
+  </div>
+
   <%= form.submit t(".submit") %>
 <% end %>
