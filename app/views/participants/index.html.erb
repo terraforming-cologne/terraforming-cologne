@@ -1,8 +1,10 @@
 <div class="flex">
   <div><%= User.human_attribute_name(:name) %></div>
   <div><%= User.human_attribute_name(:email_address) %></div>
-  <div><%= Participant.human_attribute_name(:brings_basegame) %></div>
-  <div><%= Participant.human_attribute_name(:brings_prelude) %></div>
+  <div><%= Participant.human_attribute_name(:brings_basegame_english) %></div>
+  <div><%= Participant.human_attribute_name(:brings_basegame_german) %></div>
+  <div><%= Participant.human_attribute_name(:brings_prelude_english) %></div>
+  <div><%= Participant.human_attribute_name(:brings_prelude_german) %></div>
   <div><%= Participant.human_attribute_name(:brings_hellas_and_elysium) %></div>
   <div><%= Participant.human_attribute_name(:paid) %></div>
 </div>
@@ -11,8 +13,10 @@
     <div class="flex">
       <div><%= participant.user.name %></div>
       <div><%= participant.user.email_address %></div>
-      <div><%= participant.brings_basegame %></div>
-      <div><%= participant.brings_prelude %></div>
+      <div><%= participant.brings_basegame_english %></div>
+      <div><%= participant.brings_basegame_german %></div>
+      <div><%= participant.brings_prelude_english %></div>
+      <div><%= participant.brings_prelude_german %></div>
       <div><%= participant.brings_hellas_and_elysium %></div>
       <div><%= participant.paid %></div>
     </div>

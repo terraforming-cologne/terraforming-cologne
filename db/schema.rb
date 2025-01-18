@@ -10,15 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_12_173849) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_18_110850) do
   create_table "participants", force: :cascade do |t|
-    t.boolean "brings_basegame", default: false, null: false
-    t.boolean "brings_prelude", default: false, null: false
+    t.boolean "brings_basegame_english", default: false, null: false
+    t.boolean "brings_prelude_english", default: false, null: false
     t.boolean "brings_hellas_and_elysium", default: false, null: false
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "paid", default: false, null: false
+    t.boolean "brings_basegame_german", default: false, null: false
+    t.boolean "brings_prelude_german", default: false, null: false
     t.index ["user_id"], name: "index_participants_on_user_id"
   end
 
