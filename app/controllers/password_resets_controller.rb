@@ -16,7 +16,7 @@ class PasswordResetsController < ApplicationController
       PasswordsMailer.reset(user).deliver_later
     end
 
-    redirect_to :login
+    redirect_to :login, notice: t(".notice")
   end
 
   def update

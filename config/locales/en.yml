@@ -1,6 +1,8 @@
 ---
 en:
   accounts:
+    create:
+      notice: Account created.
     edit:
       deactivate: Deactivate account
       deactivate_confirm: Confirm the deactivation of your account?
@@ -39,6 +41,8 @@ en:
       heading: Edit participation
       delete: Cancel my participation
       delete_confirm: Do you really want to cancel your participation?
+    create:
+      notice: Successfully registered for the tournament. A confirmation email will be sent shortly.
     show:
       heading: Terraforming Cologne 2025
       paid: Your payment was received
@@ -53,6 +57,8 @@ en:
     new:
       heading: Forgot your password?
       submit: Request reset
+    create:
+      notice: An email containing further instructions will be sent to the entered address.
     edit:
       heading: Change password
       submit: Update password

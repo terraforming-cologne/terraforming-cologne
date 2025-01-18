@@ -15,7 +15,7 @@ class AccountsController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       start_new_session_for @user
-      redirect_to after_authentication_path
+      redirect_to after_authentication_path, notice: t(".notice")
     else
       render :new, status: :unprocessable_entity
     end

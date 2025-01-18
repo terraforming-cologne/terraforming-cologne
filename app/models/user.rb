@@ -10,8 +10,6 @@ class User < ApplicationRecord
   validates :email_address, presence: true, uniqueness: true
   has_secure_password
 
-  after_create_commit :deliver_welcome_email_later
-
   def participating?
     participants.any?
   end
@@ -21,11 +19,5 @@ class User < ApplicationRecord
       update! name: "[DELETED-#{id}]", email_address: "#{id}@deleted.de", deactivated: true
       sessions.delete_all
     end
-  end
-
-  private
-
-  def deliver_welcome_email_later
-    UserMailer.welcome(self).deliver_later
   end
 end

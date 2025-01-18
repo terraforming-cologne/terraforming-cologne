@@ -16,7 +16,7 @@ class ParticipationsController < ApplicationController
   def create
     @participant = Current.user.participants.new(participant_params)
     if @participant.save
-      redirect_to :profile
+      redirect_to :profile, notice: t(".notice")
     else
       render :new, status: :unprocessable_entity
     end

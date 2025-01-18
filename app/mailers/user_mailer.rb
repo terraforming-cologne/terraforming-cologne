@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  def welcome(user)
+  def confirmation(user)
     @user = user
     mail to: @user.email_address
   end
