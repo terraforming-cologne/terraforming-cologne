@@ -1,11 +1,10 @@
-class UsersController < ApplicationController
+class AccountsController < ApplicationController
   allow_unauthenticated_access only: [:new, :create]
-  allow_unauthorized_access only: [:new, :create]
+  allow_unauthorized_access
 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def show
-    authorize @user
   end
 
   def new
@@ -23,20 +22,17 @@ class UsersController < ApplicationController
   end
 
   def edit
-    authorize @user
   end
 
   def update
-    authorize @user
-    if @user.update(params.expect(user: [:email_address]))
-      redirect_to @user
+    if @user.update(params.expect(user: [:name, :email_address]))
+      redirect_to :profile
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
-    authorize @user
     @user.deactivate!
     redirect_to :root
   end
@@ -44,7 +40,7 @@ class UsersController < ApplicationController
   private
 
   def set_user
-    @user = User.find(params.expect(:id))
+    @user = Current.user
   end
 
   def user_params

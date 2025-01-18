@@ -18,7 +18,7 @@ class User < ApplicationRecord
 
   def deactivate!
     transaction do
-      update! name: "[DELETED]", email_address: "#{id}@deleted.de", deactivated: true
+      update! name: "[DELETED-#{id}]", email_address: "#{id}@deleted.de", deactivated: true
       sessions.delete_all
     end
   end

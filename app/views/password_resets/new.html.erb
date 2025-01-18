@@ -1,6 +1,16 @@
-<h1>Forgot your password?</h1>
+<%= tag.h1 t(".heading"), class: "mb-4 text-xl font-bold" %>
 
-<%= form_with url: [:password_resets] do |form| %>
-  <%= form.email_field :email_address, required: true %>
-  <%= form.submit t(".submit") %>
+<%= form_with url: [:password_resets], class: "flex flex-col gap-2" do |form| %>
+  <div class="flex flex-col gap-1">
+    <%= form.label :email_address %>
+    <%= form.email_field :email_address, required: true, class: "rounded" %>
+  </div>
+
+  <div class="flex">
+    <%=
+      form.submit t(".submit"),
+                  class:
+                    "ms-auto inline-block cursor-pointer rounded-lg bg-teal-300 px-4 py-2 font-bold hover:bg-teal-400"
+    %>
+  </div>
 <% end %>

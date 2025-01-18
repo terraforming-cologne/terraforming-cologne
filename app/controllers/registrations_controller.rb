@@ -3,9 +3,9 @@ class RegistrationsController < ApplicationController
   allow_unauthorized_access
 
   def new
-    redirect_to [:new, :participant] and return if authenticated?
+    redirect_to [:new, :participation] and return if authenticated?
 
     @user = User.new
-    session[:return_to_after_authenticating] = new_participant_path
+    session[:return_to_after_authenticating] = new_participation_path
   end
 end

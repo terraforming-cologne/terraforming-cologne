@@ -1,23 +1,32 @@
-class SessionsController < ApplicationController
+class LoginsController < ApplicationController
   allow_unauthenticated_access only: [:new, :create]
   allow_unauthorized_access only: [:new, :create, :destroy]
   rate_limit to: 10, within: 3.minutes, only: :create, with: -> { redirect_to :login }
 
   def new
-    redirect_to :root if authenticated?
+    redirect_to :root and return if authenticated?
+
+    @login = Login.new
   end
 
   def create
-    if (user = User.authenticate_by(params.permit(:email_address, :password)))
-      start_new_session_for user
+    @login = Login.new(login_params)
+    if @login.save
+      start_new_session_for @login.user
       redirect_to after_authentication_path
     else
-      redirect_to :login
+      render :new, status: :unprocessable_entity
     end
   end
 
   def destroy
     terminate_session
     redirect_to :root
+  end
+
+  private
+
+  def login_params
+    params.expect(login: [:email_address, :password])
   end
 end

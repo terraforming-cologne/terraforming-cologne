@@ -2,15 +2,16 @@ class PasswordsController < ApplicationController
   allow_unauthorized_access
 
   before_action :set_user, only: [:edit, :update]
+  before_action :set_password, only: [:edit, :update]
 
   def edit
   end
 
   def update
-    if @user.update(password_params)
+    if @password.update(password_params)
       redirect_to :profile
     else
-      render :edit, status: :processable_entities
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -20,7 +21,11 @@ class PasswordsController < ApplicationController
     @user = Current.user
   end
 
+  def set_password
+    @password = Password.new(user: @user)
+  end
+
   def password_params
-    params.permit(:password, :password_confirmation)
+    params.expect(password: [:password, :password_confirmation])
   end
 end

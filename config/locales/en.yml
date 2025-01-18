@@ -1,26 +1,94 @@
+---
 en:
-  registrations:
+  accounts:
+    edit:
+      deactivate: Deactivate account
+      deactivate_confirm: Confirm the deactivation of your account?
+      edit_password: Change password
+      heading: Manage account
+      submit: Update account
     form:
-      user:
-        name: Username
-        email_address: Email address
-        password: Password
-        password_confirmation: Password confirmation
-  user_mailer:
-    welcome:
-      subject: Welcome to terraforming-cologne.de
-    paid:
-      subject: Payment received
+      submit: Signup
+    new:
+      already_has_account: Already have an account?
+    show:
+      edit: Manage account
+      heading: Your data
+  helpers:
+    submit:
+      participant:
+        create: Submit registration
+        update: Update
+    label:
+      participant:
+        brings_basegame_english: English
+        brings_basegame_german: German
+        brings_hellas_and_elysium: Hellas and Elysium (any language)
+        brings_prelude_english: English
+        brings_prelude_german: German
+  login: Login
+  logout: Logout
+  participations:
+    form:
+      bring: I can bring...
+      brings_basegame: The basegame
+      brings_prelude: The prelude extension (not prelude 2)
+    new:
+      heading: Please tell us what you can bring to the tournament.
+    edit:
+      heading: Edit participation
+      delete: Cancel my participation
+      delete_confirm: Do you really want to cancel your participation?
+    show:
+      heading: Terraforming Cologne 2025
+      paid: Your payment was received
+      bring: I will bring...
+      brings_basegame_english: Basegame (english)
+      brings_basegame_german: Basegame (german)
+      brings_hellas_and_elysium: Hellas and Elysium
+      brings_prelude_english: Prelude (english)
+      brings_prelude_german: Prelude (german)
+      edit_participation: Manage participation
+  password_resets:
+    new:
+      heading: Forgot your password?
+      submit: Request reset
+    edit:
+      heading: Change password
+      submit: Update password
+  passwords:
+    edit:
+      heading: Change password
+      submit: Update password
   passwords_mailer:
     reset:
       subject: Reset your password
+  profiles:
+    show:
+      account_heading: Your account
+  logins:
+    new:
+      no_account_yet: Don't have an account yet?
+      password_forgotten: Forgot your password?
+      reset: Reset
   shared:
+    errors:
+      errors: The form contains the following errors
     navigation:
       profile: My profile
-      login: Login
-      logout: Logout
+  signup: Signup
   static_pages:
     home:
-      terraforming_mars_tournament: Terraforming Mars Tournament 2025
       register: Register now!
+      terraforming_mars_tournament: Terraforming Mars Tournament 2025
       welcome_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu justo vel odio suscipit pellentesque. Suspendisse tellus ante, porttitor ac enim at, rhoncus iaculis libero. Quisque pharetra tellus sed ligula laoreet, sit amet maximus risus semper. Pellentesque ut sodales lorem, faucibus fringilla velit. Maecenas venenatis nisi risus. Phasellus rutrum placerat odio. Phasellus ac neque cursus, auctor odio euismod, pretium justo. Mauris sed congue turpis. Etiam id odio sapien. Nulla consequat sodales libero, vitae vulputate est posuere dignissim. Cras fringilla ipsum vitae tincidunt porta. Ut tempus rhoncus velit, a pharetra ex fringilla eu. Fusce ac sodales sem. Phasellus varius, metus ut rutrum ullamcorper, lacus nulla gravida quam, ut elementum tortor metus eu libero. Nam nec nulla et purus faucibus ultrices quis vel diam. Nunc aliquet vehicula tortor congue aliquet.
+  user_mailer:
+    paid:
+      subject: Payment received
+    welcome:
+      subject: Welcome to terraforming-cologne.de
+  activemodel:
+    errors:
+      models:
+        login:
+          invalid_login: Invalid email address or password

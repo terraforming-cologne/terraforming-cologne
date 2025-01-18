@@ -1,0 +1,13 @@
+<% if form.object.errors.any? %>
+  <div class="rounded bg-rose-50 px-3 py-2 text-rose-400">
+    <% if form.object.errors.many? %>
+      <ul class="list-inside list-disc">
+        <% form.object.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <%= tag.span form.object.errors.first.full_message %>
+    <% end %>
+  </div>
+<% end %>

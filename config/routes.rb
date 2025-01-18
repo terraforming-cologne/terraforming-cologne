@@ -1,17 +1,18 @@
 Rails.application.routes.draw do
   mount MissionControl::Jobs::Engine, at: "/jobs"
 
-  resources :participants
+  resource :account, only: [:show, :edit, :create, :update, :destroy]
+  resources :participants, only: [:index]
+  resource :participation, only: [:show, :new, :edit, :create, :update, :destroy]
   resource :password, only: [:edit, :update]
   resources :password_resets, only: [:new, :edit, :create, :update], param: :token
   resources :payments, only: [:new, :create]
   resource :profile, only: [:show]
-  resource :session, only: [:create, :destroy]
-  resources :users, only: [:create, :show, :edit, :update, :destroy]
+  resource :login, only: [:create]
 
-  get :login, to: "sessions#new"
-  delete :logout, to: "sessions#destroy"
-  get :signup, to: "users#new"
+  get :login, to: "logins#new"
+  delete :logout, to: "logins#destroy"
+  get :signup, to: "accounts#new"
 
   get :register, to: "registrations#new"
 

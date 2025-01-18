@@ -1,6 +1,0 @@
-<%= form_with url: [:session] do |form| %>
-  <%= form.email_field :email_address, required: true %>
-  <%= form.password_field :password, required: true, maxlength: 72 %>
-  <%= form.submit t(".submit") %>
-  <%= link_to t(".password_forgotten"), %i[new password_reset] %>
-<% end %>

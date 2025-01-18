@@ -1,0 +1,27 @@
+<%= turbo_frame_tag @participant do %>
+  <%= tag.h1 t(".heading"), class: "mb-4 text-xl font-bold" %>
+
+  <% if @participant.paid? %>
+    <%= tag.span t(".paid") %>
+  <% else %>
+    <%= tag.span t(".payment_pending") %>
+  <% end %>
+
+  <div>
+    <%= tag.span t(".bring") %>
+  </div>
+
+  <ul class="list-inside list-disc">
+    <%= tag.li t(".brings_basegame_english") if @participant.brings_basegame_english? %>
+    <%= tag.li t(".brings_basegame_german") if @participant.brings_basegame_german? %>
+    <%= tag.li t(".brings_prelude_english") if @participant.brings_prelude_english? %>
+    <%= tag.li t(".brings_prelude_german") if @participant.brings_prelude_german? %>
+    <%= tag.li t(".brings_hellas_and_elysium") if @participant.brings_hellas_and_elysium? %>
+  </ul>
+
+  <%=
+    link_to t(".edit_participation"),
+            %i[edit participation],
+            class: "text-teal-700 underline decoration-2 hover:text-teal-500"
+  %>
+<% end %>

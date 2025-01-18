@@ -1,7 +1,7 @@
 <h1 class="text-center text-3xl font-bold">Terraforming Cologne</h1>
 <h2 class="text-center"><%= t(".terraforming_mars_tournament") %></h2>
 
-<p>
+<p class="my-8">
   <%= t(".welcome_text") %>
 </p>
 
@@ -14,7 +14,3 @@
     %>
   <% end %>
 </div>
-
-<% if authenticated? && Current.user.admin? %>
-  <%= link_to t(".participants"), :participants %>
-<% end %>

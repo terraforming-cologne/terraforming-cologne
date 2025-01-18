@@ -1,7 +1,7 @@
-<%= link_to t(".edit_password"), %i[edit password] %>
+<div class="mb-4">
+  <%= turbo_frame_tag :account, src: :account, target: "_top" %>
+</div>
 
-<%= turbo_frame_tag @user, src: @user %>
-
-<% @user.participants.each do |participant| %>
-  <%= turbo_frame_tag participant, src: participant %>
+<% if @user.participants.exists? %>
+  <%= turbo_frame_tag @user.participants.first!, src: :participation, target: "_top" %>
 <% end %>

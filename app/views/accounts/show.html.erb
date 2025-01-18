@@ -1,0 +1,15 @@
+<%= turbo_frame_tag :account do %>
+  <%= tag.h1 t(".heading"), class: "mb-4 text-xl font-bold" %>
+
+  <div>
+    <%= tag.span User.human_attribute_name(:name), class: "font-bold" %>:
+    <%= @user.name %>
+  </div>
+
+  <div>
+    <%= tag.span User.human_attribute_name(:email_address), class: "font-bold" %>:
+    <%= @user.email_address %>
+  </div>
+
+  <%= link_to t(".edit"), %i[edit account], class: "text-teal-700 underline decoration-2 hover:text-teal-500" %>
+<% end %>

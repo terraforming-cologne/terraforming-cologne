@@ -1,0 +1,47 @@
+<%= tag.h1 t(".heading"), class: "mb-4 text-xl font-bold" %>
+
+<%= form_with model: @user, url: :account, class: "mb-4 flex flex-col gap-2" do |form| %>
+  <%= render "shared/errors", form: form %>
+
+  <div class="flex flex-col gap-1">
+    <%= form.label :name %>
+    <%= tag.span t(".renaming_caution") %>
+    <%= form.text_field :name, required: true, class: "rounded" %>
+  </div>
+
+  <div class="flex flex-col gap-1">
+    <%= form.label :email_address %>
+    <%= form.email_field :email_address, required: true, class: "rounded" %>
+  </div>
+
+  <div class="flex items-center justify-between">
+    <div>
+      <%=
+        link_to t(".edit_password"),
+                %i[edit password],
+                class: "text-teal-700 underline decoration-2 hover:text-teal-500",
+                data: {
+                  turbo_frame: "_top",
+                }
+      %>
+    </div>
+    <%=
+      form.submit t(".submit"),
+                  class: "inline-block cursor-pointer rounded-lg bg-teal-300 px-4 py-2 font-bold hover:bg-teal-400"
+    %>
+  </div>
+<% end %>
+
+<div class="flex">
+  <%=
+    button_to t(".deactivate"),
+              :account,
+              method: :delete,
+              form_class: "ms-auto",
+              class: "inline-block cursor-pointer rounded-lg bg-rose-400 px-4 py-2 font-bold hover:bg-rose-500",
+              data: {
+                turbo_frame: "_top",
+                turbo_confirm: t(".deactivate_confirm"),
+              }
+  %>
+</div>

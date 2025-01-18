@@ -5,7 +5,7 @@
 user = User.create! name: "admin", admin: true, email_address: "admin@example.com", password: "password", password_confirmation: "password"
 user.participants.create!(
   brings_basegame_english: true,
-  brings_base_game_german: false,
+  brings_basegame_german: false,
   brings_prelude_english: true,
   brings_prelude_german: false,
   brings_hellas_and_elysium: false,

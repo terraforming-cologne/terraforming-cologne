@@ -1,0 +1,47 @@
+<%= form_with model: participant, url: :participation, class: "flex flex-col gap-4" do |form| %>
+  <%= render "shared/errors", form: form %>
+
+  <%= tag.span t(".bring") %>
+
+  <div>
+    <%= tag.span t(".brings_basegame") %>
+    <div class="flex gap-4">
+      <div class="flex items-center gap-1">
+        <%= form.check_box :brings_basegame_english, class: "rounded" %>
+        <%= form.label :brings_basegame_english %>
+      </div>
+
+      <div class="flex items-center gap-1">
+        <%= form.check_box :brings_basegame_german, class: "rounded" %>
+        <%= form.label :brings_basegame_german %>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <%= tag.span t(".brings_prelude") %>
+    <div class="flex gap-4">
+      <div class="flex items-center gap-1">
+        <%= form.check_box :brings_prelude_english, class: "rounded" %>
+        <%= form.label :brings_prelude_english %>
+      </div>
+
+      <div class="flex items-center gap-1">
+        <%= form.check_box :brings_prelude_german, class: "rounded" %>
+        <%= form.label :brings_prelude_german %>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex items-center gap-1">
+    <%= form.check_box :brings_hellas_and_elysium, class: "rounded" %>
+    <%= form.label :brings_hellas_and_elysium %>
+  </div>
+
+  <div class="flex">
+    <%=
+      form.submit class:
+                    "ms-auto inline-block cursor-pointer rounded-lg bg-teal-300 px-4 py-2 font-bold hover:bg-teal-400"
+    %>
+  </div>
+<% end %>
