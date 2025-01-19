@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_19_175254) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_19_202117) do
   create_table "participants", force: :cascade do |t|
     t.boolean "brings_basegame_english", default: false, null: false
     t.boolean "brings_prelude_english", default: false, null: false
@@ -21,6 +21,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_19_175254) do
     t.boolean "paid", default: false, null: false
     t.boolean "brings_basegame_german", default: false, null: false
     t.boolean "brings_prelude_german", default: false, null: false
+    t.text "comment"
     t.index ["user_id"], name: "index_participants_on_user_id"
   end
 

@@ -19,6 +19,13 @@
     <%= tag.li t(".brings_hellas_and_elysium") if @participant.brings_hellas_and_elysium? %>
   </ul>
 
+  <% if @participant.comment.present? %>
+    <div>
+      <%= tag.span Participant.human_attribute_name(:comment), class: "font-bold" %>:
+      <p><%= @participant.comment %></p>
+    </div>
+  <% end %>
+
   <%=
     link_to t(".edit_participation"),
             %i[edit participation],

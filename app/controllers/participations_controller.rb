@@ -48,6 +48,6 @@ class ParticipationsController < ApplicationController
   end
 
   def participant_params
-    params.expect(participant: [:brings_basegame_english, :brings_basegame_german, :brings_prelude_english, :brings_prelude_german, :brings_hellas_and_elysium])
+    params.expect(participant: [:brings_basegame_english, :brings_basegame_german, :brings_prelude_english, :brings_prelude_german, :brings_hellas_and_elysium, :comment])
   end
 end
