@@ -6,9 +6,11 @@ class User < ApplicationRecord
 
   normalizes :email_address, with: ->(e) { e.strip.downcase }
 
+  has_secure_password
+
   validates :name, presence: true, uniqueness: true
   validates :email_address, presence: true, uniqueness: true
-  has_secure_password
+  validates :password, presence: true, length: {minimum: 8}, if: :password_digest_changed?
 
   enum :locale, %w[en de].index_by(&:itself)
 
