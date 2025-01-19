@@ -5,12 +5,26 @@
 
   <div class="flex flex-col gap-1">
     <%= form.label :password %>
-    <%= form.password_field :password, required: true, maxlength: 72, class: "rounded" %>
+    <%=
+      form.password_field :password,
+                          required: true,
+                          autocomplete: "new-password",
+                          minlength: 8,
+                          maxlength: 72,
+                          class: "rounded"
+    %>
   </div>
 
   <div class="flex flex-col gap-1">
     <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation, required: true, maxlength: 72, class: "rounded" %>
+    <%=
+      form.password_field :password_confirmation,
+                          required: true,
+                          autocomplete: "new-password",
+                          minlength: 8,
+                          maxlength: 72,
+                          class: "rounded"
+    %>
   </div>
 
   <div class="flex">
