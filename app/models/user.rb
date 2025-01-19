@@ -10,6 +10,8 @@ class User < ApplicationRecord
   validates :email_address, presence: true, uniqueness: true
   has_secure_password
 
+  enum :locale, %w[en de].index_by(&:itself)
+
   def participating?
     participants.any?
   end

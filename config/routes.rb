@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   mount MissionControl::Jobs::Engine, at: "/jobs"
 
   resource :account, only: [:show, :edit, :create, :update, :destroy]
+  resource :locales, only: [:update]
   resources :participants, only: [:index]
   resource :participation, only: [:show, :new, :edit, :create, :update, :destroy]
   resource :password, only: [:edit, :update]
