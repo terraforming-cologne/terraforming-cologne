@@ -1,22 +1,29 @@
-<div class="mb-4 flex gap-2 border-b pb-2">
-  <%= link_to "🏠", :root, class: "inline-block py-2 hover:opacity-60" %>
-  <% if I18n.locale == :de %>
-    <%= button_to "🇬🇧", :locales, method: :patch, params: { locale: :en }, class: "inline-block py-2 hover:opacity-60" %>
-  <% else %>
-    <%= button_to "🇩🇪", :locales, method: :patch, params: { locale: :de }, class: "inline-block py-2 hover:opacity-60" %>
-  <% end %>
-  <div class="ms-auto flex items-center gap-4">
-    <% if authenticated? %>
-      <%= link_to t(".profile"), :profile, class: "font-bold hover:text-teal-500" %>
-      <%=
-        button_to t("logout"),
-                  :logout,
-                  method: :delete,
-                  class:
-                    "ms-auto inline-block cursor-pointer rounded-lg bg-slate-300 px-4 py-2 font-bold hover:bg-slate-400"
-      %>
+<div class="mb-4 flex flex-col">
+  <div class="flex items-center gap-2 border-b pb-2">
+    <%= link_to "🏠", :root, class: "inline-block py-2 hover:opacity-60" %>
+    <% if I18n.locale == :de %>
+      <%= button_to "🇬🇧", :locales, method: :patch, params: { locale: :en }, class: "inline-block py-2 hover:opacity-60" %>
     <% else %>
-      <%= link_to t("login"), :login, class: "text-teal-700 underline decoration-2 hover:text-teal-500" %>
+      <%= button_to "🇩🇪", :locales, method: :patch, params: { locale: :de }, class: "inline-block py-2 hover:opacity-60" %>
     <% end %>
+    <div class="ms-auto flex items-center gap-4">
+      <% if authenticated? %>
+        <%= link_to t(".profile"), :profile, class: "font-bold hover:text-teal-500" %>
+        <%=
+          button_to t("logout"),
+                    :logout,
+                    method: :delete,
+                    class:
+                      "ms-auto inline-block cursor-pointer rounded-lg bg-slate-300 px-4 py-2 font-bold hover:bg-slate-400"
+        %>
+      <% else %>
+        <%= link_to t("login"), :login, class: "text-teal-700 underline decoration-2 hover:text-teal-500" %>
+      <% end %>
+    </div>
   </div>
+  <% if authenticated? %>
+    <div class="flex justify-end gap-2 border-b py-2">
+      <%= link_to t(".participants"), :participants, class: "font-bold hover:text-teal-500" %>
+    </div>
+  <% end %>
 </div>

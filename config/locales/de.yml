@@ -29,6 +29,8 @@ de:
       password: Passwort
   activerecord:
     attributes:
+      participant:
+        comment: Kommentar
       user:
         email_address: E-Mail-Adresse
     models:
@@ -68,7 +70,7 @@ de:
       brings_basegame: Das Basisspiel
       brings_prelude: Die Präludium Erweiterung (nicht Präludium 2)
     new:
-      heading: Bitte teile uns mit, was du zum Turnier beitragen kannst.
+      heading: Bitte teile uns mit, was du zum Turnier mitbringen kannst.
     show:
       bring: Ich werde mitbringen...
       brings_basegame_english: Basisspiel (englisch)
