@@ -1,5 +1,33 @@
-<h1>User#confirmation</h1>
+<p>
+  Dear
+  <%= @user.name %>,
+</p>
+
+<br>
+<br>
 
 <p>
-  <%= @user.name %>, find me in app/views/user_mailer/confirmation.html.erb
+  we have received your registration for Terraforming Cologne 2025. Thank you for your interest in our event!
+</p>
+
+<p>
+  Please await further information on the event and your participation in the coming weeks.
+</p>
+
+<p>
+  If you have any questions in the meantime, please do not hesitate to contact us at
+  <%= mail_to "support@terraforming-cologne.de", class: "text-teal-700 underline decoration-2 hover:text-teal-500" %>.
+</p>
+
+<br>
+<br>
+
+<p>
+  Best regards,
+</p>
+
+<br>
+
+<p>
+  The Terraforming Cologne Team
 </p>

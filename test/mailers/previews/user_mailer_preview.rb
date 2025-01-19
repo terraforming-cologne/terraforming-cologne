@@ -1,6 +1,6 @@
 class UserMailerPreview < ActionMailer::Preview
-  def welcome
-    UserMailer.welcome(User.take)
+  def confirmation
+    UserMailer.confirmation(User.take)
   end
 
   def paid

@@ -1,2 +1,11 @@
-User#confirmation
-<%= @user.name %>, find me in app/views/user_mailer/confirmation.text.erb
+Dear <%= @user.name %>,
+
+
+we have received your registration for Terraforming Cologne 2025. Thank you for your interest in our event!
+Please await further information on the event and your participation in the coming weeks.
+If you have any questions in the meantime, please do not hesitate to contact us at <%= mail_to "support@terraforming-cologne.de", class: "text-teal-700 underline decoration-2 hover:text-teal-500" %>.
+
+Best regards,
+
+
+The Terraforming Cologne Team

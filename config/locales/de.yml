@@ -1,0 +1,113 @@
+---
+de:
+  accounts:
+    create:
+      notice: Account erstellt
+    edit:
+      deactivate: Account deaktivieren
+      deactivate_confirm: Die Deaktivierung deines Accounts bestätigen?
+      edit_password: Passwort ändern
+      heading: Account verwalten
+    new:
+      already_has_account: Bereits registriert?
+    show:
+      edit: Account verwalten
+      heading: Deine Daten
+  activemodel:
+    attributes:
+      login:
+        email_address: E-Mail-Adresse
+        password: Passwort
+      password:
+        password: Passwort
+        password_confirmation: Passwort bestätigen
+    errors:
+      models:
+        login:
+          invalid_login: Ungültige E-Mail-Adresse oder Passwort
+    models:
+      password: Passwort
+  activerecord:
+    attributes:
+      user:
+        email_address: E-Mail-Adresse
+    models:
+      participant: Teilnahme
+  helpers:
+    label:
+      participant:
+        brings_basegame_english: Englisch
+        brings_basegame_german: Deutsch
+        brings_hellas_and_elysium: Hellas und Elysium (beliebige Sprache)
+        brings_prelude_english: Englisch
+        brings_prelude_german: Deutsch
+    submit:
+      login:
+        create: Einloggen
+      participant:
+        create: Registrierung abschicken
+      user:
+        create: Account erstellen
+        update: Account aktualisieren
+  login: Einloggen
+  logins:
+    new:
+      no_account_yet: Noch keinen Account?
+      password_forgotten: Passwort vergessen?
+      reset: Zurücksetzen
+  logout: Ausloggen
+  participations:
+    create:
+      notice: Erfolgreich für das Turnier registriert. Eine Bestätigungsmail wird in Kürze versendet.
+    edit:
+      delete: Meine Teilnahme absagen
+      delete_confirm: Möchtest du wirklich deine Teilnahme absagen?
+      heading: Teilnahme bearbeiten
+    form:
+      bring: Ich kann mitbringen...
+      brings_basegame: Das Basisspiel
+      brings_prelude: Die Präludium Erweiterung (nicht Präludium 2)
+    new:
+      heading: Bitte teile uns mit, was du zum Turnier beitragen kannst.
+    show:
+      bring: Ich werde mitbringen...
+      brings_basegame_english: Basisspiel (englisch)
+      brings_basegame_german: Basisspiel (deutsch)
+      brings_hellas_and_elysium: Hellas und Elysium
+      brings_prelude_english: Präludium (englisch)
+      brings_prelude_german: Präludium (deutsch)
+      edit_participation: Teilnahme verwalten
+      heading: Terraforming Cologne 2025
+      paid: Deine Zahlung wurde erhalten
+  password_resets:
+    create:
+      notice: Eine E-Mail mit Anweisungen zum Zurücksetzen des Passworts wird an die angegebene Adresse gesendet.
+    edit:
+      heading: Password zurücksetzen
+    new:
+      heading: Passwort vergessen?
+  passwords:
+    edit:
+      heading: Passwort ändern
+  passwords_mailer:
+    reset:
+      subject: Dein Passwort zurücksetzen
+  profiles:
+    show:
+      account_heading: Dein Account
+  shared:
+    errors:
+      errors: Das Formular enthält die folgenden Fehler
+    navigation:
+      profile: Mein Profil
+  signup: Registrieren
+  static_pages:
+    home:
+      register: Jetzt registrieren!
+      terraforming_mars_tournament: Terraforming Mars Turnier 2025
+      welcome_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu justo vel odio suscipit pellentesque. Suspendisse tellus ante, porttitor ac enim at, rhoncus iaculis libero. Quisque pharetra tellus sed ligula laoreet, sit amet maximus risus semper. Pellentesque ut sodales lorem, faucibus fringilla velit. Maecenas venenatis nisi risus. Phasellus rutrum placerat odio. Phasellus ac neque cursus, auctor odio euismod, pretium justo. Mauris sed congue turpis. Etiam id odio sapien. Nulla consequat sodales libero, vitae vulputate est posuere dignissim. Cras fringilla ipsum vitae tincidunt porta. Ut tempus rhoncus velit, a pharetra ex fringilla eu. Fusce ac sodales sem. Phasellus varius, metus ut rutrum ullamcorper, lacus nulla gravida quam, ut elementum tortor metus eu libero. Nam nec nulla et purus faucibus ultrices quis vel diam. Nunc aliquet vehicula tortor congue aliquet.
+  user_mailer:
+    confirm:
+      subject: Bestätigung deiner Registrierung
+    paid:
+      subject: Zahlung erhalten

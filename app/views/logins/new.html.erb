@@ -20,9 +20,6 @@
       <%= tag.span t(".password_forgotten") %>
       <%= link_to t(".reset"), %i[new password_reset], class: "text-teal-700 underline decoration-2 hover:text-teal-500" %>
     </div>
-    <%=
-      form.submit t("login"),
-                  class: "inline-block cursor-pointer rounded-lg bg-teal-300 px-4 py-2 font-bold hover:bg-teal-400"
-    %>
+    <%= form.submit class: "inline-block cursor-pointer rounded-lg bg-teal-300 px-4 py-2 font-bold hover:bg-teal-400" %>
   </div>
 <% end %>
