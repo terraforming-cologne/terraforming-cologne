@@ -12,7 +12,7 @@ class User < ApplicationRecord
   validates :email_address, presence: true, uniqueness: true
   validates :password, presence: true, length: {minimum: 8}, if: :password_digest_changed?
 
-  enum :locale, %w[en de].index_by(&:itself)
+  enum :locale, %w[en de].index_by(&:itself), validate: true
 
   def participating?
     participants.any?

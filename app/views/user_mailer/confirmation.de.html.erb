@@ -2,10 +2,21 @@
   <%= @user.name %>,</p>
 <br>
 <br>
-<p>wir haben deine Anmeldung für Terraforming Cologne 2025 erhalten. Vielen Dank für dein Interesse an unserer
-  Veranstaltung!</p>
-<p>Bitte erwarte in den kommenden Wochen weitere Informationen zur Veranstaltung und deiner Teilnahme.</p>
-<p>Solltest du in der Zwischenzeit Fragen haben, zögere bitte nicht, uns unter
+<p>wir haben deine Anmeldung für die German Open Terraforming Mars 2025 erhalten. Vielen Dank für dein Interesse an
+  unserer Veranstaltung!</p>
+<p>Bitte erwarte weitere Informationen kurz vor dem Turnier. Zwischenzeitlich kannst du immer auf
+  <%= link_to "unserer Webseite", root_url, class: "text-teal-700 underline decoration-2 hover:text-teal-500" %>
+  vorbeischauen.</p>
+<p>Sollte sich etwas an deiner Teilnahme ändern, kannst du sie in deinem
+  <%= link_to "Profil", profile_url, class: "text-teal-700 underline decoration-2 hover:text-teal-500" %>
+  bearbeiten.</p>
+<p>Bei Fragen, zögere bitte nicht, sie in der
+  <%=
+    link_to "WhatsApp Gruppe",
+            "https://chat.whatsapp.com/DwgJ3hJNPrwDyFWXP3nGBT",
+            class: "text-teal-700 underline decoration-2 hover:text-teal-500"
+  %>
+  zu stellen oder uns unter
   <%= mail_to "support@terraforming-cologne.de", class: "text-teal-700 underline decoration-2 hover:text-teal-500" %>
   zu kontaktieren.</p>
 <br>

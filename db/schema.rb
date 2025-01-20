@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_19_202117) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_20_160457) do
   create_table "participants", force: :cascade do |t|
     t.boolean "brings_basegame_english", default: false, null: false
     t.boolean "brings_prelude_english", default: false, null: false
@@ -42,7 +42,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_19_202117) do
     t.string "name", null: false
     t.boolean "admin", default: false, null: false
     t.boolean "deactivated", default: false, null: false
-    t.string "locale", default: "en", null: false
+    t.string "locale", null: false
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
     t.index ["name"], name: "index_users_on_name", unique: true
   end

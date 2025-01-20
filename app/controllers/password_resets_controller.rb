@@ -13,7 +13,7 @@ class PasswordResetsController < ApplicationController
 
   def create
     if (user = User.active.find_by(email_address: params[:email_address]))
-      PasswordsMailer.reset(user).deliver_later
+      PasswordsMailer.with(user: user).reset.deliver_later
     end
 
     redirect_to :login, notice: t(".notice")

@@ -8,6 +8,8 @@ de:
       deactivate_confirm: Die Deaktivierung deines Accounts bestätigen?
       edit_password: Passwort ändern
       heading: Account verwalten
+    form:
+      name_caution: Wird verwendet um deine Zahlung zuzuordnen.
     new:
       already_has_account: Bereits registriert?
     show:
@@ -32,7 +34,11 @@ de:
       participant:
         comment: Kommentar
       user:
+        locale: Sprache für Kommunikation
         email_address: E-Mail-Adresse
+        name: Name
+        password: Passwort
+        password_confirmation: Passwort bestätigen
     models:
       participant: Teilnahme
   date:
@@ -76,14 +82,14 @@ de:
       heading: Bitte teile uns mit, was du zum Turnier mitbringen kannst.
     show:
       bring: Ich werde mitbringen...
-      fun: ganz viel Spaß
       brings_basegame_english: Basisspiel (englisch)
       brings_basegame_german: Basisspiel (deutsch)
       brings_hellas_and_elysium: Hellas & Elysium
       brings_prelude_english: Präludium (englisch)
       brings_prelude_german: Präludium (deutsch)
       edit_participation: Teilnahme verwalten
-      heading: Terraforming Cologne 2025
+      fun: ganz viel Spaß
+      heading: Cologne Open 2025
       paid: Deine Zahlung wurde erhalten
   password_resets:
     create:
@@ -101,6 +107,10 @@ de:
   profiles:
     show:
       account_heading: Dein Account
+  registrations:
+    new:
+      heading: Erstelle einen Account
+      info: Um dich für das Turnier zu registrieren, musst du zuerst einen Account erstellen. Du wirst deinen Account auch am Turniertag benötigen, um die Punkte der Spiele einzugeben und deine aktuelle Platzierung zu sehen.
   shared:
     errors:
       errors: Das Formular enthält die folgenden Fehler
@@ -110,7 +120,7 @@ de:
   static_pages:
     home:
       register: Jetzt registrieren!
-      terraforming_mars_tournament: Terraforming Mars Turnier 5. April 2025
+      terraforming_mars_tournament: Terraforming Mars Turnier
     quick_info:
       date: Datum
       heading: Auf einen Blick
@@ -136,4 +146,4 @@ de:
     confirmation:
       subject: Bestätigung deiner Registrierung
     paid:
-      subject: Zahlung erhalten
+      subject: Bestätigung deiner Zahlung

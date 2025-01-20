@@ -1,5 +1,5 @@
-class PasswordsMailerPreview < ActionMailer::Preview
+class PasswordsMailerPreview < ApplicationMailerPreview
   def reset
-    PasswordsMailer.reset(User.take)
+    PasswordsMailer.with(user: @user).reset
   end
 end

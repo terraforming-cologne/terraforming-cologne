@@ -1,9 +1,9 @@
-class UserMailerPreview < ActionMailer::Preview
+class UserMailerPreview < ApplicationMailerPreview
   def confirmation
-    UserMailer.confirmation(User.take)
+    UserMailer.with(user: @user).confirmation
   end
 
   def paid
-    UserMailer.paid(User.take)
+    UserMailer.with(user: @user).paid
   end
 end

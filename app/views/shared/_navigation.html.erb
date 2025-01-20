@@ -2,9 +2,25 @@
   <div class="flex items-center gap-2 border-b pb-2">
     <%= link_to "🏠", :root, class: "inline-block py-2 hover:opacity-60" %>
     <% if I18n.locale == :de %>
-      <%= button_to "🇬🇧", :locales, method: :patch, params: { locale: :en }, class: "inline-block py-2 hover:opacity-60" %>
+      <%=
+        button_to locale_emoji(:en),
+                  :locales,
+                  method: :patch,
+                  params: {
+                    locale: :en,
+                  },
+                  class: "inline-block py-2 hover:opacity-60"
+      %>
     <% else %>
-      <%= button_to "🇩🇪", :locales, method: :patch, params: { locale: :de }, class: "inline-block py-2 hover:opacity-60" %>
+      <%=
+        button_to locale_emoji(:de),
+                  :locales,
+                  method: :patch,
+                  params: {
+                    locale: :de,
+                  },
+                  class: "inline-block py-2 hover:opacity-60"
+      %>
     <% end %>
     <div class="ms-auto flex items-center gap-4">
       <% if authenticated? %>

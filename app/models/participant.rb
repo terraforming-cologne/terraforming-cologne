@@ -13,10 +13,10 @@ class Participant < ApplicationRecord
   end
 
   def deliver_confirmation_email_later
-    UserMailer.confirmation(user).deliver_later
+    UserMailer.with(user: user).confirmation.deliver_later
   end
 
   def deliver_paid_email_later
-    UserMailer.paid(user).deliver_later
+    UserMailer.with(user: user).paid.deliver_later
   end
 end

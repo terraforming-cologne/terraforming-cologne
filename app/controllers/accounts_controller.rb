@@ -25,7 +25,7 @@ class AccountsController < ApplicationController
   end
 
   def update
-    if @user.update(params.expect(user: [:name, :email_address]))
+    if @user.update(params.expect(user: [:name, :email_address, :locale]))
       redirect_to :profile
     else
       render :edit, status: :unprocessable_entity
@@ -44,6 +44,6 @@ class AccountsController < ApplicationController
   end
 
   def user_params
-    params.expect(user: [:name, :email_address, :password, :password_confirmation])
+    params.expect(user: [:name, :email_address, :password, :password_confirmation, :locale])
   end
 end

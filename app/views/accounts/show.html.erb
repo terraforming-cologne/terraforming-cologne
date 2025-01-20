@@ -11,5 +11,10 @@
     <%= @user.email_address %>
   </div>
 
+  <div>
+    <%= tag.span User.human_attribute_name(:locale), class: "font-bold" %>:
+    <%= locale_emoji(@user.locale) %>
+  </div>
+
   <%= link_to t(".edit"), %i[edit account], class: "text-teal-700 underline decoration-2 hover:text-teal-500" %>
 <% end %>

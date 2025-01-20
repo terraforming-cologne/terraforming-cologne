@@ -1,2 +1,3 @@
-<p><%= t(".create_user_or_login") %></p>
+<%= tag.h2 t(".heading"), class: "mb-4 text-2xl font-bold" %>
+<div class="mb-4"><%= t(".info") %></div>
 <%= turbo_frame_tag :signup, src: :signup, target: "_top" %>

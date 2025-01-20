@@ -3,7 +3,10 @@
 
   <div class="flex flex-col gap-1">
     <%= form.label :name %>
-    <%= form.text_field :name, required: true, class: "rounded" %>
+    <div class="flex flex-col">
+      <%= form.text_field :name, required: true, class: "rounded" %>
+      <div class="text-sm text-slate-600"><%= t(".name_caution") %></div>
+    </div>
   </div>
 
   <div class="flex flex-col gap-1">
@@ -32,6 +35,18 @@
                           minlength: 8,
                           maxlength: 72,
                           class: "rounded"
+    %>
+  </div>
+
+  <div class="flex flex-col gap-1">
+    <%= form.label :locale %>
+    <%=
+      form.collection_select :locale,
+                             I18n.available_locales,
+                             :to_s,
+                             ->(locale) { locale_emoji(locale) },
+                             { selected: (user.locale.presence || cookies[:locale]).to_s, include_blank: false },
+                             class: "rounded"
     %>
   </div>
 

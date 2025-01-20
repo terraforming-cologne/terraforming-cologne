@@ -8,6 +8,8 @@ en:
       deactivate_confirm: Confirm the deactivation of your account?
       edit_password: Change Password
       heading: Manage Account
+    form:
+      name_caution: Will be used to identify your payment.
     new:
       already_has_account: Already have an account?
     show:
@@ -32,6 +34,10 @@ en:
       participant:
         comment: Comment
       user:
+        locale: Communication language
+        name: Name
+        password: Password
+        password_confirmation: Password confirmation
         email_address: Email address
     models:
       participant: Participation
@@ -76,14 +82,14 @@ en:
       heading: Please tell us what you can bring to the tournament.
     show:
       bring: I will bring...
-      fun: a lot of fun
       brings_basegame_english: Basegame (english)
       brings_basegame_german: Basegame (german)
       brings_hellas_and_elysium: Hellas & Elysium
       brings_prelude_english: Prelude (english)
       brings_prelude_german: Prelude (german)
       edit_participation: Manage Participation
-      heading: Terraforming Cologne 2025
+      fun: a lot of fun
+      heading: Cologne Open 2025
       paid: Your payment was received
   password_resets:
     create:
@@ -101,6 +107,10 @@ en:
   profiles:
     show:
       account_heading: Your Account
+  registrations:
+    new:
+      heading: Create an Account
+      info: To register for the tournament, you first need to create an account. You will also need your account on the tournament day in order to enter the scores of the games and see your current standings.
   shared:
     errors:
       errors: The form contains the following errors
@@ -110,7 +120,7 @@ en:
   static_pages:
     home:
       register: Register now!
-      terraforming_mars_tournament: Terraforming Mars Tournament 2025
+      terraforming_mars_tournament: Terraforming Mars Tournament
     quick_info:
       date: Date
       heading: At a Glance
@@ -136,4 +146,4 @@ en:
     confirmation:
       subject: Confirmation of your registration
     paid:
-      subject: Payment received
+      subject: Confirmation of your payment
