@@ -14,19 +14,36 @@ en:
       edit: Manage Account
       heading: Your Data
   activemodel:
+    attributes:
+      login:
+        email_address: Email address
+        password: Password
+      password:
+        password: Password
+        password_confirmation: Password confirmation
     errors:
       models:
         login:
           invalid_login: Invalid email address or password
+    models:
+      password: Password
   activerecord:
+    attributes:
+      participant:
+        comment: Comment
+      user:
+        email_address: Email address
     models:
       participant: Participation
+  date:
+    formats:
+      date_with_weekday: "%A, %B %d %Y"
   helpers:
     label:
       participant:
         brings_basegame_english: English
         brings_basegame_german: German
-        brings_hellas_and_elysium: Hellas and Elysium (any language)
+        brings_hellas_and_elysium: Hellas & Elysium (any language)
         brings_prelude_english: English
         brings_prelude_german: German
     submit:
@@ -59,9 +76,10 @@ en:
       heading: Please tell us what you can bring to the tournament.
     show:
       bring: I will bring...
+      fun: a lot of fun
       brings_basegame_english: Basegame (english)
       brings_basegame_german: Basegame (german)
-      brings_hellas_and_elysium: Hellas and Elysium
+      brings_hellas_and_elysium: Hellas & Elysium
       brings_prelude_english: Prelude (english)
       brings_prelude_german: Prelude (german)
       edit_participation: Manage Participation
@@ -90,24 +108,32 @@ en:
       profile: My profile
   signup: Signup
   static_pages:
-    quick_info:
-      heading: At a Glance
-    spirit:
-      heading: Tournament Spirit
     home:
-      participation_fee: Participation fee
       register: Register now!
       terraforming_mars_tournament: Terraforming Mars Tournament 2025
-      welcome_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu justo vel odio suscipit pellentesque. Suspendisse tellus ante, porttitor ac enim at, rhoncus iaculis libero. Quisque pharetra tellus sed ligula laoreet, sit amet maximus risus semper. Pellentesque ut sodales lorem, faucibus fringilla velit. Maecenas venenatis nisi risus. Phasellus rutrum placerat odio. Phasellus ac neque cursus, auctor odio euismod, pretium justo. Mauris sed congue turpis. Etiam id odio sapien. Nulla consequat sodales libero, vitae vulputate est posuere dignissim. Cras fringilla ipsum vitae tincidunt porta. Ut tempus rhoncus velit, a pharetra ex fringilla eu. Fusce ac sodales sem. Phasellus varius, metus ut rutrum ullamcorper, lacus nulla gravida quam, ut elementum tortor metus eu libero. Nam nec nulla et purus faucibus ultrices quis vel diam. Nunc aliquet vehicula tortor congue aliquet.
+    quick_info:
+      date: Date
+      heading: At a Glance
+      location: Location
+      participation_fee: Participation fee
+      schedule: Schedule
+      schedule_item:
+        break: Break
+        first_round: 1st round (Tharsis)
+        registration: Arrival and registration
+        round_up: Closing and award ceremony
+        second_round: 2nd round (Hellas)
+        third_round: 3rd round (Elysium)
+      time: Time
+      too_late: If you're running late, please make sure to let us know. Depending on how late you are, we will either try to hold your spot for you or reserve the right to give it to someone else.
+    spirit:
+      heading: Tournament Spirit
+  time:
+    formats:
+      time_of_day: "%H:%M h"
+      time_of_day_short: "%H:%M"
   user_mailer:
     confirmation:
       subject: Confirmation of your registration
     paid:
       subject: Payment received
-  date:
-    formats:
-      date_with_weekday: "%A, %B %d %Y"
-  time:
-    formats:
-      time_of_day: "%H:%M h"
-      time_of_day_short: "%H:%M"

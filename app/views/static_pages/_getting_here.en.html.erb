@@ -1,6 +1,12 @@
-<h2 class="mb-2 text-xl font-bold">Getting here</h2>
+<h2 class="mb-2 text-xl font-bold">Location</h2>
 
-<p>The tournament will take place at the Bürgerzentrum Deutz. The address is:</p>
+<p>The tournament will take place at the
+  <%=
+    link_to "Bürgerzentrum Deutz",
+            "https://www.buergerzentrum-deutz.de/",
+            class: "text-teal-700 underline decoration-2 hover:text-teal-500",
+            target: :blank
+  %>. The address is:</p>
 
 <br>
 <address>
@@ -8,6 +14,10 @@
   <br>
   50679 Köln
 </address>
+
+<br>
+<p>The Bürgerzentrum is accessible at ground level and barrier-free. The facility has an elevator and two barrier-free
+  restrooms.</p>
 
 <br>
 <p>We strongly recommend using public transportation, as parking around the Bürgerzentrum is very limited.</p>

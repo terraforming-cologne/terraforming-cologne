@@ -35,12 +35,15 @@ de:
         email_address: E-Mail-Adresse
     models:
       participant: Teilnahme
+  date:
+    formats:
+      date_with_weekday: "%A, %d. %B %Y"
   helpers:
     label:
       participant:
         brings_basegame_english: Englisch
         brings_basegame_german: Deutsch
-        brings_hellas_and_elysium: Hellas und Elysium (beliebige Sprache)
+        brings_hellas_and_elysium: Hellas & Elysium (beliebige Sprache)
         brings_prelude_english: Englisch
         brings_prelude_german: Deutsch
     submit:
@@ -73,9 +76,10 @@ de:
       heading: Bitte teile uns mit, was du zum Turnier mitbringen kannst.
     show:
       bring: Ich werde mitbringen...
+      fun: ganz viel Spaß
       brings_basegame_english: Basisspiel (englisch)
       brings_basegame_german: Basisspiel (deutsch)
-      brings_hellas_and_elysium: Hellas und Elysium
+      brings_hellas_and_elysium: Hellas & Elysium
       brings_prelude_english: Präludium (englisch)
       brings_prelude_german: Präludium (deutsch)
       edit_participation: Teilnahme verwalten
@@ -104,34 +108,32 @@ de:
       profile: Mein Profil
   signup: Registrieren
   static_pages:
-    quick_info:
-      date: Datum
-      time: Zeit
-      participation_fee: Teilnahmegebühr
-      location: Ort
-      schedule: Zeitplan
-      heading: Auf einen Blick
-      schedule_item:
-        registration: Ankommen + Registrierung
-        first_round: 1. Runde (Tharsis)
-        second_round: 2. Runde (Hellas)
-        third_round: 3. Runde (Elysium)
-        break: Pause
-        round_up: Abschluss + Preisverleihung
-    spirit:
-      heading: Turnierspirit
     home:
       register: Jetzt registrieren!
       terraforming_mars_tournament: Terraforming Mars Turnier 5. April 2025
+    quick_info:
+      date: Datum
+      heading: Auf einen Blick
+      location: Ort
+      participation_fee: Teilnahmegebühr
+      schedule: Zeitplan
+      schedule_item:
+        break: Pause
+        first_round: 1. Runde (Tharsis)
+        registration: Ankommen + Registrierung
+        round_up: Abschluss + Preisverleihung
+        second_round: 2. Runde (Hellas)
+        third_round: 3. Runde (Elysium)
+      time: Zeit
+      too_late: Solltet ihr zu spät kommen, dann gebt auf jeden Fall Bescheid. Je nachdem wie viel zu spät ihr seid, versuchen wir euch euren Platz zu sichern oder erlauben uns den Platz anderweitig zu vergeben.
+    spirit:
+      heading: Turnierspirit
+  time:
+    formats:
+      time_of_day: "%H:%M Uhr"
+      time_of_day_short: "%H:%M"
   user_mailer:
     confirmation:
       subject: Bestätigung deiner Registrierung
     paid:
       subject: Zahlung erhalten
-  date:
-    formats:
-      date_with_weekday: "%A, %d. %B %Y"
-  time:
-    formats:
-      time_of_day: "%H:%M Uhr"
-      time_of_day_short: "%H:%M"

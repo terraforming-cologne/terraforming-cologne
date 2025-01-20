@@ -12,6 +12,7 @@
   </div>
 
   <ul class="list-inside list-disc">
+    <%= tag.li t(".fun") %>
     <%= tag.li t(".brings_basegame_english") if @participant.brings_basegame_english? %>
     <%= tag.li t(".brings_basegame_german") if @participant.brings_basegame_german? %>
     <%= tag.li t(".brings_prelude_english") if @participant.brings_prelude_english? %>

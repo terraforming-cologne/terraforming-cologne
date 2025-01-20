@@ -1,6 +1,13 @@
-<h2 class="mb-2 text-xl font-bold">Anreise</h2>
+<h2 class="mb-2 text-xl font-bold">Ort</h2>
 
-<p>Das Turnier findet im Bürgerzentrum Deutz statt. Die Adresse lautet:</p>
+<p>Das Turnier findet im
+  <%=
+    link_to "Bürgerzentrum Deutz",
+            "https://www.buergerzentrum-deutz.de/",
+            class: "text-teal-700 underline decoration-2 hover:text-teal-500",
+            target: :blank
+  %>
+  statt. Die Adresse lautet:</p>
 
 <br>
 <address>
@@ -8,6 +15,10 @@
   <br>
   50679 Köln
 </address>
+
+<br>
+<p>Das Bürgerzentrum ist ebenerdig zugänglich und barrierefrei. Die Einrichtung verfügt über einen Aufzug und zwei
+  barrierefreie Toiletten.</p>
 
 <br>
 <p>Wir empfehlen dringend die Nutzung öffentlicher Verkehrsmittel, da die Parkmöglichkeiten rund um das Bürgerzentrum

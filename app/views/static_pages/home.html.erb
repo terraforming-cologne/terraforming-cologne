@@ -8,16 +8,16 @@
     <%= render "welcome" %>
   </div>
 
-  <div class="text-center">
-    <% unless authenticated? && Current.user.participating? %>
+  <% unless authenticated? && Current.user.participating? %>
+    <div class="text-center">
       <%=
         link_to t(".register"),
                 :register,
                 class:
                   "inline-block cursor-pointer rounded-lg bg-teal-300 px-4 py-2 text-3xl font-bold hover:bg-teal-400"
       %>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 
   <div><%= render "quick_info" %></div>
   <div><%= render "rules" %></div>
@@ -25,4 +25,7 @@
   <div><%= render "spirit" %></div>
   <div><%= render "registration" %></div>
   <div><%= render "getting_here" %></div>
+  <div><%= render "food" %></div>
+  <div><%= render "media" %></div>
+  <div><%= render "contact" %></div>
 </div>
