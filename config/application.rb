@@ -25,5 +25,6 @@ module TerraformingCologne
     # config.eager_load_paths << Rails.root.join("extras")
 
     config.mission_control.jobs.base_controller_class = "MissionControlController"
+    config.time_zone = "Europe/Berlin"
   end
 end

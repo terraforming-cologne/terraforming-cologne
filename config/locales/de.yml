@@ -104,12 +104,34 @@ de:
       profile: Mein Profil
   signup: Registrieren
   static_pages:
+    quick_info:
+      date: Datum
+      time: Zeit
+      participation_fee: Teilnahmegebühr
+      location: Ort
+      schedule: Zeitplan
+      heading: Auf einen Blick
+      schedule_item:
+        registration: Ankommen + Registrierung
+        first_round: 1. Runde (Tharsis)
+        second_round: 2. Runde (Hellas)
+        third_round: 3. Runde (Elysium)
+        break: Pause
+        round_up: Abschluss + Preisverleihung
+    spirit:
+      heading: Turnierspirit
     home:
       register: Jetzt registrieren!
-      terraforming_mars_tournament: Terraforming Mars Turnier 2025
-      welcome_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu justo vel odio suscipit pellentesque. Suspendisse tellus ante, porttitor ac enim at, rhoncus iaculis libero. Quisque pharetra tellus sed ligula laoreet, sit amet maximus risus semper. Pellentesque ut sodales lorem, faucibus fringilla velit. Maecenas venenatis nisi risus. Phasellus rutrum placerat odio. Phasellus ac neque cursus, auctor odio euismod, pretium justo. Mauris sed congue turpis. Etiam id odio sapien. Nulla consequat sodales libero, vitae vulputate est posuere dignissim. Cras fringilla ipsum vitae tincidunt porta. Ut tempus rhoncus velit, a pharetra ex fringilla eu. Fusce ac sodales sem. Phasellus varius, metus ut rutrum ullamcorper, lacus nulla gravida quam, ut elementum tortor metus eu libero. Nam nec nulla et purus faucibus ultrices quis vel diam. Nunc aliquet vehicula tortor congue aliquet.
+      terraforming_mars_tournament: Terraforming Mars Turnier 5. April 2025
   user_mailer:
     confirmation:
       subject: Bestätigung deiner Registrierung
     paid:
       subject: Zahlung erhalten
+  date:
+    formats:
+      date_with_weekday: "%A, %d. %B %Y"
+  time:
+    formats:
+      time_of_day: "%H:%M Uhr"
+      time_of_day_short: "%H:%M"
