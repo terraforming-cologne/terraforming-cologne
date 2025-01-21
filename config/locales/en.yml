@@ -34,11 +34,11 @@ en:
       participant:
         comment: Comment
       user:
+        email_address: Email address
         locale: Communication language
         name: Name
         password: Password
         password_confirmation: Password confirmation
-        email_address: Email address
     models:
       participant: Participation
   date:
@@ -46,6 +46,7 @@ en:
       date_with_weekday: "%A, %B %d %Y"
   helpers:
     label:
+      email_address: Email address
       participant:
         brings_basegame_english: English
         brings_basegame_german: German
@@ -98,6 +99,7 @@ en:
       heading: Reset Password
     new:
       heading: Forgot your password?
+      submit: Request password reset email
   passwords:
     edit:
       heading: Change Password

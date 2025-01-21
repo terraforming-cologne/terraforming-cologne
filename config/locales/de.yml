@@ -34,8 +34,8 @@ de:
       participant:
         comment: Kommentar
       user:
-        locale: Sprache für Kommunikation
         email_address: E-Mail-Adresse
+        locale: Sprache für Kommunikation
         name: Name
         password: Passwort
         password_confirmation: Passwort bestätigen
@@ -46,6 +46,7 @@ de:
       date_with_weekday: "%A, %d. %B %Y"
   helpers:
     label:
+      email_address: E-Mail-Adresse
       participant:
         brings_basegame_english: Englisch
         brings_basegame_german: Deutsch
@@ -98,6 +99,7 @@ de:
       heading: Password zurücksetzen
     new:
       heading: Passwort vergessen?
+      submit: E-Mail zur Passwortrücksetzung anfordern
   passwords:
     edit:
       heading: Passwort ändern
