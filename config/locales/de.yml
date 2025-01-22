@@ -1,5 +1,7 @@
 ---
 de:
+  de: Deutsch
+  en: Englisch
   accounts:
     create:
       notice: Account erstellt

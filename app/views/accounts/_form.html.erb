@@ -44,7 +44,7 @@
       form.collection_select :locale,
                              I18n.available_locales,
                              :to_s,
-                             ->(locale) { locale_emoji(locale) },
+                             ->(locale) { t(locale) },
                              { selected: (user.locale.presence || cookies[:locale]).to_s, include_blank: false },
                              class: "rounded"
     %>
