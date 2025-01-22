@@ -1,7 +1,18 @@
-<div class="mb-4">
-  <%= turbo_frame_tag :account, src: :account, target: "_top" %>
-</div>
+<div class="flex flex-col gap-4">
+  <div>
+    <%= turbo_frame_tag :account, src: :account, target: "_top" %>
+  </div>
 
-<% if @user.participants.exists? %>
-  <%= turbo_frame_tag @user.participants.first!, src: :participation, target: "_top" %>
-<% end %>
+  <% if Current.user.participating? %>
+    <%= turbo_frame_tag @user.participants.first!, src: :participation, target: "_top" %>
+  <% else %>
+    <div class="flex justify-center">
+      <%=
+        link_to t(".register"),
+                :register,
+                class:
+                  "inline-block cursor-pointer rounded-lg bg-teal-300 px-4 py-2 text-3xl font-bold hover:bg-teal-400"
+      %>
+    </div>
+  <% end %>
+</div>

@@ -111,6 +111,7 @@ de:
   profiles:
     show:
       account_heading: Dein Account
+      register: Register now!
   registrations:
     new:
       heading: Erstelle einen Account
