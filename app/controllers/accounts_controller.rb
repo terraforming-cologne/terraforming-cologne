@@ -34,7 +34,7 @@ class AccountsController < ApplicationController
 
   def destroy
     @user.deactivate!
-    redirect_to :root
+    redirect_to :root, notice: t(".notice")
   end
 
   private

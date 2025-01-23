@@ -38,7 +38,7 @@ class ParticipationsController < ApplicationController
   def destroy
     authorize @participant
     @participant.destroy!
-    redirect_to :profile
+    redirect_to :profile, notice: t(".notice")
   end
 
   private

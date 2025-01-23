@@ -9,7 +9,7 @@ class PasswordsController < ApplicationController
 
   def update
     if @password.update(password_params)
-      redirect_to :profile
+      redirect_to :profile, notice: t(".notice")
     else
       render :edit, status: :unprocessable_entity
     end

@@ -1,0 +1,22 @@
+<%# locals: (user: Current.user) %>
+<address>
+  Empfänger:
+  <b>Moritz Finkenzeller</b>
+
+  <br>
+  IBAN:
+  <b>DE75 4306 0967 3216 2856 01</b>
+
+  <br>
+  Bank:
+  <b>GLS Bank</b>
+
+  <br>
+  Verwendungszweck:
+  <% if user.present? %>
+    <b>TC25
+      <%= user.name %></b>
+  <% else %>
+    <b>TC25 &lt;Der Name, den du bei der Registrierung angegeben hast&gt;</b>
+  <% end %>
+</address>

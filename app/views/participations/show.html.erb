@@ -1,35 +1,80 @@
 <%= turbo_frame_tag @participant do %>
-  <%= tag.h1 t(".heading"), class: "mb-4 text-xl font-bold" %>
+  <div class="flex flex-col gap-4">
+    <%= tag.h1 t(".heading"), class: "text-xl font-bold" %>
 
-  <% if @participant.paid? %>
-    <%= tag.span t(".paid") %>
-  <% else %>
-    <%= tag.span t(".payment_pending") %>
-  <% end %>
+    <% if @participant.paid? %>
+      <%=
+        tag.div class:
+                  "inline-flex items-center gap-1 self-start rounded-full bg-emerald-100 px-2 py-1 font-medium text-emerald-900 ring-1 ring-inset ring-emerald-900/10" do
+      %>
 
-  <div>
-    <%= tag.span t(".bring") %>
-  </div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+          />
+        </svg>
 
-  <ul class="list-inside list-disc">
-    <%= tag.li t(".fun") %>
-    <%= tag.li t(".brings_basegame_english") if @participant.brings_basegame_english? %>
-    <%= tag.li t(".brings_basegame_german") if @participant.brings_basegame_german? %>
-    <%= tag.li t(".brings_prelude_english") if @participant.brings_prelude_english? %>
-    <%= tag.li t(".brings_prelude_german") if @participant.brings_prelude_german? %>
-    <%= tag.li t(".brings_hellas_and_elysium") if @participant.brings_hellas_and_elysium? %>
-  </ul>
+        <%= tag.span t(".paid") %>
+      <% end %>
+    <% else %>
+      <%=
+        tag.div class:
+                  "inline-flex items-center gap-1 self-start rounded-full bg-rose-100 px-2 py-1 font-medium text-rose-900 ring-1 ring-inset ring-rose-900/10" do
+      %>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+          />
+        </svg>
+        <%= t(".payment_pending") %>
+      <% end %>
 
-  <% if @participant.comment.present? %>
+      <span><%= t(".finalize_registration") %></span>
+      <%= render "shared/bank_details" %>
+    <% end %>
+
     <div>
-      <%= tag.span Participant.human_attribute_name(:comment), class: "font-bold" %>:
-      <p><%= @participant.comment %></p>
+      <%= tag.span t(".bring") %>
     </div>
-  <% end %>
 
-  <%=
-    link_to t(".edit_participation"),
-            %i[edit participation],
-            class: "text-teal-700 underline decoration-2 hover:text-teal-500"
-  %>
+    <ul class="list-inside list-disc">
+      <%= tag.li t(".fun") %>
+      <%= tag.li t(".brings_basegame_english") if @participant.brings_basegame_english? %>
+      <%= tag.li t(".brings_basegame_german") if @participant.brings_basegame_german? %>
+      <%= tag.li t(".brings_prelude_english") if @participant.brings_prelude_english? %>
+      <%= tag.li t(".brings_prelude_german") if @participant.brings_prelude_german? %>
+      <%= tag.li t(".brings_hellas_and_elysium") if @participant.brings_hellas_and_elysium? %>
+    </ul>
+
+    <% if @participant.comment.present? %>
+      <div>
+        <%= tag.span Participant.human_attribute_name(:comment), class: "font-bold" %>:
+        <p><%= @participant.comment %></p>
+      </div>
+    <% end %>
+
+    <%=
+      link_to t(".edit_participation"),
+              %i[edit participation],
+              class: "text-teal-700 underline decoration-2 hover:text-teal-500"
+    %>
+  </div>
 <% end %>

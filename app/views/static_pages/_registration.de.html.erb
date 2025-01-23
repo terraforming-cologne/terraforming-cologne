@@ -12,27 +12,7 @@
 <p>Bitte überweise die Teilnahmegebühr zeitnah nach der Registrierung auf folgendes Konto:</p>
 
 <br>
-<address>
-  Empfänger:
-  <b>Moritz Finkenzeller</b>
-
-  <br>
-  IBAN:
-  <b>DE75 4306 0967 3216 2856 01</b>
-
-  <br>
-  Bank:
-  <b>GLS Bank</b>
-
-  <br>
-  Verwendungszweck:
-  <% if authenticated? %>
-    <b>TC25
-      <%= Current.user.name %></b>
-  <% else %>
-    <b>TC25 &lt;Der Name, den du bei der Registrierung angegeben hast&gt;</b>
-  <% end %>
-</address>
+<%= render "shared/bank_details" %>
 
 <br>
 <p>Eine Registrierung vor Ort kann nicht garantiert werden. Sollte es jedoch noch freie Plätze geben, nehmen wir vor Ort
@@ -40,9 +20,8 @@
 
 <br>
 <b>Stornierungsrichtlinie</b>
-<p>Wenn du deine Registrierung stornieren möchtest, kannst du das
-  <%= link_to "hier", %i[edit participation], class: "text-teal-700 underline decoration-2 hover:text-teal-500" %>
-  Wenn du vor dem
+<p>Wenn du deine Registrierung stornieren m&ouml;chtest, kannst du das
+  <%= link_to "hier", %i[edit participation], class: "text-teal-700 underline decoration-2 hover:text-teal-500" %>. Wenn du vor dem
   <%= time_tag Date.new(2025, 3, 30) %>
   stornierst, erstatten wir dir die Teilnahmegebühr zurück.</p>
 

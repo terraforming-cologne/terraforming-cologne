@@ -1,10 +1,10 @@
 ---
 de:
-  de: Deutsch
-  en: Englisch
   accounts:
     create:
-      notice: Account erstellt
+      notice: Account erstellt.
+    destroy:
+      notice: Account deaktiviert.
     edit:
       deactivate: Account deaktivieren
       deactivate_confirm: Die Deaktivierung deines Accounts bestätigen?
@@ -23,7 +23,7 @@ de:
         email_address: E-Mail-Adresse
         password: Passwort
       password:
-        password: Passwort
+        password: Neues Passwort
         password_confirmation: Passwort bestätigen
     errors:
       models:
@@ -46,6 +46,8 @@ de:
   date:
     formats:
       date_with_weekday: "%A, %d. %B %Y"
+  de: Deutsch
+  en: Englisch
   helpers:
     label:
       email_address: E-Mail-Adresse
@@ -65,6 +67,10 @@ de:
         update: Account aktualisieren
   login: Einloggen
   logins:
+    create:
+      notice: Willkommen zurück %{name}!
+    destroy:
+      notice: Erfolgreich ausgeloggt.
     new:
       no_account_yet: Noch keinen Account?
       password_forgotten: Passwort vergessen?
@@ -73,14 +79,18 @@ de:
   participations:
     create:
       notice: Erfolgreich für das Turnier registriert. Eine Bestätigungsmail wird in Kürze versendet.
+    destroy:
+      notice: Deine Teilnahme wurde abgesagt.
     edit:
       delete: Meine Teilnahme absagen
       delete_confirm: Möchtest du wirklich deine Teilnahme absagen?
       heading: Teilnahme bearbeiten
     form:
-      bring: Ich kann mitbringen...
+      bring: Ich bringe mit...
+      bring_info: Falls du das Basisspiel oder die Erweiterungen nicht besitzt, musst du hier nichts ausfüllen und kannst dich mit einem Klick auf den Knopf einfach für das Turnier anmelden. Solltest du das Basisspiel oder eine der Erweiterungen mehrfach mitbringen wollen, dann schreibe das bitte unten in den Kommentar.
       brings_basegame: Das Basisspiel
       brings_prelude: Die Präludium Erweiterung (nicht Präludium 2)
+      comment_comment: Möchtest du uns noch etwas mitteilen?
     new:
       heading: Bitte teile uns mit, was du zum Turnier mitbringen kannst.
     show:
@@ -91,9 +101,11 @@ de:
       brings_prelude_english: Präludium (englisch)
       brings_prelude_german: Präludium (deutsch)
       edit_participation: Teilnahme verwalten
+      finalize_registration: 'Um deine Registrierung abzuschließen, überweise bitte die Teilnahmegebühr von 15€ auf folgendes Konto:'
       fun: ganz viel Spaß
       heading: German Open 2025
       paid: Deine Zahlung wurde erhalten
+      payment_pending: Zahlung ausstehend
   password_resets:
     create:
       notice: Eine E-Mail mit Anweisungen zum Zurücksetzen des Passworts wird an die angegebene Adresse gesendet.
@@ -101,8 +113,12 @@ de:
       heading: Password zurücksetzen
     new:
       heading: Passwort vergessen?
-      submit: E-Mail zur Passwortrücksetzung anfordern
+      submit: Passwort zurücksetzen
+    update:
+      notice: Passwort zurückgesetzt.
   passwords:
+    update:
+      notice: Passwort geändert.
     edit:
       heading: Passwort ändern
   passwords_mailer:
@@ -111,7 +127,7 @@ de:
   profiles:
     show:
       account_heading: Dein Account
-      register: Register now!
+      register: Jetzt registrieren!
   registrations:
     new:
       heading: Erstelle einen Account

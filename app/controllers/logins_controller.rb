@@ -13,7 +13,7 @@ class LoginsController < ApplicationController
     @login = Login.new(login_params)
     if @login.save
       start_new_session_for @login.user
-      redirect_to after_authentication_path
+      redirect_to after_authentication_path, notice: t(".notice", name: @login.user.name)
     else
       render :new, status: :unprocessable_entity
     end
@@ -21,7 +21,7 @@ class LoginsController < ApplicationController
 
   def destroy
     terminate_session
-    redirect_to :root
+    redirect_to :root, notice: t(".notice")
   end
 
   private

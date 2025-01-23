@@ -10,27 +10,7 @@
 <p>Please transfer the entry fee promptly after registering to the following account:</p>
 
 <br>
-<address>
-  Recipient:
-  <b>Moritz Finkenzeller</b>
-
-  <br>
-  IBAN:
-  <b>DE75 4306 0967 3216 2856 01</b>
-
-  <br>
-  Bank:
-  <b>GLS Bank</b>
-
-  <br>
-  Reference:
-  <% if authenticated? %>
-    <b>TC25
-      <%= Current.user.name %></b>
-  <% else %>
-    <b>TC25 &lt;The name you provided during registration&gt;</b>
-  <% end %>
-</address>
+<%= render "shared/bank_details" %>
 
 <br>
 <p>On-site registration cannot be guaranteed. However, if there are still spots available, we will gladly accept on-site

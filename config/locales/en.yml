@@ -1,10 +1,10 @@
 ---
 en:
-  de: German
-  en: English
   accounts:
     create:
       notice: Account created.
+    destroy:
+      notice: Account deactivated.
     edit:
       deactivate: Deactivate Account
       deactivate_confirm: Confirm the deactivation of your account?
@@ -23,7 +23,7 @@ en:
         email_address: Email address
         password: Password
       password:
-        password: Password
+        password: New password
         password_confirmation: Password confirmation
     errors:
       models:
@@ -46,6 +46,8 @@ en:
   date:
     formats:
       date_with_weekday: "%A, %B %d %Y"
+  de: German
+  en: English
   helpers:
     label:
       email_address: Email address
@@ -65,6 +67,10 @@ en:
         update: Update Account
   login: Login
   logins:
+    create:
+      notice: Welcome back %{name}!
+    destroy:
+      notice: Successfully logged out.
     new:
       no_account_yet: Don't have an account yet?
       password_forgotten: Forgot your password?
@@ -73,14 +79,18 @@ en:
   participations:
     create:
       notice: Successfully registered for the tournament. A confirmation email will be sent shortly.
+    destroy:
+      notice: Your participation was canceled.
     edit:
       delete: Cancel Participation
       delete_confirm: Do you really want to cancel your participation?
       heading: Edit Participation
     form:
-      bring: I can bring...
+      bring: I will bring...
+      bring_info: If you don't own the base game or the expansions, you don't have to fill out this form and can simply register for the tournament with a click on the button. If you want to bring the base game or one of the expansions multiple times, please write that in the comment below.
       brings_basegame: The basegame
       brings_prelude: The prelude extension (not prelude 2)
+      comment_comment: Do you want to tell us something else?
     new:
       heading: Please tell us what you can bring to the tournament.
     show:
@@ -91,9 +101,11 @@ en:
       brings_prelude_english: Prelude (english)
       brings_prelude_german: Prelude (german)
       edit_participation: Manage Participation
+      finalize_registration: 'In order to finalize your registration, please transfer the participation fee of 15€ to the following account:'
       fun: a lot of fun
       heading: German Open 2025
       paid: Your payment was received
+      payment_pending: Payment pending
   password_resets:
     create:
       notice: An email containing further instructions will be sent to the entered address.
@@ -101,8 +113,12 @@ en:
       heading: Reset Password
     new:
       heading: Forgot your password?
-      submit: Request password reset email
+      submit: Reset Password
+    update:
+      notice: Password reset.
   passwords:
+    update:
+      notice: Password updated.
     edit:
       heading: Change Password
   passwords_mailer:

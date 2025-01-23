@@ -21,7 +21,7 @@ class PasswordResetsController < ApplicationController
 
   def update
     if @password.update(password_params)
-      redirect_to :login
+      redirect_to :login, notice: t(".notice")
     else
       render :edit, status: :unprocessable_entity
     end
