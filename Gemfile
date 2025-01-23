@@ -69,6 +69,9 @@ gem "premailer-rails", "~> 1.12"
 gem "pundit", "~> 2.4"
 gem "rails-i18n", "~> 8.0.0"
 
+# TODO: Remove this as soon as tailwindcss-rails is at v4
+gem "tailwindcss-ruby", "~> 4.0"
+
 group :development do
   gem "erb-formatter", require: false, git: "https://github.com/pelletencate/erb-formatter", ref: "99601be"
   gem "i18n-debug"
