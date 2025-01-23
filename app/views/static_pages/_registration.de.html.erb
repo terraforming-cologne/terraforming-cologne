@@ -1,29 +1,41 @@
 <h2 class="mb-2 text-xl font-bold">Registrierung und Teilnahmegebühr</h2>
 
-<p>Wenn du dich für das Turnier registrieren möchtest, kannst du das
+<p>
+  Wenn du dich für das Turnier registrieren möchtest, kannst du das
   <%= link_to "hier", :register, class: "text-teal-700 underline decoration-2 hover:text-teal-500" %>
-  tun. Die Teilnahmegebühr beträgt 15€.</p>
+  tun. Die Teilnahmegebühr beträgt 15€.
+</p>
 
-<p>Deine Registrierung wird erst abgeschlossen, wenn wir deine Zahlung bestätigt haben. Du erhältst hierfür eine
+<p>
+  Deine Registrierung wird erst abgeschlossen, wenn wir deine Zahlung bestätigt haben. Du erhältst hierfür eine
   Bestätigungs-E-Mail. Außerdem kannst du den Status deiner Registrierung in deinem
   <%= link_to "Profil", :profile, class: "text-teal-700 underline decoration-2 hover:text-teal-500" %>
-  überprüfen.</p>
+  überprüfen.
+</p>
 
-<p>Bitte überweise die Teilnahmegebühr zeitnah nach der Registrierung auf folgendes Konto:</p>
+<p>
+  Bitte überweise die Teilnahmegebühr zeitnah nach der Registrierung auf folgendes Konto:
+</p>
 
 <br>
 <%= render "shared/bank_details" %>
 
 <br>
-<p>Eine Registrierung vor Ort kann nicht garantiert werden. Sollte es jedoch noch freie Plätze geben, nehmen wir vor Ort
-  gerne Registrierungen entgegen. Um deine Teilnahme sicherzustellen, registriere dich besser im Voraus online.</p>
+<p>
+  Eine Registrierung vor Ort kann nicht garantiert werden. Sollte es jedoch noch freie Plätze geben, nehmen wir vor Ort
+  gerne Registrierungen entgegen. Um deine Teilnahme sicherzustellen, registriere dich besser im Voraus online.
+</p>
 
 <br>
 <b>Stornierungsrichtlinie</b>
-<p>Wenn du deine Registrierung stornieren m&ouml;chtest, kannst du das
+<p>
+  Wenn du deine Registrierung stornieren m&ouml;chtest, kannst du das
   <%= link_to "hier", %i[edit participation], class: "text-teal-700 underline decoration-2 hover:text-teal-500" %>. Wenn du vor dem
   <%= time_tag Date.new(2025, 3, 30) %>
-  stornierst, erstatten wir dir die Teilnahmegebühr zurück.</p>
+  stornierst, erstatten wir dir die Teilnahmegebühr zurück.
+</p>
 
-<p>Falls du aus unvorhergesehenen Gründen nicht teilnehmen kannst, schreibe uns bitte eine E-Mail an
-  <%= mail_to "support@terraforming-cologne.de", class: "text-teal-700 underline decoration-2 hover:text-teal-500" %>. Wir werden gemeinsam eine Lösung finden.</p>
+<p>
+  Falls du aus unvorhergesehenen Gründen nicht teilnehmen kannst, schreibe uns bitte eine E-Mail an
+  <%= mail_to "support@terraforming-cologne.de", class: "text-teal-700 underline decoration-2 hover:text-teal-500" %>. Wir werden gemeinsam eine Lösung finden.
+</p>

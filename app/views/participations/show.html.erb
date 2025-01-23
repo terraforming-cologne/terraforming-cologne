@@ -67,7 +67,9 @@
     <% if @participant.comment.present? %>
       <div>
         <%= tag.span Participant.human_attribute_name(:comment), class: "font-bold" %>:
-        <p><%= @participant.comment %></p>
+        <p>
+          <%= @participant.comment %>
+        </p>
       </div>
     <% end %>
 
