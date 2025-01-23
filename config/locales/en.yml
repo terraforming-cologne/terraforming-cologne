@@ -10,6 +10,7 @@ en:
       deactivate_confirm: Confirm the deactivation of your account?
       edit_password: Change Password
       heading: Manage Account
+      name_caution: Will be used to identify your payment.
     form:
       name_caution: Will be used to identify your payment.
     new:
@@ -117,10 +118,10 @@ en:
     update:
       notice: Password reset.
   passwords:
-    update:
-      notice: Password updated.
     edit:
       heading: Change Password
+    update:
+      notice: Password updated.
   passwords_mailer:
     reset:
       subject: Reset your password

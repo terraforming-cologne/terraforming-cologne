@@ -1,18 +1,24 @@
 <h2 class="mb-2 text-xl font-bold">Kommunikation</h2>
 
 <b>E-Mail</b>
-<p>Die wichtigsten Infos erhaltet ihr per E-Mail an die in eurem
+<p>
+  Die wichtigsten Infos erhaltet ihr per E-Mail an die in eurem
   <%= link_to "Profil", :profile %>
-  hinterlegte E-Mail-Adresse<%= " (#{Current.user.email_address})" if authenticated? %>.</p>
+  hinterlegte E-Mail-Adresse<%= " (#{Current.user.email_address})" if authenticated? %>.
+</p>
 
 <br>
 <b>WhatsApp-Gruppe</b>
-<p>Für Fragen und kurzfristige Informationen am Turniertag haben wir eine WhatsApp Gruppe eingerichtet. Alle wichtigen
+<p>
+  Für Fragen und kurzfristige Informationen am Turniertag haben wir eine WhatsApp Gruppe eingerichtet. Alle wichtigen
   Infos werden aber per E-Mail wie oben beschrieben verschickt. Ihr verpasst also nichts, wenn ihr nicht Teil der
-  WhatsApp Gruppe seid.</p>
+  WhatsApp Gruppe seid.
+</p>
 
 <br>
 <b><%= mail_to "support@terraforming-cologne.de", class: "text-teal-700 underline decoration-2 hover:text-teal-500" %></b>
-<p>Für persönliche Anliegen, die nicht in die WhatsApp Gruppe passen, könnt ihr euch immer per E-Mail an
+<p>
+  Für persönliche Anliegen, die nicht in die WhatsApp Gruppe passen, könnt ihr euch immer per E-Mail an
   <%= mail_to "support@terraforming-cologne.de", class: "text-teal-700 underline decoration-2 hover:text-teal-500" %>
-  wenden.</p>
+  wenden.
+</p>

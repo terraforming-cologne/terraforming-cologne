@@ -314,9 +314,6 @@ GEM
       unicode-display_width (>= 2.4.0, < 4.0)
     rubocop-ast (1.37.0)
       parser (>= 3.3.1.0)
-    rubocop-minitest (0.36.0)
-      rubocop (>= 1.61, < 2.0)
-      rubocop-ast (>= 1.31.1, < 2.0)
     rubocop-performance (1.23.1)
       rubocop (>= 1.48.1, < 2.0)
       rubocop-ast (>= 1.31.1, < 2.0)
@@ -325,11 +322,6 @@ GEM
       rack (>= 1.1)
       rubocop (>= 1.52.0, < 2.0)
       rubocop-ast (>= 1.31.1, < 2.0)
-    rubocop-rails-omakase (1.0.0)
-      rubocop
-      rubocop-minitest
-      rubocop-performance
-      rubocop-rails
     ruby-lsp (0.23.5)
       language_server-protocol (~> 3.17.0)
       prism (>= 1.2, < 2.0)
@@ -469,7 +461,6 @@ DEPENDENCIES
   pundit (~> 2.4)
   rails (~> 8.0.1)
   rails-i18n (~> 8.0.0)
-  rubocop-rails-omakase
   ruby-lsp
   ruby-lsp-rails
   selenium-webdriver

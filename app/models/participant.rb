@@ -5,6 +5,7 @@ class Participant < ApplicationRecord
 
   after_create_commit :deliver_confirmation_email_later
   after_update_commit :deliver_paid_email_later, if: :updated_to_paid?
+  after_destroy_commit :deliver_cancellation_email_later, if: :paid?
 
   private
 
@@ -18,5 +19,9 @@ class Participant < ApplicationRecord
 
   def deliver_paid_email_later
     UserMailer.with(user: user).paid.deliver_later
+  end
+
+  def deliver_cancellation_email_later
+    OrgaMailer.cancellation(user).deliver_now
   end
 end

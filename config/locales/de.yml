@@ -10,6 +10,7 @@ de:
       deactivate_confirm: Die Deaktivierung deines Accounts bestätigen?
       edit_password: Passwort ändern
       heading: Account verwalten
+      name_caution: Wird verwendet um deine Zahlung zuzuordnen.
     form:
       name_caution: Wird verwendet um deine Zahlung zuzuordnen.
     new:
@@ -76,6 +77,9 @@ de:
       password_forgotten: Passwort vergessen?
       reset: Zurücksetzen
   logout: Ausloggen
+  orga_mailer:
+    cancellation:
+      subject: Absage einer bezahlten Teilnahme
   participations:
     create:
       notice: Erfolgreich für das Turnier registriert. Eine Bestätigungsmail wird in Kürze versendet.
@@ -117,10 +121,10 @@ de:
     update:
       notice: Passwort zurückgesetzt.
   passwords:
-    update:
-      notice: Passwort geändert.
     edit:
       heading: Passwort ändern
+    update:
+      notice: Passwort geändert.
   passwords_mailer:
     reset:
       subject: Dein Passwort zurücksetzen

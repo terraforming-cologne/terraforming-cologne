@@ -5,8 +5,10 @@
 
   <div class="flex flex-col gap-1">
     <%= form.label :name %>
-    <%= tag.span t(".renaming_caution") %>
-    <%= form.text_field :name, required: true, class: "rounded" %>
+    <div class="flex flex-col">
+      <%= form.text_field :name, required: true, class: "rounded" %>
+      <div class="text-sm text-slate-600"><%= t(".name_caution") %></div>
+    </div>
   </div>
 
   <div class="flex flex-col gap-1">

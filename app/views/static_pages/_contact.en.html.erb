@@ -1,1 +1,23 @@
+<h2 class="mb-2 text-xl font-bold">Communication</h2>
 
+<b>Email</b>
+<p>
+  You will receive the most important information via email sent to the address stored in your
+  <%= link_to "profile", :profile %>
+  <%= " (#{Current.user.email_address})" if authenticated? %>.
+</p>
+
+<br>
+<b>WhatsApp Group</b>
+<p>
+  We have set up a WhatsApp group for questions and last-minute information on the tournament day. However, all
+  critical information will be sent via email as described above. So, you won’t miss anything even if you are not part
+  of the WhatsApp group.
+</p>
+
+<br>
+<b><%= mail_to "support@terraforming-cologne.de", class: "text-teal-700 underline decoration-2 hover:text-teal-500" %></b>
+<p>
+  For personal matters that don’t belong in the WhatsApp group, you can always reach out via email to
+  <%= mail_to "support@terraforming-cologne.de", class: "text-teal-700 underline decoration-2 hover:text-teal-500" %>.
+</p>
