@@ -8,7 +8,7 @@ class ParticipationsController < ApplicationController
   end
 
   def new
-    redirect_to :root and return if authenticated? && Current.user.participating?
+    redirect_to :root, notice: t(".notice") and return if authenticated? && Current.user.participating?
 
     @participant = Current.user.participants.new
   end

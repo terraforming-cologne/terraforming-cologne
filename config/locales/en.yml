@@ -94,6 +94,7 @@ en:
       comment_comment: Do you want to tell us something else?
     new:
       heading: Please tell us what you can bring to the tournament.
+      notice: You are already registered for the tournament.
     show:
       bring: I will bring...
       brings_basegame_english: Basegame (english)
@@ -131,7 +132,6 @@ en:
       register: Register now!
   registrations:
     new:
-      notice: You are already registered for the tournament.
       heading: Create an Account
       info: To register for the tournament, you first need to create an account. You will also need your account on the tournament day in order to enter the scores of the games and see your current standings.
   shared:

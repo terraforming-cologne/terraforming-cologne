@@ -97,6 +97,7 @@ de:
       comment_comment: Möchtest du uns noch etwas mitteilen?
     new:
       heading: Bitte teile uns mit, was du zum Turnier mitbringen kannst.
+      notice: Du bist bereits für das Turnier registriert.
     show:
       bring: Ich werde mitbringen...
       brings_basegame_english: Basisspiel (englisch)
@@ -134,7 +135,6 @@ de:
       register: Jetzt registrieren!
   registrations:
     new:
-      notice: Du bist bereits für das Turnier registriert.
       heading: Erstelle einen Account
       info: Um dich für das Turnier zu registrieren, musst du zuerst einen Account erstellen. Du wirst deinen Account auch am Turniertag benötigen, um die Punkte der Spiele einzugeben und deine aktuelle Platzierung zu sehen.
   shared:
