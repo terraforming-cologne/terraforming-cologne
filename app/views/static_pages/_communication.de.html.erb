@@ -12,8 +12,24 @@
 <p>
   Für Fragen und kurzfristige Informationen am Turniertag haben wir eine WhatsApp Gruppe eingerichtet. Alle wichtigen
   Infos werden aber per E-Mail wie oben beschrieben verschickt. Ihr verpasst also nichts, wenn ihr nicht Teil der
-  WhatsApp Gruppe seid.
+  WhatsApp Gruppe seid. Tritt der WhatsApp Gruppe über
+  <%=
+    link_to "diesen Link",
+            "https://chat.whatsapp.com/DwgJ3hJNPrwDyFWXP3nGBT",
+            class: "text-teal-700 underline decoration-2 hover:text-teal-500"
+  %>
+  bei oder scanne diesen QR-Code:
 </p>
+
+<br>
+<div class="flex justify-center">
+  <%=
+    RQRCode::QRCode
+      .new("https://chat.whatsapp.com/DwgJ3hJNPrwDyFWXP3nGBT")
+      .as_svg(viewbox: true, fill: :white, color: :black, svg_attributes: { class: "size-48" })
+      .html_safe
+  %>
+</div>
 
 <br>
 <b>Weitere Anliegen</b>
