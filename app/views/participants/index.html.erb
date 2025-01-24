@@ -1,37 +1,38 @@
-<div class="flex">
-  <div><%= User.human_attribute_name(:name) %></div>
-  <div><%= User.human_attribute_name(:email_address) %></div>
-  <div><%= Participant.human_attribute_name(:brings_basegame_english) %></div>
-  <div><%= Participant.human_attribute_name(:brings_basegame_german) %></div>
-  <div><%= Participant.human_attribute_name(:brings_prelude_english) %></div>
-  <div><%= Participant.human_attribute_name(:brings_prelude_german) %></div>
-  <div><%= Participant.human_attribute_name(:brings_hellas_and_elysium) %></div>
-  <div><%= Participant.human_attribute_name(:paid) %></div>
-</div>
-<% @participants.each do |participant| %>
-  <div class="flex">
-    <div class="flex">
-      <div><%= participant.user.name %></div>
-      <div><%= participant.user.email_address %></div>
-      <div><%= participant.brings_basegame_english %></div>
-      <div><%= participant.brings_basegame_german %></div>
-      <div><%= participant.brings_prelude_english %></div>
-      <div><%= participant.brings_prelude_german %></div>
-      <div><%= participant.brings_hellas_and_elysium %></div>
-      <div><%= participant.paid %></div>
+<div class="grid grid-cols-[repeat(9,auto)] gap-2 overflow-x-scroll text-nowrap py-4">
+  <div class="font-bold"><%= User.human_attribute_name(:name) %></div>
+  <div class="font-bold"><%= User.human_attribute_name(:email_address) %></div>
+  <div class="font-bold"><%= Participant.human_attribute_name(:brings_basegame_english) %></div>
+  <div class="font-bold"><%= Participant.human_attribute_name(:brings_basegame_german) %></div>
+  <div class="font-bold"><%= Participant.human_attribute_name(:brings_prelude_english) %></div>
+  <div class="font-bold"><%= Participant.human_attribute_name(:brings_prelude_german) %></div>
+  <div class="font-bold"><%= Participant.human_attribute_name(:brings_hellas_and_elysium) %></div>
+  <div class="font-bold"><%= Participant.human_attribute_name(:paid) %></div>
+  <div></div>
+  <% @participants.each do |participant| %>
+    <div><%= participant.user.name %></div>
+    <div><%= participant.user.email_address %></div>
+    <div><%= participant.brings_basegame_english ? t("yes") : t("no") %></div>
+    <div><%= participant.brings_basegame_german ? t("yes") : t("no") %></div>
+    <div><%= participant.brings_prelude_english ? t("yes") : t("no") %></div>
+    <div><%= participant.brings_prelude_german ? t("yes") : t("no") %></div>
+    <div><%= participant.brings_hellas_and_elysium ? t("yes") : t("no") %></div>
+    <div><%= participant.paid ? t("yes") : t("no") %></div>
+    <div>
+      <% unless participant.paid? %>
+        <%=
+          button_to t(".confirm_payment"),
+                    :payments,
+                    class:
+                      "ms-auto inline-block cursor-pointer rounded-lg bg-slate-300 px-2 py-1 text-sm font-bold hover:bg-slate-400",
+                    method: :post,
+                    params: {
+                      participant_id: participant.id,
+                    },
+                    data: {
+                      turbo_confirm: t(".confirm"),
+                    }
+        %>
+      <% end %>
     </div>
-    <% unless participant.paid? %>
-      <%=
-        button_to t(".paid"),
-                  :payments,
-                  method: :post,
-                  params: {
-                    participant_id: participant.id,
-                  },
-                  data: {
-                    turbo_confirm: t(".confirm"),
-                  }
-      %>
-    <% end %>
-  </div>
-<% end %>
+  <% end %>
+</div>

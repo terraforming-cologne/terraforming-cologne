@@ -35,7 +35,13 @@ de:
   activerecord:
     attributes:
       participant:
+        brings_basegame_english: Basisspiel (englisch)
+        brings_basegame_german: Basisspiel (deutsch)
+        brings_hellas_and_elysium: Hellas & Elysium
+        brings_prelude_english: Präludium (englisch)
+        brings_prelude_german: Präludium (deutsch)
         comment: Kommentar
+        paid: Bezahlt
       user:
         email_address: E-Mail-Adresse
         locale: Sprache für Kommunikation
@@ -77,9 +83,13 @@ de:
       password_forgotten: Passwort vergessen?
       reset: Zurücksetzen
   logout: Ausloggen
+  "no": Nein
   orga_mailer:
     cancellation:
       subject: Absage einer bezahlten Teilnahme
+  participants:
+    index:
+      confirm_payment: Zahlung bestätigen
   participations:
     create:
       notice: Erfolgreich für das Turnier registriert. Eine Bestätigungsmail wird in Kürze versendet.
@@ -173,3 +183,4 @@ de:
       subject: Bestätigung deiner Registrierung
     paid:
       subject: Bestätigung deiner Zahlung
+  "yes": Ja

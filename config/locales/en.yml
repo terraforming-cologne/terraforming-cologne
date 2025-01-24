@@ -35,7 +35,13 @@ en:
   activerecord:
     attributes:
       participant:
+        brings_basegame_english: Basegame (english)
+        brings_basegame_german: Basegame (german)
+        brings_hellas_and_elysium: Hellas & Elysium
+        brings_prelude_english: Prelude (english)
+        brings_prelude_german: Prelude (german)
         comment: Comment
+        paid: Paid
       user:
         email_address: Email address
         locale: Communication language
@@ -77,6 +83,10 @@ en:
       password_forgotten: Forgot your password?
       reset: Reset
   logout: Logout
+  "no": "No"
+  participants:
+    index:
+      confirm_payment: Confirm payment
   participations:
     create:
       notice: Successfully registered for the tournament. A confirmation email will be sent shortly.
@@ -170,3 +180,4 @@ en:
       subject: Confirmation of your registration
     paid:
       subject: Confirmation of your payment
+  "yes": "Yes"
