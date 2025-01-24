@@ -151,6 +151,7 @@ de:
     errors:
       errors: Das Formular enthält die folgenden Fehler
     navigation:
+      participants: Teilnehmer:innen
       profile: Mein Profil
   signup: Registrieren
   static_pages:

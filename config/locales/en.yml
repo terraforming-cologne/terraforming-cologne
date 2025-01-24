@@ -148,6 +148,7 @@ en:
     errors:
       errors: The form contains the following errors
     navigation:
+      participants: Participants
       profile: My profile
   signup: Signup
   static_pages:
