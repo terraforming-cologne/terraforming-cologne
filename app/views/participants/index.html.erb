@@ -1,4 +1,5 @@
-<div class="grid grid-cols-[repeat(10,auto)] gap-2 overflow-x-scroll text-nowrap py-4">
+<div class="grid grid-cols-[repeat(11,auto)] gap-2 overflow-x-scroll text-nowrap py-4">
+  <div class="font-bold">#</div>
   <div class="font-bold"><%= User.human_attribute_name(:name) %></div>
   <div class="font-bold"><%= User.human_attribute_name(:email_address) %></div>
   <div class="font-bold"><%= Participant.human_attribute_name(:brings_basegame_english) %></div>
@@ -9,7 +10,8 @@
   <div class="font-bold"><%= Participant.human_attribute_name(:comment) %></div>
   <div class="font-bold"><%= Participant.human_attribute_name(:paid) %></div>
   <div></div>
-  <% @participants.each do |participant| %>
+  <% @participants.each_with_index do |participant, index| %>
+    <div><%= index + 1 %></div>
     <div><%= participant.user.name %></div>
     <div><%= participant.user.email_address %></div>
     <div><%= participant.brings_basegame_english ? t("yes") : t("no") %></div>
