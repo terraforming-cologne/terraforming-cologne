@@ -1,5 +1,5 @@
 <% content_for :wide_body do %>
-  <div class="grid grid-cols-[repeat(9,auto)_1fr_repeat(2,auto)] gap-4 overflow-x-scroll text-nowrap py-4">
+  <div class="grid grid-cols-[repeat(9,auto)_1fr_repeat(2,auto)] overflow-x-scroll text-nowrap py-4 *:p-2">
     <div class="font-bold">#</div>
     <div class="font-bold"><%= User.human_attribute_name(:name) %></div>
     <div class="font-bold"><%= User.human_attribute_name(:email_address) %></div>
@@ -13,33 +13,35 @@
     <div class="font-bold"><%= Participant.human_attribute_name(:paid) %></div>
     <div></div>
     <% @participants.each_with_index do |participant, index| %>
-      <div><%= index + 1 %></div>
-      <div><%= participant.user.name %></div>
-      <div><%= participant.user.email_address %></div>
-      <div><%= t(participant.user.locale) %></div>
-      <div><%= participant.brings_basegame_english ? t("yes") : t("no") %></div>
-      <div><%= participant.brings_basegame_german ? t("yes") : t("no") %></div>
-      <div><%= participant.brings_prelude_english ? t("yes") : t("no") %></div>
-      <div><%= participant.brings_prelude_german ? t("yes") : t("no") %></div>
-      <div><%= participant.brings_hellas_and_elysium ? t("yes") : t("no") %></div>
-      <div><%= participant.comment %></div>
-      <div><%= participant.paid ? t("yes") : t("no") %></div>
-      <div>
-        <% unless participant.paid? %>
-          <%=
-            button_to t(".confirm_payment"),
-                      :payments,
-                      class:
-                        "ms-auto inline-block cursor-pointer rounded-lg bg-slate-300 px-2 py-1 text-sm font-bold hover:bg-slate-400",
-                      method: :post,
-                      params: {
-                        participant_id: participant.id,
-                      },
-                      data: {
-                        turbo_confirm: t(".confirm"),
-                      }
-          %>
-        <% end %>
+      <div class="group contents *:p-2 *:group-hover:bg-slate-100">
+        <div><%= index + 1 %></div>
+        <div><%= participant.user.name %></div>
+        <div><%= participant.user.email_address %></div>
+        <div><%= t(participant.user.locale) %></div>
+        <div><%= participant.brings_basegame_english ? t("yes") : t("no") %></div>
+        <div><%= participant.brings_basegame_german ? t("yes") : t("no") %></div>
+        <div><%= participant.brings_prelude_english ? t("yes") : t("no") %></div>
+        <div><%= participant.brings_prelude_german ? t("yes") : t("no") %></div>
+        <div><%= participant.brings_hellas_and_elysium ? t("yes") : t("no") %></div>
+        <div><%= participant.comment %></div>
+        <div><%= participant.paid ? t("yes") : t("no") %></div>
+        <div>
+          <% unless participant.paid? %>
+            <%=
+              button_to t(".confirm_payment"),
+                        :payments,
+                        class:
+                          "ms-auto inline-block cursor-pointer rounded-lg bg-slate-300 px-2 py-1 text-sm font-bold hover:bg-slate-400",
+                        method: :post,
+                        params: {
+                          participant_id: participant.id,
+                        },
+                        data: {
+                          turbo_confirm: t(".confirm"),
+                        }
+            %>
+          <% end %>
+        </div>
       </div>
     <% end %>
   </div>

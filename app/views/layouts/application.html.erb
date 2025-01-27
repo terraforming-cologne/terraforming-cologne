@@ -31,7 +31,7 @@
     </nav>
 
     <% if content_for?(:wide_body) %>
-      <main class="mx-32">
+      <main class="mx-auto max-w-fit px-4">
         <%= yield :wide_body %>
       </main>
     <% else %>
