@@ -1,7 +1,8 @@
-<div class="grid grid-cols-[repeat(11,auto)] gap-2 overflow-x-scroll text-nowrap py-4">
+<div class="grid grid-cols-[repeat(12,auto)] gap-2 overflow-x-scroll text-nowrap py-4">
   <div class="font-bold">#</div>
   <div class="font-bold"><%= User.human_attribute_name(:name) %></div>
   <div class="font-bold"><%= User.human_attribute_name(:email_address) %></div>
+  <div class="font-bold"><%= User.human_attribute_name(:locale) %></div>
   <div class="font-bold"><%= Participant.human_attribute_name(:brings_basegame_english) %></div>
   <div class="font-bold"><%= Participant.human_attribute_name(:brings_basegame_german) %></div>
   <div class="font-bold"><%= Participant.human_attribute_name(:brings_prelude_english) %></div>
@@ -14,6 +15,7 @@
     <div><%= index + 1 %></div>
     <div><%= participant.user.name %></div>
     <div><%= participant.user.email_address %></div>
+    <div><%= t(participant.user.locale) %></div>
     <div><%= participant.brings_basegame_english ? t("yes") : t("no") %></div>
     <div><%= participant.brings_basegame_german ? t("yes") : t("no") %></div>
     <div><%= participant.brings_prelude_english ? t("yes") : t("no") %></div>
