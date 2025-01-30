@@ -1,9 +1,10 @@
 <% content_for :wide_body do %>
-  <div class="grid grid-cols-[repeat(9,auto)_1fr_repeat(2,auto)] overflow-x-scroll text-nowrap py-4 *:p-2">
+  <div class="grid grid-cols-[repeat(10,auto)_1fr_repeat(2,auto)] overflow-x-scroll text-nowrap py-4 *:p-2">
     <div class="font-bold">#</div>
     <div class="font-bold"><%= User.human_attribute_name(:name) %></div>
     <div class="font-bold"><%= User.human_attribute_name(:email_address) %></div>
     <div class="font-bold"><%= User.human_attribute_name(:locale) %></div>
+    <div class="font-bold"><%= Participant.human_attribute_name(:created_at) %></div>
     <div class="font-bold"><%= Participant.human_attribute_name(:brings_basegame_english) %></div>
     <div class="font-bold"><%= Participant.human_attribute_name(:brings_basegame_german) %></div>
     <div class="font-bold"><%= Participant.human_attribute_name(:brings_prelude_english) %></div>
@@ -18,6 +19,7 @@
         <div><%= participant.user.name %></div>
         <div><%= participant.user.email_address %></div>
         <div><%= t(participant.user.locale) %></div>
+        <div><%= l(participant.created_at.to_date) %></div>
         <div><%= participant.brings_basegame_english ? t("yes") : t("no") %></div>
         <div><%= participant.brings_basegame_german ? t("yes") : t("no") %></div>
         <div><%= participant.brings_prelude_english ? t("yes") : t("no") %></div>

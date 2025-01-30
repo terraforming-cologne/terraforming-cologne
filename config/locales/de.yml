@@ -41,6 +41,7 @@ de:
         brings_prelude_english: Präludium (englisch)
         brings_prelude_german: Präludium (deutsch)
         comment: Kommentar
+        created_at: Anmeldezeitpunkt
         paid: Bezahlt
       user:
         email_address: E-Mail-Adresse

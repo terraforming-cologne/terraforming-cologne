@@ -41,6 +41,7 @@ en:
         brings_prelude_english: Prelude (english)
         brings_prelude_german: Prelude (german)
         comment: Comment
+        created_at: Registration time
         paid: Paid
       user:
         email_address: Email address
