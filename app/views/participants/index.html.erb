@@ -5,13 +5,24 @@
     <div class="font-bold"><%= User.human_attribute_name(:email_address) %></div>
     <div class="font-bold"><%= User.human_attribute_name(:locale) %></div>
     <div class="font-bold"><%= Participant.human_attribute_name(:created_at) %></div>
-    <div class="font-bold"><%= Participant.human_attribute_name(:brings_basegame_english) %></div>
-    <div class="font-bold"><%= Participant.human_attribute_name(:brings_basegame_german) %></div>
-    <div class="font-bold"><%= Participant.human_attribute_name(:brings_prelude_english) %></div>
-    <div class="font-bold"><%= Participant.human_attribute_name(:brings_prelude_german) %></div>
-    <div class="font-bold"><%= Participant.human_attribute_name(:brings_hellas_and_elysium) %></div>
+    <div class="font-bold"><%= Participant.human_attribute_name(:brings_basegame_english) %>
+      (<%= Participant.where(brings_basegame_english: true).count %>)</div>
+    <div class="font-bold"><%= Participant.human_attribute_name(:brings_basegame_german) %>
+      (<%= Participant.where(brings_basegame_german: true).count %>)
+    </div>
+    <div class="font-bold"><%= Participant.human_attribute_name(:brings_prelude_english) %>
+      (<%= Participant.where(brings_prelude_english: true).count %>)
+    </div>
+    <div class="font-bold"><%= Participant.human_attribute_name(:brings_prelude_german) %>
+      (<%= Participant.where(brings_prelude_german: true).count %>)
+    </div>
+    <div class="font-bold"><%= Participant.human_attribute_name(:brings_hellas_and_elysium) %>
+      (<%= Participant.where(brings_hellas_and_elysium: true).count %>)
+    </div>
     <div class="font-bold"><%= Participant.human_attribute_name(:comment) %></div>
-    <div class="font-bold"><%= Participant.human_attribute_name(:paid) %></div>
+    <div class="font-bold"><%= Participant.human_attribute_name(:paid) %>
+      (<%= Participant.where(paid: true).count %>)
+    </div>
     <div></div>
     <% @participants.each_with_index do |participant, index| %>
       <div class="group contents *:p-2 *:group-hover:bg-slate-100">
