@@ -1,2 +1,6 @@
 <%= tag.h1 t(".heading"), class: "mb-4 text-xl font-bold" %>
-<%= render "form", participant: @participant %>
+<% if Participant.max_reached? %>
+  <%= render "participants/max_reached" %>
+<% else %>
+  <%= render "form", participant: @participant %>
+<% end %>
