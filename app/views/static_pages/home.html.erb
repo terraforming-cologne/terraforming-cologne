@@ -8,15 +8,14 @@
     <%= image_tag asset_path("logo_with_text.svg"), class: "size-48" %>
   </div>
 
-  <% unless authenticated? && Current.user.participating? %>
-    <div class="text-center">
-      <%=
-        link_to t(".register"),
-                :register,
-                class:
-                  "inline-block cursor-pointer rounded-lg bg-teal-300 px-4 py-2 text-3xl font-bold hover:bg-teal-400"
-      %>
-    </div>
+  <% if Participant.max_reached? %>
+    <%= render "participants/max_reached" %>
+  <% else %>
+    <% unless authenticated? && Current.user.participating? %>
+      <div class="text-center">
+        <%= render "shared/register_button" %>
+      </div>
+    <% end %>
   <% end %>
 
   <div>

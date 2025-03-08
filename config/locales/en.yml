@@ -1,5 +1,9 @@
 ---
 en:
+  max_participants: Maximum number of participants reached. Registration is closed. You can sign up for the waiting list via Email at %{email}
+  register: Register now!
+  spots_available: Starting places are limited to %{count}.
+  spots_left: "%{count} people can still register."
   accounts:
     create:
       notice: Account created.
@@ -140,7 +144,6 @@ en:
   profiles:
     show:
       account_heading: Your Account
-      register: Register now!
   registrations:
     new:
       heading: Create an Account
@@ -154,7 +157,6 @@ en:
   signup: Signup
   static_pages:
     home:
-      register: Register now!
       terraforming_mars_tournament: Terraforming Mars Tournament
     quick_info:
       date: Date

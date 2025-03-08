@@ -1,5 +1,9 @@
 ---
 de:
+  register: Jetzt registrieren!
+  max_participants: Maximale Teilnehmer:innenanzahl erreicht. Die Registrierung ist geschlossen. Du kannst dich auf die Warteliste setzen lassen, indem du eine E-Mail an %{email} schreibst.
+  spots_available: Die Startplätze sind auf %{count} limitiert.
+  spots_left: Es können sich noch %{count} Personen anmelden.
   accounts:
     create:
       notice: Account erstellt.
@@ -143,7 +147,6 @@ de:
   profiles:
     show:
       account_heading: Dein Account
-      register: Jetzt registrieren!
   registrations:
     new:
       heading: Erstelle einen Account
@@ -157,7 +160,6 @@ de:
   signup: Registrieren
   static_pages:
     home:
-      register: Jetzt registrieren!
       terraforming_mars_tournament: Terraforming Mars Turnier
     quick_info:
       date: Datum
