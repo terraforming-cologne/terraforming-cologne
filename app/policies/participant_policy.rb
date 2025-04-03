@@ -3,6 +3,10 @@ class ParticipantPolicy < ApplicationPolicy
     user.admin?
   end
 
+  def export?
+    user.admin?
+  end
+
   def show?
     user == record.user
   end

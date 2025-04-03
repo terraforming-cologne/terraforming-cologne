@@ -3,7 +3,11 @@ Rails.application.routes.draw do
 
   resource :account, only: [:show, :edit, :create, :update, :destroy]
   resource :locales, only: [:update]
-  resources :participants, only: [:index]
+  resources :participants, only: [:index] do
+    collection do
+      get :export
+    end
+  end
   resource :participation, only: [:show, :new, :edit, :create, :update, :destroy]
   resource :password, only: [:edit, :update]
   resources :password_resets, only: [:new, :edit, :create, :update], param: :token
