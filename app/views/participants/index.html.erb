@@ -1,5 +1,10 @@
 <% content_for :wide_body do %>
-  <%= link_to "Export", [Participant, :export] %>
+  <%=
+    link_to "Export",
+            export_participants_path,
+            class:
+              "ms-auto inline-block cursor-pointer rounded-lg bg-slate-300 px-2 py-1 text-sm font-bold hover:bg-slate-400"
+  %>
   <div class="grid grid-cols-[repeat(10,auto)_1fr_repeat(2,auto)] overflow-x-scroll text-nowrap py-4 *:p-2">
     <div class="font-bold">#</div>
     <div class="font-bold"><%= User.human_attribute_name(:name) %></div>
