@@ -1,4 +1,5 @@
 <% content_for :wide_body do %>
+  <%= link_to "Export", [Participant, :export] %>
   <div class="grid grid-cols-[repeat(10,auto)_1fr_repeat(2,auto)] overflow-x-scroll text-nowrap py-4 *:p-2">
     <div class="font-bold">#</div>
     <div class="font-bold"><%= User.human_attribute_name(:name) %></div>
