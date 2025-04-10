@@ -1,5 +1,6 @@
 ---
 en:
+  tournament_over: The tournament has already happened and registrations are closed. See you next time!
   max_participants: Maximum number of participants reached. Registration is closed. You can sign up for the waiting list via Email at %{email}
   register: Register now!
   spots_available: Starting places are limited to %{count}.

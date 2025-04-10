@@ -8,11 +8,7 @@
 
 <p>
   Du kannst dein Passwort innerhalb der nächsten 15 Minuten auf
-  <%=
-    link_to "dieser Seite",
-            edit_password_reset_url(@user.password_reset_token),
-            class: "text-teal-700 underline decoration-2 hover:text-teal-500"
-  %>
+  <%= link_to "dieser Seite", edit_password_reset_url(@user.password_reset_token), class: "link" %>
   zurücksetzen.
 </p>
 

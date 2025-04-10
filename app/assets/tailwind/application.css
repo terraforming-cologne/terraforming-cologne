@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@plugin "@tailwindcss/forms";
+
+@theme {
+  --font-sans: "Lato";
+}
+
+@layer components {
+  .link {
+    @apply text-teal-700 underline decoration-2 hover:text-teal-500;
+  }
+}

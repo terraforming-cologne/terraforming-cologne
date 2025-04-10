@@ -1,5 +1,6 @@
 ---
 de:
+  tournament_over: Das Turnier hat bereits stattgefunden und die Registrierung ist geschlossen. Bis zum nächsten Mal!
   register: Jetzt registrieren!
   max_participants: Maximale Teilnehmer:innenanzahl erreicht. Die Registrierung ist geschlossen. Du kannst dich auf die Warteliste setzen lassen, indem du eine E-Mail an %{email} schreibst.
   spots_available: Die Startplätze sind auf %{count} limitiert.
