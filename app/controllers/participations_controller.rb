@@ -1,6 +1,11 @@
 class ParticipationsController < ApplicationController
   allow_unauthorized_access
 
+  # Tournament is over
+  before_action do
+    redirect_to :root, notice: t("tournament_over")
+  end
+
   before_action :set_participant, only: [:show, :edit, :update, :destroy]
 
   def show

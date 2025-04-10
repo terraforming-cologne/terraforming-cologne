@@ -13,7 +13,7 @@
 
 <p>
   Bitte erwarte weitere Informationen kurz vor dem Turnier. Zwischenzeitlich kannst du immer auf
-  <%= link_to "unserer Webseite", root_url, class: "text-teal-700 underline decoration-2 hover:text-teal-500" %>
+  <%= link_to "unserer Webseite", root_url, class: "link" %>
   vorbeischauen.
 </p>
 
@@ -47,19 +47,15 @@
 
 <p>
   Sollte sich etwas an deiner Teilnahme ändern, kannst du sie in deinem
-  <%= link_to "Profil", profile_url, class: "text-teal-700 underline decoration-2 hover:text-teal-500" %>
+  <%= link_to "Profil", profile_url, class: "link" %>
   bearbeiten.
 </p>
 
 <p>
   Bei Fragen, zögere bitte nicht, sie in der
-  <%=
-    link_to "WhatsApp Gruppe",
-            "https://chat.whatsapp.com/DwgJ3hJNPrwDyFWXP3nGBT",
-            class: "text-teal-700 underline decoration-2 hover:text-teal-500"
-  %>
+  <%= link_to "WhatsApp Gruppe", "https://chat.whatsapp.com/DwgJ3hJNPrwDyFWXP3nGBT", class: "link" %>
   zu stellen oder uns unter
-  <%= mail_to "support@terraforming-cologne.de", class: "text-teal-700 underline decoration-2 hover:text-teal-500" %>
+  <%= mail_to "support@terraforming-cologne.de", class: "link" %>
   zu kontaktieren.
 </p>
 

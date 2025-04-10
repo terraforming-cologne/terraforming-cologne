@@ -1,7 +1,7 @@
 <% content_for :wide_body do %>
   <%=
     link_to "Export",
-            export_participants_path,
+            [:export, Participant],
             class:
               "ms-auto inline-block cursor-pointer rounded-lg bg-slate-300 px-2 py-1 text-sm font-bold hover:bg-slate-400"
   %>

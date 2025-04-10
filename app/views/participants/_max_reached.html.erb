@@ -1,12 +1,7 @@
 <%=
   tag.div t(
             :max_participants,
-            email:
-              link_to(
-                "support@terraforming-cologne.de",
-                "mailto:support@terraforming-cologne.de",
-                class: "text-teal-700 underline decoration-2 hover:text-teal-500",
-              ),
+            email: link_to("support@terraforming-cologne.de", "mailto:support@terraforming-cologne.de", class: "link"),
           ).html_safe,
-          class: "rounded bg-amber-100 text-amber-900 p-3 mb-2"
+          class: "mb-2 rounded bg-amber-100 p-3 text-amber-900"
 %>

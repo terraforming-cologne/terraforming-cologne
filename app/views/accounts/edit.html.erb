@@ -30,14 +30,7 @@
 
   <div class="flex items-center justify-between">
     <div>
-      <%=
-        link_to t(".edit_password"),
-                %i[edit password],
-                class: "text-teal-700 underline decoration-2 hover:text-teal-500",
-                data: {
-                  turbo_frame: "_top",
-                }
-      %>
+      <%= link_to t(".edit_password"), %i[edit password], class: "link", data: { turbo_frame: "_top" } %>
     </div>
     <%= form.submit class: "inline-block cursor-pointer rounded-lg bg-teal-300 px-4 py-2 font-bold hover:bg-teal-400" %>
   </div>

@@ -5,32 +5,17 @@
   </div>
 
   <div class="flex justify-center">
-    <%= image_tag asset_path("logo_with_text.svg"), class: "size-48" %>
+    <%= image_tag "logo_with_text.svg", class: "size-48" %>
   </div>
 
-  <% if Participant.max_reached? %>
-    <%= render "participants/max_reached" %>
-  <% else %>
-    <% unless authenticated? && Current.user.participating? %>
-      <div class="text-center">
-        <%= render "shared/register_button" %>
-      </div>
-    <% end %>
-  <% end %>
-
-  <div>
-    <%= render "welcome" %>
-  </div>
-
-  <div><%= render "quick_info" %></div>
+  <div><%= render "2025" %></div>
+  <hr>
   <div><%= render "rule_clarifications" %></div>
-  <div><%= render "results" %></div>
   <div><%= render "rules" %></div>
   <div><%= render "scoring" %></div>
   <div><%= render "spirit" %></div>
   <div><%= render "fryxgames" %></div>
   <div><%= render "language" %></div>
-  <div><%= render "registration" %></div>
   <div><%= render "getting_here" %></div>
   <div><%= render "bringing_games" %></div>
   <div><%= render "food" %></div>

@@ -1,6 +1,6 @@
 <div class="mb-4">
   <%= tag.span t(".no_account_yet") %>
-  <%= link_to t("signup"), :signup, class: "text-teal-700 underline decoration-2 hover:text-teal-500" %>
+  <%= link_to t("signup"), :signup, class: "link" %>
 </div>
 
 <%= form_with model: @login, url: :login, class: "flex flex-col gap-2" do |form| %>
@@ -25,7 +25,7 @@
   <div class="flex items-center justify-between">
     <div>
       <%= tag.span t(".password_forgotten") %>
-      <%= link_to t(".reset"), %i[new password_reset], class: "text-teal-700 underline decoration-2 hover:text-teal-500" %>
+      <%= link_to t(".reset"), %i[new password_reset], class: "link" %>
     </div>
     <%= form.submit class: "inline-block cursor-pointer rounded-lg bg-teal-300 px-4 py-2 font-bold hover:bg-teal-400" %>
   </div>

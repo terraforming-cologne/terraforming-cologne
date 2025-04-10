@@ -74,11 +74,22 @@ gem "rqrcode", "~> 2.0"
 gem "tailwindcss-ruby", "~> 4.0"
 
 group :development do
-  gem "erb-formatter", require: false, git: "https://github.com/pelletencate/erb-formatter", ref: "99601be"
   gem "i18n-debug"
   gem "i18n-tasks", require: false
+
+  # Language tooling
+
+  # NOTE: Revert this back to `gem "erb-formatter", "~> 0.7", require: false` when https://github.com/nebulab/erb-formatter/pull/57 is merged
+  gem "erb-formatter", require: false, git: "https://github.com/pelletencate/erb-formatter", ref: "99601be"
+  gem "erb_lint", require: false
+
   gem "ruby-lsp", require: false
   gem "ruby-lsp-rails", require: false
+
+  gem "rubocop", require: false
+  gem "rubocop-rails", require: false
+  gem "rubocop-performance", require: false
   gem "standard", require: false
   gem "standard-rails", require: false
+  gem "standard-performance", require: false
 end
