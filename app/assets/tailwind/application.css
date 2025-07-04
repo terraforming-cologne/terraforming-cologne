@@ -4,9 +4,43 @@
 
 @theme {
   --font-sans: "Lato";
+
+  /* Calculated with: https://www.fluid-type-scale.com/calculate?minFontSize=16&minWidth=375&minRatio=1.2&maxFontSize=16&maxWidth=1920&maxRatio=1.333&steps=sm%2Cbase%2Clg%2Cxl%2C2xl%2C3xl%2C4xl%2C5xl&baseStep=base&prefix=text&useContainerWidth=false&includeFallbacks=false&useRems=true&remValue=16&decimals=3&previewFont=Lato&previewText=Almost+before+we+knew+it%2C+we+had+left+the+ground&previewWidth=1920 */
+  --text-sm: clamp(0.833rem, -0.086vi + 0.854rem, 0.75rem);
+  --text-base: clamp(1rem, 0vi + 1rem, 1rem);
+  --text-lg: clamp(1.2rem, 0.138vi + 1.168rem, 1.333rem);
+  --text-xl: clamp(1.44rem, 0.349vi + 1.358rem, 1.777rem);
+  --text-2xl: clamp(1.728rem, 0.663vi + 1.573rem, 2.369rem);
+  --text-3xl: clamp(2.074rem, 1.122vi + 1.811rem, 3.157rem);
+  --text-4xl: clamp(2.488rem, 1.782vi + 2.071rem, 4.209rem);
+  --text-5xl: clamp(2.986rem, 2.718vi + 2.349rem, 5.61rem);
 }
 
 @layer components {
+  h1 {
+    font-size: var(--text-5xl);
+  }
+
+  h2 {
+    font-size: var(--text-4xl);
+  }
+
+  h3 {
+    font-size: var(--text-3xl);
+  }
+
+  h4 {
+    font-size: var(--text-2xl);
+  }
+
+  h5 {
+    font-size: var(--text-xl);
+  }
+
+  h6 {
+    font-size: var(--text-lg);
+  }
+
   .link {
     @apply text-teal-700 underline decoration-2 hover:text-teal-500;
   }

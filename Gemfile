@@ -77,6 +77,8 @@ group :development do
   gem "i18n-debug"
   gem "i18n-tasks", require: false
 
+  gem "hotwire-spark"
+
   # Language tooling
 
   # NOTE: Revert this back to `gem "erb-formatter", "~> 0.7", require: false` when https://github.com/nebulab/erb-formatter/pull/57 is merged

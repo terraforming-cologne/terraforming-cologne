@@ -24,20 +24,14 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="my-4">
-    <nav class="mx-auto max-w-5xl px-4">
+  <body class="container mx-auto my-4 px-4">
+    <nav>
       <%= render "shared/navigation" %>
       <%= render "shared/flashes" %>
     </nav>
 
-    <% if content_for?(:wide_body) %>
-      <main class="mx-auto max-w-fit px-4">
-        <%= yield :wide_body %>
-      </main>
-    <% else %>
-      <main class="mx-auto max-w-5xl px-4">
-        <%= yield %>
-      </main>
-    <% end %>
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>
