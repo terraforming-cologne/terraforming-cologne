@@ -1,6 +1,6 @@
 <%= tag.h1 t(".heading"), class: "mb-4 text-xl font-bold" %>
-<% if Participant.max_reached? %>
-  <%= render "participants/max_reached" %>
+<% if Tournament.next&.max_participations_reached? %>
+  <%= render "tournaments/max_participations_reached" %>
 <% else %>
-  <%= render "form", participant: @participant %>
+  <%= render "form", participation: @participation %>
 <% end %>

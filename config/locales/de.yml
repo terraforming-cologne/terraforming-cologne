@@ -1,10 +1,5 @@
 ---
 de:
-  tournament_over: Das Turnier hat bereits stattgefunden und die Registrierung ist geschlossen. Bis zum nächsten Mal!
-  register: Jetzt registrieren!
-  max_participants: Maximale Teilnehmer:innenanzahl erreicht. Die Registrierung ist geschlossen. Du kannst dich auf die Warteliste setzen lassen, indem du eine E-Mail an %{email} schreibst.
-  spots_available: Die Startplätze sind auf %{count} limitiert.
-  spots_left: Es können sich noch %{count} Personen anmelden.
   accounts:
     create:
       notice: Account erstellt.
@@ -39,7 +34,7 @@ de:
       password: Passwort
   activerecord:
     attributes:
-      participant:
+      participation:
         brings_basegame_english: Basisspiel (englisch)
         brings_basegame_german: Basisspiel (deutsch)
         brings_hellas_and_elysium: Hellas & Elysium
@@ -48,6 +43,10 @@ de:
         comment: Kommentar
         created_at: Anmeldezeitpunkt
         paid: Bezahlt
+      tournament:
+        date: Datum
+        max_participations: Maximale Anzahl Teilnehmer:innen
+        name: Name
       user:
         email_address: E-Mail-Adresse
         locale: Sprache für Kommunikation
@@ -55,16 +54,21 @@ de:
         password: Passwort
         password_confirmation: Passwort bestätigen
     models:
-      participant: Teilnahme
+      participation: Teilnahme
+      tournament: Turnier
+  already_registered: Du bist bereits für das nächste Turnier registriert!
+  create_tournament: Turnier erstellen
   date:
     formats:
       date_with_weekday: "%A, %d. %B %Y"
   de: Deutsch
+  edit: Bearbeiten
+  edit_participation: Teilnahme verwalten
   en: Englisch
   helpers:
     label:
       email_address: E-Mail-Adresse
-      participant:
+      participation:
         brings_basegame_english: Englisch
         brings_basegame_german: Deutsch
         brings_hellas_and_elysium: Hellas & Elysium (beliebige Sprache)
@@ -73,7 +77,7 @@ de:
     submit:
       login:
         create: Einloggen
-      participant:
+      participation:
         create: Registrierung abschicken
       user:
         create: Account erstellen
@@ -89,13 +93,11 @@ de:
       password_forgotten: Passwort vergessen?
       reset: Zurücksetzen
   logout: Ausloggen
+  max_participations: Maximale Teilnehmer:innenanzahl erreicht. Die Registrierung ist geschlossen. Du kannst dich auf die Warteliste setzen lassen, indem du eine E-Mail an %{email} schreibst.
   "no": Nein
   orga_mailer:
     cancellation:
       subject: Absage einer bezahlten Teilnahme
-  participants:
-    index:
-      confirm_payment: Zahlung bestätigen
   participations:
     create:
       notice: Erfolgreich für das Turnier registriert. Eine Bestätigungsmail wird in Kürze versendet.
@@ -111,6 +113,10 @@ de:
       brings_basegame: Das Basisspiel
       brings_prelude: Die Präludium Erweiterung (nicht Präludium 2)
       comment_comment: Möchtest du uns noch etwas mitteilen?
+    index:
+      confirm_confirm_payment: Möchtest du die Zahlung wirklich bestätigen?
+      confirm_payment: Zahlung bestätigen
+      export: Exportieren
     new:
       heading: Bitte teile uns mit, was du zum Turnier mitbringen kannst.
       notice: Du bist bereits für das Turnier registriert.
@@ -148,17 +154,21 @@ de:
   profiles:
     show:
       account_heading: Dein Account
+  register: Jetzt registrieren!
   registrations:
     new:
       heading: Erstelle einen Account
       info: Um dich für das Turnier zu registrieren, musst du zuerst einen Account erstellen. Du wirst deinen Account auch am Turniertag benötigen, um die Punkte der Spiele einzugeben und deine aktuelle Platzierung zu sehen.
+      no_tournaments_planned: Derzeit gibt es keine Turniere, für die man sich anmelden kann.
   shared:
     errors:
       errors: Das Formular enthält die folgenden Fehler
     navigation:
-      participants: Teilnehmer:innen
       profile: Mein Profil
+      tournaments: Turniere
   signup: Registrieren
+  spots_available: Die Startplätze sind auf %{count} limitiert.
+  spots_left: Es können sich noch %{count} Personen anmelden.
   static_pages:
     home:
       terraforming_mars_tournament: Terraforming Mars Turnier
@@ -183,6 +193,16 @@ de:
     formats:
       time_of_day: "%H:%M Uhr"
       time_of_day_short: "%H:%M"
+  tournament_over: Das Turnier hat bereits stattgefunden und die Registrierung ist geschlossen. Bis zum nächsten Mal!
+  tournaments:
+    create:
+      notice: Turnier erstellt.
+    edit:
+      edit_tournament: Turnier bearbeiten
+    tournament:
+      participations: Teilnehmer:innen
+    update:
+      notice: Turnier aktualisiert.
   user_mailer:
     confirmation:
       subject: Bestätigung deiner Registrierung

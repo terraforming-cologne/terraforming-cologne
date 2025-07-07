@@ -3,8 +3,7 @@
 <b>Email</b>
 <p>
   You will receive the most important information via email sent to the address stored in your
-  <%= link_to "profile", :profile %>
-  <%= " (#{Current.user.email_address})" if authenticated? %>.
+  <%= link_to "profile", :profile, class: "link" %><%= " (in your case #{Current.user.email_address})" if authenticated? %>.
 </p>
 
 <br>
@@ -13,7 +12,7 @@
   We have set up a WhatsApp group for questions and last-minute information on the tournament day. However, all
   critical information will be sent via email as described above. So, you won’t miss anything even if you are not part
   of the WhatsApp group. Join the WhatsApp group via
-  <%= link_to "this link", "https://chat.whatsapp.com/DwgJ3hJNPrwDyFWXP3nGBT", class: "link" %>
+  <%= link_to "this link", "https://chat.whatsapp.com/DwgJ3hJNPrwDyFWXP3nGBT", class: "link", target: "_blank" %>
   or scan the QR code below.
 </p>
 

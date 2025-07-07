@@ -3,6 +3,11 @@
   <%= link_to t("signup"), :signup, class: "link" %>
 </div>
 
+<div class="mb-4">
+  <%= tag.span t(".password_forgotten") %>
+  <%= link_to t(".reset"), %i[new password_reset], class: "link" %>
+</div>
+
 <%= form_with model: @login, url: :login, class: "flex flex-col gap-2" do |form| %>
   <%= render "shared/errors", form: form %>
 
@@ -23,10 +28,6 @@
   </div>
 
   <div class="flex items-center justify-between">
-    <div>
-      <%= tag.span t(".password_forgotten") %>
-      <%= link_to t(".reset"), %i[new password_reset], class: "link" %>
-    </div>
-    <%= form.submit class: "inline-block cursor-pointer rounded-lg bg-teal-300 px-4 py-2 font-bold hover:bg-teal-400" %>
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>

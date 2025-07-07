@@ -1,4 +1,14 @@
 <div class="flex flex-col gap-4">
+  <% if Tournament.planned? %>
+    <% if @user.participating? %>
+      <%= turbo_frame_tag @user.next_participation, src: @user.next_participation, target: "_top" %>
+    <% else %>
+      <div class="flex justify-center text-center">
+        <%= render "shared/register_button", tournament: Tournament.next %>
+      </div>
+    <% end %>
+  <% end %>
+
   <div>
     <%= turbo_frame_tag :account, src: :account, target: "_top" %>
   </div>

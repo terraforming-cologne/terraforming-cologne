@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_20_160457) do
-  create_table "participants", force: :cascade do |t|
+ActiveRecord::Schema[8.0].define(version: 2025_07_06_152125) do
+  create_table "participations", force: :cascade do |t|
     t.boolean "brings_basegame_english", default: false, null: false
     t.boolean "brings_prelude_english", default: false, null: false
     t.boolean "brings_hellas_and_elysium", default: false, null: false
@@ -22,7 +22,11 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_20_160457) do
     t.boolean "brings_basegame_german", default: false, null: false
     t.boolean "brings_prelude_german", default: false, null: false
     t.text "comment"
-    t.index ["user_id"], name: "index_participants_on_user_id"
+    t.integer "tournament_id", null: false
+    t.integer "rank"
+    t.index ["tournament_id", "user_id"], name: "index_participations_on_tournament_id_and_user_id", unique: true
+    t.index ["tournament_id"], name: "index_participations_on_tournament_id"
+    t.index ["user_id"], name: "index_participations_on_user_id"
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -32,6 +36,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_20_160457) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_sessions_on_user_id"
+  end
+
+  create_table "tournaments", force: :cascade do |t|
+    t.string "name", null: false
+    t.date "date", null: false
+    t.integer "max_participations", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["date"], name: "index_tournaments_on_date", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,6 +60,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_20_160457) do
     t.index ["name"], name: "index_users_on_name", unique: true
   end
 
-  add_foreign_key "participants", "users"
+  add_foreign_key "participations", "tournaments"
+  add_foreign_key "participations", "users"
   add_foreign_key "sessions", "users"
 end

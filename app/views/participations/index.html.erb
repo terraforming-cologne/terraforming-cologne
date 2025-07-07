@@ -1,0 +1,65 @@
+<% content_for :wide_body do %>
+  <div class="grid grid-cols-[1fr_auto_1fr] items-center">
+    <div><%= link_to t(".export"), [@tournament, :participation, :exports], class: "btn btn-secondary btn-sm" %></div>
+    <h1><%= @tournament.name %></h1>
+  </div>
+  <div class="grid grid-cols-[repeat(10,auto)_1fr_repeat(2,auto)] overflow-x-scroll text-nowrap py-4 *:p-2">
+    <div class="font-bold">#</div>
+    <div class="font-bold"><%= User.human_attribute_name(:name) %></div>
+    <div class="font-bold"><%= User.human_attribute_name(:email_address) %></div>
+    <div class="font-bold"><%= User.human_attribute_name(:locale) %></div>
+    <div class="font-bold"><%= Participation.human_attribute_name(:created_at) %></div>
+    <div class="font-bold"><%= Participation.human_attribute_name(:brings_basegame_english) %>
+      (<%= Participation.where(brings_basegame_english: true).count %>)</div>
+    <div class="font-bold"><%= Participation.human_attribute_name(:brings_basegame_german) %>
+      (<%= Participation.where(brings_basegame_german: true).count %>)
+    </div>
+    <div class="font-bold"><%= Participation.human_attribute_name(:brings_prelude_english) %>
+      (<%= Participation.where(brings_prelude_english: true).count %>)
+    </div>
+    <div class="font-bold"><%= Participation.human_attribute_name(:brings_prelude_german) %>
+      (<%= Participation.where(brings_prelude_german: true).count %>)
+    </div>
+    <div class="font-bold"><%= Participation.human_attribute_name(:brings_hellas_and_elysium) %>
+      (<%= Participation.where(brings_hellas_and_elysium: true).count %>)
+    </div>
+    <div class="font-bold"><%= Participation.human_attribute_name(:comment) %></div>
+    <div class="font-bold"><%= Participation.human_attribute_name(:paid) %>
+      (<%= Participation.where(paid: true).count %>)
+    </div>
+    <div></div>
+    <% @participations.each_with_index do |participation, index| %>
+      <div class="group contents *:p-2 *:group-hover:bg-slate-100">
+        <div><%= index + 1 %></div>
+        <div><%= participation.user.name %></div>
+        <div><%= participation.user.email_address %></div>
+        <div><%= t(participation.user.locale) %></div>
+        <div><%= l(participation.created_at.to_date) %></div>
+        <div><%= participation.brings_basegame_english ? t("yes") : t("no") %></div>
+        <div><%= participation.brings_basegame_german ? t("yes") : t("no") %></div>
+        <div><%= participation.brings_prelude_english ? t("yes") : t("no") %></div>
+        <div><%= participation.brings_prelude_german ? t("yes") : t("no") %></div>
+        <div><%= participation.brings_hellas_and_elysium ? t("yes") : t("no") %></div>
+        <div class="max-w-lg text-wrap"><%= participation.comment %></div>
+        <div><%= participation.paid ? t("yes") : t("no") %></div>
+        <div>
+          <% unless participation.paid? %>
+            <%=
+              button_to t(".confirm_payment"),
+                        :payments,
+                        class:
+                          "ms-auto inline-block cursor-pointer rounded-lg bg-slate-300 px-2 py-1 text-sm font-bold hover:bg-slate-400",
+                        method: :post,
+                        params: {
+                          participation_id: participation.id,
+                        },
+                        data: {
+                          turbo_confirm: t(".confirm_confirm_payment"),
+                        }
+            %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

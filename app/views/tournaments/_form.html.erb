@@ -1,0 +1,24 @@
+<%= form_with model: tournament, class: "flex flex-col gap-2" do |form| %>
+  <%= render "shared/errors", form: form %>
+
+  <div class="flex flex-col gap-1">
+    <%= form.label :name %>
+    <div class="flex flex-col">
+      <%= form.text_field :name, required: true, class: "rounded" %>
+    </div>
+  </div>
+
+  <div class="flex flex-col gap-1">
+    <%= form.label :date %>
+    <%= form.date_field :date, required: true, class: "rounded" %>
+  </div>
+
+  <div class="flex flex-col gap-1">
+    <%= form.label :max_participations %>
+    <%= form.number_field :max_participations, required: true, min: 0, class: "rounded" %>
+  </div>
+
+  <div class="flex">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

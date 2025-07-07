@@ -1,9 +1,5 @@
-class ParticipantPolicy < ApplicationPolicy
+class ParticipationPolicy < ApplicationPolicy
   def index?
-    user.admin?
-  end
-
-  def export?
     user.admin?
   end
 
@@ -16,6 +12,6 @@ class ParticipantPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user.admin? || user == record.user
+    user == record.user
   end
 end
