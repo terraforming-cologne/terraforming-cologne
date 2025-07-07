@@ -29,10 +29,10 @@
   </div>
 
   <div class="flex items-center justify-between">
+    <%= form.submit class: "btn btn-primary" %>
     <div>
       <%= link_to t(".edit_password"), %i[edit password], class: "link", data: { turbo_frame: "_top" } %>
     </div>
-    <%= form.submit class: "inline-block cursor-pointer rounded-lg bg-teal-300 px-4 py-2 font-bold hover:bg-teal-400" %>
   </div>
 <% end %>
 
@@ -41,8 +41,7 @@
     button_to t(".deactivate"),
               :account,
               method: :delete,
-              form_class: "ms-auto",
-              class: "inline-block cursor-pointer rounded-lg bg-rose-400 px-4 py-2 font-bold hover:bg-rose-500",
+              class: "btn btn-danger",
               data: {
                 turbo_frame: "_top",
                 turbo_confirm: t(".deactivate_confirm"),

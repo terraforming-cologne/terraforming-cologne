@@ -8,6 +8,19 @@
     <%= image_tag "logo_with_text.svg", class: "size-48" %>
   </div>
 
+  <% if Tournament.planned? %>
+    <div class="self-center text-center">
+      <% if authenticated? && Current.user.participating? %>
+        <%= tag.div class: "mb-2 rounded bg-emerald-100 p-3 text-emerald-900" do %>
+          <span><%= t("already_registered") %></span>
+          <%= link_to t("edit_participation"), [:edit, Current.user.next_participation], class: "link" %>
+        <% end %>
+      <% else %>
+        <%= render "shared/register_button", tournament: Tournament.next %>
+      <% end %>
+    </div>
+  <% end %>
+
   <div><%= render "looking_back" %></div>
   <hr>
   <div><%= render "rule_clarifications" %></div>

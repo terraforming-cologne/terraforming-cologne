@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_many :sessions, dependent: :destroy
-  has_many :participants, dependent: :restrict_with_error
+  has_many :participations, dependent: :restrict_with_error
 
   scope :active, -> { where(deactivated: false) }
 
@@ -14,8 +14,12 @@ class User < ApplicationRecord
 
   enum :locale, %w[en de].index_by(&:itself), validate: true
 
-  def participating?
-    participants.any?
+  def participating?(tournament = Tournament.next)
+    participations.exists?(tournament: tournament)
+  end
+
+  def next_participation
+    participations.find_by(tournament: Tournament.next)
   end
 
   def deactivate!

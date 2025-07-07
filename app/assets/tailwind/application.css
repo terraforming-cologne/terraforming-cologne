@@ -10,4 +10,30 @@
   .link {
     @apply text-teal-700 underline decoration-2 hover:text-teal-500;
   }
+
+  .btn {
+    @apply inline-block cursor-pointer rounded-lg px-4 py-2 font-bold;
+  }
+
+  .btn-primary {
+    @apply bg-teal-300 hover:bg-teal-400;
+  }
+
+  .btn-secondary {
+    @apply bg-slate-300 hover:bg-slate-400;
+  }
+
+  .btn-danger {
+    @apply bg-rose-400 hover:bg-rose-500;
+  }
+
+  .btn-sm {
+    @apply px-2 py-1 text-sm;
+  }
+}
+
+@layer utilities {
+  .translation_missing {
+    @apply border border-red-500 border-2 text-red-500 text-5xl;
+  }
 }

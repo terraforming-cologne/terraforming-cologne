@@ -1,10 +1,5 @@
 ---
 en:
-  tournament_over: The tournament has already happened and registrations are closed. See you next time!
-  max_participants: Maximum number of participants reached. Registration is closed. You can sign up for the waiting list via Email at %{email}
-  register: Register now!
-  spots_available: Starting places are limited to %{count}.
-  spots_left: "%{count} people can still register."
   accounts:
     create:
       notice: Account created.
@@ -39,7 +34,7 @@ en:
       password: Password
   activerecord:
     attributes:
-      participant:
+      participation:
         brings_basegame_english: Basegame (english)
         brings_basegame_german: Basegame (german)
         brings_hellas_and_elysium: Hellas & Elysium
@@ -48,6 +43,10 @@ en:
         comment: Comment
         created_at: Registration time
         paid: Paid
+      tournament:
+        date: Date
+        max_participations: Maximum number of participants
+        name: Name
       user:
         email_address: Email address
         locale: Communication language
@@ -55,16 +54,20 @@ en:
         password: Password
         password_confirmation: Password confirmation
     models:
-      participant: Participation
+      participation: Participation
+  already_registered: You are already registered for the next tournament!
+  create_tournament: Create Tournament
   date:
     formats:
       date_with_weekday: "%A, %B %d %Y"
   de: German
+  edit: Edit
+  edit_participation: Manage Participation
   en: English
   helpers:
     label:
       email_address: Email address
-      participant:
+      participation:
         brings_basegame_english: English
         brings_basegame_german: German
         brings_hellas_and_elysium: Hellas & Elysium (any language)
@@ -73,7 +76,7 @@ en:
     submit:
       login:
         create: Login
-      participant:
+      participation:
         create: Submit Registration
       user:
         create: Create Account
@@ -89,10 +92,11 @@ en:
       password_forgotten: Forgot your password?
       reset: Reset
   logout: Logout
+  max_participations: Maximum number of participants reached. Registration is closed. You can sign up for the waiting list via Email at %{email}
   "no": "No"
-  participants:
-    index:
-      confirm_payment: Confirm payment
+  orga_mailer:
+    cancellation:
+      subject: Cancellation of a paid participation
   participations:
     create:
       notice: Successfully registered for the tournament. A confirmation email will be sent shortly.
@@ -106,8 +110,12 @@ en:
       bring: I will bring...
       bring_info: If you don't own the base game or the expansions, you don't have to fill out this form and can simply register for the tournament with a click on the button. If you want to bring the base game or one of the expansions multiple times, please write that in the comment below.
       brings_basegame: The basegame
-      brings_prelude: The prelude extension (not prelude 2)
+      brings_prelude: The Prelude extension (not Prelude 2)
       comment_comment: Do you want to tell us something else?
+    index:
+      confirm_confirm_payment: Do you really want to confirm the payment?
+      confirm_payment: Confirm Payment
+      export: Export
     new:
       heading: Please tell us what you can bring to the tournament.
       notice: You are already registered for the tournament.
@@ -145,17 +153,21 @@ en:
   profiles:
     show:
       account_heading: Your Account
+  register: Register now!
   registrations:
     new:
       heading: Create an Account
       info: To register for the tournament, you first need to create an account. You will also need your account on the tournament day in order to enter the scores of the games and see your current standings.
+      no_tournaments_planned: Currently, there are no tournaments to register for.
   shared:
     errors:
       errors: The form contains the following errors
     navigation:
-      participants: Participants
       profile: My profile
+      tournaments: Tournaments
   signup: Signup
+  spots_available: Starting places are limited to %{count}.
+  spots_left: "%{count} people can still register."
   static_pages:
     home:
       terraforming_mars_tournament: Terraforming Mars Tournament
@@ -180,6 +192,16 @@ en:
     formats:
       time_of_day: "%H:%M h"
       time_of_day_short: "%H:%M"
+  tournament_over: The tournament has already happened and registrations are closed. See you next time!
+  tournaments:
+    create:
+      notice: Tournament created.
+    edit:
+      edit_tournament: Edit Tournament
+    tournament:
+      participations: Participations
+    update:
+      notice: Tournament updated.
   user_mailer:
     confirmation:
       subject: Confirmation of your registration

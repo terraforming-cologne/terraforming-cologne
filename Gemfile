@@ -76,6 +76,7 @@ gem "tailwindcss-ruby", "~> 4.0"
 group :development do
   gem "i18n-debug"
   gem "i18n-tasks", require: false
+  gem "hotwire-spark"
 
   # Language tooling
 

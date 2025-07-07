@@ -8,10 +8,6 @@
 
   <div class="flex">
     <%# TODO: t(".submit") is needed here because we have a form without a model %>
-    <%=
-      form.submit t(".submit"),
-                  class:
-                    "ms-auto inline-block cursor-pointer rounded-lg bg-teal-300 px-4 py-2 font-bold hover:bg-teal-400"
-    %>
+    <%= form.submit t(".submit"), class: "btn btn-primary" %>
   </div>
 <% end %>

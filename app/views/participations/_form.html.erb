@@ -1,4 +1,11 @@
-<%= form_with model: participant, url: :participation, class: "flex flex-col gap-4" do |form| %>
+<%=
+  form_with model: participation,
+            url: participation.persisted? ? participation : [participation.tournament, participation],
+            class: "flex flex-col gap-4" do |form|
+%>
+  <%= form.hidden_field :user_id, value: participation.user_id %>
+  <%= form.hidden_field :tournament_id, value: participation.tournament_id %>
+
   <%= render "shared/errors", form: form %>
 
   <%= tag.p t(".bring_info") %>
@@ -48,9 +55,6 @@
   </div>
 
   <div class="flex">
-    <%=
-      form.submit class:
-                    "ms-auto inline-block cursor-pointer rounded-lg bg-teal-300 px-4 py-2 font-bold hover:bg-teal-400"
-    %>
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>

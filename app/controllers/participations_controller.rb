@@ -1,26 +1,26 @@
 class ParticipationsController < ApplicationController
   allow_unauthorized_access
 
-  # Tournament is over
-  before_action do
-    redirect_to :root, notice: t("tournament_over")
+  before_action :set_participation, only: [:show, :edit, :update, :destroy]
+  before_action :set_tournament, only: [:index, :new, :create]
+
+  def index
+    @participations = @tournament.participations
   end
 
-  before_action :set_participant, only: [:show, :edit, :update, :destroy]
-
   def show
-    authorize @participant
+    authorize @participation
   end
 
   def new
-    redirect_to :root, notice: t(".notice") and return if authenticated? && Current.user.participating?
+    redirect_to :root, notice: t(".notice") and return if Tournament.planned? && authenticated? && Current.user.participating?
 
-    @participant = Current.user.participants.new
+    @participation = Participation.new(tournament: @tournament, user: Current.user)
   end
 
   def create
-    @participant = Current.user.participants.new(participant_params)
-    if @participant.save
+    @participation = Participation.new(participation_params)
+    if @participation.save
       redirect_to :profile, notice: t(".notice")
     else
       render :new, status: :unprocessable_entity
@@ -28,12 +28,12 @@ class ParticipationsController < ApplicationController
   end
 
   def edit
-    authorize @participant
+    authorize @participation
   end
 
   def update
-    authorize @participant
-    if @participant.update(participant_params)
+    authorize @participation
+    if @participation.update(participation_params)
       redirect_to :profile
     else
       render :edit, status: :unprocessable_entity
@@ -41,18 +41,22 @@ class ParticipationsController < ApplicationController
   end
 
   def destroy
-    authorize @participant
-    @participant.destroy!
+    authorize @participation
+    @participation.destroy!
     redirect_to :profile, notice: t(".notice")
   end
 
   private
 
-  def set_participant
-    @participant = Current.user.participants.first!
+  def set_participation
+    @participation = Participation.find(params.expect(:id))
   end
 
-  def participant_params
-    params.expect(participant: [:brings_basegame_english, :brings_basegame_german, :brings_prelude_english, :brings_prelude_german, :brings_hellas_and_elysium, :comment])
+  def set_tournament
+    @tournament = Tournament.find(params.expect(:tournament_id))
+  end
+
+  def participation_params
+    params.expect(participation: [:user_id, :tournament_id, :brings_basegame_english, :brings_basegame_german, :brings_prelude_english, :brings_prelude_german, :brings_hellas_and_elysium, :comment])
   end
 end

@@ -1,25 +1,28 @@
 Rails.application.routes.draw do
   mount MissionControl::Jobs::Engine, at: "/jobs"
 
-  resource :account, only: [:show, :edit, :create, :update, :destroy]
-  resource :locales, only: [:update]
-  resources :participants, only: [:index] do
-    collection do
-      get :export
-    end
-  end
-  resource :participation, only: [:show, :new, :edit, :create, :update, :destroy]
-  resource :password, only: [:edit, :update]
-  resources :password_resets, only: [:new, :edit, :create, :update], param: :token
-  resources :payments, only: [:new, :create]
-  resource :profile, only: [:show]
-  resource :login, only: [:create]
+  # Tournament
 
-  get :login, to: "logins#new"
-  delete :logout, to: "logins#destroy"
-  get :signup, to: "accounts#new"
+  resources :tournaments, only: [:index, :new, :create, :edit, :update] do
+    resources :participations, shallow: true
+    resources :participation_exports, only: :create
+  end
+  resources :payments, only: [:new, :create]
 
   get :register, to: "registrations#new"
+
+  # User
+
+  resource :account, only: [:show, :edit, :create, :update, :destroy]
+  resource :locale, only: [:update]
+  resource :login, only: [:create]
+  resource :password, only: [:edit, :update]
+  resources :password_resets, only: [:new, :edit, :create, :update], param: :token
+  resource :profile, only: [:show]
+
+  get :signup, to: "accounts#new"
+  get :login, to: "logins#new"
+  delete :logout, to: "logins#destroy"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

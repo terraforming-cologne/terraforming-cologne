@@ -1,8 +1,8 @@
-<%= turbo_frame_tag @participant do %>
+<%= turbo_frame_tag @participation do %>
   <div class="flex flex-col gap-4">
     <%= tag.h1 t(".heading"), class: "text-xl font-bold" %>
 
-    <% if @participant.paid? %>
+    <% if @participation.paid? %>
       <%=
         tag.div class:
                   "inline-flex items-center gap-1 self-start rounded-full bg-emerald-100 px-2 py-1 font-medium text-emerald-900 ring-1 ring-inset ring-emerald-900/10" do
@@ -57,22 +57,22 @@
 
     <ul class="list-inside list-disc">
       <%= tag.li t(".fun") %>
-      <%= tag.li t(".brings_basegame_english") if @participant.brings_basegame_english? %>
-      <%= tag.li t(".brings_basegame_german") if @participant.brings_basegame_german? %>
-      <%= tag.li t(".brings_prelude_english") if @participant.brings_prelude_english? %>
-      <%= tag.li t(".brings_prelude_german") if @participant.brings_prelude_german? %>
-      <%= tag.li t(".brings_hellas_and_elysium") if @participant.brings_hellas_and_elysium? %>
+      <%= tag.li t(".brings_basegame_english") if @participation.brings_basegame_english? %>
+      <%= tag.li t(".brings_basegame_german") if @participation.brings_basegame_german? %>
+      <%= tag.li t(".brings_prelude_english") if @participation.brings_prelude_english? %>
+      <%= tag.li t(".brings_prelude_german") if @participation.brings_prelude_german? %>
+      <%= tag.li t(".brings_hellas_and_elysium") if @participation.brings_hellas_and_elysium? %>
     </ul>
 
-    <% if @participant.comment.present? %>
+    <% if @participation.comment.present? %>
       <div>
-        <%= tag.span Participant.human_attribute_name(:comment), class: "font-bold" %>:
+        <%= tag.span Participation.human_attribute_name(:comment), class: "font-bold" %>:
         <p>
-          <%= @participant.comment %>
+          <%= @participation.comment %>
         </p>
       </div>
     <% end %>
 
-    <%= link_to t(".edit_participation"), %i[edit participation], class: "link" %>
+    <%= link_to t(".edit_participation"), [:edit, @participation], class: "link" %>
   </div>
 <% end %>
