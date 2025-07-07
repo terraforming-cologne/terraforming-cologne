@@ -55,6 +55,7 @@ en:
         password_confirmation: Password confirmation
     models:
       participation: Participation
+      tournament: Tournament
   already_registered: You are already registered for the next tournament!
   create_tournament: Create Tournament
   date:
