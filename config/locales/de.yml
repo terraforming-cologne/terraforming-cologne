@@ -189,6 +189,8 @@ de:
       too_late: Solltet ihr zu spät kommen, dann gebt auf jeden Fall Bescheid. Je nachdem wie viel zu spät ihr seid, versuchen wir euch euren Platz zu sichern oder erlauben uns den Platz anderweitig zu vergeben.
     spirit:
       heading: Turnierspirit
+    we_are_back:
+      heading: Wir sind zurück!
   time:
     formats:
       time_of_day: "%H:%M Uhr"
