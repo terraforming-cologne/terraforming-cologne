@@ -19,16 +19,16 @@
     <span class="font-bold"><%= t(".date") %></span>
   </div>
   <div>
-    <%= time_tag Date.new(2025, 4, 5), format: :date_with_weekday %>
+    <%= time_tag Date.new(2025, 11, 15), format: :date_with_weekday %>
   </div>
 
   <div>
     <span class="font-bold"><%= t(".time") %></span>
   </div>
   <div>
-    <%= time_tag Time.zone.local(2025, 4, 5, 9), format: :time_of_day %>
+    <%= time_tag Time.zone.local(2025, 11, 15, 9), format: :time_of_day %>
     -
-    <%= time_tag Time.zone.local(2025, 4, 5, 19), format: :time_of_day %>
+    <%= time_tag Time.zone.local(2025, 11, 15, 19), format: :time_of_day %>
   </div>
 
   <div class="col-span-2 grid grid-cols-subgrid">
@@ -38,51 +38,51 @@
     <div></div>
 
     <div>
-      <%= time_tag Time.zone.local(2025, 4, 5, 9), format: :time_of_day_short %>
+      <%= time_tag Time.zone.local(2025, 11, 15, 9), format: :time_of_day_short %>
       -
-      <%= time_tag Time.zone.local(2025, 4, 5, 10), format: :time_of_day_short %>
+      <%= time_tag Time.zone.local(2025, 11, 15, 10), format: :time_of_day_short %>
     </div>
     <div><%= t(".schedule_item.registration") %></div>
 
     <div>
-      <%= time_tag Time.zone.local(2025, 4, 5, 10), format: :time_of_day_short %>
+      <%= time_tag Time.zone.local(2025, 11, 15, 10), format: :time_of_day_short %>
       -
-      <%= time_tag Time.zone.local(2025, 4, 5, 12, 30), format: :time_of_day_short %>
+      <%= time_tag Time.zone.local(2025, 11, 15, 12, 30), format: :time_of_day_short %>
     </div>
     <div><%= t(".schedule_item.first_round") %></div>
 
     <div>
-      <%= time_tag Time.zone.local(2025, 4, 5, 12, 30), format: :time_of_day_short %>
+      <%= time_tag Time.zone.local(2025, 11, 15, 12, 30), format: :time_of_day_short %>
       -
-      <%= time_tag Time.zone.local(2025, 4, 5, 12, 45), format: :time_of_day_short %>
+      <%= time_tag Time.zone.local(2025, 11, 15, 12, 45), format: :time_of_day_short %>
     </div>
     <div><%= t(".schedule_item.break") %></div>
 
     <div>
-      <%= time_tag Time.zone.local(2025, 4, 5, 12, 45), format: :time_of_day_short %>
+      <%= time_tag Time.zone.local(2025, 11, 15, 12, 45), format: :time_of_day_short %>
       -
-      <%= time_tag Time.zone.local(2025, 4, 5, 15, 15), format: :time_of_day_short %>
+      <%= time_tag Time.zone.local(2025, 11, 15, 15, 15), format: :time_of_day_short %>
     </div>
     <div><%= t(".schedule_item.second_round") %></div>
 
     <div>
-      <%= time_tag Time.zone.local(2025, 4, 5, 15, 15), format: :time_of_day_short %>
+      <%= time_tag Time.zone.local(2025, 11, 15, 15, 15), format: :time_of_day_short %>
       -
-      <%= time_tag Time.zone.local(2025, 4, 5, 15, 45), format: :time_of_day_short %>
+      <%= time_tag Time.zone.local(2025, 11, 15, 15, 45), format: :time_of_day_short %>
     </div>
     <div><%= t(".schedule_item.break") %></div>
 
     <div>
-      <%= time_tag Time.zone.local(2025, 4, 5, 15, 45), format: :time_of_day_short %>
+      <%= time_tag Time.zone.local(2025, 11, 15, 15, 45), format: :time_of_day_short %>
       -
-      <%= time_tag Time.zone.local(2025, 4, 5, 18, 15), format: :time_of_day_short %>
+      <%= time_tag Time.zone.local(2025, 11, 15, 18, 15), format: :time_of_day_short %>
     </div>
     <div><%= t(".schedule_item.third_round") %></div>
 
     <div>
-      <%= time_tag Time.zone.local(2025, 4, 5, 18, 15), format: :time_of_day_short %>
+      <%= time_tag Time.zone.local(2025, 11, 15, 18, 15), format: :time_of_day_short %>
       -
-      <%= time_tag Time.zone.local(2025, 4, 5, 19, 00), format: :time_of_day_short %>
+      <%= time_tag Time.zone.local(2025, 11, 15, 19, 00), format: :time_of_day_short %>
     </div>
     <div><%= t(".schedule_item.round_up") %></div>
   </div>
