@@ -1,7 +1,8 @@
 <% content_for :wide_body do %>
   <div class="grid grid-cols-[1fr_auto_1fr] items-center">
-    <div><%= link_to t(".export"), [@tournament, :participation, :exports], class: "btn btn-secondary btn-sm" %></div>
+    <div></div>
     <h1><%= @tournament.name %></h1>
+    <div></div>
   </div>
   <div class="grid grid-cols-[repeat(10,auto)_1fr_repeat(2,auto)] overflow-x-scroll text-nowrap py-4 *:p-2">
     <div class="font-bold">#</div>

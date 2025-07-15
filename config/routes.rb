@@ -5,7 +5,6 @@ Rails.application.routes.draw do
 
   resources :tournaments, only: [:index, :new, :create, :edit, :update] do
     resources :participations, shallow: true
-    resources :participation_exports, only: :create
   end
   resources :payments, only: [:new, :create]
 
