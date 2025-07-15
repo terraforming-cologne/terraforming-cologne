@@ -205,6 +205,7 @@ de:
       participations: Teilnehmer:innen
     update:
       notice: Turnier aktualisiert.
+  try_again_later: Bitte versuche es später noch einmal.
   user_mailer:
     confirmation:
       subject: Bestätigung deiner Registrierung
