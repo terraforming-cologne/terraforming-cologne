@@ -1,6 +1,8 @@
 class ParticipationsController < ApplicationController
   allow_unauthorized_access
 
+  spam_protect only: :create
+
   before_action :set_participation, only: [:show, :edit, :update, :destroy]
   before_action :set_tournament, only: [:index, :new, :create]
 

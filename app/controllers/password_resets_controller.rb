@@ -2,6 +2,8 @@ class PasswordResetsController < ApplicationController
   allow_unauthenticated_access
   allow_unauthorized_access
 
+  spam_protect only: :create
+
   before_action :set_user, only: [:edit, :update]
   before_action :set_password, only: [:edit, :update]
 
