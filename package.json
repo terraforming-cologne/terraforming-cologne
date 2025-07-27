@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "prettier": "^3.4.2",
+    "tailwindcss": "^4.1.11",
     "tailwindcss-class-sorter-erb": "^0.13.0"
   }
 }
