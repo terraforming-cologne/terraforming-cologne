@@ -10,6 +10,7 @@ en:
     destroy:
       notice: Successfully logged out.
     new:
+      heading: Login
       no_account_yet: Don't have an account yet?
       password_forgotten: Forgot your password?
       reset: Reset

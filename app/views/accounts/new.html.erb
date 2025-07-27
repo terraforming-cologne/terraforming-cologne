@@ -1,7 +1,9 @@
+<h1><%= t(".heading") %></h1>
+
 <%= turbo_frame_tag :signup, target: "_top" do %>
   <div class="mb-4">
     <%= tag.span t(".already_has_account") %>
     <%= link_to t("login"), :login, class: "link" %>
   </div>
-  <%= render "form", user: @user %>
+  <%= render "new_form", user: @user %>
 <% end %>

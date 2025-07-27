@@ -8,15 +8,17 @@ en:
     edit:
       deactivate: Deactivate Account
       deactivate_confirm: Confirm the deactivation of your account?
-      edit_password: Change Password
       heading: Manage Account
-      name_caution: Will be used to identify your payment.
-    form:
-      name_caution: Will be used to identify your payment.
+    edit_form:
+      edit_password: Change Password
+      name_caution: Will be used to identify your payments.
     new:
       already_has_account: Already have an account?
+      heading: Create Account
+    new_form:
+      name_caution: Will be used to identify your payments.
     show:
       edit: Manage Account
-      heading: Your Data
+      heading: Your Account
     update:
       notice: Account updated.

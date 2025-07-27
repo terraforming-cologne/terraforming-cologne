@@ -1,4 +1,6 @@
-<%= form_with model: user, url: :account, class: "flex flex-col gap-2" do |form| %>
+<%# locals: (user:) %>
+
+<%= form_with model: user, url: :account, class: "flex flex-col gap-4" do |form| %>
   <%= render "shared/errors", form: form %>
 
   <div class="flex flex-col gap-1">

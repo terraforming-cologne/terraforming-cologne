@@ -1,7 +1,8 @@
 ---
 en:
   static_pages:
-    index:
+    intro:
+      german_open: German Open
       terraforming_mars_tournament: Terraforming Mars Tournament
     quick_info:
       date: Date

@@ -10,6 +10,7 @@ de:
     destroy:
       notice: Erfolgreich ausgeloggt.
     new:
+      heading: Einloggen
       no_account_yet: Noch keinen Account?
       password_forgotten: Passwort vergessen?
       reset: Zurücksetzen

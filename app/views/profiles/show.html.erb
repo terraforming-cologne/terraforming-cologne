@@ -1,4 +1,4 @@
-<div class="flex flex-col gap-4">
+<div class="flex flex-col gap-16">
   <% if Tournament.planned? %>
     <% if @user.participating? %>
       <%= turbo_frame_tag @user.next_participation, src: @user.next_participation, target: "_top" %>
