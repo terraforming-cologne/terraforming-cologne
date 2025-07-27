@@ -1,0 +1,12 @@
+---
+en:
+  password_resets:
+    create:
+      notice: An email containing further instructions will be sent to the entered address.
+    edit:
+      heading: Reset Password
+    new:
+      heading: Forgot your password?
+      submit: Reset Password
+    update:
+      notice: Password reset.

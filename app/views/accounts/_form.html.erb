@@ -18,11 +18,11 @@
     <%= form.label :password %>
     <%=
       form.password_field :password,
-                          required: true,
-                          autocomplete: "new-password",
-                          minlength: 8,
-                          maxlength: 72,
-                          class: "rounded"
+        required: true,
+        autocomplete: "new-password",
+        minlength: 8,
+        maxlength: 72,
+        class: "rounded"
     %>
   </div>
 
@@ -30,11 +30,11 @@
     <%= form.label :password_confirmation %>
     <%=
       form.password_field :password_confirmation,
-                          required: true,
-                          autocomplete: "new-password",
-                          minlength: 8,
-                          maxlength: 72,
-                          class: "rounded"
+        required: true,
+        autocomplete: "new-password",
+        minlength: 8,
+        maxlength: 72,
+        class: "rounded"
     %>
   </div>
 
@@ -42,11 +42,11 @@
     <%= form.label :locale %>
     <%=
       form.collection_select :locale,
-                             I18n.available_locales,
-                             :to_s,
-                             ->(locale) { t(locale) },
-                             { selected: (user.locale.presence || cookies[:locale]).to_s, include_blank: false },
-                             class: "rounded"
+        I18n.available_locales,
+        :to_s,
+        ->(locale) { t(locale) },
+        {selected: (user.locale.presence || cookies[:locale]).to_s, include_blank: false},
+        class: "rounded"
     %>
   </div>
 

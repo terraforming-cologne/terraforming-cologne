@@ -4,7 +4,7 @@
     <h1><%= @tournament.name %></h1>
     <div></div>
   </div>
-  <div class="grid grid-cols-[repeat(10,auto)_1fr_repeat(2,auto)] overflow-x-scroll text-nowrap py-4 *:p-2">
+  <div class="grid grid-cols-[repeat(10,auto)_1fr_repeat(2,auto)] overflow-x-scroll py-4 text-nowrap *:p-2">
     <div class="font-bold">#</div>
     <div class="font-bold"><%= User.human_attribute_name(:name) %></div>
     <div class="font-bold"><%= User.human_attribute_name(:email_address) %></div>
@@ -47,16 +47,16 @@
           <% unless participation.paid? %>
             <%=
               button_to t(".confirm_payment"),
-                        :payments,
-                        class:
-                          "ms-auto inline-block cursor-pointer rounded-lg bg-slate-300 px-2 py-1 text-sm font-bold hover:bg-slate-400",
-                        method: :post,
-                        params: {
-                          participation_id: participation.id,
-                        },
-                        data: {
-                          turbo_confirm: t(".confirm_confirm_payment"),
-                        }
+                :payments,
+                class:
+                  "ms-auto inline-block cursor-pointer rounded-lg bg-slate-300 px-2 py-1 text-sm font-bold hover:bg-slate-400",
+                method: :post,
+                params: {
+                  participation_id: participation.id
+                },
+                data: {
+                  turbo_confirm: t(".confirm_confirm_payment")
+                }
             %>
           <% end %>
         </div>

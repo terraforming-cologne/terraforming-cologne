@@ -1,0 +1,5 @@
+---
+de:
+  passwords_mailer:
+    reset:
+      subject: Dein Passwort zurücksetzen

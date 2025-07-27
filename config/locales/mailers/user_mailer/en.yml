@@ -1,0 +1,7 @@
+---
+en:
+  user_mailer:
+    confirmation:
+      subject: Confirmation of your registration
+    paid:
+      subject: Confirmation of your payment

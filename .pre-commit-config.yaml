@@ -18,3 +18,10 @@ repos:
         language: system
         entry: npm
         args: ["exec", "prettier", "--", "--write", "--ignore-unknown"]
+      - id: i18n-tasks
+        name: i18n-tasks
+        language: system
+        entry: bundle
+        args: ["exec", "i18n-tasks", "normalize"]
+        always_run: true
+        pass_filenames: false

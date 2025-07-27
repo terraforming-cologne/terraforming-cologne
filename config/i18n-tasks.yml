@@ -15,6 +15,8 @@ data:
 
   # Locale files or `Dir.glob` patterns where translations are read from:
   read:
+    - config/locales/**/**/%{locale}.yml
+    - config/locales/**/%{locale}.yml
     ## Default:
     # - config/locales/%{locale}.yml
     ## More files:
@@ -34,7 +36,7 @@ data:
     ## Example (replace %#= with %=):
     # - "<%#= %x[bundle info vagrant --path].chomp %>/templates/locales/%{locale}.yml"
 
-  ## Specify the router (see Readme for details). Valid values: conservative_router, pattern_router, or a custom class.
+  ## Specify the router (see Readme for details). Valid values: conservative_router, pattern_router, isolating_router, or a custom class.
   # router: conservative_router
 
   yaml:
@@ -85,7 +87,7 @@ search:
   # only: ["*.rb", "*.html.slim"]
 
   ## If `strict` is `false`, guess usages such as t("categories.#{category}.title"). The default is `true`.
-  # strict: true
+  strict: false
 
   ## Allows adding ast_matchers for finding translations using the AST-scanners
   ## The available matchers are:
@@ -121,7 +123,7 @@ search:
 #     formality: prefer_less
 #   # OpenAI
 #   openai_api_key: "sk-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-#   # openai_model: "gpt-3.5-turbo" # see https://platform.openai.com/docs/models
+#   # openai_model: "gpt-4o-mini" # see https://platform.openai.com/docs/models
 #   # may contain `%{from}` and `%{to}`, which will be replaced by source and target locale codes, respectively (using `Kernel.format`)
 #   # openai_system_prompt: >-
 #   #   You are a professional translator that translates content from the %{from} locale

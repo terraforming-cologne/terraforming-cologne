@@ -1,0 +1,5 @@
+---
+de:
+  orga_mailer:
+    cancellation:
+      subject: Absage einer bezahlten Teilnahme

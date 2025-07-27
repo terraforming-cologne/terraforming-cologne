@@ -1,0 +1,22 @@
+---
+en:
+  accounts:
+    create:
+      notice: Account created.
+    destroy:
+      notice: Account deactivated.
+    edit:
+      deactivate: Deactivate Account
+      deactivate_confirm: Confirm the deactivation of your account?
+      edit_password: Change Password
+      heading: Manage Account
+      name_caution: Will be used to identify your payment.
+    form:
+      name_caution: Will be used to identify your payment.
+    new:
+      already_has_account: Already have an account?
+    show:
+      edit: Manage Account
+      heading: Your Data
+    update:
+      notice: Account updated.

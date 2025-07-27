@@ -1,0 +1,24 @@
+---
+de:
+  static_pages:
+    index:
+      terraforming_mars_tournament: Terraforming Mars Turnier
+    quick_info:
+      date: Datum
+      heading: Auf einen Blick
+      location: Ort
+      participation_fee: Teilnahmegebühr
+      schedule: Zeitplan
+      schedule_item:
+        break: Pause
+        first_round: 1. Runde (Tharsis)
+        registration: Ankommen + Registrierung
+        round_up: Abschluss + Preisverleihung
+        second_round: 2. Runde (Hellas)
+        third_round: 3. Runde (Elysium)
+      time: Zeit
+      too_late: Solltet ihr zu spät kommen, dann gebt auf jeden Fall Bescheid. Je nachdem wie viel zu spät ihr seid, versuchen wir euch euren Platz zu sichern oder erlauben uns den Platz anderweitig zu vergeben.
+    spirit:
+      heading: Turnierspirit
+    we_are_back:
+      heading: Wir sind zurück!

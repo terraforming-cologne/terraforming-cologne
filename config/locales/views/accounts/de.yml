@@ -1,0 +1,22 @@
+---
+de:
+  accounts:
+    create:
+      notice: Account erstellt.
+    destroy:
+      notice: Account deaktiviert.
+    edit:
+      deactivate: Account deaktivieren
+      deactivate_confirm: Die Deaktivierung deines Accounts bestätigen?
+      edit_password: Passwort ändern
+      heading: Account verwalten
+      name_caution: Wird verwendet um deine Zahlung zuzuordnen.
+    form:
+      name_caution: Wird verwendet um deine Zahlung zuzuordnen.
+    new:
+      already_has_account: Bereits registriert?
+    show:
+      edit: Account verwalten
+      heading: Deine Daten
+    update:
+      notice: Account aktualisiert.

@@ -9,7 +9,7 @@
     <%= csp_meta_tag %>
 
     <%= turbo_refreshes_with method: :morph, scroll: :preserve %>
-    <meta name="view-transition" content="same-origin"/>
+    <meta name="view-transition" content="same-origin">
 
     <%= yield :head %>
 
@@ -24,8 +24,8 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="my-4">
-    <nav class="mx-auto max-w-5xl px-4">
+  <body class="my-4 [--page-padding:--spacing(4)]">
+    <nav class="mx-auto max-w-5xl px-(--page-padding)">
       <%= render "shared/navigation" %>
       <%= render "shared/flashes" %>
     </nav>

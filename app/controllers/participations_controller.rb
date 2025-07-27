@@ -36,7 +36,7 @@ class ParticipationsController < ApplicationController
   def update
     authorize @participation
     if @participation.update(participation_params)
-      redirect_to :profile
+      redirect_to :profile, notice: t(".notice")
     else
       render :edit, status: :unprocessable_entity
     end

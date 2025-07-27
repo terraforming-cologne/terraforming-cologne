@@ -2,10 +2,10 @@ require:
   - standard
 
 plugins:
+  - rubocop-rails
   - standard-performance
   - standard-rails
   - rubocop-performance
-  - rubocop-rails
 
 inherit_gem:
   standard: config/base.yml
@@ -15,43 +15,3 @@ inherit_gem:
 AllCops:
   NewCops: disable
   SuggestExtensions: false
-  Exclude:
-    - db/schema.rb
-    - db/migrate/20200420105435_create_users.rb
-    - db/migrate/20200425222627_add_activation_to_users.rb
-    - db/migrate/20200428111632_add_reset_to_users.rb
-    - db/migrate/20200516143220_create_contracts.rb
-    - db/migrate/20200529071716_create_working_time_entries.rb
-    - db/migrate/20200622083106_adds_index_and_recived_to_cases.rb
-    - db/migrate/20200622083713_add_settled.rb
-    - db/migrate/20200625140909_change_macros_text_column_type.rb
-    - db/migrate/20200629110402_cases_settled_default_value.rb
-    - db/migrate/20200813114450_add_column_admin_only_to_macro_categories.rb
-    - db/migrate/20201003123032_add_column_settled_to_working_time_entries.rb
-    - db/migrate/20201012071806_remove_column_settled_from_working_time_entries.rb
-    - db/migrate/20201016080450_change_case_settled_to_state.rb
-    - db/migrate/20201016093006_add_initial_and_color_to_user.rb
-    - db/migrate/20201022090313_create_holiday_periods.rb
-    - db/migrate/20201103114033_remove_column_admin_from_user.rb
-    - db/migrate/20201121134430_create_cs_processings.rb
-    - db/migrate/20201121140308_create_cs_coverages.rb
-    - db/migrate/20220103163047_fix2022_integer_overflow.rb
-    - db/migrate/20220518152824_remove_user_columns.rb
-    - db/migrate/20220519110322_add_keycloak_id_to_users.rb
-    - db/migrate/20221102094843_create_working_time_pref_special_requests.rb
-    - db/migrate/20230921122412_add_state_and_scheduled_time_to_news.rb
-    - db/migrate/20230926145458_add_archived_boolean_to_news.rb
-    - db/migrate/20231012115411_add_service_name_to_active_storage_blobs.active_storage.rb
-    - db/migrate/20231012115412_create_active_storage_variant_records.active_storage.rb
-    - db/migrate/20231030094232_change_cs_processings_columns.rb
-    - db/migrate/20231102095553_fix_boolean_tri_state.rb
-    - db/migrate/20231116160418_add_slug_to_users.rb
-    - db/migrate/20231221101018_update_contracts.rb
-    - db/migrate/20231221121127_update_vacations.rb
-    - db/migrate/20231221121139_update_sick_notes.rb
-    - db/migrate/20231221140936_update_roster_entries.rb
-    - db/migrate/20231221143714_update_work_times.rb
-    - db/migrate/20231221155707_move_settlements_to_user.rb
-    - db/migrate/20240220115102_add_reditus_time_to_malteser_cases.rb
-    - db/migrate/20240319130622_upgrade_noticed.rb
-    - db/migrate/20241216150340_create_savings_tables.rb

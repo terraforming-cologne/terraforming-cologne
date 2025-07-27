@@ -5,7 +5,7 @@
     <% if @participation.paid? %>
       <%=
         tag.div class:
-                  "inline-flex items-center gap-1 self-start rounded-full bg-emerald-100 px-2 py-1 font-medium text-emerald-900 ring-1 ring-inset ring-emerald-900/10" do
+                  "inline-flex items-center gap-1 self-start rounded-full bg-emerald-100 px-2 py-1 font-medium text-emerald-900 ring-1 ring-emerald-900/10 ring-inset" do
       %>
 
         <svg
@@ -28,7 +28,7 @@
     <% else %>
       <%=
         tag.div class:
-                  "inline-flex items-center gap-1 self-start rounded-full bg-rose-100 px-2 py-1 font-medium text-rose-900 ring-1 ring-inset ring-rose-900/10" do
+                  "inline-flex items-center gap-1 self-start rounded-full bg-rose-100 px-2 py-1 font-medium text-rose-900 ring-1 ring-rose-900/10 ring-inset" do
       %>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -51,18 +51,19 @@
       <%= render "shared/bank_details" %>
     <% end %>
 
-    <div>
-      <%= tag.span t(".bring") %>
-    </div>
+    <% if @participation.brings_anything? %>
+      <div>
+        <%= tag.span t(".bring") %>
+      </div>
 
-    <ul class="list-inside list-disc">
-      <%= tag.li t(".fun") %>
-      <%= tag.li t(".brings_basegame_english") if @participation.brings_basegame_english? %>
-      <%= tag.li t(".brings_basegame_german") if @participation.brings_basegame_german? %>
-      <%= tag.li t(".brings_prelude_english") if @participation.brings_prelude_english? %>
-      <%= tag.li t(".brings_prelude_german") if @participation.brings_prelude_german? %>
-      <%= tag.li t(".brings_hellas_and_elysium") if @participation.brings_hellas_and_elysium? %>
-    </ul>
+      <ul class="list-inside list-disc">
+        <%= tag.li t(".brings_basegame_english") if @participation.brings_basegame_english? %>
+        <%= tag.li t(".brings_basegame_german") if @participation.brings_basegame_german? %>
+        <%= tag.li t(".brings_prelude_english") if @participation.brings_prelude_english? %>
+        <%= tag.li t(".brings_prelude_german") if @participation.brings_prelude_german? %>
+        <%= tag.li t(".brings_hellas_and_elysium") if @participation.brings_hellas_and_elysium? %>
+      </ul>
+    <% end %>
 
     <% if @participation.comment.present? %>
       <div>

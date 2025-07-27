@@ -26,7 +26,7 @@ class AccountsController < ApplicationController
 
   def update
     if @user.update(params.expect(user: [:name, :email_address, :locale]))
-      redirect_to :profile
+      redirect_to :profile, notice: t(".notice")
     else
       render :edit, status: :unprocessable_entity
     end

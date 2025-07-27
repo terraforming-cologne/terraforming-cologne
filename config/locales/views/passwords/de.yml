@@ -1,0 +1,7 @@
+---
+de:
+  passwords:
+    edit:
+      heading: Passwort ändern
+    update:
+      notice: Passwort geändert.

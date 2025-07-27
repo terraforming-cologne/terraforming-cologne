@@ -1,0 +1,8 @@
+---
+de:
+  shared:
+    errors:
+      errors: Das Formular enthält die folgenden Fehler
+    navigation:
+      profile: Mein Profil
+      tournaments: Turniere

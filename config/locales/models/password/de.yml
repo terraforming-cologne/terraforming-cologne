@@ -1,0 +1,11 @@
+---
+de:
+  activemodel:
+    attributes:
+      password:
+        password: Neues Passwort
+        password_confirmation: Passwort bestätigen
+    models:
+      password: Passwort
+  models:
+    password: Passwort

@@ -6,8 +6,8 @@ user = User.create!(
   name: "Admin",
   admin: true,
   email_address: "admin@example.com",
-  password: "password",
-  password_confirmation: "password",
+  password: "asdfasdf",
+  password_confirmation: "asdfasdf",
   locale: :en
 )
 tournament = Tournament.create!(

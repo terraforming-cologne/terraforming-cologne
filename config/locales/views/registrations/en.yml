@@ -1,0 +1,7 @@
+---
+en:
+  registrations:
+    new:
+      heading: Create an Account
+      info: To register for the tournament, you first need to create an account. You will also need your account on the tournament day in order to enter the scores of the games and see your current standings.
+      no_tournaments_planned: Currently, there are no tournaments to register for.
