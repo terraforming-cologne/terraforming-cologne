@@ -1,79 +1,9 @@
 <%= turbo_frame_tag @participation do %>
-  <div class="flex flex-col gap-4">
-    <%= tag.h1 t(".heading"), class: "text-xl font-bold" %>
+  <h1><%= t(".heading") %></h1>
 
-    <% if @participation.paid? %>
-      <%=
-        tag.div class:
-                  "inline-flex items-center gap-1 self-start rounded-full bg-emerald-100 px-2 py-1 font-medium text-emerald-900 ring-1 ring-emerald-900/10 ring-inset" do
-      %>
+  <%= render "tournament_info", tournament: @participation.tournament %>
 
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="size-6"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-          />
-        </svg>
+  <%= render "payment_status", participation: @participation %>
 
-        <%= tag.span t(".paid") %>
-      <% end %>
-    <% else %>
-      <%=
-        tag.div class:
-                  "inline-flex items-center gap-1 self-start rounded-full bg-rose-100 px-2 py-1 font-medium text-rose-900 ring-1 ring-rose-900/10 ring-inset" do
-      %>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="size-6"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-          />
-        </svg>
-        <%= t(".payment_pending") %>
-      <% end %>
-
-      <span><%= t(".finalize_registration") %></span>
-      <%= render "shared/bank_details" %>
-    <% end %>
-
-    <% if @participation.brings_anything? %>
-      <div>
-        <%= tag.span t(".bring") %>
-      </div>
-
-      <ul class="list-inside list-disc">
-        <%= tag.li t(".brings_basegame_english") if @participation.brings_basegame_english? %>
-        <%= tag.li t(".brings_basegame_german") if @participation.brings_basegame_german? %>
-        <%= tag.li t(".brings_prelude_english") if @participation.brings_prelude_english? %>
-        <%= tag.li t(".brings_prelude_german") if @participation.brings_prelude_german? %>
-        <%= tag.li t(".brings_hellas_and_elysium") if @participation.brings_hellas_and_elysium? %>
-      </ul>
-    <% end %>
-
-    <% if @participation.comment.present? %>
-      <div>
-        <%= tag.span Participation.human_attribute_name(:comment), class: "font-bold" %>:
-        <p>
-          <%= @participation.comment %>
-        </p>
-      </div>
-    <% end %>
-
-    <%= link_to t(".edit_participation"), [:edit, @participation], class: "link" %>
-  </div>
+  <%= render @participation %>
 <% end %>

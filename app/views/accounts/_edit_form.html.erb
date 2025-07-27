@@ -1,0 +1,37 @@
+<%# locals: (user:) %>
+
+<%= form_with model: user, url: :account, class: "flex flex-col gap-4" do |form| %>
+  <%= render "shared/errors", form: form %>
+
+  <div class="flex flex-col gap-1">
+    <%= form.label :name %>
+    <div class="flex flex-col">
+      <%= form.text_field :name, required: true, class: "rounded" %>
+      <div class="text-sm text-slate-600"><%= t(".name_caution") %></div>
+    </div>
+  </div>
+
+  <div class="flex flex-col gap-1">
+    <%= form.label :email_address %>
+    <%= form.email_field :email_address, required: true, class: "rounded" %>
+  </div>
+
+  <div class="flex flex-col gap-1">
+    <%= form.label :locale %>
+    <%=
+      form.collection_select :locale,
+        I18n.available_locales,
+        :to_s,
+        ->(locale) { t(locale) },
+        {include_blank: false},
+        class: "rounded"
+    %>
+  </div>
+
+  <div class="flex items-center justify-between">
+    <%= form.submit class: "btn btn-primary" %>
+    <div>
+      <%= link_to t(".edit_password"), %i[edit password], class: "link", data: {turbo_frame: "_top"} %>
+    </div>
+  </div>
+<% end %>

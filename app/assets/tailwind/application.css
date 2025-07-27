@@ -6,6 +6,24 @@
   --font-sans: "Lato";
 }
 
+@layer base {
+  h1 {
+    @apply mb-8 text-4xl font-bold;
+  }
+
+  h2 {
+    @apply mb-4 text-2xl font-semibold;
+  }
+
+  h3 {
+    @apply mb-2 text-xl font-medium;
+  }
+
+  section {
+    @apply mt-8 mb-12;
+  }
+}
+
 @utility link {
   @apply text-teal-700 underline decoration-2 hover:text-teal-500;
 }
@@ -31,5 +49,5 @@
 }
 
 .translation_missing {
-  @apply border border-red-500 border-2 text-red-500 text-5xl;
+  @apply border-red-500 border-2 text-red-500 text-5xl;
 }

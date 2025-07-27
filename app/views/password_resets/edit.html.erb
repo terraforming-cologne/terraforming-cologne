@@ -1,4 +1,4 @@
-<%= tag.h1 t(".heading"), class: "mb-4 text-xl font-bold" %>
+<h1><%= t(".heading") %></h1>
 
 <%= form_with model: @password, url: password_reset_path(params[:token]), class: "flex flex-col gap-2" do |form| %>
   <%= render "shared/errors", form: form %>

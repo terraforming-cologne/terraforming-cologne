@@ -1,0 +1,23 @@
+<section class="flex flex-col gap-8">
+  <div>
+    <h1 class="mb-4 text-center text-5xl font-extrabold"><%= t(".german_open") %></h1>
+    <h2 class="text-center font-extrabold"><%= t(".terraforming_mars_tournament") %></h2>
+  </div>
+
+  <div class="flex justify-center">
+    <%= image_tag "logo_with_text.svg", class: "w-48" %>
+  </div>
+
+  <% if Tournament.planned? %>
+    <div class="self-center text-center">
+      <% if authenticated? && Current.user.participating? %>
+        <%= tag.div class: "mb-2 rounded bg-emerald-100 p-3 text-emerald-900" do %>
+          <span><%= t("already_registered") %></span>
+          <%= link_to t("edit_participation"), [:edit, Current.user.next_participation], class: "link" %>
+        <% end %>
+      <% else %>
+        <%= render "shared/register_button", tournament: Tournament.next %>
+      <% end %>
+    </div>
+  <% end %>
+</section>

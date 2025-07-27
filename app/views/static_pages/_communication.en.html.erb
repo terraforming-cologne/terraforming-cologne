@@ -1,40 +1,44 @@
-<h2 class="mb-2 text-xl font-bold">Communication</h2>
+<section>
+  <h1>Communication</h1>
 
-<b>Email</b>
-<p>
-  You will receive the most important information via email sent to the address stored in your
-  <%= link_to "profile", :profile, class: "link" %><%= " (in your case #{Current.user.email_address})" if authenticated? %>.
-</p>
+  <section>
+    <h2>Email</h2>
+    <p>
+      You will receive the most important information via email sent to the address stored in your
+      <%= link_to "profile", :profile, class: "link" %><%= " (in your case #{Current.user.email_address})" if authenticated? %>.
+    </p>
+  </section>
 
-<br>
-<b>WhatsApp Group</b>
-<p>
-  We have set up a WhatsApp group for questions and last-minute information on the tournament day. However, all
-  critical information will be sent via email as described above. So, you won’t miss anything even if you are not part
-  of the WhatsApp group. Join the WhatsApp group via
-  <%=
-    link_to "this link",
-      "https://chat.whatsapp.com/DwgJ3hJNPrwDyFWXP3nGBT",
-      class: "link",
-      target: "_blank",
-      rel: "noopener"
-  %>
-  or scan the QR code below.
-</p>
+  <section>
+    <h2>WhatsApp Group</h2>
+    <p>
+      We have set up a WhatsApp group for questions and last-minute information on the tournament day. However, all
+      critical information will be sent via email as described above. So, you won’t miss anything even if you are not
+      part of the WhatsApp group. Join the WhatsApp group via
+      <%=
+        link_to "this link",
+          "https://chat.whatsapp.com/DwgJ3hJNPrwDyFWXP3nGBT",
+          class: "link",
+          target: "_blank",
+          rel: "noopener"
+      %>
+      or scan the QR code below.
+    </p>
+    <div class="mt-8 flex justify-center">
+      <%=
+        RQRCode::QRCode
+          .new("https://chat.whatsapp.com/DwgJ3hJNPrwDyFWXP3nGBT")
+          .as_svg(viewbox: true, fill: :white, color: :black, svg_attributes: {class: "size-48"})
+          .html_safe
+      %>
+    </div>
+  </section>
 
-<br>
-<div class="flex justify-center">
-  <%=
-    RQRCode::QRCode
-      .new("https://chat.whatsapp.com/DwgJ3hJNPrwDyFWXP3nGBT")
-      .as_svg(viewbox: true, fill: :white, color: :black, svg_attributes: {class: "size-48"})
-      .html_safe
-  %>
-</div>
-
-<br>
-<b>Further Concerns</b>
-<p>
-  For further concerns that don’t belong in the WhatsApp group, you can always reach out via email to
-  <%= mail_to "support@terraforming-cologne.de", class: "link" %>.
-</p>
+  <section>
+    <h2>Further Concerns</h2>
+    <p>
+      For further concerns that don’t belong in the WhatsApp group, you can always reach out via email to
+      <%= mail_to "support@terraforming-cologne.de", class: "link" %>.
+    </p>
+  </section>
+</section>

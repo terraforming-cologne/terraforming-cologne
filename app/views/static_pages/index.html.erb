@@ -1,40 +1,18 @@
-<div class="flex flex-col gap-8">
-  <div>
-    <h1 class="text-center text-3xl font-bold">German Open</h1>
-    <h2 class="text-center"><%= t(".terraforming_mars_tournament") %></h2>
-  </div>
-
-  <div class="flex justify-center">
-    <%= image_tag "logo_with_text.svg", class: "size-48" %>
-  </div>
-
-  <% if Tournament.planned? %>
-    <div class="self-center text-center">
-      <% if authenticated? && Current.user.participating? %>
-        <%= tag.div class: "mb-2 rounded bg-emerald-100 p-3 text-emerald-900" do %>
-          <span><%= t("already_registered") %></span>
-          <%= link_to t("edit_participation"), [:edit, Current.user.next_participation], class: "link" %>
-        <% end %>
-      <% else %>
-        <%= render "shared/register_button", tournament: Tournament.next %>
-      <% end %>
-    </div>
-  <% end %>
-
-  <div><%= render "we_are_back" %></div>
-  <div><%= render "quick_info" %></div>
-  <hr>
-  <div><%= render "looking_back" %></div>
-  <hr>
-  <div><%= render "rule_clarifications" %></div>
-  <div><%= render "rules" %></div>
-  <div><%= render "scoring" %></div>
-  <div><%= render "spirit" %></div>
-  <div><%= render "fryxgames" %></div>
-  <div><%= render "language" %></div>
-  <div><%= render "getting_here" %></div>
-  <div><%= render "bringing_games" %></div>
-  <div><%= render "food" %></div>
-  <div><%= render "media" %></div>
-  <div><%= render "communication" %></div>
-</div>
+<%= render "intro" %>
+<%= render "we_are_back" %>
+<%= render "quick_info" %>
+<hr>
+<%= render "fryxgames" %>
+<hr>
+<%= render "rule_clarifications" %>
+<%= render "rules" %>
+<%= render "scoring" %>
+<%= render "spirit" %>
+<%= render "language" %>
+<%= render "getting_here" %>
+<%= render "bringing_games" %>
+<%= render "food" %>
+<%= render "media" %>
+<%= render "communication" %>
+<hr>
+<%= render "looking_back" %>

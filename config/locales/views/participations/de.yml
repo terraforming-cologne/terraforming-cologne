@@ -33,17 +33,19 @@ de:
     new:
       heading: Bitte teile uns mit, was du zum Turnier mitbringen kannst.
       notice: Du bist bereits für das Turnier registriert.
-    show:
-      bring: Ich werde mitbringen...
+    participation:
+      bring: 'Ich werde mitbringen:'
       brings_basegame_english: Basisspiel (englisch)
       brings_basegame_german: Basisspiel (deutsch)
       brings_hellas_and_elysium: Hellas & Elysium
       brings_prelude_english: Präludium (englisch)
       brings_prelude_german: Präludium (deutsch)
       edit_participation: Teilnahme verwalten
+    payment_status:
       finalize_registration: 'Du bist bereits in das Raumschiff zum Mars eingestiegen! Damit es jetzt auch abheben kann und um deine Registrierung abzuschließen, überweise bitte die Teilnahmegebühr von 15€ auf folgendes Konto:'
-      heading: German Open 2025
       paid: Deine Zahlung wurde erhalten
       payment_pending: Zahlung ausstehend
+    show:
+      heading: Dein nächstes Turnier
     update:
       notice: Teilnahme aktualisiert.

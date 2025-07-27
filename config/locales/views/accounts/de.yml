@@ -8,15 +8,17 @@ de:
     edit:
       deactivate: Account deaktivieren
       deactivate_confirm: Die Deaktivierung deines Accounts bestätigen?
-      edit_password: Passwort ändern
       heading: Account verwalten
-      name_caution: Wird verwendet um deine Zahlung zuzuordnen.
-    form:
-      name_caution: Wird verwendet um deine Zahlung zuzuordnen.
+    edit_form:
+      edit_password: Passwort ändern
+      name_caution: Wird verwendet um deine Zahlungen zuzuordnen.
     new:
       already_has_account: Bereits registriert?
+      heading: Account erstellen
+    new_form:
+      name_caution: Wird verwendet um deine Zahlungen zuzuordnen.
     show:
       edit: Account verwalten
-      heading: Deine Daten
+      heading: Dein Account
     update:
       notice: Account aktualisiert.
