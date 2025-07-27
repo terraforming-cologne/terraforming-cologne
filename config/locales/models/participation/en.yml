@@ -1,0 +1,15 @@
+---
+en:
+  activerecord:
+    attributes:
+      participation:
+        brings_basegame_english: Basegame (english)
+        brings_basegame_german: Basegame (german)
+        brings_hellas_and_elysium: Hellas & Elysium
+        brings_prelude_english: Prelude (english)
+        brings_prelude_german: Prelude (german)
+        comment: Comment
+        created_at: Registration time
+        paid: Paid
+    models:
+      participation: Participation

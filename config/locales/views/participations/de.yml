@@ -1,0 +1,49 @@
+---
+de:
+  helpers:
+    label:
+      participation:
+        brings_basegame_english: Englisch
+        brings_basegame_german: Deutsch
+        brings_hellas_and_elysium: Hellas & Elysium (beliebige Sprache)
+        brings_prelude_english: Englisch
+        brings_prelude_german: Deutsch
+    submit:
+      participation:
+        create: Registrierung abschicken
+  participations:
+    create:
+      notice: Erfolgreich für das Turnier registriert. Eine Bestätigungsmail wird in Kürze versendet.
+    destroy:
+      notice: Deine Teilnahme wurde abgesagt.
+    edit:
+      delete: Meine Teilnahme absagen
+      delete_confirm: Möchtest du wirklich deine Teilnahme absagen?
+      heading: Teilnahme bearbeiten
+    form:
+      bring: Ich bringe mit...
+      bring_info: Falls du das Basisspiel oder die Erweiterungen nicht besitzt, musst du hier nichts ausfüllen und kannst dich mit einem Klick auf den Knopf einfach für das Turnier anmelden. Solltest du das Basisspiel oder eine der Erweiterungen mehrfach mitbringen wollen, dann schreibe das bitte unten in den Kommentar.
+      brings_basegame: Das Basisspiel
+      brings_prelude: Die Präludium Erweiterung (nicht Präludium 2)
+      comment_comment: Möchtest du uns noch etwas mitteilen?
+    index:
+      confirm_confirm_payment: Möchtest du die Zahlung wirklich bestätigen?
+      confirm_payment: Zahlung bestätigen
+      export: Exportieren
+    new:
+      heading: Bitte teile uns mit, was du zum Turnier mitbringen kannst.
+      notice: Du bist bereits für das Turnier registriert.
+    show:
+      bring: Ich werde mitbringen...
+      brings_basegame_english: Basisspiel (englisch)
+      brings_basegame_german: Basisspiel (deutsch)
+      brings_hellas_and_elysium: Hellas & Elysium
+      brings_prelude_english: Präludium (englisch)
+      brings_prelude_german: Präludium (deutsch)
+      edit_participation: Teilnahme verwalten
+      finalize_registration: 'Du bist bereits in das Raumschiff zum Mars eingestiegen! Damit es jetzt auch abheben kann und um deine Registrierung abzuschließen, überweise bitte die Teilnahmegebühr von 15€ auf folgendes Konto:'
+      heading: German Open 2025
+      paid: Deine Zahlung wurde erhalten
+      payment_pending: Zahlung ausstehend
+    update:
+      notice: Teilnahme aktualisiert.

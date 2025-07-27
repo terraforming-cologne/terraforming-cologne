@@ -1,0 +1,10 @@
+---
+de:
+  activerecord:
+    attributes:
+      tournament:
+        date: Datum
+        max_participations: Maximale Anzahl Teilnehmer:innen
+        name: Name
+    models:
+      tournament: Turnier

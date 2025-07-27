@@ -1,0 +1,11 @@
+---
+de:
+  activemodel:
+    attributes:
+      login:
+        email_address: E-Mail-Adresse
+        password: Passwort
+    errors:
+      models:
+        login:
+          invalid_login: Ungültige E-Mail-Adresse oder Passwort

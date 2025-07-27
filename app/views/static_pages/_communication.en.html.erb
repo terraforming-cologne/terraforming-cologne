@@ -12,7 +12,13 @@
   We have set up a WhatsApp group for questions and last-minute information on the tournament day. However, all
   critical information will be sent via email as described above. So, you won’t miss anything even if you are not part
   of the WhatsApp group. Join the WhatsApp group via
-  <%= link_to "this link", "https://chat.whatsapp.com/DwgJ3hJNPrwDyFWXP3nGBT", class: "link", target: "_blank" %>
+  <%=
+    link_to "this link",
+      "https://chat.whatsapp.com/DwgJ3hJNPrwDyFWXP3nGBT",
+      class: "link",
+      target: "_blank",
+      rel: "noopener"
+  %>
   or scan the QR code below.
 </p>
 
@@ -21,7 +27,7 @@
   <%=
     RQRCode::QRCode
       .new("https://chat.whatsapp.com/DwgJ3hJNPrwDyFWXP3nGBT")
-      .as_svg(viewbox: true, fill: :white, color: :black, svg_attributes: { class: "size-48" })
+      .as_svg(viewbox: true, fill: :white, color: :black, svg_attributes: {class: "size-48"})
       .html_safe
   %>
 </div>

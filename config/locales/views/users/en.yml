@@ -1,0 +1,7 @@
+---
+en:
+  helpers:
+    submit:
+      user:
+        create: Create Account
+        update: Update Account

@@ -1,0 +1,7 @@
+---
+de:
+  registrations:
+    new:
+      heading: Erstelle einen Account
+      info: Um dich für das Turnier zu registrieren, musst du zuerst einen Account erstellen. Du wirst deinen Account auch am Turniertag benötigen, um die Punkte der Spiele einzugeben und deine aktuelle Platzierung zu sehen.
+      no_tournaments_planned: Derzeit gibt es keine Turniere, für die man sich anmelden kann.

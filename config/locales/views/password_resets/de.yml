@@ -1,0 +1,12 @@
+---
+de:
+  password_resets:
+    create:
+      notice: Eine E-Mail mit Anweisungen zum Zurücksetzen des Passworts wird an die angegebene Adresse gesendet.
+    edit:
+      heading: Password zurücksetzen
+    new:
+      heading: Passwort vergessen?
+      submit: Passwort zurücksetzen
+    update:
+      notice: Passwort zurückgesetzt.

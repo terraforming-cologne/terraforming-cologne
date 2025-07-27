@@ -1,0 +1,5 @@
+---
+en:
+  passwords_mailer:
+    reset:
+      subject: Reset your password

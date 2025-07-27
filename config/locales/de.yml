@@ -1,61 +1,5 @@
 ---
 de:
-  accounts:
-    create:
-      notice: Account erstellt.
-    destroy:
-      notice: Account deaktiviert.
-    edit:
-      deactivate: Account deaktivieren
-      deactivate_confirm: Die Deaktivierung deines Accounts bestätigen?
-      edit_password: Passwort ändern
-      heading: Account verwalten
-      name_caution: Wird verwendet um deine Zahlung zuzuordnen.
-    form:
-      name_caution: Wird verwendet um deine Zahlung zuzuordnen.
-    new:
-      already_has_account: Bereits registriert?
-    show:
-      edit: Account verwalten
-      heading: Deine Daten
-  activemodel:
-    attributes:
-      login:
-        email_address: E-Mail-Adresse
-        password: Passwort
-      password:
-        password: Neues Passwort
-        password_confirmation: Passwort bestätigen
-    errors:
-      models:
-        login:
-          invalid_login: Ungültige E-Mail-Adresse oder Passwort
-    models:
-      password: Passwort
-  activerecord:
-    attributes:
-      participation:
-        brings_basegame_english: Basisspiel (englisch)
-        brings_basegame_german: Basisspiel (deutsch)
-        brings_hellas_and_elysium: Hellas & Elysium
-        brings_prelude_english: Präludium (englisch)
-        brings_prelude_german: Präludium (deutsch)
-        comment: Kommentar
-        created_at: Anmeldezeitpunkt
-        paid: Bezahlt
-      tournament:
-        date: Datum
-        max_participations: Maximale Anzahl Teilnehmer:innen
-        name: Name
-      user:
-        email_address: E-Mail-Adresse
-        locale: Sprache für Kommunikation
-        name: Vor- und Nachname
-        password: Passwort
-        password_confirmation: Passwort bestätigen
-    models:
-      participation: Teilnahme
-      tournament: Turnier
   already_registered: Du bist bereits für das nächste Turnier registriert!
   create_tournament: Turnier erstellen
   date:
@@ -68,147 +12,17 @@ de:
   helpers:
     label:
       email_address: E-Mail-Adresse
-      participation:
-        brings_basegame_english: Englisch
-        brings_basegame_german: Deutsch
-        brings_hellas_and_elysium: Hellas & Elysium (beliebige Sprache)
-        brings_prelude_english: Englisch
-        brings_prelude_german: Deutsch
-    submit:
-      login:
-        create: Einloggen
-      participation:
-        create: Registrierung abschicken
-      user:
-        create: Account erstellen
-        update: Account aktualisieren
   login: Einloggen
-  logins:
-    create:
-      notice: Willkommen zurück %{name}!
-    destroy:
-      notice: Erfolgreich ausgeloggt.
-    new:
-      no_account_yet: Noch keinen Account?
-      password_forgotten: Passwort vergessen?
-      reset: Zurücksetzen
   logout: Ausloggen
-  max_participations: Maximale Teilnehmer:innenanzahl erreicht. Die Registrierung ist geschlossen. Du kannst dich auf die Warteliste setzen lassen, indem du eine E-Mail an %{email} schreibst.
-  "no": Nein
-  orga_mailer:
-    cancellation:
-      subject: Absage einer bezahlten Teilnahme
-  participations:
-    create:
-      notice: Erfolgreich für das Turnier registriert. Eine Bestätigungsmail wird in Kürze versendet.
-    destroy:
-      notice: Deine Teilnahme wurde abgesagt.
-    edit:
-      delete: Meine Teilnahme absagen
-      delete_confirm: Möchtest du wirklich deine Teilnahme absagen?
-      heading: Teilnahme bearbeiten
-    form:
-      bring: Ich bringe mit...
-      bring_info: Falls du das Basisspiel oder die Erweiterungen nicht besitzt, musst du hier nichts ausfüllen und kannst dich mit einem Klick auf den Knopf einfach für das Turnier anmelden. Solltest du das Basisspiel oder eine der Erweiterungen mehrfach mitbringen wollen, dann schreibe das bitte unten in den Kommentar.
-      brings_basegame: Das Basisspiel
-      brings_prelude: Die Präludium Erweiterung (nicht Präludium 2)
-      comment_comment: Möchtest du uns noch etwas mitteilen?
-    index:
-      confirm_confirm_payment: Möchtest du die Zahlung wirklich bestätigen?
-      confirm_payment: Zahlung bestätigen
-      export: Exportieren
-    new:
-      heading: Bitte teile uns mit, was du zum Turnier mitbringen kannst.
-      notice: Du bist bereits für das Turnier registriert.
-    show:
-      bring: Ich werde mitbringen...
-      brings_basegame_english: Basisspiel (englisch)
-      brings_basegame_german: Basisspiel (deutsch)
-      brings_hellas_and_elysium: Hellas & Elysium
-      brings_prelude_english: Präludium (englisch)
-      brings_prelude_german: Präludium (deutsch)
-      edit_participation: Teilnahme verwalten
-      finalize_registration: "Du bist bereits in das Raumschiff zum Mars eingestiegen! Damit es jetzt auch abheben kann und um deine Registrierung abzuschließen, überweise bitte die Teilnahmegebühr von 15€ auf folgendes Konto:"
-      fun: ganz viel Spaß
-      heading: German Open 2025
-      paid: Deine Zahlung wurde erhalten
-      payment_pending: Zahlung ausstehend
-  password_resets:
-    create:
-      notice: Eine E-Mail mit Anweisungen zum Zurücksetzen des Passworts wird an die angegebene Adresse gesendet.
-    edit:
-      heading: Password zurücksetzen
-    new:
-      heading: Passwort vergessen?
-      submit: Passwort zurücksetzen
-    update:
-      notice: Passwort zurückgesetzt.
-  passwords:
-    edit:
-      heading: Passwort ändern
-    update:
-      notice: Passwort geändert.
-  passwords_mailer:
-    reset:
-      subject: Dein Passwort zurücksetzen
-  profiles:
-    show:
-      account_heading: Dein Account
+  max_participations_html: Maximale Teilnehmer:innenanzahl erreicht. Die Registrierung ist geschlossen. Du kannst dich auf die Warteliste setzen lassen, indem du eine E-Mail an %{email} schreibst.
+  'no': Nein
   register: Jetzt registrieren!
-  registrations:
-    new:
-      heading: Erstelle einen Account
-      info: Um dich für das Turnier zu registrieren, musst du zuerst einen Account erstellen. Du wirst deinen Account auch am Turniertag benötigen, um die Punkte der Spiele einzugeben und deine aktuelle Platzierung zu sehen.
-      no_tournaments_planned: Derzeit gibt es keine Turniere, für die man sich anmelden kann.
-  shared:
-    errors:
-      errors: Das Formular enthält die folgenden Fehler
-    navigation:
-      profile: Mein Profil
-      tournaments: Turniere
   signup: Registrieren
   spots_available: Die Startplätze sind auf %{count} limitiert.
   spots_left: Es können sich noch %{count} Personen anmelden.
-  static_pages:
-    home:
-      terraforming_mars_tournament: Terraforming Mars Turnier
-    quick_info:
-      date: Datum
-      heading: Auf einen Blick
-      location: Ort
-      participation_fee: Teilnahmegebühr
-      schedule: Zeitplan
-      schedule_item:
-        break: Pause
-        first_round: 1. Runde (Tharsis)
-        registration: Ankommen + Registrierung
-        round_up: Abschluss + Preisverleihung
-        second_round: 2. Runde (Hellas)
-        third_round: 3. Runde (Elysium)
-      time: Zeit
-      too_late: Solltet ihr zu spät kommen, dann gebt auf jeden Fall Bescheid. Je nachdem wie viel zu spät ihr seid, versuchen wir euch euren Platz zu sichern oder erlauben uns den Platz anderweitig zu vergeben.
-    spirit:
-      heading: Turnierspirit
-    we_are_back:
-      heading: Wir sind zurück!
   time:
     formats:
       time_of_day: "%H:%M Uhr"
       time_of_day_short: "%H:%M"
-  tournament_over: Das Turnier hat bereits stattgefunden und die Registrierung ist geschlossen. Bis zum nächsten Mal!
-  tournaments:
-    create:
-      notice: Turnier erstellt.
-    edit:
-      edit_tournament: Turnier bearbeiten
-    tournament:
-      participations: Teilnehmer:innen
-    update:
-      notice: Turnier aktualisiert.
   try_again_later: Bitte versuche es später noch einmal.
-  user_mailer:
-    confirmation:
-      subject: Bestätigung deiner Registrierung
-    paid:
-      subject: Bestätigung deiner Zahlung
-  "yes": Ja
+  'yes': Ja

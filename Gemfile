@@ -69,14 +69,11 @@ gem "premailer-rails", "~> 1.12"
 gem "pundit", "~> 2.4"
 gem "rails-i18n", "~> 8.0.0"
 gem "rqrcode", "~> 2.0"
-
-# TODO: Remove this as soon as tailwindcss-rails is at v4
-gem "tailwindcss-ruby", "~> 4.0"
+gem "view_component", "~> 4.0.0.rc5"
 
 group :development do
   gem "i18n-debug"
   gem "i18n-tasks", require: false
-  gem "hotwire-spark"
 
   # Language tooling
 

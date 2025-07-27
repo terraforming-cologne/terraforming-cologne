@@ -1,0 +1,8 @@
+---
+en:
+  shared:
+    errors:
+      errors: The form contains the following errors
+    navigation:
+      profile: My profile
+      tournaments: Tournaments

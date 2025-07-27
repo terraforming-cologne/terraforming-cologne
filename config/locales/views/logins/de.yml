@@ -1,0 +1,15 @@
+---
+de:
+  helpers:
+    submit:
+      login:
+        create: Einloggen
+  logins:
+    create:
+      notice: Willkommen zurück %{name}!
+    destroy:
+      notice: Erfolgreich ausgeloggt.
+    new:
+      no_account_yet: Noch keinen Account?
+      password_forgotten: Passwort vergessen?
+      reset: Zurücksetzen

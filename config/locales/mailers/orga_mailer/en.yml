@@ -1,0 +1,5 @@
+---
+en:
+  orga_mailer:
+    cancellation:
+      subject: Cancellation of a paid participation
