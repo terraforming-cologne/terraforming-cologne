@@ -6,8 +6,17 @@
 <br>
 
 <p>
-  <%= link_to @user.name, participations_url, class: "link" %>
-  hat bezahlt aber leider seine Teilnahme abgesagt.
+  <%= @user.name %>
+  hat ihre/seine Teilnahme abgesagt. E-Mail-Adresse:
+  <%= link_to @user.email_address, "mailto:#{@user.email_address}", class: "link" %>.
+</p>
+
+<p>
+  <% if @participation.paid? %>
+    Ihre/seine Zahlung wurde bereits bestätigt. Bitte zurücküberweisen!
+  <% else %>
+    Ihre/seine Zahlung wurde noch nicht bestätigt.
+  <% end %>
 </p>
 
 <br>

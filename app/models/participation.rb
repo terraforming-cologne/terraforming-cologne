@@ -6,7 +6,7 @@ class Participation < ApplicationRecord
 
   after_create_commit :deliver_confirmation_email_later
   after_update_commit :deliver_paid_email_later, if: :updated_to_paid?
-  after_destroy_commit :deliver_cancellation_email_later, if: :paid?
+  after_destroy_commit :deliver_cancellation_email_later
 
   def brings_anything?
     brings_basegame_english? ||
@@ -31,6 +31,6 @@ class Participation < ApplicationRecord
   end
 
   def deliver_cancellation_email_later
-    OrgaMailer.cancellation(user).deliver_now
+    OrgaMailer.cancellation(user, self).deliver_now
   end
 end
