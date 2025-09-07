@@ -1,0 +1,11 @@
+one:
+  tournament: one
+  user: one
+
+two:
+  tournament: one
+  user: two
+
+three:
+  tournament: one
+  user: three
