@@ -1,5 +1,8 @@
 class Tournament < ApplicationRecord
   has_many :participations, dependent: :restrict_with_error
+  has_many :rounds
+  has_many :rooms
+  has_many :tables, through: :rooms
 
   validates :name, presence: true
   validates :date, uniqueness: true
