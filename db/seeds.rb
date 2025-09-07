@@ -10,35 +10,73 @@ User.create!(
   password_confirmation: "asdfasdf",
   locale: :en
 )
+
 tournament = Tournament.create!(
   name: "German Open",
   date: Time.zone.today + 1.year,
   max_participations: 100
 )
-3.times do |i|
-  tournament.rounds.create! number: i + 1, board: "Board #{i}"
-end
-93.times do |i|
-  user = User.create!(
+
+tournament.rounds.insert_all!(
+  3.times.map { |i|
+    {
+      number: i + 1,
+      board: "Board #{i}",
+      created_at: Time.current,
+      updated_at: Time.current
+    }
+  }
+)
+
+password_digest = User.new(password: "asdfasdf", password_confirmation: "asdfasdf").password_digest
+users = (0...93).map do |i|
+  {
     name: "User #{i}",
     email_address: "#{i}@example.com",
-    password: "asdfasdf",
-    password_confirmation: "asdfasdf",
-    locale: :en
-  )
-  user.participations.create!(
-    tournament: tournament,
+    password_digest: password_digest,
+    locale: :en,
+    created_at: Time.current,
+    updated_at: Time.current
+  }
+end
+User.insert_all!(users)
+
+user_ids = User.where.not(email_address: "admin@example.com").pluck(:id)
+participations = user_ids.map do |user_id|
+  {
+    user_id: user_id,
+    tournament_id: tournament.id,
     brings_basegame_english: true,
     brings_basegame_german: false,
     brings_prelude_english: true,
     brings_prelude_german: false,
     brings_hellas_and_elysium: false,
-    paid: true
-  )
+    paid: true,
+    created_at: Time.current,
+    updated_at: Time.current
+  }
 end
-5.times do |r|
-  room = tournament.rooms.create!(number: r)
-  5.times do |t|
-    room.tables.create!(number: t)
-  end
+Participation.insert_all!(participations)
+
+rooms = (0...5).map { |r|
+  {
+    number: r,
+    tournament_id: tournament.id,
+    created_at: Time.current,
+    updated_at: Time.current
+  }
+}
+Room.insert_all!(rooms)
+
+room_ids = Room.where(tournament_id: tournament.id).pluck(:id)
+tables = room_ids.flat_map do |room_id|
+  (0...5).map { |t|
+    {
+      number: t,
+      room_id: room_id,
+      created_at: Time.current,
+      updated_at: Time.current
+    }
+  }
 end
+Table.insert_all!(tables)
