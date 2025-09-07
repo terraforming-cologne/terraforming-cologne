@@ -5,23 +5,19 @@ repos:
         name: rubocop
         language: system
         types: ["ruby"]
-        entry: bundle
-        args: ["exec", "rubocop", "--autocorrect", "--force-exclusion"]
+        entry: bundle exec rubocop --autocorrect --force-exclusion
       - id: erb-format
         name: erb-format
         language: system
         types: ["erb"]
-        exclude: \.(json|scss|text)\.erb$
         entry: bin/erb-format
+      - id: herb-lint
+        name: herb-lint
+        language: system
+        types: ["erb"]
+        exclude: \.(json)\.erb$
+        entry: bin/erb-lint
       - id: prettier
         name: prettier
         language: system
-        entry: npm
-        args: ["exec", "prettier", "--", "--write", "--ignore-unknown"]
-      - id: i18n-tasks
-        name: i18n-tasks
-        language: system
-        entry: bundle
-        args: ["exec", "i18n-tasks", "normalize"]
-        always_run: true
-        pass_filenames: false
+        entry: npm exec prettier -- --write --ignore-unknown

@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 
 npm exec tailwindcss-class-sorter-erb -- --write "$@"
-bundle exec erb-formatter --write --print-width 120 "$@"
-bundle exec erb_lint -a "$@"
+
+# HACK: herb-format cannot take multiple files as arguments for now
+for arg in "$@"; do
+    herb-format "$arg"
+done
