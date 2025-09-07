@@ -1,0 +1,9 @@
+{
+  "options": {
+    "formatter": {
+      "enabled": true,
+      "indentWidth": 2,
+      "maxLineLength": 120
+    }
+  }
+}

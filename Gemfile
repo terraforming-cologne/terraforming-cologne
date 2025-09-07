@@ -76,14 +76,6 @@ group :development do
   gem "i18n-tasks", require: false
 
   # Language tooling
-
-  # NOTE: Revert this back to `gem "erb-formatter", "~> 0.7", require: false` when https://github.com/nebulab/erb-formatter/pull/57 is merged
-  gem "erb-formatter", require: false, git: "https://github.com/pelletencate/erb-formatter", ref: "99601be"
-  gem "erb_lint", require: false
-
-  gem "ruby-lsp", require: false
-  gem "ruby-lsp-rails", require: false
-
   gem "rubocop", require: false
   gem "rubocop-rails", require: false
   gem "rubocop-performance", require: false

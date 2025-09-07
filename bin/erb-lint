@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+# HACK: herb-lint cannot take multiple files as arguments for now
+for arg in "$@"; do
+    herb-lint "$arg"
+done
