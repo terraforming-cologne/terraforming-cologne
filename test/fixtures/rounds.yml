@@ -1,0 +1,9 @@
+one:
+  number: 1
+  board: "A board"
+  tournament: one
+
+two:
+  number: 2
+  board: "A different board"
+  tournament: one
