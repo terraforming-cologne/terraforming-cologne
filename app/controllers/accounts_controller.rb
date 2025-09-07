@@ -17,7 +17,7 @@ class AccountsController < ApplicationController
       start_new_session_for @user
       redirect_to after_authentication_path, notice: t(".notice")
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_content
     end
   end
 
@@ -28,7 +28,7 @@ class AccountsController < ApplicationController
     if @user.update(params.expect(user: [:name, :email_address, :locale]))
       redirect_to :profile, notice: t(".notice")
     else
-      render :edit, status: :unprocessable_entity
+      render :edit, status: :unprocessable_content
     end
   end
 

@@ -11,7 +11,7 @@ class PasswordsController < ApplicationController
     if @password.update(password_params)
       redirect_to :profile, notice: t(".notice")
     else
-      render :edit, status: :unprocessable_entity
+      render :edit, status: :unprocessable_content
     end
   end
 

@@ -15,7 +15,7 @@ class LoginsController < ApplicationController
       start_new_session_for @login.user
       redirect_to after_authentication_path, notice: t(".notice", name: @login.user.name)
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_content
     end
   end
 
