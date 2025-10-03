@@ -6,5 +6,8 @@ class Game < ApplicationRecord
   has_many :seats
   has_many :participations, through: :seats
   has_many :scores, through: :seats
-  accepts_nested_attributes_for :seats
+
+  def three_players?
+    seats.count == 3
+  end
 end

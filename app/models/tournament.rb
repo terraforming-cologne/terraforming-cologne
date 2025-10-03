@@ -1,6 +1,7 @@
 class Tournament < ApplicationRecord
   has_many :participations, dependent: :restrict_with_error
   has_many :rounds
+  has_many :games, through: :rounds
   has_many :rooms
   has_many :tables, through: :rooms
 
