@@ -18,6 +18,7 @@ class Round < ApplicationRecord
   end
 
   def average_score
+    return 1 if number == 1
     (participations.sum { it.points([self] + previous_rounds) } / participations.count.to_f).round
   end
 

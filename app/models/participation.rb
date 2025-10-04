@@ -24,29 +24,41 @@ class Participation < ApplicationRecord
   end
 
   def opponent_points(rounds)
-    opponents(rounds).sum { it.points(rounds) } + three_player_adjustment(rounds.max_by(&:number))
+    opponents(rounds).sum { it.points(rounds) }
   end
 
   def average_points_per_generation(rounds)
     (round_scores(rounds).sum(&:points) / round_scores(rounds).map(&:result).sum(&:generations).to_f).round(2)
   end
 
+  # TODO: This feels weird
+  class VirtualPlayer
+    def initialize(score)
+      @score = score
+    end
+
+    def points(rounds)
+      @score
+    end
+  end
+
   def opponents(rounds)
-    games
-      .where(round: rounds)
-      .flat_map(&:participations)
-      .excluding(self)
+    rounds.flat_map do |round|
+      o = games
+        .where(round: round)
+        .flat_map(&:participations)
+        .excluding(self)
+      if o.size == 2
+        o << VirtualPlayer.new(rounds.max_by(&:number).average_score)
+      end
+      o
+    end
   end
 
   def round_scores(rounds)
     scores
       .joins(seat: {game: :round})
       .where(rounds: {id: rounds})
-  end
-
-  def three_player_adjustment(round)
-    return round.average_score if games.count { it.three_players? }
-    0
   end
 
   private
