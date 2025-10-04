@@ -17,40 +17,7 @@ class Round < ApplicationRecord
     end
   end
 
-  def average_score
-    return 1 if number == 1
-    (participations.sum { it.points([self] + previous_rounds) } / participations.count.to_f).round
-  end
-
-  def first_round?
-    number == 1
-  end
-
-  def ordered_participations
-    @ordered_participations ||= if first_round?
-      tournament.participations.shuffle
-    else
-      previous_round.ranking.to_a
-    end
-  end
-
-  def previous_round
-    tournament.rounds.find_by(number: number - 1)
-  end
-
-  def previous_rounds
-    tournament.rounds.where(number: ...number)
-  end
-
-  def ranking
-    tournament.participations.sort_by {
-      [
-        it.points([self] + previous_rounds),
-        it.opponent_points([self] + previous_rounds),
-        it.average_points_per_generation([self] + previous_rounds)
-      ]
-    }.reverse!
-  end
+  private
 
   def groups_for_tables(n)
     remainder = n % 4
@@ -61,5 +28,21 @@ class Round < ApplicationRecord
     threes = remainder / 3
     raise ArgumentError, "cannot split #{n} into groups of 4 and 3" if fours.negative? || threes.negative?
     [[4] * fours, [3] * threes].flatten
+  end
+
+  def ordered_participations
+    @ordered_participations ||= if first_round?
+      tournament.participations.shuffle
+    else
+      Ranking.new(previous_round).to_a
+    end
+  end
+
+  def first_round?
+    number == 1
+  end
+
+  def previous_round
+    tournament.rounds.find_by(number: number - 1)
   end
 end
