@@ -19,48 +19,6 @@ class Participation < ApplicationRecord
       brings_hellas_and_elysium?
   end
 
-  def points(rounds)
-    round_scores(rounds).sum(&:ranking_points)
-  end
-
-  def opponent_points(rounds)
-    opponents(rounds).sum { it.points(rounds) }
-  end
-
-  def average_points_per_generation(rounds)
-    (round_scores(rounds).sum(&:points) / round_scores(rounds).map(&:result).sum(&:generations).to_f).round(2)
-  end
-
-  # TODO: This feels weird
-  class VirtualPlayer
-    def initialize(score)
-      @score = score
-    end
-
-    def points(rounds)
-      @score
-    end
-  end
-
-  def opponents(rounds)
-    rounds.flat_map do |round|
-      o = games
-        .where(round: round)
-        .flat_map(&:participations)
-        .excluding(self)
-      if o.size == 2
-        o << VirtualPlayer.new(rounds.max_by(&:number).average_score)
-      end
-      o
-    end
-  end
-
-  def round_scores(rounds)
-    scores
-      .joins(seat: {game: :round})
-      .where(rounds: {id: rounds})
-  end
-
   private
 
   def updated_to_paid?
