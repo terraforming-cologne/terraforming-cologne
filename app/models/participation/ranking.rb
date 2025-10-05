@@ -30,7 +30,7 @@ module Participation::Ranking
 
   def opponents(round)
     real_opponents = tournament.participations.filter { it.is_opponent_of?(self, round) }
-    virtual_opponents = [virtual_participation_for(round)] * games.count { it.three_players? }
+    virtual_opponents = [virtual_participation_for(round)] * games.filter { it.round.number <= round.number }.count { it.three_players? }
     [*real_opponents, *virtual_opponents]
   end
 
