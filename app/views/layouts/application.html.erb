@@ -2,7 +2,7 @@
 
 <html>
   <head>
-    <title><%= content_for(:title) || "German Open Terraforming Mars 2025" %></title>
+    <title><%= @page_title || "Terraforming Cologne" %></title>
 
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -36,9 +36,9 @@
     </nav>
 
     <% if content_for?(:wide_body) %>
-      <main class="mx-auto max-w-fit px-4"><%= yield :wide_body %></main>
+      <main class="mx-auto max-w-fit px-(--page-padding)"><%= yield :wide_body %></main>
     <% else %>
-      <main class="mx-auto max-w-5xl px-4"><%= yield %></main>
+      <main class="mx-auto max-w-5xl px-(--page-padding)"><%= yield %></main>
     <% end %>
   </body>
 </html>
