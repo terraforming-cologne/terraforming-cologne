@@ -8,6 +8,6 @@ class Game < ApplicationRecord
   has_many :scores, through: :seats
 
   def three_players?
-    seats.count == 3
+    seats.size == 3
   end
 end

@@ -5,9 +5,12 @@ class Round < ApplicationRecord
 
   default_scope { order(:number) }
 
+  scope :with_ranking, -> { includes(participations: {scores: [:round, :result], games: [:round, :participations]}) }
+
   def create_games
     ApplicationRecord.transaction do
-      groups_for_tables(ordered_participations.size).map { |group_size| ordered_participations.slice!(0, group_size) }.each_with_index do |group, index|
+      r = ranking
+      groups_of_fours_and_threes(r.size).map { |group_size| r.slice!(0, group_size) }.each_with_index do |group, index|
         games.create!(table: tournament.tables[index]).tap do |game|
           group.each_with_index do |participation, index|
             game.seats.create!(number: index + 1, participation: participation)
@@ -17,9 +20,24 @@ class Round < ApplicationRecord
     end
   end
 
+  def ranking
+    if first_round?
+      participations.shuffle
+    else
+      participations.sort_by { it.ranking_criteria(previous_round) }.reverse
+    end
+  end
+
+  def average_ranking_points
+    @average_ranking_points ||= begin
+      return 1 if number == 1
+      (participations.sum { it.ranking_points_up_to(self) } / participations.size.to_f).round
+    end
+  end
+
   private
 
-  def groups_for_tables(n)
+  def groups_of_fours_and_threes(n)
     remainder = n % 4
     while remainder % 3 != 0 && remainder.positive?
       remainder += 4
@@ -28,14 +46,6 @@ class Round < ApplicationRecord
     threes = remainder / 3
     raise ArgumentError, "cannot split #{n} into groups of 4 and 3" if fours.negative? || threes.negative?
     [[4] * fours, [3] * threes].flatten
-  end
-
-  def ordered_participations
-    @ordered_participations ||= if first_round?
-      tournament.participations.shuffle
-    else
-      Ranking.new(previous_round).to_a
-    end
   end
 
   def first_round?
