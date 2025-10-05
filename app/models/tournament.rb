@@ -1,4 +1,6 @@
 class Tournament < ApplicationRecord
+  FEW_SPOTS_LEFT_THRESHOLD = 0.8
+
   has_many :participations, dependent: :restrict_with_error
 
   validates :name, presence: true
@@ -17,8 +19,12 @@ class Tournament < ApplicationRecord
     participations.count >= max_participations
   end
 
-  def spots_left?
+  def any_spots_left?
     !max_participations_reached?
+  end
+
+  def few_spots_left?
+    (participations.count / max_participations.to_f) >= FEW_SPOTS_LEFT_THRESHOLD
   end
 
   def spots_left
