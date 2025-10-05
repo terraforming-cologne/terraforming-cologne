@@ -2,6 +2,6 @@
 
 <%= link_to "Next round", [@tournament, :ranking, {round: @round.number + 1}] if @round.number < @tournament.rounds.size %>
 
-<% @participations.each do |participation| %>
-  <div><%= participation.user.name %> | <%= @ranking_criteria[participation].join(" | ") %></div>
+<% @participations.each_with_index do |participation, index| %>
+  <div><%= index + 1 %> | <%= participation.user.name %> | <%= @ranking_criteria[participation].join(" | ") %></div>
 <% end %>
