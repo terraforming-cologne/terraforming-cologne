@@ -1,4 +1,6 @@
 class Participation < ApplicationRecord
+  include Ranking
+
   belongs_to :user
   belongs_to :tournament
   has_many :seats
@@ -17,6 +19,10 @@ class Participation < ApplicationRecord
       brings_prelude_english? ||
       brings_prelude_german? ||
       brings_hellas_and_elysium?
+  end
+
+  def is_opponent_of?(other, round)
+    other != self && other.games.filter { it.round.number <= round.number }.flat_map(&:participations).include?(self)
   end
 
   private
