@@ -14,44 +14,34 @@
 
     <div class="-mx-(--page-padding) flex overflow-x-auto">
       <div class="grow px-(--page-padding)">
-        <%= tag.div class: "grid grid-cols-[auto_1fr_repeat(var(--num-rounds),auto)_repeat(var(--num-ranking-criteria),auto)] border border-gray-300 text-sm",
-                    style: "--num-rounds: #{@rounds_up_to_current.size}; --num-ranking-criteria: 3;" do %>
-          <div class="bg-gray-100 p-2 font-semibold whitespace-nowrap"><%= t(:rank) %></div>
-
-          <div class="bg-gray-100 p-2 font-semibold whitespace-nowrap"><%= t(:name) %></div>
-
-          <div class="bg-gray-100 p-2 font-semibold whitespace-nowrap"><%= t(:points) %></div>
-
-          <div class="bg-gray-100 p-2 font-semibold whitespace-nowrap"><%= t(:opponent_points) %></div>
-
-          <div class="bg-gray-100 p-2 font-semibold whitespace-nowrap"><%= t(:points_per_generation) %></div>
-
-          <% @rounds_up_to_current.find_each do |round| %>
-            <div class="bg-gray-100 p-2 font-semibold whitespace-nowrap"><%= round.board %></div>
-          <% end %>
-
-          <% @ranked_participations.each_with_index do |participation, index| %>
-            <div class="<%= "font-semibold bg-teal-100" if participation.user == Current.user %> border-t border-gray-200 p-2 whitespace-nowrap">
-              <%= index + 1 %>
-            </div>
-
-            <div class="<%= "font-semibold bg-teal-100" if participation.user == Current.user %> border-t border-gray-200 p-2 whitespace-nowrap">
-              <%= participation.user.name %>
-            </div>
-
-            <% @ranking_criteria[@current_round][participation].each do |criterion| %>
-              <div class="<%= "font-semibold bg-teal-100" if participation.user == Current.user %> border-t border-gray-200 p-2 whitespace-nowrap">
-                <%= criterion %>
-              </div>
+        <table class="w-full border-collapse px-(--page-padding) whitespace-nowrap">
+          <thead>
+            <tr>
+              <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= t(:rank) %></th>
+              <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= t(:name) %></th>
+              <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= t(:points) %></th>
+              <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= t(:opponent_points) %></th>
+              <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= t(:points_per_generation) %></th>
+              <% @rounds_up_to_current.find_each do |round| %>
+                <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= round.board %></th>
+              <% end %>
+            </tr>
+          </thead>
+          <tbody>
+            <% @ranked_participations.each_with_index do |participation, index| %>
+              <tr>
+                <td class="border-b border-gray-100 p-2"><%= index + 1 %></td>
+                <td class="border-b border-gray-100 p-2"><%= participation.user.name %></td>
+                <% @ranking_criteria[@current_round][participation].each do |criterion| %>
+                  <td class="border-b border-gray-100 p-2"><%= criterion %></td>
+                <% end %>
+                <% @rounds_up_to_current.each do |round| %>
+                  <td class="border-b border-gray-100 p-2"><%= participation.rank_in(round)&.ordinalize || "-" %></td>
+                <% end %>
+              </tr>
             <% end %>
-
-            <% @rounds_up_to_current.each do |round| %>
-              <div class="<%= "font-semibold bg-teal-100" if participation.user == Current.user %> border-t border-gray-200 p-2 whitespace-nowrap">
-                <%= participation.rank_in(round)&.ordinalize || "-" %>
-              </div>
-            <% end %>
-          <% end %>
-        <% end %>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

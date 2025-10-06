@@ -6,8 +6,8 @@ de:
   rank: Platz
   name: Name
   points: Punkte
-  opponent_points: Punkte der Gegner:innen
-  points_per_generation: Punkte pro Generation
+  opponent_points: Punkte Gegner:innen
+  points_per_generation: Punkte/Gen
   create_tournament: Turnier erstellen
   date:
     formats:

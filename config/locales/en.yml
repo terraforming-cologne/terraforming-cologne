@@ -6,7 +6,7 @@ en:
   name: Name
   points: Points
   opponent_points: Opponent Points
-  points_per_generation: Points per Generation
+  points_per_generation: Points/Gen
   ranking: Ranking
   create_tournament: Create Tournament
   date:
