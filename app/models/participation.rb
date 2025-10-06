@@ -1,6 +1,12 @@
 class Participation < ApplicationRecord
+  include Ranking
+
   belongs_to :user
   belongs_to :tournament
+  has_many :seats
+  has_many :games, through: :seats
+  has_many :scores, through: :seats
+  has_many :rounds, through: :games
 
   scope :active, -> { joins(:user).merge(User.active) }
 

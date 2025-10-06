@@ -25,7 +25,7 @@ class ParticipationsController < ApplicationController
     if @participation.save
       redirect_to :profile, notice: t(".notice")
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_content
     end
   end
 
@@ -38,7 +38,7 @@ class ParticipationsController < ApplicationController
     if @participation.update(participation_params)
       redirect_to :profile, notice: t(".notice")
     else
-      render :edit, status: :unprocessable_entity
+      render :edit, status: :unprocessable_content
     end
   end
 

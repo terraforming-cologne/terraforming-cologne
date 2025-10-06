@@ -68,6 +68,7 @@ gem "mission_control-jobs", "~> 1.0"
 gem "premailer-rails", "~> 1.12"
 gem "pundit", "~> 2.4"
 gem "rails-i18n", "~> 8.0.0"
+gem "reactionview", "~> 0.1.0"
 gem "rqrcode", "~> 2.0"
 gem "view_component", "~> 4.0.0.rc5"
 
