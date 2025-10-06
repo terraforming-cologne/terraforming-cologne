@@ -1,11 +1,9 @@
 class Round < ApplicationRecord
   belongs_to :tournament
   has_many :games
-  has_many :participations, through: :tournament
+  has_many :participations, through: :games
 
   default_scope { order(:number) }
-
-  scope :with_ranking, -> { includes(participations: {scores: [:round, :result], games: [:round, :participations]}) }
 
   def create_games
     ApplicationRecord.transaction do

@@ -1,53 +1,57 @@
 <div class="flex flex-col gap-8">
   <div class="flex gap-2">
-    <% @all_rounds.each do |round| %>
-      <%= link_to round.board, [@tournament, :ranking, {round: round.number}], class: "link text-2xl font-bold" %>
+    <% if @all_rounds.size > 1 %>
+      <% @all_rounds.each do |round| %>
+        <%= link_to round.board, [@tournament, :ranking, {round: round.number}], class: "link text-2xl font-bold" %>
+      <% end %>
     <% end %>
   </div>
 
-  <div class="-mx-(--page-padding) overflow-x-auto px-(--page-padding)">
-    <div
-      class="
-        grid min-w-max grid-cols-[auto_3fr_repeat(var(--num-rounds),1fr)_repeat(var(--num-ranking-criteria),auto)]
-        border border-gray-300 text-sm
-      "
-      style="--num-rounds: <%= @rounds_up_to_current.size %>; --num-ranking-criteria: 3;"
-    >
-      <div class="bg-gray-100 p-2 font-semibold whitespace-nowrap">Rank</div>
+  <div class="-mx-(--page-padding) flex overflow-x-auto">
+    <div class="grow px-(--page-padding)">
+      <div
+        class="
+          grid grid-cols-[auto_1fr_repeat(var(--num-rounds),auto)_repeat(var(--num-ranking-criteria),auto)] border
+          border-gray-300 text-sm
+        "
+        style="--num-rounds: <%= @rounds_up_to_current.size %>; --num-ranking-criteria: 3;"
+      >
+        <div class="bg-gray-100 p-2 font-semibold whitespace-nowrap">Rank</div>
 
-      <div class="bg-gray-100 p-2 font-semibold whitespace-nowrap">Name</div>
+        <div class="bg-gray-100 p-2 font-semibold whitespace-nowrap">Name</div>
 
-      <% @rounds_up_to_current.find_each do |round| %>
-        <div class="bg-gray-100 p-2 font-semibold whitespace-nowrap"><%= round.board %></div>
-      <% end %>
+        <div class="bg-gray-100 p-2 font-semibold whitespace-nowrap">Points</div>
 
-      <div class="bg-gray-100 p-2 font-semibold whitespace-nowrap">Points</div>
+        <div class="bg-gray-100 p-2 font-semibold whitespace-nowrap">Opponent Points</div>
 
-      <div class="bg-gray-100 p-2 font-semibold whitespace-nowrap">Opponent Points</div>
+        <div class="bg-gray-100 p-2 font-semibold whitespace-nowrap">Points per Gen</div>
 
-      <div class="bg-gray-100 p-2 font-semibold whitespace-nowrap">Points per Gen</div>
-
-      <% @participations.each_with_index do |participation, index| %>
-        <div class="<%= "font-semibold bg-teal-100" if participation.user == Current.user %> border-t border-gray-200 p-2 whitespace-nowrap">
-          <%= index + 1 %>
-        </div>
-
-        <div class="<%= "font-semibold bg-teal-100" if participation.user == Current.user %> border-t border-gray-200 p-2 whitespace-nowrap">
-          <%= participation.user.name %>
-        </div>
-
-        <% @rounds_up_to_current.each do |round| %>
-          <div class="<%= "font-semibold bg-teal-100" if participation.user == Current.user %> border-t border-gray-200 p-2 whitespace-nowrap">
-            <%= participation.scores.find { |score| score.round == round }.rank.ordinalize %>
-          </div>
+        <% @rounds_up_to_current.find_each do |round| %>
+          <div class="bg-gray-100 p-2 font-semibold whitespace-nowrap"><%= round.board %></div>
         <% end %>
 
-        <% @ranking_criteria[@current_round][participation].each do |criterion| %>
+        <% @ranked_participations.each_with_index do |participation, index| %>
           <div class="<%= "font-semibold bg-teal-100" if participation.user == Current.user %> border-t border-gray-200 p-2 whitespace-nowrap">
-            <%= criterion %>
+            <%= index + 1 %>
           </div>
+
+          <div class="<%= "font-semibold bg-teal-100" if participation.user == Current.user %> border-t border-gray-200 p-2 whitespace-nowrap">
+            <%= participation.user.name %>
+          </div>
+
+          <% @ranking_criteria[@current_round][participation].each do |criterion| %>
+            <div class="<%= "font-semibold bg-teal-100" if participation.user == Current.user %> border-t border-gray-200 p-2 whitespace-nowrap">
+              <%= criterion %>
+            </div>
+          <% end %>
+
+          <% @rounds_up_to_current.each do |round| %>
+            <div class="<%= "font-semibold bg-teal-100" if participation.user == Current.user %> border-t border-gray-200 p-2 whitespace-nowrap">
+              <%= participation.rank_in(round)&.ordinalize || "-" %>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>
