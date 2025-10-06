@@ -1,11 +1,23 @@
 module Participation::Ranking
   extend ActiveSupport::Concern
 
+  included do
+    scope :with_ranking_data, -> {
+      includes(
+        :rounds,
+        {scores: [:round, :result]}, # ranking_points_up_to and average_points_per_generation_up_to
+        {games: [:round, {
+          participations: [:rounds, {scores: :round}] # opponent_ranking_points_up_to
+        }]}
+      )
+    }
+  end
+
   def ranking_criteria(round)
     [
       ranking_points_up_to(round),
       opponent_ranking_points_up_to(round),
-      average_points_per_generation(round)
+      average_points_per_generation_up_to(round)
     ]
   end
 
@@ -14,23 +26,38 @@ module Participation::Ranking
   end
 
   def opponent_ranking_points_up_to(round)
-    opponents(round).sum { |opponent| opponent.ranking_points_up_to(round) }
+    opponents(round).sum do |participation|
+      real_ranking_points = participation.ranking_points_up_to(round)
+      if rounds.include?(round)
+        real_ranking_points
+      else
+        [round.average_ranking_points, real_ranking_points].max
+      end
+    end
   end
 
-  def average_points_per_generation(round)
+  def average_points_per_generation_up_to(round)
     (scores_until(round).sum(&:points) / scores_until(round).map(&:result).sum(&:generations).to_f).round(2)
   end
 
-  private
+  def rank_in(round)
+    scores.find { it.round == round }&.rank
+  end
+
+  # private
 
   def scores_until(round)
     @scores_until ||= {}
-    @scores_until[round.id] ||= scores.filter { |score| score.round.number <= round.number }
+    @scores_until[round.id] ||= scores.filter { it.round.number <= round.number }
   end
 
   def opponents(round)
-    real_opponents = tournament.participations.filter { it.is_opponent_of?(self, round) }
-    virtual_opponents = [virtual_participation_for(round)] * games.filter { it.round.number <= round.number }.count { it.three_players? }
+    expected_number_of_opponents = round.number * 3
+    real_opponents = games.filter { it.round.number <= round.number }.flat_map(&:participations).excluding(self)
+
+    remaining_number_of_opponents = expected_number_of_opponents - real_opponents.size
+    virtual_opponents = [virtual_participation_for(round)] * remaining_number_of_opponents
+
     [*real_opponents, *virtual_opponents]
   end
 
