@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_06_152125) do
+ActiveRecord::Schema[8.0].define(version: 2025_09_03_182121) do
+  create_table "games", force: :cascade do |t|
+    t.integer "table_id", null: false
+    t.integer "round_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["round_id"], name: "index_games_on_round_id"
+    t.index ["table_id"], name: "index_games_on_table_id"
+  end
+
   create_table "participations", force: :cascade do |t|
     t.boolean "brings_basegame_english", default: false, null: false
     t.boolean "brings_prelude_english", default: false, null: false
@@ -29,6 +38,51 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_06_152125) do
     t.index ["user_id"], name: "index_participations_on_user_id"
   end
 
+  create_table "results", force: :cascade do |t|
+    t.integer "generations", null: false
+    t.integer "game_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_results_on_game_id"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.integer "number", null: false
+    t.integer "tournament_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tournament_id"], name: "index_rooms_on_tournament_id"
+  end
+
+  create_table "rounds", force: :cascade do |t|
+    t.integer "number", null: false
+    t.string "board", null: false
+    t.integer "tournament_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tournament_id"], name: "index_rounds_on_tournament_id"
+  end
+
+  create_table "scores", force: :cascade do |t|
+    t.string "corporation", null: false
+    t.integer "points", null: false
+    t.integer "rank", null: false
+    t.integer "seat_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["seat_id"], name: "index_scores_on_seat_id"
+  end
+
+  create_table "seats", force: :cascade do |t|
+    t.integer "number", null: false
+    t.integer "game_id", null: false
+    t.integer "participation_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_seats_on_game_id"
+    t.index ["participation_id"], name: "index_seats_on_participation_id"
+  end
+
   create_table "sessions", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "ip_address"
@@ -36,6 +90,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_06_152125) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_sessions_on_user_id"
+  end
+
+  create_table "tables", force: :cascade do |t|
+    t.integer "number", null: false
+    t.integer "room_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_tables_on_room_id"
   end
 
   create_table "tournaments", force: :cascade do |t|
@@ -60,7 +122,16 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_06_152125) do
     t.index ["name"], name: "index_users_on_name", unique: true
   end
 
+  add_foreign_key "games", "rounds"
+  add_foreign_key "games", "tables"
   add_foreign_key "participations", "tournaments"
   add_foreign_key "participations", "users"
+  add_foreign_key "results", "games"
+  add_foreign_key "rooms", "tournaments"
+  add_foreign_key "rounds", "tournaments"
+  add_foreign_key "scores", "seats"
+  add_foreign_key "seats", "games"
+  add_foreign_key "seats", "participations"
   add_foreign_key "sessions", "users"
+  add_foreign_key "tables", "rooms"
 end

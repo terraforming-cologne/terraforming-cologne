@@ -1,0 +1,7 @@
+one:
+  number: 1
+  room: one
+
+two:
+  number: 2
+  room: one

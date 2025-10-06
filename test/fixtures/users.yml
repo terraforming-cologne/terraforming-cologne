@@ -1,0 +1,27 @@
+<% password_digest = BCrypt::Password.create("asdfasdf") %>
+
+one:
+  name: "Test user one"
+  email_address: "one@example.com"
+  password_digest: <%= password_digest %>
+  locale: "en"
+
+two:
+  name: "Test user two"
+  email_address: "two@example.com"
+  password_digest: <%= password_digest %>
+  locale: "en"
+
+three:
+  name: "Test user three"
+  email_address: "three@example.com"
+  password_digest: <%= password_digest %>
+  locale: "en"
+
+admin:
+  name: "Admin"
+  email_address: "admin@example.com"
+  password_digest: <%= password_digest %>
+  locale: "en"
+  admin: true
+  deactivated: false

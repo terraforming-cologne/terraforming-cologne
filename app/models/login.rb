@@ -1,3 +1,4 @@
+# TODO: This model feels weird
 class Login
   include ActiveModel::Model
 

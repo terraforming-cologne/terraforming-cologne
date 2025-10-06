@@ -19,7 +19,7 @@ class TournamentsController < ApplicationController
     if @tournament.save
       redirect_to :tournaments, notice: t(".notice")
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_content
     end
   end
 
@@ -32,7 +32,7 @@ class TournamentsController < ApplicationController
     if @tournament.update(tournament_params)
       redirect_to :tournaments, notice: t(".notice")
     else
-      render :edit, status: :unprocessable_entity
+      render :edit, status: :unprocessable_content
     end
   end
 
