@@ -1,24 +1,6 @@
-# README
+# Terraforming Cologne
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Terraforming Cologne is the organization behinde the "German Open", a Terraforming Mars tournament situated in Cologne, Germany.
 
-Things you may want to cover:
-
-- Ruby version
-
-- System dependencies
-
-- Configuration
-
-- Database creation
-
-- Database initialization
-
-- How to run the test suite
-
-- Services (job queues, cache servers, search engines, etc.)
-
-- Deployment instructions
-
-- ...
+This repository contains the source code for the website deployed at [https://terraforming-cologne.de](https://terraforming-cologne.de).
+It includes both the public facing web page and the logic required to run Terraforming Mars tournaments.
