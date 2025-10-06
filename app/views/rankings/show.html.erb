@@ -15,16 +15,16 @@
     <div class="-mx-(--page-padding) flex overflow-x-auto">
       <div class="grow px-(--page-padding)">
         <%= tag.div class: "grid grid-cols-[auto_1fr_repeat(var(--num-rounds),auto)_repeat(var(--num-ranking-criteria),auto)] border border-gray-300 text-sm",
-                  style: "--num-rounds: #{@rounds_up_to_current.size}; --num-ranking-criteria: 3;" do %>
-          <div class="bg-gray-100 p-2 font-semibold whitespace-nowrap">Rank</div>
+                    style: "--num-rounds: #{@rounds_up_to_current.size}; --num-ranking-criteria: 3;" do %>
+          <div class="bg-gray-100 p-2 font-semibold whitespace-nowrap"><%= t(:rank) %></div>
 
-          <div class="bg-gray-100 p-2 font-semibold whitespace-nowrap">Name</div>
+          <div class="bg-gray-100 p-2 font-semibold whitespace-nowrap"><%= t(:name) %></div>
 
-          <div class="bg-gray-100 p-2 font-semibold whitespace-nowrap">Points</div>
+          <div class="bg-gray-100 p-2 font-semibold whitespace-nowrap"><%= t(:points) %></div>
 
-          <div class="bg-gray-100 p-2 font-semibold whitespace-nowrap">Opponent Points</div>
+          <div class="bg-gray-100 p-2 font-semibold whitespace-nowrap"><%= t(:opponent_points) %></div>
 
-          <div class="bg-gray-100 p-2 font-semibold whitespace-nowrap">Points per Gen</div>
+          <div class="bg-gray-100 p-2 font-semibold whitespace-nowrap"><%= t(:points_per_generation) %></div>
 
           <% @rounds_up_to_current.find_each do |round| %>
             <div class="bg-gray-100 p-2 font-semibold whitespace-nowrap"><%= round.board %></div>

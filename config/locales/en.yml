@@ -2,6 +2,11 @@
 en:
   already_registered: You are already registered for the next tournament!
   no_rounds_finished_yet: No rounds were finished yet. Come back later.
+  rank: Rank
+  name: Name
+  points: Points
+  opponent_points: Opponent Points
+  points_per_generation: Points per Generation
   ranking: Ranking
   create_tournament: Create Tournament
   date:
