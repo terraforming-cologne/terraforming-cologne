@@ -3,6 +3,11 @@ de:
   already_registered: Du bist bereits für das nächste Turnier registriert!
   no_rounds_finished_yet: Es wurde noch keine Runde beendet. Komme später wieder.
   ranking: Platzierungen
+  rank: Platz
+  name: Name
+  points: Punkte
+  opponent_points: Punkte der Gegner:innen
+  points_per_generation: Punkte pro Generation
   create_tournament: Turnier erstellen
   date:
     formats:
