@@ -1,6 +1,8 @@
 ---
 en:
   already_registered: You are already registered for the next tournament!
+  no_rounds_finished_yet: No rounds were finished yet. Come back later.
+  ranking: Ranking
   create_tournament: Create Tournament
   date:
     formats:

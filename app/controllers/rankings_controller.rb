@@ -6,8 +6,10 @@ class RankingsController < ApplicationController
     @all_rounds = @tournament.rounds.includes(:participations).merge(Participation.with_ranking_data)
     @all_participations = @tournament.participations.with_ranking_data.includes(:user, scores: :round)
     @current_round = @all_rounds.find_by(number: params[:round] || @all_rounds.maximum(:number))
-    @rounds_up_to_current = @all_rounds.where(number: ..@current_round.number)
-    @ranking_criteria = @rounds_up_to_current.index_with { |round| @all_participations.index_with { |participation| participation.ranking_criteria(round) } }
-    @ranked_participations = @all_participations.sort_by { |participation| @ranking_criteria[@current_round][participation] }.reverse
+    if @current_round.present?
+      @rounds_up_to_current = @all_rounds.where(number: ..@current_round.number)
+      @ranking_criteria = @rounds_up_to_current.index_with { |round| @all_participations.index_with { |participation| participation.ranking_criteria(round) } }
+      @ranked_participations = @all_participations.sort_by { |participation| @ranking_criteria[@current_round][participation] }.reverse
+    end
   end
 end
