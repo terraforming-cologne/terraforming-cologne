@@ -18,14 +18,12 @@
 
   <div class="flex flex-col gap-1">
     <%= form.label :locale %>
-    <%=
-      form.collection_select :locale,
+    <%= form.collection_select :locale,
         I18n.available_locales,
         :to_s,
         ->(locale) { t(locale) },
         {include_blank: false},
-        class: "rounded"
-    %>
+        class: "rounded" %>
   </div>
 
   <div class="flex items-center justify-between">

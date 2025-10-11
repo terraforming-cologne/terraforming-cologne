@@ -3,15 +3,13 @@
 <div class="flex flex-col gap-8">
   <%= render "edit_form", user: @user %>
   <div class="flex">
-    <%=
-      button_to t(".deactivate"),
+    <%= button_to t(".deactivate"),
         :account,
         method: :delete,
         class: "btn btn-danger",
         data: {
           turbo_frame: "_top",
           turbo_confirm: t(".deactivate_confirm")
-        }
-    %>
+        } %>
   </div>
 </div>

@@ -1,3 +1,6 @@
 {
-  "tabWidth": 2
+  "tabWidth": 2,
+  "printWidth": 120,
+  "tailwindStylesheet": "./app/assets/tailwind/application.css",
+  "plugins": ["prettier-plugin-tailwindcss"]
 }

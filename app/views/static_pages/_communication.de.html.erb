@@ -5,43 +5,38 @@
     <h2>E-Mail</h2>
     <p>
       Die wichtigsten Infos erhaltet ihr per E-Mail an die in eurem
-      <%= link_to "Profil", :profile, class: "link" %>
-      hinterlegte E-Mail-Adresse<%= " (in deinem Fall #{Current.user.email_address})" if authenticated? %>.
+      <%= link_to "Profil", :profile, class: "link" %> hinterlegte
+      E-Mail-Adresse
+      <%= " (in deinem Fall #{Current.user.email_address})" if authenticated? %>.
     </p>
   </section>
 
   <section>
     <h2>WhatsApp-Gruppe</h2>
+
     <p>
-      Für Fragen und kurzfristige Informationen am Turniertag haben wir eine WhatsApp Gruppe eingerichtet. Alle
-      wichtigen Infos werden aber per E-Mail wie oben beschrieben verschickt. Ihr verpasst also nichts, wenn ihr nicht
+      Für Fragen und kurzfristige Informationen am Turniertag haben wir eine
+      WhatsApp Gruppe eingerichtet. Alle wichtigen Infos werden aber per E-Mail
+      wie oben beschrieben verschickt. Ihr verpasst also nichts, wenn ihr nicht
       Teil der WhatsApp Gruppe seid. Tritt der WhatsApp Gruppe über
-      <%=
-        link_to "diesen Link",
-          "https://chat.whatsapp.com/DwgJ3hJNPrwDyFWXP3nGBT",
-          class: "link",
-          target: "_blank",
-          rel: "noopener"
-      %>
+      <%= link_to "diesen Link", "https://chat.whatsapp.com/DwgJ3hJNPrwDyFWXP3nGBT", class: "link", target: "_blank", rel: "noopener" %>
       bei oder scanne diesen QR-Code:
     </p>
 
     <div class="mt-8 flex justify-center">
-      <%=
-        RQRCode::QRCode
+      <%= RQRCode::QRCode
           .new("https://chat.whatsapp.com/DwgJ3hJNPrwDyFWXP3nGBT")
           .as_svg(viewbox: true, fill: :white, color: :black, svg_attributes: {class: "size-48"})
-          .html_safe
-      %>
+          .html_safe %>
     </div>
   </section>
 
   <section>
     <h2>Weitere Anliegen</h2>
     <p>
-      Für weitere Anliegen, die nicht in die WhatsApp Gruppe passen, könnt ihr euch immer per E-Mail an
-      <%= mail_to "support@terraforming-cologne.de", class: "link" %>
-      wenden.
+      Für weitere Anliegen, die nicht in die WhatsApp Gruppe passen, könnt ihr
+      euch immer per E-Mail an
+      <%= mail_to "support@terraforming-cologne.de", class: "link" %> wenden.
     </p>
   </section>
 </section>

@@ -1,23 +1,19 @@
 <% if I18n.locale == :de %>
-  <%=
-    button_to :locale,
+  <%= button_to :locale,
       method: :patch,
       params: {
         locale: :en
       },
-      class: "inline-block py-2 hover:cursor-pointer hover:opacity-60" do
-  %>
+      class: "inline-block py-2 hover:cursor-pointer hover:opacity-60" do %>
     <%= image_tag "flag_en.svg", class: "size-8" %>
   <% end %>
 <% else %>
-  <%=
-    button_to :locale,
+  <%= button_to :locale,
       method: :patch,
       params: {
         locale: :de
       },
-      class: "inline-block py-2 hover:cursor-pointer hover:opacity-60" do
-  %>
+      class: "inline-block py-2 hover:cursor-pointer hover:opacity-60" do %>
     <%= image_tag "flag_de.svg", class: "size-8" %>
   <% end %>
 <% end %>

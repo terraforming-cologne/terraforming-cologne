@@ -22,6 +22,10 @@
   section {
     @apply mt-8 mb-12;
   }
+
+  input:disabled {
+    @apply border-slate-600 text-slate-600;
+  }
 }
 
 @utility link {
@@ -29,7 +33,7 @@
 }
 
 @utility btn {
-  @apply inline-block cursor-pointer rounded-lg px-4 py-2 font-bold;
+  @apply inline-block cursor-pointer rounded-lg px-4 py-2 font-bold transition-colors;
 }
 
 @utility btn-primary {
@@ -49,5 +53,5 @@
 }
 
 .translation_missing {
-  @apply border-red-500 border-2 text-red-500 text-5xl;
+  @apply border-2 border-red-500 text-5xl text-red-500;
 }

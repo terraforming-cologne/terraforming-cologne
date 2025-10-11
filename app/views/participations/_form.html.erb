@@ -1,8 +1,6 @@
-<%=
-  form_with model: participation,
+<%= form_with model: participation,
     url: participation.persisted? ? participation : [participation.tournament, participation],
-    class: "flex flex-col gap-4" do |form|
-%>
+    class: "flex flex-col gap-4" do |form| %>
   <%= form.hidden_field :user_id, value: participation.user_id %>
   <%= form.hidden_field :tournament_id, value: participation.tournament_id %>
 
@@ -54,7 +52,5 @@
     </div>
   </div>
 
-  <div class="flex">
-    <%= form.submit class: "btn btn-primary" %>
-  </div>
+  <div class="flex"><%= form.submit class: "btn btn-primary" %></div>
 <% end %>
