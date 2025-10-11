@@ -1,18 +1,14 @@
 <h1><%= t(".heading") %></h1>
 
-<div class="mb-4">
-  <%= render "form", participation: @participation %>
-</div>
+<div class="mb-4"><%= render "form", participation: @participation %></div>
 
 <div class="flex">
-  <%=
-    button_to t(".delete"),
+  <%= button_to t(".delete"),
       @participation,
       method: :delete,
       class: "btn btn-danger",
       data: {
         turbo_frame: "_top",
         turbo_confirm: t(".delete_confirm")
-      }
-  %>
+      } %>
 </div>

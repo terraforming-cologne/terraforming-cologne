@@ -11,6 +11,7 @@ repos:
         language: system
         types: ["erb"]
         entry: bin/erb-format
+        exclude: \.(json|text)\.erb$
       - id: herb-lint
         name: herb-lint
         language: system

@@ -3,6 +3,7 @@
     <%= link_to :root, class: "inline-block py-2 hover:opacity-60" do %>
       <%= image_tag "logo_with_text.svg", class: "size-16" %>
     <% end %>
+
     <%= render "shared/locale_switcher" %>
     <div class="ms-auto flex items-center gap-4">
       <% if authenticated? %>

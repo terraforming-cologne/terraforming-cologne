@@ -1,29 +1,48 @@
-<h1><%= @tournament.name %> &ndash; <%= t(:ranking) %></h1>
+<div class="flex flex-col gap-8">
+  <div>
+    <h1 class="mb-0"><%= t(:ranking) %></h1>
 
-<% if @current_round.blank? %>
-  <h2><%= t(:no_rounds_finished_yet) %></h2>
-<% else %>
-  <div class="flex flex-col gap-8">
-    <div class="flex gap-2">
+    <h2 class="mb-0"><%= @tournament.name %></h2>
+  </div>
+
+  <% if @current_round.blank? %>
+    <h2><%= t(:no_rounds_finished_yet) %></h2>
+  <% else %>
+    <div class="flex gap-2 overflow-x-auto">
       <% if @all_rounds.size > 1 %>
         <% @all_rounds.each do |round| %>
-          <%= link_to round.board, [@tournament, :ranking, {round: round.number}], class: "link text-2xl font-bold" %>
+          <% active = (params[:round].to_i == round.number) || (params[:round].blank? && @all_rounds.maximum(:number) == round.number) %>
+          <%= link_to [@tournament, :ranking, {round: round.number}],
+                      class: "rounded-full px-4 py-2 text-sm font-semibold whitespace-nowrap transition-colors duration-200 #{active ? "bg-teal-500 text-white" : "bg-gray-200 text-gray-700 hover:bg-gray-300"}" do %>
+            <%= round.board %>
+          <% end %>
         <% end %>
       <% end %>
     </div>
-
     <div class="-mx-(--page-padding) flex overflow-x-auto">
       <div class="grow px-(--page-padding)">
         <table class="w-full border-collapse px-(--page-padding) whitespace-nowrap">
           <thead>
             <tr>
-              <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= t(:rank) %></th>
-              <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= t(:name) %></th>
-              <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= t(:points) %></th>
-              <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= t(:opponent_points) %></th>
-              <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= t(:points_per_generation) %></th>
+              <th class="border-b border-gray-100 bg-gray-200 p-2 text-start">
+                <%= t(:rank) %>
+              </th>
+              <th class="border-b border-gray-100 bg-gray-200 p-2 text-start">
+                <%= t(:name) %>
+              </th>
+              <th class="border-b border-gray-100 bg-gray-200 p-2 text-start">
+                <%= t(:points) %>
+              </th>
+              <th class="border-b border-gray-100 bg-gray-200 p-2 text-start">
+                <%= t(:opponent_points) %>
+              </th>
+              <th class="border-b border-gray-100 bg-gray-200 p-2 text-start">
+                <%= t(:points_per_generation) %>
+              </th>
               <% @rounds_up_to_current.find_each do |round| %>
-                <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= round.board %></th>
+                <th class="border-b border-gray-100 bg-gray-200 p-2 text-start">
+                  <%= round.board %>
+                </th>
               <% end %>
             </tr>
           </thead>
@@ -31,12 +50,16 @@
             <% @ranked_participations.each_with_index do |participation, index| %>
               <tr>
                 <td class="border-b border-gray-100 p-2"><%= index + 1 %></td>
-                <td class="border-b border-gray-100 p-2"><%= participation.user.name %></td>
+                <td class="border-b border-gray-100 p-2">
+                  <%= participation.user.name %>
+                </td>
                 <% @ranking_criteria[@current_round][participation].each do |criterion| %>
                   <td class="border-b border-gray-100 p-2"><%= criterion %></td>
                 <% end %>
                 <% @rounds_up_to_current.each do |round| %>
-                  <td class="border-b border-gray-100 p-2"><%= participation.rank_in(round)&.ordinalize || "-" %></td>
+                  <td class="border-b border-gray-100 p-2">
+                    <%= participation.rank_in(round)&.ordinalize || "-" %>
+                  </td>
                 <% end %>
               </tr>
             <% end %>
@@ -44,5 +67,5 @@
         </table>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

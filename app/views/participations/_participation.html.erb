@@ -3,7 +3,6 @@
 <div class="flex flex-col gap-4">
   <% if participation.brings_anything? %>
     <%= tag.span t(".bring"), class: "font-semibold" %>
-
     <ul class="list-inside list-disc">
       <%= tag.li t(".brings_basegame_english") if @participation.brings_basegame_english? %>
       <%= tag.li t(".brings_basegame_german") if @participation.brings_basegame_german? %>
@@ -15,10 +14,9 @@
 
   <% if @participation.comment.present? %>
     <div>
-      <%= tag.span Participation.human_attribute_name(:comment), class: "font-bold" %>:
-      <p>
-        <%= @participation.comment %>
-      </p>
+      <%= tag.span Participation.human_attribute_name(:comment), class: "font-bold" %>
+      :
+      <p><%= @participation.comment %></p>
     </div>
   <% end %>
 

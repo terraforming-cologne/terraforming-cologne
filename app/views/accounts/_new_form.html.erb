@@ -18,41 +18,33 @@
 
   <div class="flex flex-col gap-1">
     <%= form.label :password %>
-    <%=
-      form.password_field :password,
+    <%= form.password_field :password,
         required: true,
         autocomplete: "new-password",
         minlength: 8,
         maxlength: 72,
-        class: "rounded"
-    %>
+        class: "rounded" %>
   </div>
 
   <div class="flex flex-col gap-1">
     <%= form.label :password_confirmation %>
-    <%=
-      form.password_field :password_confirmation,
+    <%= form.password_field :password_confirmation,
         required: true,
         autocomplete: "new-password",
         minlength: 8,
         maxlength: 72,
-        class: "rounded"
-    %>
+        class: "rounded" %>
   </div>
 
   <div class="flex flex-col gap-1">
     <%= form.label :locale %>
-    <%=
-      form.collection_select :locale,
+    <%= form.collection_select :locale,
         I18n.available_locales,
         :to_s,
         ->(locale) { t(locale) },
         {selected: (user.locale.presence || cookies[:locale]).to_s, include_blank: false},
-        class: "rounded"
-    %>
+        class: "rounded" %>
   </div>
 
-  <div class="flex">
-    <%= form.submit class: "btn btn-primary" %>
-  </div>
+  <div class="flex"><%= form.submit class: "btn btn-primary" %></div>
 <% end %>

@@ -1,18 +1,17 @@
-<p>
-  Hello
-  <%= @user.name %>,
-</p>
+<p>Hello <%= @user.name %>,</p>
 
 <br>
+
 <br>
 
 <p>
-  We have received your registration for the German Open Terraforming Mars 2025. Thank you for your interest in our
-  event!
+  We have received your registration for the German Open Terraforming Mars 2025.
+  Thank you for your interest in our event!
 </p>
 
 <p>
-  Please expect further information shortly before the tournament. In the meantime, you can always visit
+  Please expect further information shortly before the tournament. In the
+  meantime, you can always visit
   <%= link_to "our website", root_url, class: "link" %>.
 </p>
 
@@ -23,32 +22,31 @@
 </p>
 
 <p>
-  In order for it to take off now and to complete your registration, please transfer the participation fee of 15€ to
-  the following account:
+  In order for it to take off now and to complete your registration, please
+  transfer the participation fee of 15€ to the following account:
+</p>
+
+<br>
+
+<p><%= render "shared/bank_details", user: @user %></p>
+
+<br>
+
+<p>
+  As soon as we have received and processed your payment, you will receive a
+  confirmation email and the journey to Mars can begin!
+</p>
+
+<p>
+  Only that email will be the final confirmation of your participation in the
+  German Open.
 </p>
 
 <br>
 
 <p>
-  <%= render "shared/bank_details", user: @user %>
-</p>
-
-<br>
-
-<p>
-  As soon as we have received and processed your payment, you will receive a confirmation email and the journey to Mars
-  can begin!
-</p>
-
-<p>
-  Only that email will be the final confirmation of your participation in the German Open.
-</p>
-
-<br>
-
-<p>
-  If there are any changes regarding your participation, you can update it in your
-  <%= link_to "profile", profile_url, class: "link" %>.
+  If there are any changes regarding your participation, you can update it in
+  your <%= link_to "profile", profile_url, class: "link" %>.
 </p>
 
 <p>
@@ -59,6 +57,7 @@
 </p>
 
 <br>
+
 <br>
 
 <p>
