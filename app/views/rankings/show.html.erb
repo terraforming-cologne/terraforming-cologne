@@ -47,18 +47,18 @@
             </tr>
           </thead>
           <tbody>
-            <% @ranked_participations.each_with_index do |participation, index| %>
+            <% @ranked_attendances.each_with_index do |attendance, index| %>
               <tr>
                 <td class="border-b border-gray-100 p-2"><%= index + 1 %></td>
                 <td class="border-b border-gray-100 p-2">
-                  <%= participation.user.name %>
+                  <%= attendance.user.name %>
                 </td>
-                <% @ranking_criteria[@current_round][participation].each do |criterion| %>
+                <% @ranking_criteria[@current_round][attendance].each do |criterion| %>
                   <td class="border-b border-gray-100 p-2"><%= criterion %></td>
                 <% end %>
                 <% @rounds_up_to_current.each do |round| %>
                   <td class="border-b border-gray-100 p-2">
-                    <%= participation.rank_in(round)&.ordinalize || "-" %>
+                    <%= attendance.rank_in(round)&.ordinalize || "-" %>
                   </td>
                 <% end %>
               </tr>

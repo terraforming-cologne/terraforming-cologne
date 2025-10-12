@@ -1,14 +1,14 @@
 one:
   number: 1
   game: one
-  participation: one
+  attendance: one
 
 two:
   number: 2
   game: one
-  participation: two
+  attendance: two
 
 three:
   number: 1
   game: three
-  participation: three
+  attendance: three

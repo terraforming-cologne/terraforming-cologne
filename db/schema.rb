@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_09_03_182121) do
+ActiveRecord::Schema[8.0].define(version: 2025_10_12_160506) do
+  create_table "attendances", force: :cascade do |t|
+    t.integer "participation_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["participation_id"], name: "index_attendances_on_participation_id", unique: true
+  end
+
   create_table "games", force: :cascade do |t|
     t.integer "table_id", null: false
     t.integer "round_id", null: false
@@ -76,11 +83,11 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_03_182121) do
   create_table "seats", force: :cascade do |t|
     t.integer "number", null: false
     t.integer "game_id", null: false
-    t.integer "participation_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "attendance_id", null: false
+    t.index ["attendance_id"], name: "index_seats_on_attendance_id"
     t.index ["game_id"], name: "index_seats_on_game_id"
-    t.index ["participation_id"], name: "index_seats_on_participation_id"
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -122,6 +129,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_03_182121) do
     t.index ["name"], name: "index_users_on_name", unique: true
   end
 
+  add_foreign_key "attendances", "participations"
   add_foreign_key "games", "rounds"
   add_foreign_key "games", "tables"
   add_foreign_key "participations", "tournaments"
@@ -130,8 +138,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_03_182121) do
   add_foreign_key "rooms", "tournaments"
   add_foreign_key "rounds", "tournaments"
   add_foreign_key "scores", "seats"
+  add_foreign_key "seats", "attendances"
   add_foreign_key "seats", "games"
-  add_foreign_key "seats", "participations"
   add_foreign_key "sessions", "users"
   add_foreign_key "tables", "rooms"
 end

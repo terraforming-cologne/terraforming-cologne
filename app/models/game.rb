@@ -4,7 +4,7 @@ class Game < ApplicationRecord
   has_one :result
   has_one :tournament, through: :round
   has_many :seats
-  has_many :participations, through: :seats
+  has_many :attendances, through: :seats
   has_many :scores, through: :seats
 
   def three_players?
