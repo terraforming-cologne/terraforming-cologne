@@ -1,14 +1,7 @@
 class Participation < ApplicationRecord
-  include Ranking
-
   belongs_to :user
   belongs_to :tournament
-  has_many :seats
-  has_many :games, through: :seats
-  has_many :scores, through: :seats
-  has_many :rounds, through: :games
-
-  scope :active, -> { joins(:user).merge(User.active) }
+  has_one :attendance
 
   after_create_commit :deliver_confirmation_email_later
   after_update_commit :deliver_paid_email_later, if: :updated_to_paid?

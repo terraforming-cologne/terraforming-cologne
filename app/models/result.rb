@@ -3,5 +3,5 @@ class Result < ApplicationRecord
   has_many :seats, through: :game
   has_many :scores, through: :seats
 
-  # TODO: Validate ranking order and no duplicate participations
+  # TODO: Validate ranking order and no duplicate attendances
 end

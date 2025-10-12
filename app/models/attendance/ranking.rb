@@ -1,13 +1,18 @@
-module Participation::Ranking
+module Attendance::Ranking
   extend ActiveSupport::Concern
 
   included do
+    has_many :seats
+    has_many :games, through: :seats
+    has_many :scores, through: :seats
+    has_many :rounds, through: :games
+
     scope :with_ranking_data, -> {
       includes(
         :rounds,
         {scores: [:round, :result]}, # ranking_points_up_to and average_points_per_generation_up_to
         {games: [:round, {
-          participations: [:rounds, {scores: :round}] # opponent_ranking_points_up_to
+          attendances: [:rounds, {scores: :round}] # opponent_ranking_points_up_to
         }]}
       )
     }
@@ -26,8 +31,8 @@ module Participation::Ranking
   end
 
   def opponent_ranking_points_up_to(round)
-    opponents(round).sum do |participation|
-      real_ranking_points = participation.ranking_points_up_to(round)
+    opponents(round).sum do |attendance|
+      real_ranking_points = attendance.ranking_points_up_to(round)
       if rounds.include?(round)
         real_ranking_points
       else
@@ -53,20 +58,20 @@ module Participation::Ranking
 
   def opponents(round)
     expected_number_of_opponents = round.number * 3
-    real_opponents = games.filter { it.round.number <= round.number }.flat_map(&:participations).excluding(self)
+    real_opponents = games.filter { it.round.number <= round.number }.flat_map(&:attendances).excluding(self)
 
     remaining_number_of_opponents = expected_number_of_opponents - real_opponents.size
-    virtual_opponents = [virtual_participation_for(round)] * remaining_number_of_opponents
+    virtual_opponents = [virtual_attendance_for(round)] * remaining_number_of_opponents
 
     [*real_opponents, *virtual_opponents]
   end
 
-  def virtual_participation_for(round)
-    @virtual_participation_for ||= {}
-    @virtual_participation_for[round.id] ||= VirtualParticipation.new(round.average_ranking_points)
+  def virtual_attendance_for(round)
+    @virtual_attendance_for ||= {}
+    @virtual_attendance_for[round.id] ||= VirtualAttendance.new(round.average_ranking_points)
   end
 
-  class VirtualParticipation
+  class VirtualAttendance
     def initialize(ranking_points)
       @ranking_points = ranking_points
     end
