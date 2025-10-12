@@ -21,10 +21,8 @@ class Tournament < ApplicationRecord
 
   def number_of_full_game_sets
     [
-      participations.where(brings_basegame_english: true).count,
-      participations.where(brings_basegame_german: true).count,
-      participations.where(brings_prelude_english: true).count,
-      participations.where(brings_prelude_german: true).count,
+      participations.where(brings_basegame_english: true).count + participations.where(brings_basegame_german: true).count.min,
+      participations.where(brings_prelude_english: true).count + participations.where(brings_prelude_german: true).count.min,
       participations.where(brings_hellas_and_elysium: true).count
     ].min
   end
