@@ -2,6 +2,7 @@ class Tournament < ApplicationRecord
   FEW_SPOTS_LEFT_THRESHOLD = 0.8
 
   has_many :participations
+  has_many :attendances, through: :participations
   has_many :rounds
   has_many :games, through: :rounds
   has_many :rooms
