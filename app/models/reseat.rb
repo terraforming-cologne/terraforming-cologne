@@ -15,11 +15,11 @@ class Reseat
     return false unless valid?
 
     ApplicationRecord.transaction do
-      from_participation_id = from_seat.participation_id
-      to_participation_id = to_seat.participation_id
+      from_attendance_id = from_seat.attendance_id
+      to_attendance_id = to_seat.attendance_id
 
-      from_seat.update!(participation_id: to_participation_id)
-      to_seat.update!(participation_id: from_participation_id)
+      from_seat.update!(attendance_id: to_attendance_id)
+      to_seat.update!(attendance_id: from_attendance_id)
     end
   end
 

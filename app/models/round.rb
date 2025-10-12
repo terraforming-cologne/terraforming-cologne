@@ -1,7 +1,7 @@
 class Round < ApplicationRecord
   belongs_to :tournament
   has_many :games
-  has_many :participations, through: :games
+  has_many :attendances, through: :games
 
   default_scope { order(:number) }
 
@@ -10,8 +10,8 @@ class Round < ApplicationRecord
       r = ranking
       groups_of_fours_and_threes(r.size).map { |group_size| r.slice!(0, group_size) }.each_with_index do |group, index|
         games.create!(table: tournament.tables[index]).tap do |game|
-          group.each_with_index do |participation, index|
-            game.seats.create!(number: index + 1, participation: participation)
+          group.each_with_index do |attendance, index|
+            game.seats.create!(number: index + 1, attendance: attendance)
           end
         end
       end
@@ -20,16 +20,16 @@ class Round < ApplicationRecord
 
   def ranking
     if first_round?
-      participations.shuffle
+      attendances.shuffle
     else
-      participations.sort_by { it.ranking_criteria(previous_round) }.reverse
+      attendances.sort_by { it.ranking_criteria(previous_round) }.reverse
     end
   end
 
   def average_ranking_points
     @average_ranking_points ||= begin
       return 1 if number == 1
-      (participations.sum { it.ranking_points_up_to(self) } / participations.size.to_f).round
+      (attendances.sum { it.ranking_points_up_to(self) } / attendances.size.to_f).round
     end
   end
 

@@ -50,7 +50,7 @@ participations = user_ids.map do |user_id|
     brings_basegame_german: false,
     brings_prelude_english: true,
     brings_prelude_german: false,
-    brings_hellas_and_elysium: false,
+    brings_hellas_and_elysium: true,
     paid: true,
     created_at: Time.current,
     updated_at: Time.current

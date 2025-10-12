@@ -4,16 +4,15 @@ class RankingsController < ApplicationController
   def show
     @tournament = Tournament.find(params[:tournament_id])
 
-    # TODO: Extract the concept of people actually playing at the tournament
-    played_ids = @tournament.participations.includes(:games).filter { |participation| participation.games.count != 0 }.pluck(:id)
+    played_ids = @tournament.attendances.includes(:games).filter { |attendance| attendance.games.count != 0 }.pluck(:id)
 
-    @all_rounds = @tournament.rounds.includes(:participations).merge(Participation.with_ranking_data)
-    @all_participations = @tournament.participations.with_ranking_data.includes(:user, scores: :round).where(id: played_ids)
+    @all_rounds = @tournament.rounds.includes(:attendances).merge(Attendance.with_ranking_data)
+    @all_attendances = @tournament.attendances.with_ranking_data.includes(:user, scores: :round).where(id: played_ids)
     @current_round = @all_rounds.find_by(number: params[:round] || @all_rounds.maximum(:number))
     if @current_round.present?
       @rounds_up_to_current = @all_rounds.where(number: ..@current_round.number)
-      @ranking_criteria = @rounds_up_to_current.index_with { |round| @all_participations.index_with { |participation| participation.ranking_criteria(round) } }
-      @ranked_participations = @all_participations.sort_by { |participation| @ranking_criteria[@current_round][participation] }.reverse
+      @ranking_criteria = @rounds_up_to_current.index_with { |round| @all_attendances.index_with { |attendance| attendance.ranking_criteria(round) } }
+      @ranked_attendances = @all_attendances.sort_by { |attendance| @ranking_criteria[@current_round][attendance] }.reverse
     end
   end
 end
