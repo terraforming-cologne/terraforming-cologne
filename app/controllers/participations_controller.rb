@@ -7,7 +7,7 @@ class ParticipationsController < ApplicationController
   before_action :set_tournament, only: [:index, :new, :create]
 
   def index
-    @participations = @tournament.participations
+    @participations = @tournament.participations.includes(:user)
   end
 
   def show

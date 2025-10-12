@@ -19,6 +19,16 @@ class Tournament < ApplicationRecord
     where(date: Date.current..).exists?
   end
 
+  def number_of_full_game_sets
+    [
+      participations.where(brings_basegame_english: true).count,
+      participations.where(brings_basegame_german: true).count,
+      participations.where(brings_prelude_english: true).count,
+      participations.where(brings_prelude_german: true).count,
+      participations.where(brings_hellas_and_elysium: true).count
+    ].min
+  end
+
   def max_participations_reached?
     participations.count >= max_participations
   end
