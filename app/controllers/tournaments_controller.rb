@@ -1,11 +1,15 @@
 class TournamentsController < ApplicationController
-  before_action :set_tournament, only: [:edit, :update]
+  before_action :set_tournament, only: [:show, :edit, :update]
 
   def index
     authorize Tournament
     @next_tournament = Tournament.next
     @planned_tournaments = Tournament.where(date: (@next_tournament&.date&.next_day || Date.current)..)
     @previous_tournaments = Tournament.where(date: ..Date.yesterday)
+  end
+
+  def show
+    authorize @tournament
   end
 
   def new
@@ -40,6 +44,7 @@ class TournamentsController < ApplicationController
 
   def set_tournament
     @tournament = Tournament.find(params.expect(:id))
+    Current.tournament = @tournament
   end
 
   def tournament_params
