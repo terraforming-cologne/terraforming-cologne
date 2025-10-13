@@ -2,6 +2,7 @@ class Game < ApplicationRecord
   belongs_to :table
   belongs_to :round
   has_one :result
+  has_one :room, through: :table
   has_one :tournament, through: :round
   has_many :seats
   has_many :attendances, through: :seats

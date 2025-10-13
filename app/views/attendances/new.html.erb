@@ -1,0 +1,3 @@
+<%= turbo_frame_tag @participation, :attendance do %>
+  <%= button_to t(:record_attendance), [@participation, :attendance], method: :post, class: "btn btn-primary" %>
+<% end %>
