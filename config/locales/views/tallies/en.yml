@@ -1,0 +1,10 @@
+---
+en:
+  tallies:
+    already_tallied: This game's scores were already recorded.
+    new:
+      heading: Enter the result for your game
+  helpers:
+    submit:
+      tally:
+        create: Submit game result

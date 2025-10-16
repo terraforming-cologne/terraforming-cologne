@@ -1,0 +1,6 @@
+---
+de:
+  activerecord:
+    attributes:
+      result:
+        generations: Anzahl Generationen

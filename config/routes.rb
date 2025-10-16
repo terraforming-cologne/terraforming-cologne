@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     end
     resources :reseats, only: [:new, :create]
     resource :ranking, only: :show
+    resources :tallies, only: [:new, :create]
   end
   resources :payments, only: :create
 

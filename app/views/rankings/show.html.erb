@@ -5,7 +5,7 @@
     <h2 class="mb-0"><%= t(:ranking) %></h2>
   </div>
 
-  <% if @current_round.blank? %>
+  <% if @shown_round.blank? %>
     <h2><%= t(:no_rounds_finished_yet) %></h2>
   <% else %>
     <div class="flex gap-2 overflow-x-auto">
@@ -24,25 +24,13 @@
         <table class="w-full border-collapse px-(--page-padding) whitespace-nowrap">
           <thead>
             <tr>
-              <th class="border-b border-gray-100 bg-gray-200 p-2 text-start">
-                <%= t(:rank) %>
-              </th>
-              <th class="border-b border-gray-100 bg-gray-200 p-2 text-start">
-                <%= t(:name) %>
-              </th>
-              <th class="border-b border-gray-100 bg-gray-200 p-2 text-start">
-                <%= t(:points) %>
-              </th>
-              <th class="border-b border-gray-100 bg-gray-200 p-2 text-start">
-                <%= t(:opponent_points) %>
-              </th>
-              <th class="border-b border-gray-100 bg-gray-200 p-2 text-start">
-                <%= t(:points_per_generation) %>
-              </th>
-              <% @rounds_up_to_current.find_each do |round| %>
-                <th class="border-b border-gray-100 bg-gray-200 p-2 text-start">
-                  <%= round.board %>
-                </th>
+              <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= t(:rank) %></th>
+              <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= t(:name) %></th>
+              <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= t(:points) %></th>
+              <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= t(:opponent_points) %></th>
+              <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= t(:points_per_generation) %></th>
+              <% @rounds_up_to_shown.find_each do |round| %>
+                <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= round.board %></th>
               <% end %>
             </tr>
           </thead>
@@ -50,16 +38,12 @@
             <% @ranked_attendances.each_with_index do |attendance, index| %>
               <tr>
                 <td class="border-b border-gray-100 p-2"><%= index + 1 %></td>
-                <td class="border-b border-gray-100 p-2">
-                  <%= attendance.user.name %>
-                </td>
-                <% @ranking_criteria[@current_round][attendance].each do |criterion| %>
+                <td class="border-b border-gray-100 p-2"><%= attendance.user.name %></td>
+                <% @ranking_criteria[@shown_round][attendance].each do |criterion| %>
                   <td class="border-b border-gray-100 p-2"><%= criterion %></td>
                 <% end %>
-                <% @rounds_up_to_current.each do |round| %>
-                  <td class="border-b border-gray-100 p-2">
-                    <%= attendance.rank_in(round)&.ordinalize || "-" %>
-                  </td>
+                <% @rounds_up_to_shown.each do |round| %>
+                  <td class="border-b border-gray-100 p-2"><%= attendance.rank_in(round)&.ordinalize || "-" %></td>
                 <% end %>
               </tr>
             <% end %>

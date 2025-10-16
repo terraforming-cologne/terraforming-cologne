@@ -1,0 +1,46 @@
+<h1><%= t(".heading") %></h1>
+
+<%= render "intro", tournament: Current.tournament, round: Current.round, game: Current.game %>
+
+<%= form_with model: [Current.tournament, @tally], class: "flex flex-col gap-8" do |form| %>
+  <div>
+    <h3><%= Tally.human_attribute_name(:result) %></h3>
+
+    <%= form.fields_for :result do |result_form| %>
+      <%= render "shared/errors", form: result_form %>
+      <%= result_form.hidden_field :game_id %>
+      <%= result_form.number_field :generations, placeholder: Result.human_attribute_name(:generations) %>
+    <% end %>
+  </div>
+
+  <div>
+    <h3><%= Tally.human_attribute_name(:scores) %></h3>
+
+    <%= form.fields_for :scores do |score_form| %>
+      <%= render "shared/errors", form: score_form %>
+      <%= score_form.hidden_field :seat_id %>
+      <div class="flex flex-col gap-4">
+        <div>
+          <b><%= score_form.object.user.name %></b> (<%= Seat.model_name.human %> <%= score_form.object.seat.number %>)
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <%= score_form.label :rank %>
+          <%= score_form.collection_select :rank, @tally.scores.count.times, :next, :next, prompt: true %>
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <%= score_form.label :corporation %>
+          <%= score_form.collection_select :corporation, Corporation.all, :name, :name, prompt: true %>
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <%= score_form.label :points %>
+          <%= score_form.number_field :points, placeholder: Score.human_attribute_name(:points) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <%= form.submit class: "btn self-start btn-primary" %>
+<% end %>

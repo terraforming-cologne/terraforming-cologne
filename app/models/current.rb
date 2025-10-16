@@ -3,7 +3,19 @@ class Current < ActiveSupport::CurrentAttributes
   delegate :user, to: :session, allow_nil: true
   attribute :tournament
 
+  def round
+    @round ||= Current.tournament.rounds.find_by(number: Current.tournament.current_round_number)
+  end
+
   def attendance
-    Current.tournament.attendances.includes(:user).find { |attendance| attendance.user == Current.user }
+    @attendance ||= Current.user.attendances.joins(:participation).find_by(participation: {tournament: Current.tournament})
+  end
+
+  def game
+    @game ||= Current.attendance.games.joins(:round).find_by(round: Current.round)
+  end
+
+  def opponents
+    @opponents ||= Current.game.attendances.excluding(Current.attendance)
   end
 end

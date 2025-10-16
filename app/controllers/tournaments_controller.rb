@@ -10,6 +10,7 @@ class TournamentsController < ApplicationController
 
   def show
     authorize @tournament
+    Current.tournament = @tournament
   end
 
   def new
@@ -44,7 +45,6 @@ class TournamentsController < ApplicationController
 
   def set_tournament
     @tournament = Tournament.find(params.expect(:id))
-    Current.tournament = @tournament
   end
 
   def tournament_params

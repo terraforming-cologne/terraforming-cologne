@@ -1,0 +1,11 @@
+---
+de:
+  activemodel:
+    attributes:
+      tally:
+        result: Spielergebnis
+        scores: Individuelle Ergebnisse
+    errors:
+      models:
+        tally:
+          inplausible_ranks: Die Kombination der Platzierungen und Punkte is inplausibel. Bitte versuche es noch einmal.

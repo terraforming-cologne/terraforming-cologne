@@ -1,0 +1,7 @@
+---
+en:
+  activemodel:
+    errors:
+      models:
+        tally:
+          inplausible_ranks: The combination of ranks and points is inplausible. Please try again.

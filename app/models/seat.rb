@@ -6,4 +6,5 @@ class Seat < ApplicationRecord
   has_one :result, through: :game
   has_one :table, through: :game
   has_one :room, through: :game
+  has_one :user, through: :attendance
 end

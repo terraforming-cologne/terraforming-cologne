@@ -1,0 +1,8 @@
+<%# locals: (tournament:, round:, game:) %>
+
+<p>
+  Du hast in <b><%= Room.model_name.human %> <%= Current.game.room.number %></b> an
+  <b><%= Table.model_name.human %> <%= Current.game.table.number %></b> gespielt.
+</p>
+
+<p>Deine Gegner:innen waren <b><%= Current.opponents.map { it.user.name }.to_sentence %></b>.</p>

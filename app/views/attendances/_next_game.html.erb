@@ -1,9 +1,11 @@
+<%# locals: (attendance:) %>
+
 <div class="flex flex-col gap-4">
   <div class="flex">
     <h2><%= t(:your_next_game) %></h2>
-    <span><%= @tournament.current_round.start_time %></span>
+    <span><%= Current.round.start_time %></span>
 
-    <div class="rounded border"><%= @tournament.current_round.board %></div>
+    <div class="rounded border"><%= Current.round.board %></div>
   </div>
 
   <div class="flex gap-4">
@@ -17,7 +19,7 @@
     <div class="flex flex-col gap-2">
       <div><%= t(:your_opponents) %></div>
 
-      <% attendance.opponents_in(@tournament.current_round).each do |opponent| %>
+      <% Current.opponents.each do |opponent| %>
         <div class="flex gap-2">
           <div><%= opponent.user.name %></div>
 
