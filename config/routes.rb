@@ -3,12 +3,14 @@ Rails.application.routes.draw do
 
   # Tournament
 
-  resources :tournaments, only: [:index, :new, :create, :edit, :update] do
-    resources :participations, shallow: true
+  resources :tournaments, only: [:index, :show, :new, :create, :edit, :update] do
+    resources :participations, shallow: true do
+      resource :attendance, only: [:new, :create]
+    end
     resources :reseats, only: [:new, :create]
-    resource :ranking, only: [:show]
+    resource :ranking, only: :show
   end
-  resources :payments, only: [:new, :create]
+  resources :payments, only: :create
 
   get :register, to: "registrations#new"
 

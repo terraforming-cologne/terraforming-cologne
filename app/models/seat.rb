@@ -4,4 +4,6 @@ class Seat < ApplicationRecord
   has_one :score
   has_one :round, through: :game
   has_one :result, through: :game
+  has_one :table, through: :game
+  has_one :room, through: :game
 end

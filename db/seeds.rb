@@ -29,7 +29,7 @@ tournament.rounds.insert_all!(
 )
 
 password_digest = User.new(password: "asdfasdf", password_confirmation: "asdfasdf").password_digest
-users = (0...93).map do |i|
+users = (1..93).map do |i|
   {
     name: "User #{i}",
     email_address: "#{i}@example.com",
@@ -58,7 +58,7 @@ participations = user_ids.map do |user_id|
 end
 Participation.insert_all!(participations)
 
-rooms = (0...5).map { |r|
+rooms = (1..5).map { |r|
   {
     number: r,
     tournament_id: tournament.id,
@@ -70,7 +70,7 @@ Room.insert_all!(rooms)
 
 room_ids = Room.where(tournament_id: tournament.id).pluck(:id)
 tables = room_ids.flat_map do |room_id|
-  (0...5).map { |t|
+  (1..5).map { |t|
     {
       number: t,
       room_id: room_id,
