@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_10_12_160506) do
+ActiveRecord::Schema[8.0].define(version: 2025_10_13_094626) do
   create_table "attendances", force: :cascade do |t|
     t.integer "participation_id", null: false
     t.datetime "created_at", null: false
@@ -67,6 +67,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_12_160506) do
     t.integer "tournament_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.time "start_time", null: false
     t.index ["tournament_id"], name: "index_rounds_on_tournament_id"
   end
 
@@ -113,6 +114,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_12_160506) do
     t.integer "max_participations", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "current_round_number"
     t.index ["date"], name: "index_tournaments_on_date", unique: true
   end
 
