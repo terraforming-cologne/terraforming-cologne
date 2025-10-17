@@ -1,6 +1,12 @@
----
 de:
   activerecord:
     attributes:
       result:
+        game: Spiel
         generations: Anzahl Generationen
+    errors:
+      models:
+        result:
+          attributes:
+            game:
+              taken: hat bereits Ergebnisse

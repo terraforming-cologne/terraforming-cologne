@@ -1,6 +1,11 @@
----
 en:
   activerecord:
     attributes:
       result:
         generations: Number of Generations
+    errors:
+      models:
+        result:
+          attributes:
+            game:
+              taken: results were already recorded

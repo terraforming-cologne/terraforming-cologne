@@ -1,4 +1,3 @@
----
 de:
   activemodel:
     attributes:
@@ -8,4 +7,4 @@ de:
     errors:
       models:
         tally:
-          inplausible_ranks: Die Kombination der Platzierungen und Punkte is inplausibel. Bitte versuche es noch einmal.
+          inplausible_ranks: Die Kombination der Platzierungen und Punkte is inplausibel

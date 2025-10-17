@@ -1,10 +1,12 @@
----
 en:
   tallies:
-    already_tallied: This game's scores were already recorded.
+    no_current_game: There is currently no game for which you could record results.
+    already_tallied: This game's results were already recorded.
     new:
-      heading: Enter the result for your game
+      heading: Enter the results for your game
+    create:
+      notice: Your game results were recorded.
   helpers:
     submit:
       tally:
-        create: Submit game result
+        create: Submit game results

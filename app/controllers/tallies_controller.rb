@@ -4,14 +4,15 @@ class TalliesController < ApplicationController
   allow_unauthorized_access
 
   def new
-    redirect_to Current.tournament, notice: t(".already_tallied") and return if Current.game.result.present?
-    @tally = Tally.build_for(game: Current.game)
+    redirect_to @tournament, notice: t(".no_current_game") and return if @game.blank?
+    redirect_to @tournament, notice: t(".already_tallied") and return if @game.result.present?
+    @tally = Tally.build_for(game: @game)
   end
 
   def create
     @tally = Tally.new(tally_params)
     if @tally.save
-      redirect_to Current.tournament, notice: t(".notice")
+      redirect_to @tournament, notice: t(".notice")
     else
       render :new, status: :unprocessable_content
     end

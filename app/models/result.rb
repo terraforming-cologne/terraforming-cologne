@@ -3,5 +3,6 @@ class Result < ApplicationRecord
   has_many :seats, through: :game
   has_many :scores, through: :seats
 
+  validates :game, uniqueness: true
   validates :generations, numericality: {greater_than_or_equal_to: 1}
 end

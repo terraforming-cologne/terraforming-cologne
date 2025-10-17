@@ -7,4 +7,8 @@ class Seat < ApplicationRecord
   has_one :table, through: :game
   has_one :room, through: :game
   has_one :user, through: :attendance
+
+  delegate :name, to: :user
+
+  validates :number, presence: true
 end

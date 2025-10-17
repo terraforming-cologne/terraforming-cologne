@@ -1,0 +1,50 @@
+<%# locals: (tally:, tournament:) %>
+
+<%= form_with model: [tournament, tally], class: "flex flex-col gap-8" do |form| %>
+  <div class="flex flex-col gap-4">
+    <h2 class="mb-0"><%= Tally.human_attribute_name(:result) %></h2>
+
+    <%= form.fields_for :result do |result_form| %>
+      <%= render "shared/errors", form: result_form %>
+      <%= result_form.hidden_field :game_id %>
+      <%= result_form.number_field :generations, placeholder: Result.human_attribute_name(:generations) %>
+    <% end %>
+  </div>
+
+  <div class="flex flex-col gap-4">
+    <h2 class="mb-0"><%= Tally.human_attribute_name(:scores) %></h2>
+
+    <div class="flex flex-col gap-8" data-controller="exclusive-select">
+      <%= form.fields_for :scores do |score_form| %>
+        <%= score_form.hidden_field :seat_id %>
+        <div class="flex flex-col gap-2">
+          <h3 class="mb-0">
+            <b><%= score_form.object.user.name %></b>
+            <span>(<%= Seat.model_name.human %> <%= score_form.object.seat.number %>)</span>
+          </h3>
+
+          <%= render "shared/errors", form: score_form %>
+
+          <div class="flex flex-col gap-1">
+            <%= score_form.label :rank %>
+            <%= score_form.collection_select :rank, tally.scores.count.times, :next, :next, {prompt: true}, data: {turbo_permanent: true, exclusive_select_target: "select", action: "exclusive-select#exclusivize", exclusive_select_group_param: "rank"} %>
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <%= score_form.label :corporation %>
+            <%= score_form.collection_select :corporation, Corporation.all, :name, :name, {prompt: true}, data: {turbo_permanent: true, exclusive_select_target: "select", action: "exclusive-select#exclusivize", exclusive_select_group_param: "corporation"} %>
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <%= score_form.label :points %>
+            <%= score_form.number_field :points, placeholder: Score.human_attribute_name(:points) %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <%= render "shared/errors", form: form %>
+
+  <%= form.submit class: "btn self-start btn-primary" %>
+<% end %>

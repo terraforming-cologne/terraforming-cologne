@@ -1,4 +1,12 @@
----
 de:
   tallies:
-    already_tallied: Die Ergebnisse dieses Spiels wurden bereits erfasst.
+    no_current_game: Es gibt aktuell kein Spiel, für das du Ergebnisse eintragen kannst.
+    already_tallied: Die Ergebnisse dieses Spiels wurden bereits eingetragen.
+    new:
+      heading: Gib die Ergebnisse deines Spiels ein
+    create:
+      notice: Deine Spielergebnisse wurden eingetragen.
+  helpers:
+    submit:
+      tally:
+        create: Spielergebnisse abschicken

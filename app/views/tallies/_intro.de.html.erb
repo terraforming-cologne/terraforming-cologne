@@ -1,8 +1,14 @@
-<%# locals: (tournament:, round:, game:) %>
+<%# locals: (game:, opponent_seats:) %>
 
-<p>
-  Du hast in <b><%= Room.model_name.human %> <%= Current.game.room.number %></b> an
-  <b><%= Table.model_name.human %> <%= Current.game.table.number %></b> gespielt.
-</p>
+<div>
+  <p>
+    Du gibst die Ergebnisse deines Spiels in <b><%= Round.model_name.human %></b> <b><%= game.round.number %></b> ein.
+  </p>
 
-<p>Deine Gegner:innen waren <b><%= Current.opponents.map { it.user.name }.to_sentence %></b>.</p>
+  <p>
+    Du hast in <b><%= Room.model_name.human %></b> <b><%= game.room.number %></b> an
+    <b><%= Table.model_name.human %></b> <b><%= game.table.number %></b> gespielt.
+  </p>
+
+  <p>Deine Gegner:innen waren <b><%= opponent_seats.map(&:name).to_sentence %></b>.</p>
+</div>

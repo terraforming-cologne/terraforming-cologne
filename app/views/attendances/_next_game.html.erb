@@ -1,31 +1,31 @@
-<%# locals: (attendance:) %>
+<%# locals: (seat:, round:, opponent_seats:) %>
 
 <div class="flex flex-col gap-4">
   <div class="flex">
     <h2><%= t(:your_next_game) %></h2>
-    <span><%= Current.round.start_time %></span>
+    <span><%= round.start_time %></span>
 
-    <div class="rounded border"><%= Current.round.board %></div>
+    <div class="rounded border"><%= round.board %></div>
   </div>
 
   <div class="flex gap-4">
     <div class="flex flex-col gap-2">
-      <div><%= t("room") %> <span class="font-bold"><%= attendance.seat.room.number %></span></div>
+      <div><%= t("room") %> <span class="font-bold"><%= seat.room.number %></span></div>
 
-      <div><%= t("table") %> <span class="font-bold"><%= attendance.seat.table.number %></span></div>
+      <div><%= t("table") %> <span class="font-bold"><%= seat.table.number %></span></div>
 
-      <div><%= t("seat") %> <span class="font-bold"><%= attendance.seat.number %></span></div>
+      <div><%= t("seat") %> <span class="font-bold"><%= seat.number %></span></div>
     </div>
     <div class="flex flex-col gap-2">
       <div><%= t(:your_opponents) %></div>
 
-      <% Current.opponents.each do |opponent| %>
+      <% opponent_seats.each do |opponent_seat| %>
         <div class="flex gap-2">
-          <div><%= opponent.user.name %></div>
+          <div><%= opponent_seat.user.name %></div>
 
-          <div><%= opponent.user.locale %></div>
+          <div><%= opponent_seat.user.locale %></div>
 
-          <div><%= opponent.seat.number %></div>
+          <div><%= opponent_seat.number %></div>
         </div>
       <% end %>
     </div>

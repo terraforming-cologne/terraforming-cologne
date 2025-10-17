@@ -1,4 +1,4 @@
 de:
   activerecord:
     models:
-      seat: Sitz
+      room: Raum
