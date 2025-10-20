@@ -1,0 +1,195 @@
+diff --git c/db/seeds.rb i/db/seeds.rb
+index 5bf8601..e60688b 100644
+--- c/db/seeds.rb
++++ i/db/seeds.rb
+@@ -2,6 +2,9 @@
+ # development, test). The code here should be idempotent so that it can be executed at any point in every environment.
+ # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+ 
++now = Time.current
++password_digest = User.new(password: "asdfasdf", password_confirmation: "asdfasdf").password_digest
++
+ User.create!(
+   name: "Admin",
+   admin: true,
+@@ -11,72 +14,119 @@ User.create!(
+   locale: :en
+ )
+ 
+-tournament = Tournament.create!(
+-  name: "German Open",
+-  date: Time.zone.today + 1.year,
++tournament_id = Tournament.insert!({
++  name: "German Open 2025",
++  date: Date.new(2025, 4, 5),
+   max_participations: 100
+-)
++}).pick("id")
+ 
+-tournament.rounds.insert_all!(
+-  3.times.map { |i|
+-    {
+-      number: i + 1,
+-      board: "Board #{i}",
+-      created_at: Time.current,
+-      updated_at: Time.current
+-    }
+-  }
+-)
++room_id = Room.insert!({
++  number: 1,
++  tournament_id: tournament_id,
++  created_at: now,
++  updated_at: now
++}).pick("id")
+ 
+-password_digest = User.new(password: "asdfasdf", password_confirmation: "asdfasdf").password_digest
+-users = (0...93).map do |i|
++tables = (1..22).map { |table_number|
+   {
+-    name: "User #{i}",
+-    email_address: "#{i}@example.com",
+-    password_digest: password_digest,
+-    locale: :en,
+-    created_at: Time.current,
+-    updated_at: Time.current
+-  }
+-end
+-User.insert_all!(users)
+-
+-user_ids = User.where.not(email_address: "admin@example.com").pluck(:id)
+-participations = user_ids.map do |user_id|
+-  {
+-    user_id: user_id,
+-    tournament_id: tournament.id,
+-    brings_basegame_english: true,
+-    brings_basegame_german: false,
+-    brings_prelude_english: true,
+-    brings_prelude_german: false,
+-    brings_hellas_and_elysium: false,
+-    paid: true,
+-    created_at: Time.current,
+-    updated_at: Time.current
+-  }
+-end
+-Participation.insert_all!(participations)
+-
+-rooms = (0...5).map { |r|
+-  {
+-    number: r,
+-    tournament_id: tournament.id,
+-    created_at: Time.current,
+-    updated_at: Time.current
++    number: table_number,
++    room_id: room_id,
++    created_at: now,
++    updated_at: now
+   }
+ }
+-Room.insert_all!(rooms)
++Table.insert_all!(tables).pluck("id")
+ 
+-room_ids = Room.where(tournament_id: tournament.id).pluck(:id)
+-tables = room_ids.flat_map do |room_id|
+-  (0...5).map { |t|
+-    {
+-      number: t,
+-      room_id: room_id,
+-      created_at: Time.current,
+-      updated_at: Time.current
+-    }
+-  }
++["Tharsis", "Hellas", "Elysium"].each_with_index do |board, index|
++  Round.insert!({
++    number: index + 1,
++    board: board,
++    tournament_id: tournament_id,
++    created_at: now,
++    updated_at: now
++  }).tap do |round|
++  end
+ end
+-Table.insert_all!(tables)
++
++require "csv"
++
++def create_scores_and_stuff(rank, game, name, vp, corporation, tournament, password_digest)
++  user = User.find_or_initialize_by(name: name)
++  # puts user.name, user.id
++  if user.new_record?
++    user.name = name
++    user.email_address = "#{name.parameterize}@example.com"
++    user.password = "asdfasdf"
++    user.password_confirmation = "asdfasdf"
++    user.locale = "en"
++    # puts "#{name.parameterize}@example.com"
++    user.save!
++  end
++
++  participation = Participation.find_or_initialize_by(tournament_id: tournament.id, user_id: user.id)
++  participation.save!
++
++  participation.seats.create!(number: 1, game: game).tap do |seat|
++    seat.create_score!(corporation: corporation, points: vp, rank: rank)
++  end
++end
++
++CSV.parse(File.read("/home/jole/code/terraforming-cologne/german_open.csv"), headers: true) do |row|
++  table_number = row["TABLE NUMBER"]
++  board = row["MAP"]
++  number_of_generations = row["GENS"]
++
++  name_1 = row["NAME1"]
++  vp_1 = row["VP1"]
++  corporation_1 = row["CORPORATION1"] || "Some corp"
++
++  name_2 = row["NAME2"]
++  vp_2 = row["VP2"]
++  corporation_2 = row["CORPORATION2"] || "Some corp"
++
++  name_3 = row["NAME3"]
++  vp_3 = row["VP3"]
++  corporation_3 = row["CORPORATION3"] || "Some corp"
++
++  name_4 = row["NAME4"]
++  vp_4 = row["VP4"]
++  corporation_4 = row["CORPORATION4"] || "Some corp"
++
++  tournament = Tournament.first
++  round = tournament.rounds.find_by(board: board)
++  table = tournament.tables.find_by(number: table_number)
++  game = round.games.create!(table: table)
++  game.create_result!(generations: number_of_generations)
++  create_scores_and_stuff(1, game, name_1, vp_1, corporation_1, tournament, password_digest) if name_1.present?
++  create_scores_and_stuff(2, game, name_2, vp_2, corporation_2, tournament, password_digest) if name_2.present?
++  create_scores_and_stuff(3, game, name_3, vp_3, corporation_3, tournament, password_digest) if name_3.present?
++  create_scores_and_stuff(4, game, name_4, vp_4, corporation_4, tournament, password_digest) if name_4.present?
++end
++
++# users = (1..88).map do |i|
++#   {
++#     name: "User #{i}",
++#     email_address: "#{i}@example.com",
++#     password_digest: password_digest,
++#     locale: :en,
++#     created_at: now,
++#     updated_at: now
++#   }
++# end
++# user_ids = User.insert_all!(users).pluck("id")
++#
++# participations = user_ids.map do |user_id|
++#   {
++#     user_id: user_id,
++#     tournament_id: tournament_id,
++#     brings_basegame_english: true,
++#     brings_basegame_german: false,
++#     brings_prelude_english: true,
++#     brings_prelude_german: false,
++#     brings_hellas_and_elysium: false,
++#     paid: true,
++#     created_at: now,
++#     updated_at: now
++#   }
++# end
++# Participation.insert_all!(participations)

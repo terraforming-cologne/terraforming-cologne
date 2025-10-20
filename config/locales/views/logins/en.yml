@@ -1,3 +1,4 @@
+---
 en:
   helpers:
     submit:
@@ -12,4 +13,3 @@ en:
       heading: Login
       no_account_yet: Don't have an account yet?
       password_forgotten: Forgot your password?
-      reset: Reset

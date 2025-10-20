@@ -1,0 +1,628 @@
+
+digraph structs {
+
+
+rankdir="LR"
+
+
+node [shape=none]
+
+ar_internal_metadata [label=<
+            <TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1">
+                <TR>
+                    <TD COLSPAN="2"><B>ar_internal_metadata</B></TD>
+                </TR>
+            
+                <TR>
+                    <TD PORT="key_to">🔑</TD>
+                    <TD PORT="key_from">key</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="value_to">&nbsp;</TD>
+                    <TD PORT="value_from">value</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="created_at_to">&nbsp;</TD>
+                    <TD PORT="created_at_from">created_at</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="updated_at_to">&nbsp;</TD>
+                    <TD PORT="updated_at_from">updated_at</TD>
+                </TR>
+            
+            </TABLE>
+        >];
+        
+attendances [label=<
+            <TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1">
+                <TR>
+                    <TD COLSPAN="2"><B>attendances</B></TD>
+                </TR>
+            
+                <TR>
+                    <TD PORT="id_to">🔑</TD>
+                    <TD PORT="id_from">id</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="participation_id_to">&nbsp;</TD>
+                    <TD PORT="participation_id_from">participation_id</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="created_at_to">&nbsp;</TD>
+                    <TD PORT="created_at_from">created_at</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="updated_at_to">&nbsp;</TD>
+                    <TD PORT="updated_at_from">updated_at</TD>
+                </TR>
+            
+            </TABLE>
+        >];
+        
+games [label=<
+            <TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1">
+                <TR>
+                    <TD COLSPAN="2"><B>games</B></TD>
+                </TR>
+            
+                <TR>
+                    <TD PORT="id_to">🔑</TD>
+                    <TD PORT="id_from">id</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="table_id_to">&nbsp;</TD>
+                    <TD PORT="table_id_from">table_id</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="round_id_to">&nbsp;</TD>
+                    <TD PORT="round_id_from">round_id</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="created_at_to">&nbsp;</TD>
+                    <TD PORT="created_at_from">created_at</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="updated_at_to">&nbsp;</TD>
+                    <TD PORT="updated_at_from">updated_at</TD>
+                </TR>
+            
+            </TABLE>
+        >];
+        
+participations [label=<
+            <TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1">
+                <TR>
+                    <TD COLSPAN="2"><B>participations</B></TD>
+                </TR>
+            
+                <TR>
+                    <TD PORT="id_to">🔑</TD>
+                    <TD PORT="id_from">id</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="brings_basegame_english_to">&nbsp;</TD>
+                    <TD PORT="brings_basegame_english_from">brings_basegame_english</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="brings_prelude_english_to">&nbsp;</TD>
+                    <TD PORT="brings_prelude_english_from">brings_prelude_english</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="brings_hellas_and_elysium_to">&nbsp;</TD>
+                    <TD PORT="brings_hellas_and_elysium_from">brings_hellas_and_elysium</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="user_id_to">&nbsp;</TD>
+                    <TD PORT="user_id_from">user_id</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="created_at_to">&nbsp;</TD>
+                    <TD PORT="created_at_from">created_at</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="updated_at_to">&nbsp;</TD>
+                    <TD PORT="updated_at_from">updated_at</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="paid_to">&nbsp;</TD>
+                    <TD PORT="paid_from">paid</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="brings_basegame_german_to">&nbsp;</TD>
+                    <TD PORT="brings_basegame_german_from">brings_basegame_german</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="brings_prelude_german_to">&nbsp;</TD>
+                    <TD PORT="brings_prelude_german_from">brings_prelude_german</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="comment_to">&nbsp;</TD>
+                    <TD PORT="comment_from">comment</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="tournament_id_to">&nbsp;</TD>
+                    <TD PORT="tournament_id_from">tournament_id</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="rank_to">&nbsp;</TD>
+                    <TD PORT="rank_from">rank</TD>
+                </TR>
+            
+            </TABLE>
+        >];
+        
+results [label=<
+            <TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1">
+                <TR>
+                    <TD COLSPAN="2"><B>results</B></TD>
+                </TR>
+            
+                <TR>
+                    <TD PORT="id_to">🔑</TD>
+                    <TD PORT="id_from">id</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="generations_to">&nbsp;</TD>
+                    <TD PORT="generations_from">generations</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="game_id_to">&nbsp;</TD>
+                    <TD PORT="game_id_from">game_id</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="created_at_to">&nbsp;</TD>
+                    <TD PORT="created_at_from">created_at</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="updated_at_to">&nbsp;</TD>
+                    <TD PORT="updated_at_from">updated_at</TD>
+                </TR>
+            
+            </TABLE>
+        >];
+        
+rooms [label=<
+            <TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1">
+                <TR>
+                    <TD COLSPAN="2"><B>rooms</B></TD>
+                </TR>
+            
+                <TR>
+                    <TD PORT="id_to">🔑</TD>
+                    <TD PORT="id_from">id</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="number_to">&nbsp;</TD>
+                    <TD PORT="number_from">number</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="tournament_id_to">&nbsp;</TD>
+                    <TD PORT="tournament_id_from">tournament_id</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="created_at_to">&nbsp;</TD>
+                    <TD PORT="created_at_from">created_at</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="updated_at_to">&nbsp;</TD>
+                    <TD PORT="updated_at_from">updated_at</TD>
+                </TR>
+            
+            </TABLE>
+        >];
+        
+rounds [label=<
+            <TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1">
+                <TR>
+                    <TD COLSPAN="2"><B>rounds</B></TD>
+                </TR>
+            
+                <TR>
+                    <TD PORT="id_to">🔑</TD>
+                    <TD PORT="id_from">id</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="number_to">&nbsp;</TD>
+                    <TD PORT="number_from">number</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="board_to">&nbsp;</TD>
+                    <TD PORT="board_from">board</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="tournament_id_to">&nbsp;</TD>
+                    <TD PORT="tournament_id_from">tournament_id</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="created_at_to">&nbsp;</TD>
+                    <TD PORT="created_at_from">created_at</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="updated_at_to">&nbsp;</TD>
+                    <TD PORT="updated_at_from">updated_at</TD>
+                </TR>
+            
+            </TABLE>
+        >];
+        
+schema_migrations [label=<
+            <TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1">
+                <TR>
+                    <TD COLSPAN="2"><B>schema_migrations</B></TD>
+                </TR>
+            
+                <TR>
+                    <TD PORT="version_to">🔑</TD>
+                    <TD PORT="version_from">version</TD>
+                </TR>
+            
+            </TABLE>
+        >];
+        
+scores [label=<
+            <TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1">
+                <TR>
+                    <TD COLSPAN="2"><B>scores</B></TD>
+                </TR>
+            
+                <TR>
+                    <TD PORT="id_to">🔑</TD>
+                    <TD PORT="id_from">id</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="corporation_to">&nbsp;</TD>
+                    <TD PORT="corporation_from">corporation</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="points_to">&nbsp;</TD>
+                    <TD PORT="points_from">points</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="rank_to">&nbsp;</TD>
+                    <TD PORT="rank_from">rank</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="seat_id_to">&nbsp;</TD>
+                    <TD PORT="seat_id_from">seat_id</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="created_at_to">&nbsp;</TD>
+                    <TD PORT="created_at_from">created_at</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="updated_at_to">&nbsp;</TD>
+                    <TD PORT="updated_at_from">updated_at</TD>
+                </TR>
+            
+            </TABLE>
+        >];
+        
+seats [label=<
+            <TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1">
+                <TR>
+                    <TD COLSPAN="2"><B>seats</B></TD>
+                </TR>
+            
+                <TR>
+                    <TD PORT="id_to">🔑</TD>
+                    <TD PORT="id_from">id</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="number_to">&nbsp;</TD>
+                    <TD PORT="number_from">number</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="game_id_to">&nbsp;</TD>
+                    <TD PORT="game_id_from">game_id</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="created_at_to">&nbsp;</TD>
+                    <TD PORT="created_at_from">created_at</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="updated_at_to">&nbsp;</TD>
+                    <TD PORT="updated_at_from">updated_at</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="attendance_id_to">&nbsp;</TD>
+                    <TD PORT="attendance_id_from">attendance_id</TD>
+                </TR>
+            
+            </TABLE>
+        >];
+        
+sessions [label=<
+            <TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1">
+                <TR>
+                    <TD COLSPAN="2"><B>sessions</B></TD>
+                </TR>
+            
+                <TR>
+                    <TD PORT="id_to">🔑</TD>
+                    <TD PORT="id_from">id</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="user_id_to">&nbsp;</TD>
+                    <TD PORT="user_id_from">user_id</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="ip_address_to">&nbsp;</TD>
+                    <TD PORT="ip_address_from">ip_address</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="user_agent_to">&nbsp;</TD>
+                    <TD PORT="user_agent_from">user_agent</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="created_at_to">&nbsp;</TD>
+                    <TD PORT="created_at_from">created_at</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="updated_at_to">&nbsp;</TD>
+                    <TD PORT="updated_at_from">updated_at</TD>
+                </TR>
+            
+            </TABLE>
+        >];
+        
+tables [label=<
+            <TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1">
+                <TR>
+                    <TD COLSPAN="2"><B>tables</B></TD>
+                </TR>
+            
+                <TR>
+                    <TD PORT="id_to">🔑</TD>
+                    <TD PORT="id_from">id</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="number_to">&nbsp;</TD>
+                    <TD PORT="number_from">number</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="room_id_to">&nbsp;</TD>
+                    <TD PORT="room_id_from">room_id</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="created_at_to">&nbsp;</TD>
+                    <TD PORT="created_at_from">created_at</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="updated_at_to">&nbsp;</TD>
+                    <TD PORT="updated_at_from">updated_at</TD>
+                </TR>
+            
+            </TABLE>
+        >];
+        
+tournaments [label=<
+            <TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1">
+                <TR>
+                    <TD COLSPAN="2"><B>tournaments</B></TD>
+                </TR>
+            
+                <TR>
+                    <TD PORT="id_to">🔑</TD>
+                    <TD PORT="id_from">id</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="name_to">&nbsp;</TD>
+                    <TD PORT="name_from">name</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="date_to">&nbsp;</TD>
+                    <TD PORT="date_from">date</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="max_participations_to">&nbsp;</TD>
+                    <TD PORT="max_participations_from">max_participations</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="created_at_to">&nbsp;</TD>
+                    <TD PORT="created_at_from">created_at</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="updated_at_to">&nbsp;</TD>
+                    <TD PORT="updated_at_from">updated_at</TD>
+                </TR>
+            
+            </TABLE>
+        >];
+        
+users [label=<
+            <TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1">
+                <TR>
+                    <TD COLSPAN="2"><B>users</B></TD>
+                </TR>
+            
+                <TR>
+                    <TD PORT="id_to">🔑</TD>
+                    <TD PORT="id_from">id</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="email_address_to">&nbsp;</TD>
+                    <TD PORT="email_address_from">email_address</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="password_digest_to">&nbsp;</TD>
+                    <TD PORT="password_digest_from">password_digest</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="created_at_to">&nbsp;</TD>
+                    <TD PORT="created_at_from">created_at</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="updated_at_to">&nbsp;</TD>
+                    <TD PORT="updated_at_from">updated_at</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="name_to">&nbsp;</TD>
+                    <TD PORT="name_from">name</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="admin_to">&nbsp;</TD>
+                    <TD PORT="admin_from">admin</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="deactivated_to">&nbsp;</TD>
+                    <TD PORT="deactivated_from">deactivated</TD>
+                </TR>
+            
+
+                <TR>
+                    <TD PORT="locale_to">&nbsp;</TD>
+                    <TD PORT="locale_from">locale</TD>
+                </TR>
+            
+            </TABLE>
+        >];
+        
+sessions:user_id_from:e -> users:id_to:w
+results:game_id_from:e -> games:id_to:w
+seats:game_id_from:e -> games:id_to:w
+seats:attendance_id_from:e -> attendances:id_to:w
+participations:user_id_from:e -> users:id_to:w
+participations:tournament_id_from:e -> tournaments:id_to:w
+games:table_id_from:e -> tables:id_to:w
+games:round_id_from:e -> rounds:id_to:w
+rooms:tournament_id_from:e -> tournaments:id_to:w
+attendances:participation_id_from:e -> participations:id_to:w
+tables:room_id_from:e -> rooms:id_to:w
+scores:seat_id_from:e -> seats:id_to:w
+rounds:tournament_id_from:e -> tournaments:id_to:w
+
+}

@@ -1,10 +1,7 @@
+---
 en:
   tournaments:
     create:
       notice: Tournament created.
-    edit:
-      edit_tournament: Edit Tournament
-    tournament:
-      participations: Participations
     update:
       notice: Tournament updated.

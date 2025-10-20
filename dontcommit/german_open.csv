@@ -1,0 +1,67 @@
+TABLE NUMBER,MAP,GENS,NAME1,VP1,CORPORATION1,NAME2,VP2,CORPORATION2,NAME3,VP3,CORPORATION3,NAME4,VP4,CORPORATION4
+3,Tharsis,8,Elias Rentzsch,74,Saturn Systems,Daniel Trusheim,68,Thorgate,Chris Wojtko,64,Cheung Shing Mars,Burak Cihan,52,Helion
+1,Tharsis,7,Max Degener,64,Valley Trust,Daniel Schwarz,62,Vitor,Tim Kreuk,55,Tharsis Republic,Marc Burkhardt,49,Robinson Industries
+6,Tharsis,7,Michael Geiger,66,Tharsis Republic,Danny Sachtleben,65,Cheung Shing Mars,Henry Kalbe,56,Teractor,Tom-Eric Wendler,55,Valley Trust
+5,Tharsis,8,Sumeyra Durak,77,Tharsis Republic,Marius Jäger,68,Phobolog,Larson Brockmann,64,Ecoline,Nico Garziella,61,Vitor
+11,Tharsis,8,Christoph Schwarz,79,Helion,Martin Otten,63,Phobolog,Achim Kuhlmei,59,Credicor,Franziska Rudolf,58,Cheung Shing Mars
+13,Tharsis,7,Bas Bunnik,64,Point Luna,Dominique Borgermans,64,Ecoline,Jan-Henrik Uhde,57,Inventrix,Kiara Sophie Möllering,50,Teractor
+2,Tharsis,8,Floyd van den Nieuwenhof,74,Cheung Shing Mars,Christian Pfahler,70,Valley Trust,Dennis,60,Tharsis Republic,Bekir baris tosun,55,Teractor
+8,Tharsis,9,Grzegorz Kobiela,85,Interplanetary Cinematics,Torsten Neuß,72,Tharsis Republic,Lioba Müller,70,Cheung Shing Mars,Sanja Rajkovaca,69,Helion
+22,Tharsis,9,Kyriakos Avgoustis,90,Tharsis Republic,Jessica Zarnowski,83,Robinson Industries,Anastasiya Polubotko,83,Ecoline,,,
+14,Tharsis,7,Steven Nooijen,69,Robinson Industries,Mark van der Veen,61,Teractor,Elif Merve Ozalp,53,Interplanetary Cinematics,Felix Oertel,50,Phobolog
+12,Tharsis,8,Sergei Sadovski,83,Cheung Shing Mars,Timo Kalker,73,Phobolog,Nina Düllmann,60,Robinson Industries,Edith Bohl,52,Thorgate
+9,Tharsis,8,Andreas Birjukow,67,Ecoline,Felix Stolte,65,Inventrix,Seba Deutsch,59,Mining Guild,Sebastian Meuer,57,Cheung Shing Mars
+10,Tharsis,8,Marius Diercks,66,Credicor,Pascal Hasselblatt,64,Interplanetary Cinematics,Jan Warnecke,63,Mining Guild,Oliver Voigt,62,Inventrix
+4,Tharsis,7,Nathan Doolaard,69,Phobolog,Tim Knauer,65,Ecoline,Umut Utku Kocak,62,Tharsis Republic,Till Prölß,57,Mining Guild
+19,Tharsis,8,Erman Baglan,71,Ecoline,Kimberley Morgan,65,Point Luna,Till Paplowski,58,Valley Trust,Friederike Hasselblatt,55,Vitor
+18,Tharsis,8,Jonathan Schrodt,77,Credicor,Stephan Vondenbusch,72,Tharsis Republic,Kiran Berger,63,Valley Trust,Georg Franosch,62,Cheung Shing Mars
+21,Tharsis,9,Frank Hammer,95,Tharsis Republic,Adrian Jäger,83,Saturn Systems,Ralph Kammann,78,Teractor,Charles Montalban,72,Robinson Industries
+20,Tharsis,10,Laurin Weber,86,Tharsis Republic,Peter Schmand,75,Saturn Systems,Henning Schneider,69,Teractor,,,
+17,Tharsis,9,Tim Nicolai,84,Tharsis Republic,Patrick Arras,78,Teractor,Patrick fischer,74,Cheung Shing Mars,Fedor Alekseev,66,Valley Trust
+7,Tharsis,8,Tobias Nandelstädt,89,Tharsis Republic,John Ritchie,70,Inventrix,Norman Lippold,66,Ecoline,Thomas Moder,53,Helion
+15,Tharsis,8,Tim Fromeyer,69,Interplanetary Cinematics,Lucas Weber,61,Credicor,Dr. Thimo Zirpel,58,Teractor,Davide Boccarossa,57,Vitor
+16,Tharsis,9,Jannis Benezeder,74,Vitor,Julian Wagner,69,Cheung Shing Mars,Johannes Wolff,69,Helion,Ralph Volgmann,62,UNMI
+1,Hellas,7,Kyriakos Avgoustis,72,Credicor,Tobias Nandelstädt,54,Saturn Systems,Frank Hammer,50,Cheung Shing Mars,Sergei Sadovski,46,Ecoline
+4,Hellas,8,Bas Bunnik,70,Cheung Shing Mars,Elias Rentzsch,69,Helion,Max Degener,66,Valley Trust,Floyd van den Nieuwenhof,60,Teractor
+17,Hellas,7,Till Prölß,66,Cheung Shing Mars,Charles Montalban,54,Helion,Till Paplowski,50,Point Luna,Henning Schneider,50,Teractor
+13,Hellas,9,Larson Brockmann,82,Ecoline,Jan-Henrik Uhde,81,Mining Guild,Chris Wojtko,77,Point Luna,Patrick fischer,74,Robinson Industries
+10,Hellas,8,Kimberley Morgan,74,Credicor,Pascal Hasselblatt,64,Cheung Shing Mars,Felix Stolte,59,Teractor,Torsten Neuß,57,Point Luna
+14,Hellas,7,Tim Kreuk,66,Tharsis Republic,Kiran Berger,63,Point Luna,Henry Kalbe,57,Saturn Systems,Jan Warnecke,56,Valley Trust
+21,Hellas,10,Ralph Volgmann,88,Tharsis Republic,Friederike Hasselblatt,81,Valley Trust,Bekir baris tosun,79,Ecoline,,,
+12,Hellas,9,Umut Utku Kocak,73,Inventrix,Ralph Kammann,71,UNMI,Norman Lippold,70,Saturn Systems,Anastasiya Polubotko,61,Robinson Industries
+5,Hellas,7,Erman Baglan,66,Ecoline,Laurin Weber,62,Valley Trust,Tim Fromeyer,53,Interplanetary Cinematics,Andreas Birjukow,52,UNMI
+2,Hellas,9,Steven Nooijen,76,Ecoline,Christoph Schwarz,68,Helion,Nathan Doolaard,65,Point Luna,Sumeyra Durak,63,Valley Trust
+18,Hellas,9,Georg Franosch,74,Point Luna,Oliver Voigt,72,Cheung Shing Mars,Sanja Rajkovaca,72,Ecoline,Tom-Eric Wendler,68,Credicor
+7,Hellas,8,Dominique Borgermans,74,Cheung Shing Mars,Timo Kalker,71,Ecoline,Jessica Zarnowski,65,Tharsis Republic,Adrian Jäger,53,Point Luna
+19,Hellas,8,Kiara Sophie Möllering,74,Point Luna,Nico Garziella,65,Vitor,Franziska Rudolf,64,Ecoline,Fedor Alekseev,60,Phobolog
+9,Hellas,8,Marius Jäger,80,Vitor,Daniel Trusheim,78,Helion,Patrick Arras,70,Cheung Shing Mars,Mark van der Veen,60,Saturn Systems
+3,Hellas,8,Grzegorz Kobiela,79,Robinson Industries,Michael Geiger,72,Teractor,Tim Nicolai,68,Credicor,Jonathan Schrodt,65,Vitor
+6,Hellas,9,Marius Diercks,81,Credicor,Danny Sachtleben,80,Cheung Shing Mars,Tim Knauer,78,Interplanetary Cinematics,Jannis Benezeder,69,Teractor
+11,Hellas,8,Lucas Weber,70,Ecoline,Julian Wagner,63,Credicor,Martin Otten,61,UNMI,Peter Schmand,58,Cheung Shing Mars
+22,Hellas,9,Burak Cihan,80,Teractor,Thomas Moder,71,Credicor,Edith Bohl,58,Inventrix,,,
+20,Hellas,9,Felix Oertel,76,Valley Trust,Marc Burkhardt,75,Saturn Systems,Sebastian Meuer,74,Tharsis Republic,Davide Boccarossa,70,Phobolog
+8,Hellas,8,Christian Pfahler,78,UNMI,Stephan Vondenbusch,78,Valley Trust,John Ritchie,62,Credicor,Daniel Schwarz,62,Point Luna
+16,Hellas,9,Nina Düllmann,79,Ecoline,Achim Kuhlmei,69,Inventrix,Dr. Thimo Zirpel,67,Credicor,Seba Deutsch,60,Helion
+15,Hellas,9,Lioba Müller,86,Teractor,Johannes Wolff,72,Helion,Dennis,66,Robinson Industries,Elif Merve Ozalp,61,Mining Guild
+22,Elysium,9,Davide Boccarossa,83,Cheung Shing Mars,Fedor Alekseev,82,Inventrix,Tom-Eric Wendler,73,Teractor,,,
+13,Elysium,8,Patrick Arras,79,Ecoline,Johannes Wolff,66,Tharsis Republic,Kiran Berger,63,Robinson Industries,Martin Otten,48,Helion
+3,Elysium,7,Michael Geiger,73,Tharsis Republic,Dominique Borgermans,63,Teractor,Laurin Weber,51,Cheung Shing Mars,Christoph Schwarz,49,Point Luna
+4,Elysium,9,Marius Jäger,106,Tharsis Republic,Lucas Weber,76,Robinson Industries,Kimberley Morgan,71,Credicor,Christian Pfahler,68,
+15,Elysium,8,Friederike Hasselblatt,85,Tharsis Republic,Daniel Schwarz,73,Ecoline,Mark van der Veen,70,Credicor,Peter Schmand,43,Inventrix
+7,Elysium,8,Tim Kreuk,70,Tharsis Republic,Sumeyra Durak,65,Point Luna,Jonathan Schrodt,65,Saturn Systems,Nina Düllmann,55,Valley Trust
+1,Elysium,9,Kyriakos Avgoustis,87,Saturn Systems,Grzegorz Kobiela,79,Interplanetary Cinematics,Erman Baglan,73,Ecoline,Bas Bunnik,68,Credicor
+6,Elysium,8,Umut Utku Kocak,76,Saturn Systems,Tim Nicolai,69,Mining Guild,Larson Brockmann,67,Helion,Lioba Müller,58,Robinson Industries
+5,Elysium,9,Max Degener,80,Teractor,Tim Fromeyer,80,Robinson Industries,Nathan Doolaard,69,Saturn Systems,Frank Hammer,66,Tharsis Republic
+18,Elysium,8,Henry Kalbe,74,Ecoline,Marc Burkhardt,68,Phobolog,Charles Montalban,62,Robinson Industries,Oliver Voigt,59,Credicor
+17,Elysium,7,Thomas Moder,68,Credicor,Dennis,62,Interplanetary Cinematics,Dr. Thimo Zirpel,58,Saturn Systems,Nico Garziella,54,Inventrix
+11,Elysium,8,Till Prölß,79,Teractor,Ralph Volgmann,71,Valley Trust,Felix Oertel,68,Tharsis Republic,Georg Franosch,63,Vitor
+20,Elysium,7,Bekir baris tosun,85,Saturn Systems,Patrick fischer,75,Robinson Industries,Sanja Rajkovaca,66,Credicor,Henning Schneider,55,Inventrix
+16,Elysium,8,Chris Wojtko,72,Credicor,Till Paplowski,71,Mining Guild,Norman Lippold,67,Tharsis Republic,Adrian Jäger,66,Robinson Industries
+9,Elysium,7,Daniel Trusheim,70,Inventrix,Pascal Hasselblatt,57,Saturn Systems,Danny Sachtleben,54,Cheung Shing Mars,Stephan Vondenbusch,46,UNMI
+2,Elysium,7,Tobias Nandelstädt,76,Tharsis Republic,Elias Rentzsch,66,Ecoline,Steven Nooijen,63,Helion,Marius Diercks,50,Point Luna
+21,Elysium,10,Sebastian Meuer,93,Phobolog,Seba Deutsch,88,Thorgate,Franziska Rudolf,65,Point Luna,,,
+8,Elysium,8,Floyd van den Nieuwenhof,72,Saturn Systems,Andreas Birjukow,71,Teractor,Sergei Sadovski,67,Helion,Jannis Benezeder,56,Vitor
+12,Elysium,8,Tim Knauer,69,Credicor,John Ritchie,67,Thorgate,Jessica Zarnowski,66,Ecoline,Jan-Henrik Uhde,59,Mining Guild
+14,Elysium,10,Ralph Kammann,95,Point Luna,Achim Kuhlmei,88,Teractor,Torsten Neuß,82,Ecoline,Felix Stolte,76,Interplanetary Cinematics
+10,Elysium,9,Burak Cihan,87,Credicor,Timo Kalker,86,Vitor,Kiara Sophie Möllering,71,Cheung Shing Mars,Julian Wagner,86,Vitor
+19,Elysium,9,Elif Merve Ozalp,82,Saturn Systems,Edith Bohl,77,Tharsis Republic,Jan Warnecke,70,UNMI,Anastasiya Polubotko,68,Mining Guild

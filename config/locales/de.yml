@@ -1,14 +1,7 @@
+---
 de:
-  complete_game_sets_are_available: vollständige Spielesets sind verfügbar.
   already_registered: Du bist bereits für das nächste Turnier registriert!
-  login_required: Du musst eingeloggt sein, um diese Seite anzusehen.
-  no_rounds_finished_yet: Es wurde noch keine Runde beendet. Komme später wieder.
-  ranking: Platzierungen
-  rank: Platz
-  name: Name
-  points: Punkte
-  opponent_points: Punkte Gegner:innen
-  points_per_generation: Punkte/Gen
+  complete_game_sets_are_available: vollständige Spielesets sind verfügbar.
   create_tournament: Turnier erstellen
   date:
     formats:
@@ -21,10 +14,19 @@ de:
   helpers:
     label:
       email_address: E-Mail-Adresse
+  language: Sprache
   login: Einloggen
+  login_required: Du musst eingeloggt sein, um diese Seite anzusehen.
   logout: Ausloggen
   max_participations_html: Maximale Teilnehmer:innenanzahl erreicht. Die Registrierung ist geschlossen. Du kannst dich auf die Warteliste setzen lassen, indem du eine E-Mail an %{email} schreibst.
+  name: Name
   'no': Nein
+  no_rounds_finished_yet: Es wurde noch keine Runde beendet. Komme später wieder.
+  opponent_points: Punkte Gegner:innen
+  points: Punkte
+  points_per_generation: Punkte/Gen
+  rank: Platz
+  ranking: Platzierungen
   register: Jetzt registrieren!
   signup: Registrieren
   spots_available: Die Startplätze sind auf %{count} limitiert.

@@ -1,33 +1,41 @@
 <%# locals: (seat:, round:, opponent_seats:) %>
 
 <div class="flex flex-col gap-4">
-  <div class="flex">
-    <h2><%= t(:your_next_game) %></h2>
-    <span><%= round.start_time %></span>
+  <h2 class="mb-0"><%= t(".your_next_game") %></h2>
 
-    <div class="rounded border"><%= round.board %></div>
-  </div>
+  <div class="flex flex-col gap-4 rounded-xl border-2 border-teal-400 bg-teal-100 p-4">
+    <div class="flex flex-col gap-4">
+      <div class="flex gap-2">
+        <div class="flex gap-4">
+          <div><span><%= Room.model_name.human %></span> <span class="font-bold"><%= seat.room.number %></span></div>
 
-  <div class="flex gap-4">
-    <div class="flex flex-col gap-2">
-      <div><%= t("room") %> <span class="font-bold"><%= seat.room.number %></span></div>
+          <div><span><%= Table.model_name.human %></span> <span class="font-bold"><%= seat.table.number %></span></div>
 
-      <div><%= t("table") %> <span class="font-bold"><%= seat.table.number %></span></div>
-
-      <div><%= t("seat") %> <span class="font-bold"><%= seat.number %></span></div>
-    </div>
-    <div class="flex flex-col gap-2">
-      <div><%= t(:your_opponents) %></div>
-
-      <% opponent_seats.each do |opponent_seat| %>
-        <div class="flex gap-2">
-          <div><%= opponent_seat.user.name %></div>
-
-          <div><%= opponent_seat.user.locale %></div>
-
-          <div><%= opponent_seat.number %></div>
+          <div><span><%= Seat.model_name.human %></span> <span class="font-bold"><%= seat.number %></span></div>
         </div>
-      <% end %>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <h3><%= t(".your_opponents") %></h3>
+
+        <div class="grid grid-cols-[auto_1fr_auto] gap-4">
+          <div class="font-bold"><%= Seat.model_name.human %></div>
+
+          <div class="font-bold"><%= t("name") %></div>
+
+          <div class="font-bold"><%= t("language") %></div>
+
+          <% opponent_seats.each do |opponent_seat| %>
+            <div><%= opponent_seat.number %></div>
+
+            <div><%= opponent_seat.user.name %></div>
+
+            <div><%= opponent_seat.user.locale %></div>
+          <% end %>
+        </div>
+      </div>
+
+      <%= link_to "Enter Results", [:new, @tournament, :tally], class: "btn self-center btn-primary" %>
     </div>
   </div>
 </div>

@@ -73,6 +73,7 @@ gem "rqrcode", "~> 2.0"
 gem "view_component", "~> 4.0.0.rc5"
 
 group :development do
+  gem "hotwire-spark"
   gem "i18n-debug"
   gem "i18n-tasks", require: false
 

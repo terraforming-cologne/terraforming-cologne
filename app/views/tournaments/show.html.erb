@@ -1,17 +1,7 @@
 <div class="flex flex-col gap-16">
-  <div>
-    <h1 class="mb-0"><%= @tournament.name %></h1>
+  <%= render "tournaments/heading", tournament: @tournament, sub_heading: t(".overview") %>
 
-    <h2 class="mb-0"><%= t("welcome") %></h2>
-  </div>
+  <div class="flex"><span><%= l(@round.start_time, format: :time_of_day) %></span></div>
 
   <%= render "attendances/next_game", seat: @seat, round: @round, opponent_seats: @opponent_seats %>
-
-  <h2>Require login to see detailed information</h2>
-
-  <h2>Link to attendance creation</h2>
-
-  <h2>Current round</h2>
-
-  <h2>Your current/next game including opponents and languages</h2>
 </div>
