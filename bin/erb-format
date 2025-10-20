@@ -4,5 +4,5 @@ npm exec tailwindcss-class-sorter-erb -- --write "$@"
 
 # HACK: herb-format cannot take multiple files as arguments for now
 for arg in "$@"; do
-    herb-format "$arg"
+    herb-format "$arg" --indent-width 2 --max-line-length 120
 done

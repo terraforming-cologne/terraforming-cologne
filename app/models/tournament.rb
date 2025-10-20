@@ -20,10 +20,6 @@ class Tournament < ApplicationRecord
     where(date: Date.current..).exists?
   end
 
-  def current_round
-    rounds.find_by(number: current_round_number)
-  end
-
   def number_of_full_game_sets
     [
       participations.where(brings_basegame_english: true).count + participations.where(brings_basegame_german: true).count,

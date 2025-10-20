@@ -1,0 +1,6 @@
+<h1><%= t(".heading") %></h1>
+
+<div class="flex flex-col gap-8">
+  <%= render "intro", game: @game, opponent_seats: @opponent_seats %>
+  <%= render "form", tally: @tally, tournament: @tournament %>
+</div>

@@ -1,0 +1,14 @@
+<%# locals: (game:, opponent_seats:) %>
+
+<div>
+  <p>
+    Du gibst die Ergebnisse deines Spiels in <b><%= Round.model_name.human %></b> <b><%= game.round.number %></b> ein.
+  </p>
+
+  <p>
+    Du hast in <b><%= Room.model_name.human %></b> <b><%= game.room.number %></b> an
+    <b><%= Table.model_name.human %></b> <b><%= game.table.number %></b> gespielt.
+  </p>
+
+  <p>Deine Gegner:innen waren <b><%= opponent_seats.map(&:name).to_sentence %></b>.</p>
+</div>

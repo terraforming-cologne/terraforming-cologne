@@ -5,7 +5,7 @@
     <h2 class="mb-0"><%= t("welcome") %></h2>
   </div>
 
-  <%= render "attendances/next_game", attendance: Current.attendance %>
+  <%= render "attendances/next_game", seat: @seat, round: @round, opponent_seats: @opponent_seats %>
 
   <h2>Require login to see detailed information</h2>
 

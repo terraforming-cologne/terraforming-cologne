@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :sessions, dependent: :destroy
   has_many :participations, dependent: :restrict_with_error
+  has_many :attendances, through: :participations
 
   scope :active, -> { where(deactivated: false) }
 

@@ -1,0 +1,9 @@
+en:
+  activemodel:
+    attributes:
+      tally:
+        scores: Individual Scores
+    errors:
+      models:
+        tally:
+          inplausible_ranks: The combination of ranks and points is inplausible

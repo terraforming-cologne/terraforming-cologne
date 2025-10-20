@@ -1,5 +1,5 @@
 class ReseatsController < ApplicationController
-  before_action :set_tournament
+  include TournamentScoped
 
   def new
     authorize Reseat
@@ -20,9 +20,5 @@ class ReseatsController < ApplicationController
 
   def reseat_params
     params.expect(reseat: [:from_seat_id, :to_seat_id])
-  end
-
-  def set_tournament
-    @tournament = Tournament.find(params.expect(:tournament_id))
   end
 end
