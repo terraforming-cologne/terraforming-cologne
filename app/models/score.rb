@@ -8,6 +8,7 @@ class Score < ApplicationRecord
 
   validates :rank, numericality: {greater_than_or_equal_to: 1, less_than_or_equal_to: 4}
   validates :points, numericality: {greater_than_or_equal_to: 0}
+  validates :seat, uniqueness: true
 
   # TODO: Extract corporations into model
   validates :corporation, presence: true

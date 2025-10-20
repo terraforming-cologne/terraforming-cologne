@@ -52,18 +52,24 @@ class Tally
   end
 
   def ensure_plausible_ranks
+    return if errors[:scores].present?
+
     if scores.sort_by(&:rank).each_cons(2).any? { |a, b| a.points < b.points }
       errors.add(:base, :inplausible_ranks)
     end
   end
 
   def ensure_same_game_for_all_records
+    return if errors[:result].present? || errors[:scores].present?
+
     if [result.game, *scores.map(&:game)].uniq.size != 1
       errors.add(:base, :different_games)
     end
   end
 
   def ensure_one_score_for_each_attendance
+    return if errors[:result].present? || errors[:scores].present?
+
     if result.game.attendances != scores.map(&:attendance)
       errors.add(:base, :wrong_attendances)
     end
