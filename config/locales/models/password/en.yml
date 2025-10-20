@@ -1,11 +1,5 @@
----
 en:
   activemodel:
     attributes:
       password:
         password: New password
-        password_confirmation: Password confirmation
-    models:
-      password: Password
-  models:
-    password: Password

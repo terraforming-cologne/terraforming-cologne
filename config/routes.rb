@@ -1,27 +1,30 @@
 Rails.application.routes.draw do
   mount MissionControl::Jobs::Engine, at: "/jobs"
 
-  # Tournament
+  shallow do
+    # Tournament
 
-  resources :tournaments, only: [:index, :show, :new, :create, :edit, :update] do
-    resources :participations, shallow: true do
-      resource :attendance, only: [:new, :create]
+    resources :tournaments, only: [:index, :show, :new, :create, :edit, :update] do
+      resources :participations do
+        resource :attendance, only: [:new, :create]
+      end
+      resources :reseats, only: [:new, :create]
+      resource :ranking, only: :show
+      resources :tallies, only: [:new, :create]
     end
-    resources :reseats, only: [:new, :create]
-    resource :ranking, only: :show
+    resources :payments, only: :create
+
+    get :register, to: "registrations#new"
+
+    # User
+
+    resource :account, only: [:show, :edit, :create, :update, :destroy]
+    resource :locale, only: [:update]
+    resource :login, only: [:create]
+    resource :password, only: [:edit, :update]
+    resources :password_resets, only: [:new, :edit, :create, :update], param: :token
+    resource :profile, only: [:show]
   end
-  resources :payments, only: :create
-
-  get :register, to: "registrations#new"
-
-  # User
-
-  resource :account, only: [:show, :edit, :create, :update, :destroy]
-  resource :locale, only: [:update]
-  resource :login, only: [:create]
-  resource :password, only: [:edit, :update]
-  resources :password_resets, only: [:new, :edit, :create, :update], param: :token
-  resource :profile, only: [:show]
 
   get :signup, to: "accounts#new"
   get :login, to: "logins#new"
