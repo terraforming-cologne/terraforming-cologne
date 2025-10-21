@@ -1,7 +1,10 @@
 <div class="flex flex-col gap-16">
   <%= render "tournaments/heading", tournament: @tournament, sub_heading: t(".overview") %>
 
-  <div class="flex"><span><%= l(@round.start_time, format: :time_of_day) %></span></div>
+  <%= render "tournaments/welcome", tournament: @tournament %>
 
-  <%= render "attendances/next_game", seat: @seat, round: @round, opponent_seats: @opponent_seats %>
+  <% if @round.present? %>
+    <div class="flex"><span><%= l(@round.start_time, format: :time_of_day) %></span></div>
+    <%= render "attendances/next_game", seat: @seat, round: @round, opponent_seats: @opponent_seats %>
+  <% end %>
 </div>

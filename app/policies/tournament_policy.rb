@@ -4,7 +4,7 @@ class TournamentPolicy < ApplicationPolicy
   end
 
   def show?
-    attending? || user.admin?
+    participating? || user.admin?
   end
 
   def create?
@@ -17,7 +17,7 @@ class TournamentPolicy < ApplicationPolicy
 
   private
 
-  def attending?
-    record.attendances.includes(:user).map(&:user).include?(user)
+  def participating?
+    record.participations.includes(:user).map(&:user).include?(user)
   end
 end
