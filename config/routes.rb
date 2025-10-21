@@ -4,12 +4,19 @@ Rails.application.routes.draw do
   shallow do
     # Tournament
 
-    resources :tournaments, only: :show do
+    resources :tournaments, only: [:index, :show, :new, :create, :edit, :update] do
       resources :participations do
+        resource :payment, only: :create
         resource :attendance, only: [:new, :create]
       end
+
+      resources :games, only: [] do
+        resource :tally, only: [:new, :create, :edit, :update]
+      end
+
+      resource :bridge, only: :show
       resource :ranking, only: :show
-      resources :tallies, only: [:new, :create]
+      resources :reseats, only: [:new, :create]
     end
 
     get :register, to: "registrations#new"
@@ -22,16 +29,6 @@ Rails.application.routes.draw do
     resource :password, only: [:edit, :update]
     resources :password_resets, only: [:new, :edit, :create, :update], param: :token
     resource :profile, only: [:show]
-
-    # Admin
-
-    namespace :admin do
-      resources :tournaments, only: [:index, :new, :create, :edit, :update] do
-        resource :bridge, only: :show, module: :tournament
-        resources :reseats, only: [:new, :create]
-      end
-      resources :payments, only: :create
-    end
   end
 
   get :signup, to: "accounts#new"

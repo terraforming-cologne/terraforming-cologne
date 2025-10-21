@@ -84,13 +84,10 @@
         <div>
           <% unless participation.paid? %>
             <%= button_to t(".confirm_payment"),
-                [:admin, :payments],
+                [participation, :payment],
                 class:
                   "ms-auto inline-block cursor-pointer rounded-lg bg-slate-300 px-2 py-1 text-sm font-bold hover:bg-slate-400",
                 method: :post,
-                params: {
-                  participation_id: participation.id
-                },
                 data: {
                   turbo_confirm: t(".confirm_confirm_payment")
                 } %>

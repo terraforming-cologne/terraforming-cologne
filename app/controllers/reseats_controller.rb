@@ -1,4 +1,4 @@
-class Admin::ReseatsController < ApplicationController
+class ReseatsController < ApplicationController
   include TournamentScoped
 
   def new
