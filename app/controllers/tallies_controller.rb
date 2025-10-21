@@ -5,7 +5,7 @@ class TalliesController < ApplicationController
 
   def new
     redirect_to @tournament, notice: t(".no_current_game") and return if @game.blank?
-    redirect_to @tournament, notice: t(".already_tallied") and return if @game.result.present?
+    redirect_to @tournament, notice: t(".already_tallied") and return if @game.tallied?
     @tally = Tally.build_for(game: @game)
   end
 
