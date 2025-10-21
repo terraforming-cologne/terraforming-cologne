@@ -71,7 +71,7 @@ participations = user_ids.map do |user_id|
 end
 Participation.insert_all!(participations)
 
-rooms = (1..5).map { |r|
+rooms = (1..3).map { |r|
   {
     number: r,
     tournament_id: tournament.id,
@@ -81,15 +81,19 @@ rooms = (1..5).map { |r|
 }
 Room.insert_all!(rooms)
 
+tables = []
+table_counts = [20, 6, 5]
+i = 0
 room_ids = Room.where(tournament_id: tournament.id).pluck(:id)
-tables = room_ids.each_with_index.flat_map do |room_id, index|
-  ((5 * index + 1)..(5 * index + 5)).map { |t|
-    {
-      number: t,
+room_ids.zip(table_counts).each do |room_id, count|
+  count.times do
+    tables << {
+      number: i,
       room_id: room_id,
       created_at: now,
       updated_at: now
     }
-  }
+    i += 1
+  end
 end
-Table.insert_all!(tables)
+Table.insert_all(tables)

@@ -1,10 +1,13 @@
 <div class="flex flex-col gap-16">
   <%= render "tournaments/heading", tournament: @tournament, sub_heading: t(".overview") %>
 
-  <%= render "tournaments/welcome", tournament: @tournament %>
-
-  <% if @round.present? %>
-    <div class="flex"><span><%= l(@round.start_time, format: :time_of_day) %></span></div>
+  <%# TODO: Refactor this %>
+  <% if @seat && @round && @opponent_seats %>
     <%= render "attendances/next_game", seat: @seat, round: @round, opponent_seats: @opponent_seats %>
   <% end %>
+
+  <div>
+    <h2 class="mb-0"><%= t("ranking") %></h2>
+    <%= turbo_frame_tag @tournament, :ranking, src: [@tournament, :ranking] %>
+  </div>
 </div>

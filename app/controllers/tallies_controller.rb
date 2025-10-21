@@ -1,6 +1,4 @@
 class TalliesController < ApplicationController
-  include TournamentScoped
-
   allow_unauthorized_access
 
   def new
@@ -13,6 +11,19 @@ class TalliesController < ApplicationController
     @tally = Tally.new(tally_params)
     if @tally.save
       redirect_to @tournament, notice: t(".notice")
+    else
+      render :new, status: :unprocessable_content
+    end
+  end
+
+  def edit
+    @tally = Tally.build_for(game: @game)
+  end
+
+  def update
+    @tally = Tally.new(tally_params)
+    if @tally.save
+      redirect_back_or_to [:admin, @tournament, :bridge], notice: t(".notice")
     else
       render :new, status: :unprocessable_content
     end
