@@ -1,5 +1,7 @@
 class Tally
+  extend ActiveModel::Callbacks
   include ActiveModel::Model
+  include Turbo::Broadcastable
 
   attr_accessor :result, :scores
 
@@ -8,6 +10,9 @@ class Tally
   validate :ensure_plausible_ranks
   validate :ensure_same_game_for_all_records
   validate :ensure_one_score_for_each_attendance
+
+  define_model_callbacks :commit
+  broadcasts_refreshes_to ->(tally) { [tally.result.tournament, :tallies] }
 
   def self.build_for(game:)
     result = game.build_result
@@ -18,9 +23,11 @@ class Tally
   def save
     return false unless valid?
 
-    ApplicationRecord.transaction do
-      result.save!
-      scores.each(&:save!)
+    run_callbacks(:commit) do
+      ApplicationRecord.transaction do
+        result.save!
+        scores.each(&:save!)
+      end
     end
 
     true
