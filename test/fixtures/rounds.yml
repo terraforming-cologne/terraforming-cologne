@@ -2,8 +2,10 @@ one:
   number: 1
   board: "A board"
   tournament: one
+  start_time: <%= Time.current %>
 
 two:
   number: 2
   board: "A different board"
   tournament: one
+  start_time: <%= Time.current %>
