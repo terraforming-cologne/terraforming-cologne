@@ -88,7 +88,7 @@ room_ids = Room.where(tournament_id: tournament.id).pluck(:id)
 room_ids.zip(table_counts).each do |room_id, count|
   count.times do
     tables << {
-      number: i,
+      number: i + 1,
       room_id: room_id,
       created_at: now,
       updated_at: now
