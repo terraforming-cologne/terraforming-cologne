@@ -1,4 +1,4 @@
-class PaymentsController < ApplicationController
+class Admin::PaymentsController < ApplicationController
   def create
     authorize :payment
     @participation = Participation.find(params.expect(:participation_id))
