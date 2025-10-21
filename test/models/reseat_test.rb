@@ -35,17 +35,17 @@ class ReseatTest < ActiveSupport::TestCase
     assert_not_nil reseat.errors.where(:base, :different_rounds)
   end
 
-  test "swaps participation_ids between two seats" do
+  test "swaps attendance_ids between two seats" do
     reseat = Reseat.new
     from_seat_id = @seat1.id
     to_seat_id = @seat2.id
     reseat.assign_attributes(from_seat_id: from_seat_id, to_seat_id: to_seat_id)
     assert reseat.valid?
 
-    assert_equal @seat1.reload.participation_id, from_seat_id
-    assert_equal @seat2.reload.participation_id, to_seat_id
+    assert_equal @seat1.reload.attendance_id, from_seat_id
+    assert_equal @seat2.reload.attendance_id, to_seat_id
     reseat.save
-    assert_equal @seat1.reload.participation_id, to_seat_id
-    assert_equal @seat2.reload.participation_id, from_seat_id
+    assert_equal @seat1.reload.attendance_id, to_seat_id
+    assert_equal @seat2.reload.attendance_id, from_seat_id
   end
 end
