@@ -32,7 +32,7 @@ module Authentication
 
   def request_authentication
     session[:return_to_after_authenticating] = request.url
-    redirect_to :login
+    redirect_to :login, notice: t(:login_required)
   end
 
   def after_authentication_path
