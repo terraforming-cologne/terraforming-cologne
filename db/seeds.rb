@@ -82,8 +82,8 @@ rooms = (1..5).map { |r|
 Room.insert_all!(rooms)
 
 room_ids = Room.where(tournament_id: tournament.id).pluck(:id)
-tables = room_ids.flat_map do |room_id|
-  (1..5).map { |t|
+tables = room_ids.each_with_index.flat_map do |room_id, index|
+  ((5 * index + 1)..(5 * index + 5)).map { |t|
     {
       number: t,
       room_id: room_id,

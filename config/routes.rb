@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
     namespace :admin do
       resources :tournaments, only: [:index, :new, :create, :edit, :update] do
+        resource :bridge, only: :show, module: :tournament
         resources :reseats, only: [:new, :create]
       end
       resources :payments, only: :create

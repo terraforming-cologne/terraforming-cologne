@@ -1,0 +1,12 @@
+<%= render "tournaments/heading", tournament: @tournament, sub_heading: t(".bridge") %>
+
+<div class="flex flex-col gap-16">
+  <% @rooms.each do |room| %>
+    <h2><%= Room.model_name.human %> <%= room.number %></h2>
+    <div class="grid grid-cols-[repeat(auto,minmax(--spacing(16),1fr))] gap-2">
+      <% @games[room].each do |game| %>
+        <div class="rounded border <%= "bg-teal-100" if game.tallied? %>"><%= game.table.number %></div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
