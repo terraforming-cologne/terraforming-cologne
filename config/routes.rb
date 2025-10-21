@@ -8,11 +8,9 @@ Rails.application.routes.draw do
       resources :participations do
         resource :attendance, only: [:new, :create]
       end
-      resources :reseats, only: [:new, :create]
       resource :ranking, only: :show
       resources :tallies, only: [:new, :create]
     end
-    resources :payments, only: :create
 
     get :register, to: "registrations#new"
 
@@ -28,7 +26,10 @@ Rails.application.routes.draw do
     # Admin
 
     namespace :admin do
-      resources :tournaments, only: [:index, :new, :create, :edit, :update]
+      resources :tournaments, only: [:index, :new, :create, :edit, :update] do
+        resources :reseats, only: [:new, :create]
+      end
+      resources :payments, only: :create
     end
   end
 
