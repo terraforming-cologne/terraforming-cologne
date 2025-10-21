@@ -10,12 +10,12 @@ de:
       heading: Account verwalten
     edit_form:
       edit_password: Passwort ändern
-      name_caution: Wird verwendet um deine Zahlungen zuzuordnen.
+      name_caution: Wird bei einer Turnieranmeldung verwendet, um deine Zahlungen zuzuordnen.
     new:
       already_has_account: Bereits registriert?
       heading: Account erstellen
     new_form:
-      name_caution: Wird verwendet um deine Zahlungen zuzuordnen.
+      name_caution: Wird bei einer Turnieranmeldung verwendet, um deine Zahlung zuzuordnen.
     show:
       edit: Account verwalten
       heading: Dein Account
