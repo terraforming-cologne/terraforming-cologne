@@ -1,5 +1,5 @@
 class Admin::TournamentsController < ApplicationController
-  before_action :set_tournamen, only: [:edit, :update]
+  before_action :set_tournament, only: [:edit, :update]
 
   def index
     authorize Tournament
