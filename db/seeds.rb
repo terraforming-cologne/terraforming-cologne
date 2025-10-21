@@ -2,6 +2,8 @@
 # development, test). The code here should be idempotent so that it can be executed at any point in every environment.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 
+now = Time.current
+
 User.create!(
   name: "Admin",
   admin: true,
@@ -17,16 +19,27 @@ tournament = Tournament.create!(
   max_participations: 100
 )
 
-tournament.rounds.insert_all!(
-  3.times.map { |i|
-    {
-      number: i + 1,
-      board: "Board #{i}",
-      created_at: Time.current,
-      updated_at: Time.current
-    }
-  }
-)
+tournament.rounds.insert!({
+  number: 1,
+  board: "Tharsis",
+  start_time: Time.zone.today + 1.year + 9.hours,
+  created_at: now,
+  updated_at: now
+})
+tournament.rounds.insert!({
+  number: 2,
+  board: "Hellas",
+  start_time: Time.zone.today + 1.year + 11.hours,
+  created_at: now,
+  updated_at: now
+})
+tournament.rounds.insert!({
+  number: 3,
+  board: "Elysium",
+  start_time: Time.zone.today + 1.year + 13.hours,
+  created_at: now,
+  updated_at: now
+})
 
 password_digest = User.new(password: "asdfasdf", password_confirmation: "asdfasdf").password_digest
 users = (1..93).map do |i|
@@ -35,8 +48,8 @@ users = (1..93).map do |i|
     email_address: "#{i}@example.com",
     password_digest: password_digest,
     locale: :en,
-    created_at: Time.current,
-    updated_at: Time.current
+    created_at: now,
+    updated_at: now
   }
 end
 User.insert_all!(users)
@@ -52,8 +65,8 @@ participations = user_ids.map do |user_id|
     brings_prelude_german: false,
     brings_hellas_and_elysium: true,
     paid: true,
-    created_at: Time.current,
-    updated_at: Time.current
+    created_at: now,
+    updated_at: now
   }
 end
 Participation.insert_all!(participations)
@@ -62,8 +75,8 @@ rooms = (1..5).map { |r|
   {
     number: r,
     tournament_id: tournament.id,
-    created_at: Time.current,
-    updated_at: Time.current
+    created_at: now,
+    updated_at: now
   }
 }
 Room.insert_all!(rooms)
@@ -74,8 +87,8 @@ tables = room_ids.flat_map do |room_id|
     {
       number: t,
       room_id: room_id,
-      created_at: Time.current,
-      updated_at: Time.current
+      created_at: now,
+      updated_at: now
     }
   }
 end
