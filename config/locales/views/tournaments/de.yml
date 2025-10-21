@@ -1,9 +1,12 @@
+---
 de:
   tournaments:
     create:
       notice: Turnier erstellt.
     edit:
       edit_tournament: Turnier bearbeiten
+    show:
+      overview: Übersicht
     tournament:
       participations: Teilnehmer:innen
     update:

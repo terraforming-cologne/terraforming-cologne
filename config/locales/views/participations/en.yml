@@ -1,3 +1,4 @@
+---
 en:
   helpers:
     label:
@@ -27,8 +28,6 @@ en:
       comment_comment: Do you want to tell us something else?
     index:
       confirm_confirm_payment: Do you really want to confirm the payment?
-      confirm_payment: Confirm Payment
-      export: Export
     new:
       heading: Please tell us what you can bring to the tournament.
       notice: You are already registered for the tournament.

@@ -1,7 +1,8 @@
+---
 de:
   activerecord:
     attributes:
       score:
-        rank: Platzierung
         corporation: Firma
         points: Punkte
+        rank: Platzierung

@@ -51,7 +51,3 @@
 @utility btn-sm {
   @apply px-2 py-1 text-sm;
 }
-
-.translation_missing {
-  @apply border-2 border-red-500 text-5xl text-red-500;
-}
