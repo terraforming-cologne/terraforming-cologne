@@ -1,14 +1,8 @@
+---
 en:
-  complete_game_sets_are_available: full game sets are available.
-  login_required: You have to be logged in to view this page.
   already_registered: You are already registered for the next tournament!
-  no_rounds_finished_yet: No rounds were finished yet. Come back later.
-  rank: Rank
-  name: Name
-  points: Points
-  opponent_points: Opponent Points
-  points_per_generation: Points/Gen
-  ranking: Ranking
+  check_out_the_tournament_overview_page: Check out the tournament overview page!
+  complete_game_sets_are_available: full game sets are available.
   create_tournament: Create Tournament
   date:
     formats:
@@ -22,9 +16,17 @@ en:
     label:
       email_address: Email address
   login: Login
+  login_required: You have to be logged in to view this page.
   logout: Logout
   max_participations_html: Maximum number of participants reached. Registration is closed. You can sign up for the waiting list via Email at %{email}
+  name: Name
   'no': 'No'
+  no_rounds_finished_yet: No rounds were finished yet. Come back later.
+  opponent_points: Opponent Points
+  points: Points
+  points_per_generation: Points/Gen
+  rank: Rank
+  ranking: Ranking
   register: Register now!
   signup: Signup
   spots_available: Starting places are limited to %{count}.

@@ -16,7 +16,7 @@
   </div>
   <% if authenticated? && policy(Tournament).index? %>
     <div class="flex gap-2 border-b border-b-gray-200 py-2">
-      <%= link_to t(".tournaments"), :tournaments, class: "font-bold hover:text-teal-500" %>
+      <%= link_to t(".tournaments"), [:admin, :tournaments], class: "font-bold hover:text-teal-500" %>
     </div>
   <% end %>
 </div>

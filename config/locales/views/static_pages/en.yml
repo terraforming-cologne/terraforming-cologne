@@ -1,22 +1,16 @@
+---
 en:
   static_pages:
-    intro:
-      german_open: German Open
-      terraforming_mars_tournament: Terraforming Mars Tournament
     quick_info:
-      date: Date
       heading: At a Glance
-      location: Location
       participation_fee: Participation fee
       schedule: Schedule
       schedule_item:
-        break: Break
         first_round: 1st round (Tharsis)
         registration: Arrival and registration
         round_up: Closing and award ceremony
         second_round: 2nd round (Hellas)
         third_round: 3rd round (Elysium)
-      time: Time
       too_late: If you're running late, please make sure to let us know. Depending on how late you are, we will either try to hold your spot for you or reserve the right to give it to someone else.
     spirit:
       heading: Tournament Spirit
