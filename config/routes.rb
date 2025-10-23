@@ -15,7 +15,9 @@ Rails.application.routes.draw do
       end
 
       resource :bridge, only: :show
-      resource :ranking, only: :show
+      resources :rounds, only: [] do
+        resource :ranking, only: :show
+      end
       resources :reseats, only: [:new, :create]
     end
 
