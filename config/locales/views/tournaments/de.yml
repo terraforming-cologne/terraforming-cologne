@@ -8,6 +8,8 @@ de:
     show:
       overview: Übersicht
     tournament:
+      ranking: Platzierungen
+      bridge: Brücke
       participations: Teilnehmer:innen
     update:
       notice: Turnier aktualisiert.

@@ -3,20 +3,17 @@
 
   <p>
     Wenn du dich für das Turnier registrieren möchtest, kannst du das
-    <%= link_to "hier", :register, class: "link" %> tun. Die Teilnahmegebühr
-    beträgt 15€.
+    <%= link_to "hier", [@tournament, :register], class: "link" %> tun. Die Teilnahmegebühr beträgt 15€.
   </p>
 
   <p>
-    Deine Registrierung wird erst abgeschlossen, wenn wir deine Zahlung
-    bestätigt haben. Du erhältst hierfür eine Bestätigungs-E-Mail. Außerdem
-    kannst du den Status deiner Registrierung in deinem
+    Deine Registrierung wird erst abgeschlossen, wenn wir deine Zahlung bestätigt haben. Du erhältst hierfür eine
+    Bestätigungs-E-Mail. Außerdem kannst du den Status deiner Registrierung in deinem
     <%= link_to "Profil", :profile, class: "link" %> überprüfen.
   </p>
 
   <p>
-    Bitte überweise die Teilnahmegebühr zeitnah nach der Registrierung auf
-    folgendes Konto:
+    Bitte überweise die Teilnahmegebühr zeitnah nach der Registrierung auf folgendes Konto:
   </p>
 
   <br>
@@ -26,10 +23,8 @@
   <br>
 
   <p>
-    Eine Registrierung vor Ort kann nicht garantiert werden. Sollte es jedoch
-    noch freie Plätze geben, nehmen wir vor Ort gerne Registrierungen entgegen.
-    Um deine Teilnahme sicherzustellen, registriere dich besser im Voraus
-    online.
+    Eine Registrierung vor Ort kann nicht garantiert werden. Sollte es jedoch noch freie Plätze geben, nehmen wir vor
+    Ort gerne Registrierungen entgegen. Um deine Teilnahme sicherzustellen, registriere dich besser im Voraus online.
   </p>
 
   <br>
@@ -37,15 +32,12 @@
 
   <p>
     Wenn du deine Registrierung stornieren möchtest, kannst du das
-    <%= link_to "hier", %i[edit participation], class: "link" %>. Wenn du vor
-    dem <%= time_tag Date.new(2025, 3, 30) %> stornierst, erstatten wir dir die
-    Teilnahmegebühr zurück.
+    <%= link_to "hier", %i[edit participation], class: "link" %>. Wenn du vor dem <%= time_tag Date.new(2025, 3, 30) %>
+    stornierst, erstatten wir dir die Teilnahmegebühr zurück.
   </p>
 
   <p>
-    Falls du aus unvorhergesehenen Gründen nicht teilnehmen kannst, schreibe uns
-    bitte eine E-Mail an
-    <%= mail_to "support@terraforming-cologne.de", class: "link" %>. Wir werden
-    gemeinsam eine Lösung finden.
+    Falls du aus unvorhergesehenen Gründen nicht teilnehmen kannst, schreibe uns bitte eine E-Mail an
+    <%= mail_to "support@terraforming-cologne.de", class: "link" %>. Wir werden gemeinsam eine Lösung finden.
   </p>
 </section>

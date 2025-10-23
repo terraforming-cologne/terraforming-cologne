@@ -3,5 +3,6 @@ class StaticPagesController < ApplicationController
   allow_unauthorized_access
 
   def index
+    @tournament = Tournament.next
   end
 end

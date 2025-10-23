@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_10_17_182823) do
+ActiveRecord::Schema[8.0].define(version: 2025_10_23_183828) do
   create_table "attendances", force: :cascade do |t|
     t.integer "participation_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "round_id", null: false
     t.index ["participation_id"], name: "index_attendances_on_participation_id", unique: true
+    t.index ["round_id"], name: "index_attendances_on_round_id"
   end
 
   create_table "games", force: :cascade do |t|
@@ -132,6 +134,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_17_182823) do
   end
 
   add_foreign_key "attendances", "participations"
+  add_foreign_key "attendances", "rounds"
   add_foreign_key "games", "rounds"
   add_foreign_key "games", "tables"
   add_foreign_key "participations", "tournaments"

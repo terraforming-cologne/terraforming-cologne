@@ -8,11 +8,11 @@
 
   <% if Tournament.planned? %>
     <div class="self-center text-center">
-      <% if authenticated? && Current.user.participating? %>
+      <% if authenticated? && Current.user.participating?(Tournament.next) %>
         <%= tag.div class: "mb-2 rounded bg-emerald-100 p-3 text-emerald-900" do %>
           <span><%= t("already_registered") %></span>
 
-          <%= link_to t("edit_participation"), [:edit, Current.user.next_participation], class: "link" %>
+          <%= link_to t("edit_participation"), [:edit, Participation.find_sole_by(user: Current.user, tournament: @tournament)], class: "link" %>
           <p><%= link_to t("check_out_the_tournament_overview_page"), Tournament.next, class: "link" %></p>
         <% end %>
       <% else %>
