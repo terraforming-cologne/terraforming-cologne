@@ -3,28 +3,30 @@ Rails.application.routes.draw do
 
   shallow do
     # Tournament
-
     resources :tournaments, only: [:index, :show, :new, :create, :edit, :update] do
+      resource :ranking, only: :show
+
       resources :participations do
         resource :payment, only: :create
-        resource :attendance, only: [:new, :create]
       end
 
       resources :games, only: [] do
         resource :tally, only: [:new, :create, :edit, :update]
       end
 
-      resource :bridge, only: :show
       resources :rounds, only: [] do
-        resource :ranking, only: :show
+        resources :attendances, only: [:new, :create]
       end
+
+      # Administration
+      resource :bridge, only: :show
       resources :reseats, only: [:new, :create]
+
+      # Shortcuts
+      get :register, to: "registrations#new"
     end
 
-    get :register, to: "registrations#new"
-
     # User
-
     resource :account, only: [:show, :edit, :create, :update, :destroy]
     resource :locale, only: [:update]
     resource :login, only: [:create]

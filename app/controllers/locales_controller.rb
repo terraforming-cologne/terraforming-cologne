@@ -3,7 +3,7 @@ class LocalesController < ApplicationController
   allow_unauthorized_access
 
   def update
-    locale = params.permit(:locale)[:locale]
+    locale = params.expect(:locale)
     locale = I18n.available_locales.include?(locale.to_sym) ? locale : I18n.default_locale
     cookies[:locale] = locale
 

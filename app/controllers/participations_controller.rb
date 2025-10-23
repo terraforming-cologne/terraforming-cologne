@@ -16,7 +16,7 @@ class ParticipationsController < ApplicationController
   end
 
   def new
-    redirect_to :root, notice: t(".notice") and return if Tournament.planned? && authenticated? && Current.user.participating?
+    redirect_to :root, notice: t(".notice") and return if Tournament.planned? && authenticated? && Current.user.participating?(Tournament.next)
 
     @participation = Participation.new(tournament: @tournament, user: Current.user)
   end
