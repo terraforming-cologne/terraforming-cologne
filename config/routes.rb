@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
       # Administration
       resource :bridge, only: :show
+      resources :next_rounds, only: [:new, :create]
       resources :reseats, only: [:new, :create]
 
       # Shortcuts
