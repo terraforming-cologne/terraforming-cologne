@@ -1,13 +1,13 @@
 class Round < ApplicationRecord
   belongs_to :tournament
   has_many :games
-  has_many :attendances, through: :games
+  has_many :attendances
 
   default_scope { order(:number) }
 
   scope :ready_for_ranking, -> { joins(:attendances).group(:id).having("COUNT(attendances.id) > 0") }
 
-  def create_games
+  def create_games!
     ApplicationRecord.transaction do
       r = ranking
       groups_of_fours_and_threes(r.size).map { |group_size| r.slice!(0, group_size) }.each_with_index do |group, index|

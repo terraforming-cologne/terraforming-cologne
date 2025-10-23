@@ -14,8 +14,10 @@ class Tally
   define_model_callbacks :commit
   broadcasts_refreshes_to ->(tally) { [tally.result.tournament, :tallies] }
 
-  def self.build_for(game:)
+  def self.build_for(game)
+    # TODO: build_... ???
     result = game.build_result
+    # TODO: build_... ???
     scores = game.seats.map { |seat| seat.build_score }
     Tally.new(result: result, scores: scores)
   end

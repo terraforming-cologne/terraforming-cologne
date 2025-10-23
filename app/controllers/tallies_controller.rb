@@ -4,7 +4,7 @@ class TalliesController < ApplicationController
   def new
     redirect_to @tournament, notice: t(".no_current_game") and return if @game.blank?
     redirect_to @tournament, notice: t(".already_tallied") and return if @game.tallied?
-    @tally = Tally.build_for(game: @game)
+    @tally = Tally.build_for(@game)
   end
 
   def create
@@ -17,7 +17,7 @@ class TalliesController < ApplicationController
   end
 
   def edit
-    @tally = Tally.build_for(game: @game)
+    @tally = Tally.build_for(@game)
   end
 
   def update
