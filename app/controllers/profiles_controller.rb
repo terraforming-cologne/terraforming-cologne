@@ -4,6 +4,8 @@ class ProfilesController < ApplicationController
   before_action :set_user, only: [:show, :edit]
 
   def show
+    @next_tournament = Tournament.next
+    @next_participation = Current.user.participation_at(Tournament.next)
   end
 
   def edit

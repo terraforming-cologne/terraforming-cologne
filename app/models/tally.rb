@@ -1,7 +1,9 @@
 class Tally
+  extend ActiveModel::Callbacks
   include ActiveModel::Model
+  include Turbo::Broadcastable
 
-  attr_accessor :result, :scores
+  attr_accessor :game
 
   validate :ensure_valid_result
   validate :ensure_valid_scores
@@ -9,21 +11,30 @@ class Tally
   validate :ensure_same_game_for_all_records
   validate :ensure_one_score_for_each_attendance
 
-  def self.build_for(game:)
-    result = game.build_result
-    scores = game.seats.map { |seat| seat.build_score }
-    Tally.new(result: result, scores: scores)
-  end
+  define_model_callbacks :commit
+  broadcasts_refreshes_to ->(tally) { [tally.result.tournament, :tallies] }
 
   def save
     return false unless valid?
 
-    ApplicationRecord.transaction do
-      result.save!
-      scores.each(&:save!)
+    run_callbacks(:commit) do
+      ApplicationRecord.transaction do
+        result.save!
+        scores.each(&:save!)
+      end
     end
 
     true
+  end
+
+  def result
+    # TODO: build_... ???
+    @result ||= game.build_result
+  end
+
+  def scores
+    # TODO: build_... ???
+    @scores ||= game.seats.map { |seat| seat.build_score }
   end
 
   # NOTE: The following two methods mimic the behavoir of accepts_nested_attributes_for.
@@ -62,7 +73,7 @@ class Tally
   def ensure_same_game_for_all_records
     return if errors[:result].present? || errors[:scores].present?
 
-    if [result.game, *scores.map(&:game)].uniq.size != 1
+    if [result.game, *scores.map(&:game)].uniq != [game]
       errors.add(:base, :different_games)
     end
   end

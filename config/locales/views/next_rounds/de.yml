@@ -1,0 +1,14 @@
+de:
+  helpers:
+    label:
+      next_round:
+        attendance_ids: Bitte wähle die Spieler:innen ab, die NICHT an der nächsten Runde teilnehmen werden.
+    submit:
+      next_round:
+        submit: Nächste Runde starten
+  next_rounds:
+    new:
+      current_round: Aktuelle Runde
+      next_round: Nächste Runde
+    create:
+      notice: Nächste Runde gestartet.

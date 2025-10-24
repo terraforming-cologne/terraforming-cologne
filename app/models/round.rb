@@ -1,13 +1,17 @@
 class Round < ApplicationRecord
   belongs_to :tournament
   has_many :games
-  has_many :attendances, through: :games
+  has_many :attendances
+
+  validates :number, numericality: {greater_than: 0}
+  validates :board, presence: true
+  validates :start_time, presence: true
 
   default_scope { order(:number) }
 
   scope :ready_for_ranking, -> { joins(:attendances).group(:id).having("COUNT(attendances.id) > 0") }
 
-  def create_games
+  def create_games!
     ApplicationRecord.transaction do
       r = ranking
       groups_of_fours_and_threes(r.size).map { |group_size| r.slice!(0, group_size) }.each_with_index do |group, index|
@@ -30,7 +34,7 @@ class Round < ApplicationRecord
 
   def average_ranking_points
     @average_ranking_points ||= begin
-      return 1 if number == 1
+      return 1 if first_round?
       (attendances.sum { it.ranking_points_up_to(self) } / attendances.size.to_f).round
     end
   end

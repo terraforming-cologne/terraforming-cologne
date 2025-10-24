@@ -1,35 +1,46 @@
 Rails.application.routes.draw do
   mount MissionControl::Jobs::Engine, at: "/jobs"
 
+  resolve("Tally") { [:game, :tally] }
+  resolve("FirstRound") { [:tournament, :first_round] }
+  resolve("NextRound") { [:tournament, :next_round] }
+
   shallow do
     # Tournament
-
-    resources :tournaments, only: :show do
-      resources :participations do
-        resource :attendance, only: [:new, :create]
-      end
-      resources :reseats, only: [:new, :create]
+    resources :tournaments, only: [:index, :show, :new, :create, :edit, :update] do
       resource :ranking, only: :show
-      resources :tallies, only: [:new, :create]
-    end
-    resources :payments, only: :create
 
-    get :register, to: "registrations#new"
+      resources :participations do
+        resource :payment, only: :create
+      end
+
+      resources :games, only: [] do
+        resource :tally, only: [:new, :create, :edit, :update]
+      end
+
+      resources :rounds, only: [] do
+        resources :attendances, only: [:new, :create]
+      end
+
+      # Administration
+      resource :bridge, only: :show
+
+      resource :first_round, only: [:new, :create]
+      resource :next_round, only: [:new, :create]
+
+      resources :reseats, only: [:new, :create]
+
+      # Shortcuts
+      get :register, to: "registrations#new"
+    end
 
     # User
-
     resource :account, only: [:show, :edit, :create, :update, :destroy]
     resource :locale, only: [:update]
     resource :login, only: [:create]
     resource :password, only: [:edit, :update]
     resources :password_resets, only: [:new, :edit, :create, :update], param: :token
     resource :profile, only: [:show]
-
-    # Admin
-
-    namespace :admin do
-      resources :tournaments, only: [:index, :new, :create, :edit, :update]
-    end
   end
 
   get :signup, to: "accounts#new"

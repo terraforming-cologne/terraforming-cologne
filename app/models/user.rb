@@ -15,12 +15,12 @@ class User < ApplicationRecord
 
   enum :locale, %w[en de].index_by(&:itself), validate: true
 
-  def participating?(tournament = Tournament.next)
+  def participating?(tournament)
     participations.exists?(tournament: tournament)
   end
 
-  def next_participation
-    participations.find_by(tournament: Tournament.next)
+  def participation_at(tournament)
+    participations.find_by(tournament: tournament)
   end
 
   def deactivate!
