@@ -10,7 +10,7 @@ class Game < ApplicationRecord
   has_many :scores, through: :seats
 
   def tallied?
-    result.present? && scores.size == seats.size
+    Tally.new(game: self).persisted?
   end
 
   def three_players?

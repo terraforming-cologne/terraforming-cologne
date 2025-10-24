@@ -1,12 +1,7 @@
 <%# locals: (game:) %>
 
-<div>
-  <p>
-    You're entering the results for your game in <b><%= Round.model_name.human %></b> <b><%= game.round.number %></b>.
-  </p>
-
-  <p>
-    You played in <b><%= Room.model_name.human %></b> <b><%= game.room.number %></b> at
-    <b><%= Table.model_name.human %></b> <b><%= game.table.number %></b>.
-  </p>
-</div>
+<p>
+  You are entering the results of the game in <b><%= Round.model_name.human %></b> <b><%= game.round.number %></b> in
+  <b><%= Room.model_name.human %></b> <b><%= game.room.number %></b> at <b><%= Table.model_name.human %></b>
+  <b><%= game.table.number %></b>.
+</p>

@@ -2,3 +2,4 @@ en:
   bridges:
     show:
       start_first_round: Start first round
+      no_game: No game

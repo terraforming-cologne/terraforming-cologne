@@ -29,12 +29,12 @@ class Tally
 
   def result
     # TODO: build_... ???
-    @result ||= game.build_result
+    @result ||= game.result.presence || game.build_result
   end
 
   def scores
     # TODO: build_... ???
-    @scores ||= game.seats.map { |seat| seat.build_score }
+    @scores ||= game.seats.map { |seat| seat.score.presence || seat.build_score }.sort_by { |score| score.seat.number }
   end
 
   # NOTE: The following two methods mimic the behavoir of accepts_nested_attributes_for.
@@ -45,6 +45,10 @@ class Tally
 
   def scores_attributes=(scores_attributes)
     @scores ||= scores_attributes.values.map { |score_attributes| Score.new(score_attributes) }
+  end
+
+  def persisted?
+    result.persisted? && scores.all?(&:persisted?)
   end
 
   private

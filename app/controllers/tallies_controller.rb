@@ -1,15 +1,15 @@
 class TalliesController < ApplicationController
-  allow_unauthorized_access
-
   before_action :set_game
 
   def new
-    redirect_to @game.tournament, notice: t(".already_tallied") and return if @game.tallied?
     @tally = Tally.new(game: @game)
+    authorize @tally
+    redirect_to @game.tournament, notice: t(".already_tallied") and return if @game.tallied?
   end
 
   def create
     @tally = Tally.new(tally_params.merge(game: @game))
+    authorize @tally
     if @tally.save
       redirect_to @game.tournament, notice: t(".notice")
     else
@@ -19,10 +19,12 @@ class TalliesController < ApplicationController
 
   def edit
     @tally = Tally.new(game: @game)
+    authorize @tally
   end
 
   def update
     @tally = Tally.new(tally_params.merge(game: @game))
+    authorize @tally
     if @tally.save
       redirect_back_or_to [:admin, @game.tournament, :bridge], notice: t(".notice")
     else

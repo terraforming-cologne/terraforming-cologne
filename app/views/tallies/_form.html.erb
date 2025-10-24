@@ -7,7 +7,10 @@
     <%= form.fields_for :result do |result_form| %>
       <%= render "shared/errors", form: result_form %>
       <%= result_form.hidden_field :game_id %>
-      <%= result_form.number_field :generations, placeholder: Result.human_attribute_name(:generations) %>
+      <div class="flex flex-col gap-1">
+        <%= result_form.label :generations %>
+        <%= result_form.number_field :generations, placeholder: Result.human_attribute_name(:generations) %>
+      </div>
     <% end %>
   </div>
 

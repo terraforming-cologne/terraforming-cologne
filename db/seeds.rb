@@ -13,27 +13,27 @@ User.create!(
   locale: :en
 )
 
-tournament = Tournament.create!(
-  name: "German Open",
-  date: Date.new(2025, 4, 5),
-  max_participations: 100
-)
-
-tournament.rounds.create!(
-  number: 1,
-  board: "Tharsis",
-  start_time: Time.zone.local(2025, 4, 5, 9)
-)
-tournament.rounds.create!(
-  number: 2,
-  board: "Hellas",
-  start_time: Time.zone.local(2025, 4, 5, 12, 45)
-)
-tournament.rounds.create!(
-  number: 3,
-  board: "Elysium",
-  start_time: Time.zone.local(2025, 4, 5, 15, 45)
-)
+# tournament = Tournament.create!(
+#   name: "German Open",
+#   date: Date.new(2025, 4, 5),
+#   max_participations: 100
+# )
+#
+# tournament.rounds.create!(
+#   number: 1,
+#   board: "Tharsis",
+#   start_time: Time.zone.local(2025, 4, 5, 9)
+# )
+# tournament.rounds.create!(
+#   number: 2,
+#   board: "Hellas",
+#   start_time: Time.zone.local(2025, 4, 5, 12, 45)
+# )
+# tournament.rounds.create!(
+#   number: 3,
+#   board: "Elysium",
+#   start_time: Time.zone.local(2025, 4, 5, 15, 45)
+# )
 
 #
 # password_digest = User.new(password: "asdfasdf", password_confirmation: "asdfasdf").password_digest
