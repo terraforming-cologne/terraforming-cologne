@@ -52,4 +52,8 @@ class TournamentsController < ApplicationController
   def set_tournament
     @tournament = Tournament.find(params.expect(:id))
   end
+
+  def tournament_params
+    params.expect(tournament: [:name, :date, :max_participations])
+  end
 end

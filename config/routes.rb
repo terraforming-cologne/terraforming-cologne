@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   mount MissionControl::Jobs::Engine, at: "/jobs"
 
+  resolve("Tally") { [:game, :tally] }
+  resolve("FirstRound") { [:tournament, :first_round] }
+  resolve("NextRound") { [:tournament, :next_round] }
+
   shallow do
     # Tournament
     resources :tournaments, only: [:index, :show, :new, :create, :edit, :update] do
@@ -20,7 +24,10 @@ Rails.application.routes.draw do
 
       # Administration
       resource :bridge, only: :show
-      resources :next_rounds, only: [:new, :create]
+
+      resource :first_round, only: [:new, :create]
+      resource :next_round, only: [:new, :create]
+
       resources :reseats, only: [:new, :create]
 
       # Shortcuts

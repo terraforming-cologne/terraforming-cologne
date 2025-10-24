@@ -23,7 +23,7 @@ de:
   max_participations_html: Maximale Teilnehmer:innenanzahl erreicht. Die Registrierung ist geschlossen. Du kannst dich auf die Warteliste setzen lassen, indem du eine E-Mail an %{email} schreibst.
   name: Name
   'no': Nein
-  no_rounds_finished_yet: Es wurde noch keine Runde beendet. Komme später wieder.
+  no_games_finished_yet: Es wurden noch keine Spiele beendet.
   opponent_points: Punkte Gegner:innen
   points: Punkte
   points_per_generation: Punkte/Gen

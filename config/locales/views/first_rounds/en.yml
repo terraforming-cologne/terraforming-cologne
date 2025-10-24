@@ -1,0 +1,10 @@
+en:
+  helpers:
+    submit:
+      first_round:
+        create: Start first round
+  first_rounds:
+    new:
+      first_round: First round
+    create:
+      notice: First round started.

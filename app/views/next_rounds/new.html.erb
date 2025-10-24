@@ -3,10 +3,7 @@
 <div class="flex flex-col gap-8">
   <div>
     <% if @next_round.current_round.present? %>
-      <p>
-        <%= t(".current_round") %>:
-        <span class="font-bold"><%= @next_round.current_round.number %> (<%= @next_round.current_round.board %>)</span>
-      </p>
+      <p><%= t(".current_round") %>: <span class="font-bold"><%= @next_round.current_round.board %></span></p>
     <% end %>
 
     <p>
@@ -15,7 +12,7 @@
     </p>
   </div>
 
-  <%= form_with model: [@tournament, @next_round] do |form| %>
+  <%= form_with model: @next_round do |form| %>
     <div class="flex flex-col gap-2">
       <%= form.label :participation_ids %>
       <%= form.collection_check_boxes :participation_ids, @next_round.egligible_participations, :id, ->(participation) { participation.user.name } do |b| %>

@@ -22,7 +22,7 @@ en:
   max_participations_html: Maximum number of participants reached. Registration is closed. You can sign up for the waiting list via Email at %{email}
   name: Name
   'no': 'No'
-  no_rounds_finished_yet: No rounds were finished yet.
+  no_games_finished_yet: No games were finished yet.
   opponent_points: Opponent Points
   points: Points
   points_per_generation: Points/Gen

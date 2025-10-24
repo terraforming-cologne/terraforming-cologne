@@ -3,7 +3,7 @@
 
   <%= turbo_frame_tag @tournament, :ranking do %>
     <% if @shown_round.blank? %>
-      <span><%= t(:no_rounds_finished_yet) %></span>
+      <span><%= t(:no_games_finished_yet) %></span>
     <% else %>
       <div class="flex gap-2 overflow-x-auto">
         <% @rounds.each do |round| %>
