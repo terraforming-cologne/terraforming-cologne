@@ -14,11 +14,10 @@
 
   <% if @participation.comment.present? %>
     <div>
-      <%= tag.span Participation.human_attribute_name(:comment), class: "font-bold" %>
-      :
+      <%= tag.span Participation.human_attribute_name(:comment), class: "font-bold" %>:
       <p><%= @participation.comment %></p>
     </div>
   <% end %>
 
-  <%= link_to t(".edit_participation"), [:edit, @participation], class: "link" %>
+  <div><%= link_to t(".edit_participation"), [:edit, @participation], class: "link" %></div>
 </div>

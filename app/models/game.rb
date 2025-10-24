@@ -8,6 +8,10 @@ class Game < ApplicationRecord
   has_many :attendances, through: :seats
   has_many :scores, through: :seats
 
+  def tallied?
+    result.present? && scores.size == seats.size
+  end
+
   def three_players?
     seats.size == 3
   end

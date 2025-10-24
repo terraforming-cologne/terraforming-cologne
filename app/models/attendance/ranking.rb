@@ -42,7 +42,7 @@ module Attendance::Ranking
   end
 
   def average_points_per_generation_up_to(round)
-    (scores_until(round).sum(&:points) / scores_until(round).map(&:result).sum(&:generations).to_f).round(2)
+    (scores_until(round).sum(&:points) / scores_until(round).map(&:result).sum(&:generations).to_f).round(2).tap { |v| return 0 if v.nan? }
   end
 
   def rank_in(round)
@@ -68,7 +68,7 @@ module Attendance::Ranking
 
   def virtual_attendance_for(round)
     @virtual_attendance_for ||= {}
-    @virtual_attendance_for[round.id] ||= VirtualAttendance.new(round.average_ranking_points)
+    @virtual_attendance_for[round.id] ||= VirtualAttendance.new(result.present? ? round.average_ranking_points : 0)
   end
 
   class VirtualAttendance

@@ -3,9 +3,15 @@
 
   <div><%= link_to t(".participations"), [tournament, :participations], class: "link" %></div>
 
+  <div><%= link_to t(".ranking"), [tournament, :ranking], class: "link" %></div>
+
+  <div><%= link_to t(".overview"), tournament, class: "link" %></div>
+
+  <div><%= link_to t(".bridge"), [tournament, :bridge], class: "link" %></div>
+
   <div><%= l(tournament.date) %></div>
 
   <div><b><%= tournament.participations.count %></b> / <%= tournament.max_participations %></div>
 
-  <%= link_to t("edit"), [:edit, :admin, tournament], class: "link" %>
+  <%= link_to t("edit"), [:edit, tournament], class: "link" %>
 </div>

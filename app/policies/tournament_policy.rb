@@ -4,7 +4,7 @@ class TournamentPolicy < ApplicationPolicy
   end
 
   def show?
-    participating? || user.admin?
+    user.admin? || participating?
   end
 
   def create?
@@ -18,6 +18,6 @@ class TournamentPolicy < ApplicationPolicy
   private
 
   def participating?
-    record.participations.includes(:user).map(&:user).include?(user)
+    record.participations.joins(:user).where(participations: {user: user}).exists?
   end
 end
