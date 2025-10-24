@@ -2,6 +2,7 @@ class Round < ApplicationRecord
   belongs_to :tournament
   has_many :games
   has_many :attendances
+  has_many :participations, through: :attendances
 
   validates :number, numericality: {greater_than: 0}
   validates :board, presence: true
@@ -28,14 +29,14 @@ class Round < ApplicationRecord
     if first_round?
       attendances.shuffle
     else
-      attendances.sort_by { it.ranking_criteria(previous_round) }.reverse
+      attendances.sort_by { it.participation.ranking_criteria(previous_round) }.reverse
     end
   end
 
   def average_ranking_points
     @average_ranking_points ||= begin
       return 1 if first_round?
-      (attendances.sum { it.ranking_points_up_to(self) } / attendances.size.to_f).round
+      (attendances.sum { it.participation.ranking_points_up_to(self) } / attendances.size.to_f).round
     end
   end
 

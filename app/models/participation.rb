@@ -1,7 +1,8 @@
 class Participation < ApplicationRecord
+  include Ranking
+
   belongs_to :user
   belongs_to :tournament
-  has_one :attendance
 
   after_create_commit :deliver_confirmation_email_later
   after_update_commit :deliver_paid_email_later, if: :updated_to_paid?

@@ -5,45 +5,49 @@
     <% if @shown_round.blank? %>
       <span><%= t(:no_games_finished_yet) %></span>
     <% else %>
-      <div class="flex gap-2 overflow-x-auto">
-        <% @rounds.each do |round| %>
-          <% active = (params[:round].to_i == round.number) || (params[:round].blank? && @rounds.maximum(:number) == round.number) %>
-          <%= link_to [@tournament, :ranking, {round: round.number}],
+      <div class="flex flex-col gap-4">
+        <div class="flex gap-2 overflow-x-auto">
+          <% @rounds.each do |round| %>
+            <% active = (params[:round].to_i == round.number) || (params[:round].blank? && @rounds.maximum(:number) == round.number) %>
+            <%= link_to [@tournament, :ranking, {round: round.number}],
                       class: "rounded-full px-4 py-2 text-sm font-bold whitespace-nowrap transition-colors duration-200 #{active ? "bg-teal-500 text-white" : "bg-gray-200 text-gray-700 hover:bg-gray-300"}" do %>
-            <%= round.board %>
+              <%= round.board %>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-      <div class="-mx-(--page-padding) flex overflow-x-auto">
-        <div class="grow px-(--page-padding)">
-          <table class="w-full border-collapse px-(--page-padding) whitespace-nowrap">
-            <thead>
-              <tr>
-                <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= t(:rank) %></th>
-                <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= t(:name) %></th>
-                <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= t(:points) %></th>
-                <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= t(:opponent_points) %></th>
-                <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= t(:points_per_generation) %></th>
-                <% @rounds_up_to_shown.find_each do |round| %>
-                  <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= round.board %></th>
-                <% end %>
-              </tr>
-            </thead>
-            <tbody>
-              <% @ranked_attendances.each_with_index do |attendance, index| %>
+        </div>
+        <div class="-mx-(--page-padding) flex overflow-x-auto">
+          <div class="grow px-(--page-padding)">
+            <table class="w-full border-collapse px-(--page-padding) whitespace-nowrap">
+              <thead>
                 <tr>
-                  <td class="border-b border-gray-100 p-2"><%= index + 1 %></td>
-                  <td class="border-b border-gray-100 p-2"><%= attendance.user.name %></td>
-                  <% @ranking_criteria[@shown_round][attendance].each do |criterion| %>
-                    <td class="border-b border-gray-100 p-2"><%= criterion %></td>
-                  <% end %>
-                  <% @rounds_up_to_shown.each do |round| %>
-                    <td class="border-b border-gray-100 p-2"><%= attendance.rank_in(round)&.ordinalize || "-" %></td>
+                  <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= t(:rank) %></th>
+                  <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= t(:name) %></th>
+                  <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= t(:points) %></th>
+                  <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= t(:opponent_points) %></th>
+                  <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= t(:points_per_generation) %></th>
+                  <% @rounds_up_to_shown.find_each do |round| %>
+                    <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= round.board %></th>
                   <% end %>
                 </tr>
-              <% end %>
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                <% @ranked_participations.each_with_index do |participation, index| %>
+                  <tr>
+                    <td class="border-b border-gray-100 p-2"><%= index + 1 %></td>
+                    <td class="border-b border-gray-100 p-2"><%= participation.user.name %></td>
+                    <% @ranking_criteria[@shown_round][participation].each do |criterion| %>
+                      <td class="border-b border-gray-100 p-2"><%= criterion %></td>
+                    <% end %>
+                    <% @rounds_up_to_shown.each do |round| %>
+                      <td class="border-b border-gray-100 p-2">
+                        <%= participation.rank_in(round)&.ordinalize || "-" %>
+                      </td>
+                    <% end %>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     <% end %>

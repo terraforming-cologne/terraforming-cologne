@@ -1,6 +1,4 @@
 class Attendance < ApplicationRecord
-  include Ranking
-
   belongs_to :participation
   belongs_to :round
   has_one :seat

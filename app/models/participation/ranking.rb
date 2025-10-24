@@ -1,8 +1,9 @@
-module Attendance::Ranking
+module Participation::Ranking
   extend ActiveSupport::Concern
 
   included do
-    has_many :seats
+    has_many :attendances
+    has_many :seats, through: :attendances
     has_many :games, through: :seats
     has_many :scores, through: :seats
     has_many :rounds, through: :games
@@ -12,7 +13,7 @@ module Attendance::Ranking
         :rounds,
         {scores: [:round, :result]}, # ranking_points_up_to and average_points_per_generation_up_to
         {games: [:round, {
-          attendances: [:rounds, {scores: :round}] # opponent_ranking_points_up_to
+          participations: [:rounds, {scores: :round}] # opponent_ranking_points_up_to
         }]}
       )
     }
@@ -31,8 +32,8 @@ module Attendance::Ranking
   end
 
   def opponent_ranking_points_up_to(round)
-    opponents(round).sum do |attendance|
-      real_ranking_points = attendance.ranking_points_up_to(round)
+    opponents(round).sum do |participation|
+      real_ranking_points = participation.ranking_points_up_to(round)
       if rounds.include?(round)
         real_ranking_points
       else
@@ -58,7 +59,7 @@ module Attendance::Ranking
 
   def opponents(round)
     expected_number_of_opponents = round.number * 3
-    real_opponents = games.filter { it.round.number <= round.number }.flat_map(&:attendances).excluding(self)
+    real_opponents = games.filter { it.round.number <= round.number }.flat_map(&:participations).excluding(self)
 
     remaining_number_of_opponents = expected_number_of_opponents - real_opponents.size
     virtual_opponents = [virtual_attendance_for(round)] * remaining_number_of_opponents
@@ -68,7 +69,7 @@ module Attendance::Ranking
 
   def virtual_attendance_for(round)
     @virtual_attendance_for ||= {}
-    @virtual_attendance_for[round.id] ||= VirtualAttendance.new(result.present? ? round.average_ranking_points : 0)
+    @virtual_attendance_for[round.id] ||= VirtualAttendance.new(round.average_ranking_points)
   end
 
   class VirtualAttendance
