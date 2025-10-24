@@ -1,6 +1,5 @@
 class RegistrationsController < ApplicationController
   allow_unauthenticated_access
-  allow_unauthorized_access
 
   def new
     redirect_to :root, notice: t(".no_tournaments_planned") and return unless Tournament.planned?

@@ -1,6 +1,5 @@
 class PasswordResetsController < ApplicationController
   allow_unauthenticated_access
-  allow_unauthorized_access
 
   spam_protect only: :create
 

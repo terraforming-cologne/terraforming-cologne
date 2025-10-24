@@ -1,6 +1,6 @@
 class LoginsController < ApplicationController
   allow_unauthenticated_access only: [:new, :create]
-  allow_unauthorized_access only: [:new, :create, :destroy]
+  allow_unauthorized_access only: [:destroy]
   rate_limit to: 10, within: 3.minutes, only: :create, with: -> { redirect_to :login }
 
   def new

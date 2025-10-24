@@ -1,13 +1,12 @@
 class ParticipationsController < ApplicationController
   include TournamentScoped
 
-  allow_unauthorized_access
-
   spam_protect only: :create
 
   before_action :set_participation, only: [:show, :edit, :update, :destroy]
 
   def index
+    authorize Participation
     @participations = @tournament.participations.includes(:user)
   end
 
@@ -18,10 +17,12 @@ class ParticipationsController < ApplicationController
   def new
     redirect_to :root, notice: t(".notice") and return if Tournament.planned? && authenticated? && Current.user.participating?(Tournament.next)
 
+    authorize @participation
     @participation = Participation.new(tournament: @tournament, user: Current.user)
   end
 
   def create
+    authorize @participation
     @participation = Participation.new(participation_params)
     if @participation.save
       redirect_to :profile, notice: t(".notice")
