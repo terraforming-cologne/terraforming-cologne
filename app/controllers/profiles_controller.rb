@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+  # NOTE: Authorization is implicit because @user = Current.user
   allow_unauthorized_access
 
   before_action :set_user, only: [:show, :edit]

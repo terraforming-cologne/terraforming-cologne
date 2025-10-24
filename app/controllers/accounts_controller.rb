@@ -1,5 +1,7 @@
 class AccountsController < ApplicationController
   allow_unauthenticated_access only: [:new, :create]
+
+  # NOTE: Authorization is implicit because @user = Current.user
   allow_unauthorized_access
 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
