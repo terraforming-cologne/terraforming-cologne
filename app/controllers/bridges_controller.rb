@@ -3,7 +3,7 @@ class BridgesController < ApplicationController
     authorize :bridge
     @tournament = Tournament.find(params.expect(:tournament_id))
     @round = @tournament.rounds.find_by(number: @tournament.current_round_number)
-    @rooms = @tournament.rooms.order(:number)
+    @rooms = @tournament.rooms.includes(:tables).order(:number, "tables.number")
     @games = @rooms.index_with do |room|
       @tournament.games.joins(:round, :room).where(games: {round: @round, tables: {room: room}}).order("tables.number")
     end

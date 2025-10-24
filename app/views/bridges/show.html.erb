@@ -9,6 +9,9 @@
 
   <% if @tournament.current_round.blank? %>
     <div><%= link_to t(".start_first_round"), [:new, @tournament, :first_round], class: "btn btn-primary" %></div>
+    <% @tournament.next_round.attendances.each do |attendance| %>
+      <%= attendance.user.name %>
+    <% end %>
   <% elsif @tournament.next_round.present? %>
     <div><%= link_to t(".start_next_round"), [:new, @tournament, :next_round], class: "btn btn-primary" %></div>
   <% end %>
@@ -17,8 +20,14 @@
     <div>
       <h3><%= Room.model_name.human %> <%= room.number %></h3>
       <div class="grid grid-cols-[repeat(auto-fill,minmax(--spacing(24),1fr))] gap-2">
-        <% @games[room].each do |game| %>
-          <% if game.tallied? %>
+        <% room.tables.each do |table| %>
+          <% game = table.games.find_by(round: @round) %>
+          <% if game.blank? %>
+            <div class="flex flex-col items-center gap-1 rounded border bg-gray-100 p-1">
+              <span><%= table.number %></span>
+              <%= t(".no_game") %>
+            </div>
+          <% elsif game.tallied? %>
             <div class="flex flex-col items-center gap-1 rounded border border-teal-400 bg-teal-100 p-1">
               <span><%= game.table.number %></span>
               <%= link_to t("edit"), [:edit, game, :tally], class: "btn btn-secondary btn-sm" %>

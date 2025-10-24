@@ -4,10 +4,13 @@ en:
     submit:
       tally:
         create: Submit game results
+        update: Update game results
   tallies:
     already_tallied: This game's results were already recorded.
     create:
       notice: Your game results were recorded.
     new:
-      heading: Enter the results for your game
+      enter_results: Enter game results
+    edit:
+      enter_results: Edit game results
     no_current_game: There is currently no game for which you could record results.
