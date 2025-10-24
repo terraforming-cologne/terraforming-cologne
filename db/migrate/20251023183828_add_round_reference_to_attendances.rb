@@ -19,6 +19,6 @@ class AddRoundReferenceToAttendances < ActiveRecord::Migration[8.0]
         SQL
       end
     end
-    change_column_null :attendances, :round, true
+    change_column_null :attendances, :round, false
   end
 end
