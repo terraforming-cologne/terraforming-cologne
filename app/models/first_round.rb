@@ -17,10 +17,14 @@ class FirstRound
     true
   end
 
+  def round
+    tournament.next_round
+  end
+
   private
 
   def ensure_before_first_round
-    if tournament.current_round_number.present?
+    if tournament.current_round.present?
       errors.add(:base, :not_before_first_round)
     end
   end

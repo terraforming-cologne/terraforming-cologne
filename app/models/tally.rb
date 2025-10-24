@@ -3,7 +3,7 @@ class Tally
   include ActiveModel::Model
   include Turbo::Broadcastable
 
-  attr_accessor :result, :scores
+  attr_accessor :game
 
   validate :ensure_valid_result
   validate :ensure_valid_scores
@@ -13,14 +13,6 @@ class Tally
 
   define_model_callbacks :commit
   broadcasts_refreshes_to ->(tally) { [tally.result.tournament, :tallies] }
-
-  def self.build_for(game)
-    # TODO: build_... ???
-    result = game.build_result
-    # TODO: build_... ???
-    scores = game.seats.map { |seat| seat.build_score }
-    Tally.new(result: result, scores: scores)
-  end
 
   def save
     return false unless valid?
@@ -33,6 +25,16 @@ class Tally
     end
 
     true
+  end
+
+  def result
+    # TODO: build_... ???
+    @result ||= game.build_result
+  end
+
+  def scores
+    # TODO: build_... ???
+    @scores ||= game.seats.map { |seat| seat.build_score }
   end
 
   # NOTE: The following two methods mimic the behavoir of accepts_nested_attributes_for.
@@ -71,7 +73,7 @@ class Tally
   def ensure_same_game_for_all_records
     return if errors[:result].present? || errors[:scores].present?
 
-    if [result.game, *scores.map(&:game)].uniq.size != 1
+    if [result.game, *scores.map(&:game)].uniq != [game]
       errors.add(:base, :different_games)
     end
   end

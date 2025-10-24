@@ -1,1 +1,14 @@
 <%= render "tournaments/heading", tournament: @tournament, sub_heading: t(".first_round") %>
+
+<div class="flex flex-col gap-8">
+  <div>
+    <p><%= t(".first_round") %>: <span class="font-bold"><%= @first_round.round.board %></span></p>
+  </div>
+
+  <%= form_with model: @first_round do |form| %>
+    <div class="flex flex-col gap-2">
+      <%= render "shared/errors", form: form %>
+      <%= form.submit class: "btn self-start btn-primary" %>
+    </div>
+  <% end %>
+</div>
