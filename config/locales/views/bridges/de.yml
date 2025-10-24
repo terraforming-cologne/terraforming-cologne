@@ -1,4 +1,5 @@
 de:
   bridges:
     show:
+      bridge: Brücke
       start_first_round: Erste Runde starten
