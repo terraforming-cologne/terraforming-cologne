@@ -1,23 +1,18 @@
 class AttendancesController < ApplicationController
-  before_action :set_participation
-
-  def new
-    # TODO: build_... ???
-    @attendance = @participation.attendance || @participation.build_attendance
-    authorize @attendance
-    redirect_to @attendance.tournament, notice: t(".already_attending") if @participation.attendance.persisted?
-  end
+  before_action :set_tournament
 
   def create
-    # TODO: build_... ???
-    @attendance = @participation.build_attendance
+    @participation = @tournament.participations.find_by(user: Current.user)
+    @round = @tournament.rounds.find_by(number: 1)
+    @attendance = Attendance.new(participation: @participation, round: @round)
     authorize @attendance
     @attendance.save!
+    redirect_to @tournament, notice: t(".notice")
   end
 
   private
 
-  def set_participation
-    @participation = Participation.find(params.expect(:participation_id))
+  def set_tournament
+    @tournament = Tournament.find(params.expect(:tournament_id))
   end
 end

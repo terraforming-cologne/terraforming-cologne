@@ -6,4 +6,6 @@ class Attendance < ApplicationRecord
   has_one :result, through: :game
   has_one :user, through: :participation
   has_one :tournament, through: :participation
+
+  broadcasts_refreshes_to ->(attendance) { [attendance.tournament, :bridge] }
 end

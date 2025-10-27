@@ -12,7 +12,8 @@ class Tally
   validate :ensure_one_score_for_each_attendance
 
   define_model_callbacks :commit
-  broadcasts_refreshes_to ->(tally) { [tally.result.tournament, :tallies] }
+  broadcasts_refreshes_to ->(tally) { [tally.result.tournament, :bridge] }
+  broadcasts_refreshes_to ->(tally) { [tally.result.tournament, :ranking] }
 
   def save
     return false unless valid?

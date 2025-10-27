@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   shallow do
     # Tournament
     resources :tournaments, only: [:index, :show, :new, :create, :edit, :update] do
+      resource :landing, only: [:show]
+      resources :attendances, only: [:create]
+
       resource :ranking, only: :show
 
       resources :participations do
@@ -16,10 +19,6 @@ Rails.application.routes.draw do
 
       resources :games, only: [] do
         resource :tally, only: [:new, :create, :edit, :update]
-      end
-
-      resources :rounds, only: [] do
-        resources :attendances, only: [:new, :create]
       end
 
       # Administration

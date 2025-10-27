@@ -5,6 +5,8 @@ class ParticipationsController < ApplicationController
 
   before_action :set_participation, only: [:show, :edit, :update, :destroy]
 
+  allow_unauthorized_access only: [:new, :create]
+
   def index
     authorize Participation
     @participations = @tournament.participations.includes(:user)
@@ -18,12 +20,10 @@ class ParticipationsController < ApplicationController
     redirect_to :root, notice: t(".notice") and return if Tournament.planned? && authenticated? && Current.user.participating?(Tournament.next)
 
     @participation = Current.user.participations.new(tournament: @tournament, user: Current.user)
-    authorize @participation
   end
 
   def create
     @participation = Current.user.participations.new(participation_params)
-    authorize @participation
     if @participation.save
       redirect_to :profile, notice: t(".notice")
     else
