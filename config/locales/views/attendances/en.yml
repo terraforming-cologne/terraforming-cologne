@@ -2,4 +2,6 @@
 en:
   attendances:
     new:
-      already_attending: You're attendance has already been recorded.
+      already_attending: Your attendance has already been recorded.
+    create:
+      notice: Your attendance was recorded.
