@@ -6,17 +6,14 @@
       <div class="flex gap-4">
         <div>
           <span><%= Round.model_name.human %></span>
-          <span class="font-bold"><%= attendance.game.round.number %></span>
+          <span class="font-bold"><%= attendance.round.number %></span>
         </div>
 
-        <div>
-          <span><%= Room.model_name.human %></span>
-          <span class="font-bold"><%= attendance.seat.room.number %></span>
-        </div>
+        <div><span><%= Room.model_name.human %></span><span class="font-bold"><%= attendance.room.number %></span></div>
 
         <div>
           <span><%= Table.model_name.human %></span>
-          <span class="font-bold"><%= attendance.seat.table.number %></span>
+          <span class="font-bold"><%= attendance.table.number %></span>
         </div>
 
         <div><span><%= Seat.model_name.human %></span><span class="font-bold"><%= attendance.seat.number %></span></div>

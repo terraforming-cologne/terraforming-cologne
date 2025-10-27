@@ -1,0 +1,19 @@
+<%= content_for :wide_body do %>
+  <div class="w-[1920px]">
+    <%= render "tournaments/heading", tournament: @tournament, sub_heading: t(".table_assignments") %>
+
+    <div class="grid grid-cols-[repeat(auto-fill,minmax(--spacing(48),1fr))] gap-x-8 gap-y-2">
+      <% @tournament.current_round.attendances.includes(:user).order("users.name").each do |attendance| %>
+        <div class="grid grid-cols-[1fr_auto_auto_auto]">
+          <div class="border-b border-gray-300"><%= attendance.user.name %></div>
+
+          <div class="border-b border-gray-300 px-2"><%= attendance.room.number %></div>
+
+          <div class="border-b border-gray-300 px-2"><%= attendance.table.number %></div>
+
+          <div class="border-b border-gray-300 px-2"><%= attendance.seat.number %></div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
