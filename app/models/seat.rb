@@ -11,4 +11,8 @@ class Seat < ApplicationRecord
   delegate :name, to: :user
 
   validates :number, presence: true
+
+  def opponents
+    game.seats.excluding(self)
+  end
 end

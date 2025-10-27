@@ -35,7 +35,13 @@ class TalliesController < ApplicationController
   private
 
   def set_game
-    @game = Game.find(params.expect(:game_id))
+    if params.include?(:game_id)
+      @game = Game.find(params.expect(:game_id))
+    elsif params.include?(:tournament_id)
+      @tournament = Tournament.find(params.expect(:tournament_id))
+      @round = @tournament.current_round
+      @game = @tournament.games.joins(:users).find_by(round: @round, users: Current.user)
+    end
   end
 
   def tally_params

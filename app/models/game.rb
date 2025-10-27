@@ -7,6 +7,7 @@ class Game < ApplicationRecord
   has_many :seats
   has_many :attendances, through: :seats
   has_many :participations, through: :attendances
+  has_many :users, through: :participations
   has_many :scores, through: :seats
 
   def tallied?

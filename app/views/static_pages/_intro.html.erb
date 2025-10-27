@@ -8,7 +8,7 @@
 
   <% if Tournament.planned? %>
     <div class="self-center text-center">
-      <% if authenticated? && Current.user.participating?(Tournament.next) %>
+      <% if authenticated? && Current.user.participations.exists?(tournament: Tournament.next) %>
         <%= tag.div class: "mb-2 rounded bg-emerald-100 p-3 text-emerald-900" do %>
           <span><%= t("already_registered") %></span>
 

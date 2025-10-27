@@ -3,5 +3,6 @@ de:
     show:
       bridge: Brücke
       start_first_round: Erste Runde starten
+      start_next_round: Nächste Runde starten
       no_game: Kein Spiel
       attendances: Anwesende Spieler:innen

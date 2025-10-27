@@ -1,4 +1,3 @@
----
 de:
   tournaments:
     create:
@@ -6,7 +5,10 @@ de:
     edit:
       edit_tournament: Turnier bearbeiten
     show:
+      no_game_planned: Aktuell kein Spiel geplant.
+      your_next_game: Dein nächstes Spiel
       overview: Übersicht
+      ranking: Platzierungen
     tournament:
       ranking: Platzierungen
       overview: Übersicht

@@ -15,14 +15,6 @@ class User < ApplicationRecord
 
   enum :locale, %w[en de].index_by(&:itself), validate: true
 
-  def participating?(tournament)
-    participations.exists?(tournament: tournament)
-  end
-
-  def participation_at(tournament)
-    participations.find_by(tournament: tournament)
-  end
-
   def deactivate!
     transaction do
       update! name: "[DELETED-#{id}]", email_address: "#{id}@deleted.de", deactivated: true

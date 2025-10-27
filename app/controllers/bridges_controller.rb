@@ -5,7 +5,7 @@ class BridgesController < ApplicationController
     @round = @tournament.current_round
     @rooms = @tournament.rooms.includes(:tables).order(:number, "tables.number")
     @games = @rooms.index_with do |room|
-      @tournament.games.joins(:round, :room).where(games: {round: @round, tables: {room: room}}).order("tables.number")
+      @tournament.games.joins(:round, :room).where(round: @round, room: room).order("tables.number")
     end
     if @tournament.next_round.present?
       @attendances = @tournament.next_round.attendances.joins(:user).order("users.name")
