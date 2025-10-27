@@ -1,7 +1,6 @@
 <%= form_with model: participation,
     url: participation.persisted? ? participation : [participation.tournament, participation],
     class: "flex flex-col gap-4" do |form| %>
-  <%= form.hidden_field :user_id, value: participation.user_id %>
   <%= form.hidden_field :tournament_id, value: participation.tournament_id %>
 
   <%= render "shared/errors", form: form %>
