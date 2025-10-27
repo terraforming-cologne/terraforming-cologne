@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :tournaments, only: [:index, :show, :new, :create, :edit, :update] do
       resource :landing, only: [:show]
       resources :attendances, only: [:create]
+      resources :tables, only: [:index]
       resource :tally, only: [:new, :create]
 
       resource :ranking, only: :show
