@@ -1,4 +1,4 @@
-<%= turbo_stream_from @tournament, :tallies %>
+<%= turbo_stream_from @tournament, :bridge %>
 
 <%= render "tournaments/heading", tournament: @tournament, sub_heading: t(".bridge") %>
 
@@ -9,9 +9,12 @@
 
   <% if @tournament.current_round.blank? %>
     <div><%= link_to t(".start_first_round"), [:new, @tournament, :first_round], class: "btn btn-primary" %></div>
-    <% @tournament.next_round.attendances.each do |attendance| %>
-      <%= attendance.user.name %>
-    <% end %>
+    <h2 class="mb-0"><%= t(".attendances") %> (<%= @attendances.size %>)</h2>
+    <div class="grid grid-cols-[repeat(auto-fill,minmax(--spacing(24),1fr))]">
+      <% @attendances.each do |attendance| %>
+        <span><%= attendance.user.name %></span>
+      <% end %>
+    </div>
   <% elsif @tournament.next_round.present? %>
     <div><%= link_to t(".start_next_round"), [:new, @tournament, :next_round], class: "btn btn-primary" %></div>
   <% end %>

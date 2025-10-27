@@ -6,7 +6,6 @@ class Round < ApplicationRecord
 
   validates :number, numericality: {greater_than: 0}
   validates :board, presence: true
-  validates :start_time, presence: true
 
   default_scope { order(:number) }
 

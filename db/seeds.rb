@@ -2,7 +2,7 @@
 # development, test). The code here should be idempotent so that it can be executed at any point in every environment.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 
-# now = Time.current
+now = Time.current
 
 User.create!(
   name: "Admin",
@@ -13,82 +13,78 @@ User.create!(
   locale: :en
 )
 
-# tournament = Tournament.create!(
-#   name: "German Open",
-#   date: Date.new(2025, 4, 5),
-#   max_participations: 100
-# )
-#
-# tournament.rounds.create!(
-#   number: 1,
-#   board: "Tharsis",
-#   start_time: Time.zone.local(2025, 4, 5, 9)
-# )
-# tournament.rounds.create!(
-#   number: 2,
-#   board: "Hellas",
-#   start_time: Time.zone.local(2025, 4, 5, 12, 45)
-# )
-# tournament.rounds.create!(
-#   number: 3,
-#   board: "Elysium",
-#   start_time: Time.zone.local(2025, 4, 5, 15, 45)
-# )
+tournament = Tournament.create!(
+  name: "German Open",
+  date: Date.new(2025, 4, 5),
+  max_participations: 100
+)
 
-#
-# password_digest = User.new(password: "asdfasdf", password_confirmation: "asdfasdf").password_digest
-# users = (1..93).map do |i|
-#   {
-#     name: "User #{i}",
-#     email_address: "#{i}@example.com",
-#     password_digest: password_digest,
-#     locale: :en,
-#     created_at: now,
-#     updated_at: now
-#   }
-# end
-# User.insert_all!(users)
-#
-# user_ids = User.where.not(email_address: "admin@example.com").pluck(:id)
-# participations = user_ids.map do |user_id|
-#   {
-#     user_id: user_id,
-#     tournament_id: tournament.id,
-#     brings_basegame_english: true,
-#     brings_basegame_german: false,
-#     brings_prelude_english: true,
-#     brings_prelude_german: false,
-#     brings_hellas_and_elysium: true,
-#     paid: true,
-#     created_at: now,
-#     updated_at: now
-#   }
-# end
-# Participation.insert_all!(participations)
-#
-# rooms = (1..3).map { |r|
-#   {
-#     number: r,
-#     tournament_id: tournament.id,
-#     created_at: now,
-#     updated_at: now
-#   }
-# }
-# Room.insert_all!(rooms)
-#
-# tables = []
-# table_counts = [20, 6, 5]
-# i = 0
-# room_ids = Room.where(tournament_id: tournament.id).pluck(:id)
-# room_ids.zip(table_counts).each do |room_id, count|
-#   count.times do
-#     tables << {
-#       number: i + 1,
-#       room_id: room_id,
-#       created_at: now,
-#       updated_at: now
-#     }
-#     i += 1
-#   end
-# end
-# Table.insert_all(tables)
+tournament.rounds.create!(
+  number: 1,
+  board: "Tharsis"
+)
+tournament.rounds.create!(
+  number: 2,
+  board: "Hellas"
+)
+tournament.rounds.create!(
+  number: 3,
+  board: "Elysium"
+)
+
+password_digest = User.new(password: "asdfasdf", password_confirmation: "asdfasdf").password_digest
+users = (1..93).map do |i|
+  {
+    name: "User #{i}",
+    email_address: "#{i}@example.com",
+    password_digest: password_digest,
+    locale: :en,
+    created_at: now,
+    updated_at: now
+  }
+end
+User.insert_all!(users)
+
+user_ids = User.where.not(email_address: "admin@example.com").pluck(:id)
+participations = user_ids.map do |user_id|
+  {
+    user_id: user_id,
+    tournament_id: tournament.id,
+    brings_basegame_english: true,
+    brings_basegame_german: false,
+    brings_prelude_english: true,
+    brings_prelude_german: false,
+    brings_hellas_and_elysium: true,
+    paid: true,
+    created_at: now,
+    updated_at: now
+  }
+end
+Participation.insert_all!(participations)
+
+rooms = (1..3).map { |r|
+  {
+    number: r,
+    tournament_id: tournament.id,
+    created_at: now,
+    updated_at: now
+  }
+}
+Room.insert_all!(rooms)
+
+tables = []
+table_counts = [20, 6, 5]
+i = 0
+room_ids = Room.where(tournament_id: tournament.id).pluck(:id)
+room_ids.zip(table_counts).each do |room_id, count|
+  count.times do
+    tables << {
+      number: i + 1,
+      room_id: room_id,
+      created_at: now,
+      updated_at: now
+    }
+    i += 1
+  end
+end
+Table.insert_all(tables)
