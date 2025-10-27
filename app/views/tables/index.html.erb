@@ -4,7 +4,7 @@
 
     <div class="grid grid-flow-col grid-cols-[repeat(auto-fill,minmax(--spacing(56),1fr))] grid-rows-20 gap-x-8 gap-y-2">
       <% if @tournament.current_round.present? %>
-        <% @tournament.current_round.attendances.includes(:user).order("users.name").each do |attendance| %>
+        <% @tournament.current_round.attendances.includes(:user, :room, :table, :seat).order("users.name").each do |attendance| %>
           <div class="grid grid-cols-[1fr_auto_auto_auto]">
             <div class="border-b border-gray-300"><%= attendance.user.name %></div>
 

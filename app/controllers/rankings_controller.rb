@@ -5,10 +5,10 @@ class RankingsController < ApplicationController
 
   def show
     @tournament = Tournament.find(params.expect(:tournament_id))
-    played_ids = @tournament.participations.includes(:games).filter { |participation| participation.games.count != 0 }.pluck(:id)
+    played_ids = @tournament.participations.includes(:games).filter { |participation| participation.games.size != 0 }.pluck(:id)
 
     @rounds = @tournament.rounds.where(id: Round.ready_for_ranking)
-    @participations = @tournament.participations.with_ranking_data.includes(:user, scores: :round).where(id: played_ids)
+    @participations = @tournament.participations.with_ranking_data.includes(:user, :rounds).where(id: played_ids)
     if @rounds.any?
       @shown_round = @rounds.find_by(number: params[:round] || @rounds.unscope(:group).maximum(:number))
       @rounds_up_to_shown = @rounds.includes(:participations).merge(Participation.with_ranking_data).where(number: ..@shown_round.number)
