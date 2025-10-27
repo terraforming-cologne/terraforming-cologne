@@ -12,6 +12,6 @@ class ApplicationController < ActionController::Base
   private
 
   def user_not_authorized
-    redirect_back_or_to :root, alert: t("unauthorized")
+    redirect_to :root, alert: t("unauthorized")
   end
 end

@@ -2,6 +2,7 @@
   <%= render "tournaments/heading", tournament: @tournament, sub_heading: t(".ranking") %>
 
   <%= turbo_frame_tag @tournament, :ranking do %>
+    <%= turbo_stream_from @tournament, :ranking %>
     <% if @shown_round.blank? %>
       <span><%= t(:no_games_finished_yet) %></span>
     <% else %>
