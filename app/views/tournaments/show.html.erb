@@ -1,13 +1,19 @@
 <div class="flex flex-col gap-16">
   <%= render "tournaments/heading", tournament: @tournament, sub_heading: t(".overview") %>
 
-  <%# TODO: Refactor this %>
-  <% if @seat && @round && @opponent_seats %>
-    <%= render "attendances/next_game", seat: @seat, round: @round, opponent_seats: @opponent_seats %>
-  <% end %>
+  <div class="flex flex-col gap-4">
+    <% if @attendance.present? %>
+      <h2 class="mb-0"><%= t(".your_next_game") %></h2>
+      <% if @attendance.game.tallied? %>
+        <p><%= t(".no_game_planned") %></p>
+      <% else %>
+        <%= render "attendances/next_game", attendance: @attendance %>
+      <% end %>
+    <% end %>
+  </div>
 
   <div>
-    <h2 class="mb-0"><%= t("ranking") %></h2>
+    <h2 class="mb-0"><%= t(".ranking") %></h2>
     <%= turbo_frame_tag @tournament, :ranking, src: [@tournament, :ranking] %>
   </div>
 </div>

@@ -1,6 +1,8 @@
----
 de:
   attendances:
+    next_game:
+      your_opponents: Deine Gegner:innen
+      enter_results: Ergebnisse eintragen
     new:
       already_attending: Deine Anwesenheit wurde bereits erfasst.
     create:

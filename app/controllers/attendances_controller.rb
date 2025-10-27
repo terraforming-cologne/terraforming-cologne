@@ -3,8 +3,7 @@ class AttendancesController < ApplicationController
 
   def create
     @participation = @tournament.participations.find_by(user: Current.user)
-    @round = @tournament.rounds.find_by(number: 1)
-    @attendance = Attendance.new(participation: @participation, round: @round)
+    @attendance = @participation.attendances.new(round: @tournament.first_round)
     authorize @attendance
     @attendance.save!
     redirect_to @tournament, notice: t(".notice")

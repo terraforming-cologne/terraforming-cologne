@@ -6,7 +6,7 @@ class ProfilesController < ApplicationController
 
   def show
     @next_tournament = Tournament.next
-    @next_participation = Current.user.participation_at(Tournament.next)
+    @next_participation = Current.user.participations.find_by(tournament: Tournament.next)
   end
 
   def edit

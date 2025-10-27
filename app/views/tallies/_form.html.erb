@@ -1,6 +1,6 @@
 <%# locals: (tally:, game:) %>
 
-<%= form_with model: tally, class: "flex flex-col gap-8" do |form| %>
+<%= form_with model: tally, url: game_tally_path(tally.game, tally), class: "flex flex-col gap-8" do |form| %>
   <div class="flex flex-col gap-4">
     <h2 class="mb-0"><%= Tally.human_attribute_name(:result) %></h2>
 

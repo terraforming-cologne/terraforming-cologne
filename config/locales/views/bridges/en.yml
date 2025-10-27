@@ -2,5 +2,6 @@ en:
   bridges:
     show:
       start_first_round: Start first round
+      start_next_round: Start next round
       no_game: No game
       attendances: Attending players

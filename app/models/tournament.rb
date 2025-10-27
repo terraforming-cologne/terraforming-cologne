@@ -21,7 +21,7 @@ class Tournament < ApplicationRecord
   end
 
   def current_round
-    current_round_number.present? ? rounds.find_by(number: current_round_number) : nil
+    rounds.find_by(number: current_round_number)
   end
 
   def first_round

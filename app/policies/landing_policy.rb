@@ -6,6 +6,6 @@ class LandingPolicy < ApplicationPolicy
   private
 
   def participating?
-    record.participations.joins(:user).where(participations: {user: user}).exists?
+    record.participations.exists?(user: user)
   end
 end

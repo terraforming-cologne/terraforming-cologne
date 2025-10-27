@@ -1,6 +1,8 @@
----
 en:
   tournaments:
+    show:
+      no_game_planned: No game planned currently.
+      your_next_game: Your next game
     create:
       notice: Tournament created.
     update:
