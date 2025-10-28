@@ -62,17 +62,17 @@ module Participation::Ranking
     real_opponents = games.filter { it.round.number <= round.number }.flat_map(&:participations).excluding(self)
 
     remaining_number_of_opponents = expected_number_of_opponents - real_opponents.size
-    virtual_opponents = [virtual_attendance_for(round)] * remaining_number_of_opponents
+    virtual_opponents = [virtual_participation_for(round)] * remaining_number_of_opponents
 
     [*real_opponents, *virtual_opponents]
   end
 
-  def virtual_attendance_for(round)
-    @virtual_attendance_for ||= {}
-    @virtual_attendance_for[round.id] ||= VirtualAttendance.new(round.average_ranking_points)
+  def virtual_participation_for(round)
+    @virtual_participation_for ||= {}
+    @virtual_participation_for[round.id] ||= VirtualParticipation.new(round.average_ranking_points)
   end
 
-  class VirtualAttendance
+  class VirtualParticipation
     def initialize(ranking_points)
       @ranking_points = ranking_points
     end
