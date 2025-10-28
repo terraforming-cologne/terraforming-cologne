@@ -35,7 +35,7 @@ class Round < ApplicationRecord
   def average_ranking_points
     @average_ranking_points ||= begin
       return 1 if first_round?
-      (attendances.sum { it.participation.ranking_points_up_to(self) } / attendances.size.to_f).round
+      (previous_round.average_ranking_points + attendances.sum { it.score.ranking_points } / attendances.size.to_f).round
     end
   end
 
