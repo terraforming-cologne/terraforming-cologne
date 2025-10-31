@@ -20,6 +20,18 @@ class Tournament < ApplicationRecord
     where(date: Date.current..).exists?
   end
 
+  def groups_of_fours_and_threes
+    n = participations.where(paid: true).count
+    remainder = n % 4
+    while remainder % 3 != 0 && remainder.positive?
+      remainder += 4
+    end
+    fours = (n - remainder) / 4
+    threes = remainder / 3
+    raise ArgumentError, "cannot split #{n} into groups of 4 and 3" if fours.negative? || threes.negative?
+    [[4] * fours, [3] * threes].flatten
+  end
+
   def current_round
     rounds.find_by(number: current_round_number)
   end

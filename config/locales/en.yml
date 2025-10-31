@@ -2,7 +2,6 @@ en:
   unauthorized: You are not authorized to do this.
   already_registered: You are already registered for the next tournament!
   check_out_the_tournament_overview_page: Check out the tournament overview page!
-  complete_game_sets_are_available: full game sets from paid registrations are available.
   create_tournament: Create Tournament
   date:
     formats:

@@ -26,6 +26,11 @@ en:
       brings_prelude: The Prelude extension (not Prelude 2)
       comment_comment: Do you want to tell us something else?
     index:
+      paid_participations: paid participations
+      four_player_tables: four player tables
+      three_player_tables: three player tables
+      tables: tables
+      complete_game_sets_are_available: complete game sets from paid registrations are available.
       confirm_confirm_payment: Do you really want to confirm the payment?
     new:
       heading: Please tell us what you can bring to the tournament.

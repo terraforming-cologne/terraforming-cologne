@@ -41,6 +41,7 @@ class Round < ApplicationRecord
 
   private
 
+  # TODO: This method exists both here and in models/Tournament.rb
   def groups_of_fours_and_threes(n)
     remainder = n % 4
     while remainder % 3 != 0 && remainder.positive?

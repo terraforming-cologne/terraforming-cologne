@@ -26,6 +26,11 @@ de:
       brings_prelude: Die Präludium Erweiterung (nicht Präludium 2)
       comment_comment: Möchtest du uns noch etwas mitteilen?
     index:
+      complete_game_sets_are_available: vollständige Spielesets durch bezahlte Anmeldungen sind verfügbar.
+      paid_participations: bezahlte Anmeldungen
+      tables: Tische
+      four_player_tables: Vierertische
+      three_player_tables: Dreiertische
       confirm_confirm_payment: Möchtest du die Zahlung wirklich bestätigen?
       confirm_payment: Zahlung bestätigen
       export: Exportieren

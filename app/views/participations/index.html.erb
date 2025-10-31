@@ -6,10 +6,15 @@
 
     <div></div>
 
-    <h2 class="col-start-2 text-center">
-      <%= @tournament.number_of_full_game_sets %>
-      <%= t(:complete_game_sets_are_available) %>
-    </h2>
+    <h3 class="col-start-2 flex flex-col gap-2 text-center">
+      <div>
+        <%= @tournament.participations.where(paid: true).size %> <%= t(".paid_participations") %> =
+        <%= @tournament.groups_of_fours_and_threes.count { it == 4 } %> <%= t(".four_player_tables") %> +
+        <%= @tournament.groups_of_fours_and_threes.count { it == 3 } %> <%= t(".three_player_tables") %> =
+        <%= @tournament.groups_of_fours_and_threes.count %> <%= t(".tables") %>.
+      </div>
+      <div><%= @tournament.number_of_full_game_sets %> <%= t(".complete_game_sets_are_available") %></div>
+    </h3>
   </div>
   <div class="grid grid-cols-[repeat(10,auto)_1fr_repeat(2,auto)] overflow-x-scroll py-4 text-nowrap *:p-2">
     <div class="font-bold">#</div>
@@ -24,33 +29,33 @@
 
     <div class="font-bold">
       <%= Participation.human_attribute_name(:brings_basegame_english) %>
-      (<%= @tournament.participations.where(brings_basegame_english: true).count %>)
+      (<%= @tournament.participations.where(brings_basegame_english: true).size %>)
     </div>
 
     <div class="font-bold">
       <%= Participation.human_attribute_name(:brings_basegame_german) %>
-      (<%= @tournament.participations.where(brings_basegame_german: true).count %>)
+      (<%= @tournament.participations.where(brings_basegame_german: true).size %>)
     </div>
 
     <div class="font-bold">
       <%= Participation.human_attribute_name(:brings_prelude_english) %>
-      (<%= @tournament.participations.where(brings_prelude_english: true).count %>)
+      (<%= @tournament.participations.where(brings_prelude_english: true).size %>)
     </div>
 
     <div class="font-bold">
       <%= Participation.human_attribute_name(:brings_prelude_german) %>
-      (<%= @tournament.participations.where(brings_prelude_german: true).count %>)
+      (<%= @tournament.participations.where(brings_prelude_german: true).size %>)
     </div>
 
     <div class="font-bold">
       <%= Participation.human_attribute_name(:brings_hellas_and_elysium) %>
-      (<%= @tournament.participations.where(brings_hellas_and_elysium: true).count %>)
+      (<%= @tournament.participations.where(brings_hellas_and_elysium: true).size %>)
     </div>
 
     <div class="font-bold"><%= Participation.human_attribute_name(:comment) %></div>
 
     <div class="font-bold">
-      <%= Participation.human_attribute_name(:paid) %> (<%= @tournament.participations.where(paid: true).count %>)
+      <%= Participation.human_attribute_name(:paid) %> (<%= @tournament.participations.where(paid: true).size %>)
     </div>
 
     <div></div>
