@@ -1,8 +1,5 @@
 en:
   attendances:
-    next_game:
-      your_opponents: Your opponents
-      enter_results: Enter results
     new:
       already_attending: Your attendance has already been recorded.
     create:

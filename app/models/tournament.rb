@@ -20,6 +20,22 @@ class Tournament < ApplicationRecord
     where(date: Date.current..).exists?
   end
 
+  def tallied?
+    rounds.present? && rounds.all?(&:tallied?)
+  end
+
+  def before_first_round?
+    current_round_number.blank?
+  end
+
+  def first_round?
+    current_round_number == 1
+  end
+
+  def last_round?
+    current_round_number == rounds.last.number
+  end
+
   def groups_of_fours_and_threes
     n = participations.where(paid: true).count
     remainder = n % 4
@@ -36,8 +52,16 @@ class Tournament < ApplicationRecord
     rounds.find_by(number: current_round_number)
   end
 
+  def previous_round
+    rounds.find_by(number: current_round_number - 1)
+  end
+
   def first_round
     rounds.find_by(number: 1)
+  end
+
+  def last_round
+    rounds.last
   end
 
   def next_round

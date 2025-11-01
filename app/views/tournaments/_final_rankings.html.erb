@@ -1,0 +1,7 @@
+<%# locals: (tournament:) %>
+
+<div>
+  <h2><%= t(".final_rankings") %></h2>
+
+  <%= turbo_frame_tag tournament, :ranking, src: [tournament, :ranking] %>
+</div>

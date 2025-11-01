@@ -5,15 +5,18 @@ class RankingsController < ApplicationController
 
   def show
     @tournament = Tournament.find(params.expect(:tournament_id))
-    played_ids = @tournament.participations.includes(:games).filter { |participation| participation.games.size != 0 }.pluck(:id)
+    @round = if params[:round].present?
+      @tournament.rounds.find_by(number: params[:round])
+    else
+      @tournament.tallied? ? @tournament.last_round : @tournament.previous_round
+    end
+    @rounds_up_to_current = @tournament.rounds.merge(Participation.with_ranking_data).where(number: ..(@round&.number || 1))
 
-    @rounds = @tournament.rounds.where(id: Round.ready_for_ranking)
-    @participations = @tournament.participations.with_ranking_data.includes(:user, :rounds).where(id: played_ids)
-    if @rounds.any?
-      @shown_round = @rounds.find_by(number: params[:round] || @rounds.unscope(:group).maximum(:number))
-      @rounds_up_to_shown = @rounds.includes(:participations).merge(Participation.with_ranking_data).where(number: ..@shown_round.number)
-      @ranking_criteria = @rounds_up_to_shown.index_with { |round| @participations.index_with { |participation| participation.ranking_criteria(round) } }
-      @ranked_participations = @participations.sort_by { |participation| @ranking_criteria[@shown_round][participation] }.reverse
+    if @round&.tallied?
+      attending_participations = @tournament.participations.where.associated(:games).distinct
+      @participations = @tournament.participations.with_ranking_data.includes(:user).where(id: attending_participations)
+      @ranking_criteria = @rounds_up_to_current.index_with { |round| @participations.index_with { it.ranking_criteria(round) } }
+      @participations = @participations.to_a.sort_by { @ranking_criteria[@round][it] }.reverse!
     end
   end
 end

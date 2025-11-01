@@ -1,6 +1,7 @@
 de:
   bridges:
     show:
+      tally: Scoren
       bridge: Brücke
       start_first_round: Erste Runde starten
       start_next_round: Nächste Runde starten

@@ -8,11 +8,20 @@ de:
       no_game_planned: Aktuell kein Spiel geplant.
       your_next_game: Dein nächstes Spiel
       overview: Übersicht
+      not_registered: Du bist nicht für dieses Turnier registriert.
       ranking: Platzierungen
+    next_game:
+      your_next_game: Dein nächstes Spiel
+      your_opponents: Deine Gegner:innen
+      enter_results: Ergebnisse eintragen
+    final_rankings:
+      final_rankings: Finale Platzierungen
+    rankings:
+      rankings: Platzierungen
     tournament:
       ranking: Platzierungen
-      overview: Übersicht
+      overview: Turnierübersicht
       bridge: Brücke
-      participations: Teilnehmer:innen
+      participations: Anmeldungen
     update:
       notice: Turnier aktualisiert.

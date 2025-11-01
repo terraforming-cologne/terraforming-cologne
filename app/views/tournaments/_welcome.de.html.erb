@@ -1,0 +1,20 @@
+<%# locals: (tournament:) %>
+
+<div class="flex flex-col gap-4">
+  <p>
+    Willkommen beim Terraforming Mars Turnier <span class="font-bold"><%= tournament.name %></span>! Wir freuen uns
+    sehr, dass du hier bist.
+  </p>
+
+  <p>
+    Um deine Anwesenheit zu bestätigen, drücke bitte auf den untenstehenden Knopf. Danach kannst du deine bevorstehenden
+    Spiele, Tischzuweisungen und die aktuellen Platzierungen auf dieser Seite einsehen.
+  </p>
+
+  <p>
+    Vielen Dank für deine Teilnahme – wir wünschen dir eine großartige Zeit! Wenn du Fragen hast oder Unterstützung
+    benötigst, wende dich bitte an unser Team vor Ort.
+  </p>
+
+  <%= button_to "Ich bin hier!", [tournament, :attendances], method: :post, class: "btn btn-primary", data: {turbo: false}, form_class: "self-center" %>
+</div>

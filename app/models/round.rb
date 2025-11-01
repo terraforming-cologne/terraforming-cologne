@@ -9,8 +9,6 @@ class Round < ApplicationRecord
 
   default_scope { order(:number) }
 
-  scope :ready_for_ranking, -> { joins(:attendances).group(:id).having("COUNT(attendances.id) > 0") }
-
   def create_games!
     ApplicationRecord.transaction do
       r = ranking
@@ -22,6 +20,10 @@ class Round < ApplicationRecord
         end
       end
     end
+  end
+
+  def tallied?
+    games.present? && games.all?(&:tallied?)
   end
 
   def ranking

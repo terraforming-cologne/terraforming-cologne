@@ -2,3 +2,4 @@ de:
   rankings:
     show:
       ranking: Platzierungen
+      no_ranking_data: Keine Platzierungsdaten verfügbar.

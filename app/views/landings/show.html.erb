@@ -1,3 +1,5 @@
 <%= render "tournaments/heading", tournament: @tournament, sub_heading: t(".welcome") %>
 
-<%= render "info", tournament: @tournament %>
+<%= turbo_frame_tag @tournament, :landing do %>
+  <%= render "info", tournament: @tournament %>
+<% end %>

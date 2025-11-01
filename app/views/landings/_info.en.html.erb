@@ -14,5 +14,5 @@
     visit our desk.
   </p>
 
-  <%= button_to "I am here!", [@tournament, :attendances], method: :post, class: "btn btn-primary", form_class: "self-center" %>
+  <%= button_to "I am here!", [@tournament, :attendances], method: :post, class: "btn btn-primary", data: {turbo: false}, form_class: "self-center" %>
 </div>

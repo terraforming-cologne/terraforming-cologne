@@ -13,7 +13,6 @@ class Tally
 
   define_model_callbacks :commit
   broadcasts_refreshes_to ->(tally) { [tally.result.tournament, :bridge] }
-  broadcasts_refreshes_to ->(tally) { [tally.result.tournament, :ranking] }
 
   def save
     return false unless valid?

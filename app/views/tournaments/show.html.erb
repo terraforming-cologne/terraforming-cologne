@@ -1,19 +1,25 @@
-<div class="flex flex-col gap-16">
-  <%= render "tournaments/heading", tournament: @tournament, sub_heading: t(".overview") %>
+<h1><%= @tournament.name %></h1>
 
-  <div class="flex flex-col gap-4">
-    <% if @attendance.present? %>
-      <h2 class="mb-0"><%= t(".your_next_game") %></h2>
-      <% if @attendance.game.tallied? %>
-        <p><%= t(".no_game_planned") %></p>
-      <% else %>
-        <%= render "attendances/next_game", attendance: @attendance %>
-      <% end %>
-    <% end %>
-  </div>
+<div class="flex flex-col gap-8">
+  <% if @tournament.date.future? %>
+    <%= render "future", tournament: @tournament %>
+  <% elsif @tournament.tallied? %>
+    <%= render "final_rankings", tournament: @tournament %>
+  <% elsif @participation.blank? %>
+    <p><%= t(".not_registered") %></p>
+  <% elsif @attendance.blank? %>
+    <%= render "welcome", tournament: @tournament %>
+  <% elsif @tournament.before_first_round? %>
+    <%= render "before_first_round", tournament: @tournament %>
+  <% elsif @tournament.last_round? && @attendance.game.tallied? %>
+    <%= render "after_last_round" %>
+  <% elsif @attendance.game.tallied? %>
+    <%= render "between_rounds" %>
+  <% else %>
+    <%= render "next_game", attendance: @attendance %>
+  <% end %>
 
-  <div>
-    <h2 class="mb-0"><%= t(".ranking") %></h2>
-    <%= turbo_frame_tag @tournament, :ranking, src: [@tournament, :ranking] %>
-  </div>
+  <% if !@tournament.tallied? && @tournament.previous_round.present? && @tournament.previous_round.tallied? %>
+    <%= render "rankings", tournament: @tournament %>
+  <% end %>
 </div>

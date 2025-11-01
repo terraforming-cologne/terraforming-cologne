@@ -15,5 +15,5 @@
     benötigst, wende dich bitte an unser Team vor Ort.
   </p>
 
-  <%= button_to "Ich bin hier!", [@tournament, :attendances], method: :post, class: "btn btn-primary", form_class: "self-center" %>
+  <%= button_to "Ich bin hier!", [@tournament, :attendances], method: :post, class: "btn btn-primary", data: {turbo: false}, form_class: "self-center" %>
 </div>

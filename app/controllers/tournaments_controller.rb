@@ -5,12 +5,13 @@ class TournamentsController < ApplicationController
     authorize Tournament
     @next_tournament = Tournament.next
     @planned_tournaments = Tournament.where(date: (@next_tournament&.date&.next_day || Date.current)..)
-    @previous_tournaments = Tournament.where(date: ..Date.yesterday)
+    @previous_tournaments = Tournament.where(date: ..Date.yesterday).order(date: :desc)
   end
 
   def show
     authorize @tournament
-    @round = @tournament.current_round
+    @participation = Current.user.participations.find_by(tournament: @tournament)
+    @round = @tournament.current_round || @tournament.first_round
     @attendance = Current.user.attendances.find_by(round: @round)
   end
 

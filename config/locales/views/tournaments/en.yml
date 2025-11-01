@@ -3,6 +3,15 @@ en:
     show:
       no_game_planned: No game planned currently.
       your_next_game: Your next game
+      not_registered: You are not registered for this tournament.
+    next_game:
+      your_opponents: Your opponents
+      enter_results: Enter results
+      your_next_game: Your next game
+    final_rankings:
+      final_rankings: Final rankings
+    rankings:
+      rankings: Rankings
     create:
       notice: Tournament created.
     update:
