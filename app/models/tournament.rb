@@ -53,6 +53,7 @@ class Tournament < ApplicationRecord
   end
 
   def previous_round
+    return nil if current_round_number.blank?
     rounds.find_by(number: current_round_number - 1)
   end
 
