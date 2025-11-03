@@ -7,3 +7,5 @@ de:
       tournaments: Turniere
     register_button:
       register: Jetzt registrieren!
+      spots_available: Die Startplätze sind auf %{count} limitiert.
+      spots_left: Es können sich noch %{count} Personen anmelden.

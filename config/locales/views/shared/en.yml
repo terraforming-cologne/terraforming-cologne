@@ -5,3 +5,5 @@ en:
       profile: My profile
     register_button:
       register: Register now!
+      spots_available: Starting places are limited to %{count}.
+      spots_left: "%{count} people can still register."

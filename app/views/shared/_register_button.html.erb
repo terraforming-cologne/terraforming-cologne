@@ -5,8 +5,8 @@
     <%= link_to t(".register"), [tournament, :register], class: "btn btn-primary text-3xl" %>
     <% if tournament.few_spots_left? %>
       <div>
-        <div><%= t(:spots_available, count: tournament.max_participations) %></div>
-        <div><%= t(:spots_left, count: tournament.spots_left) %></div>
+        <div><%= t(".spots_available", count: tournament.max_participations) %></div>
+        <div><%= t(".spots_left", count: tournament.spots_left) %></div>
       </div>
     <% end %>
   </div>
