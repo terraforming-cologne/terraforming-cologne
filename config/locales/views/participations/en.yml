@@ -26,9 +26,11 @@ en:
       brings_basegame: The basegame
       brings_prelude: The Prelude extension (not Prelude 2)
       comment_comment: Do you want to tell us something else?
+    row:
+      confirm_confirm_payment: Do you really want to confirm the payment?
+      confirm_payment: Confirm payment
     index:
       complete_game_sets_are_available: complete game sets from paid registrations are available.
-      confirm_confirm_payment: Do you really want to confirm the payment?
       four_player_tables: four player tables
       paid_participations: paid participations
       tables: tables

@@ -26,10 +26,11 @@ de:
       brings_basegame: Das Basisspiel
       brings_prelude: Die Präludium Erweiterung (nicht Präludium 2)
       comment_comment: Möchtest du uns noch etwas mitteilen?
-    index:
-      complete_game_sets_are_available: vollständige Spielesets durch bezahlte Anmeldungen sind verfügbar.
+    row:
       confirm_confirm_payment: Möchtest du die Zahlung wirklich bestätigen?
       confirm_payment: Zahlung bestätigen
+    index:
+      complete_game_sets_are_available: vollständige Spielesets durch bezahlte Anmeldungen sind verfügbar.
       export: Exportieren
       four_player_tables: Vierertische
       paid_participations: bezahlte Anmeldungen

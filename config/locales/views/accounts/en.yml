@@ -11,12 +11,12 @@ en:
       heading: Manage Account
     edit_form:
       edit_password: Change Password
-      name_caution: Will be used to identify your payments.
+      name_caution: Will be used when registering for a tournament to identify your payment.
     new:
       already_has_account: Already have an account?
       heading: Create Account
     new_form:
-      name_caution: Will be used to identify your payments.
+      name_caution: Will be used when registering for a tournament to identify your payment.
     show:
       edit: Manage Account
       heading: Your Account
