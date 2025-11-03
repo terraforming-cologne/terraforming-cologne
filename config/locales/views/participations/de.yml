@@ -26,9 +26,6 @@ de:
       brings_basegame: Das Basisspiel
       brings_prelude: Die Präludium Erweiterung (nicht Präludium 2)
       comment_comment: Möchtest du uns noch etwas mitteilen?
-    row:
-      confirm_confirm_payment: Möchtest du die Zahlung wirklich bestätigen?
-      confirm_payment: Zahlung bestätigen
     index:
       complete_game_sets_are_available: vollständige Spielesets durch bezahlte Anmeldungen sind verfügbar.
       export: Exportieren
@@ -51,6 +48,9 @@ de:
       finalize_registration: 'Du bist bereits in das Raumschiff zum Mars eingestiegen! Damit es jetzt auch abheben kann und um deine Registrierung abzuschließen, überweise bitte die Teilnahmegebühr von 15€ auf folgendes Konto:'
       paid: Deine Zahlung wurde erhalten
       payment_pending: Zahlung ausstehend
+    row:
+      confirm_confirm_payment: Möchtest du die Zahlung wirklich bestätigen?
+      confirm_payment: Zahlung bestätigen
     show:
       heading: Dein nächstes Turnier
     tournament_info:

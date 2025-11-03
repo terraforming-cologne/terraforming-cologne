@@ -4,11 +4,11 @@ de:
     create:
       notice: Erste Runde gestartet.
     new:
-      heading: Erste Runde starten
-      present_players: Anwesende Spieler:innen
-      no_present_players: Es sind keine Spieler:innen anwesend.
-      present_unpaid_players: Anwesende Spieler:innen ohne Bezahlung
       absent_players: Abwesende Spieler:innen
+      heading: Erste Runde starten
+      no_present_players: Es sind keine Spieler:innen anwesend.
+      present_players: Anwesende Spieler:innen
+      present_unpaid_players: Anwesende Spieler:innen ohne Bezahlung
   helpers:
     submit:
       first_round:

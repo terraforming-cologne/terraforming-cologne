@@ -12,5 +12,5 @@ en:
       notice: Next round started.
     new:
       current_round: Current round
-      next_round: Next round
       heading: Start next round
+      next_round: Next round

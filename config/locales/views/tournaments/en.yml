@@ -19,5 +19,7 @@ en:
       no_game_planned: No game planned currently.
       not_registered: You are not registered for this tournament.
       your_next_game: Your next game
+    tournament:
+      participations: Registrations
     update:
       notice: Tournament updated.

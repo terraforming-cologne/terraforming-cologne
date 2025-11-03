@@ -4,11 +4,11 @@ en:
     create:
       notice: First round started.
     new:
-      heading: Start first round
-      present_players: Present players
-      no_present_players: There are no players present.
-      present_unpaid_players: Present players without payment
       absent_players: Absent players
+      heading: Start first round
+      no_present_players: There are no players present.
+      present_players: Present players
+      present_unpaid_players: Present players without payment
   helpers:
     submit:
       first_round:

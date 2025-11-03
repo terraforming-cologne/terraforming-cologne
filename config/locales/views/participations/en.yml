@@ -26,9 +26,6 @@ en:
       brings_basegame: The basegame
       brings_prelude: The Prelude extension (not Prelude 2)
       comment_comment: Do you want to tell us something else?
-    row:
-      confirm_confirm_payment: Do you really want to confirm the payment?
-      confirm_payment: Confirm payment
     index:
       complete_game_sets_are_available: complete game sets from paid registrations are available.
       four_player_tables: four player tables
@@ -50,6 +47,9 @@ en:
       finalize_registration: 'You have already boarded the spaceship to Mars! In order for it to take off now and to complete your registration, please transfer the participation fee of 15€ to the following account:'
       paid: Your payment was received
       payment_pending: Payment pending
+    row:
+      confirm_confirm_payment: Do you really want to confirm the payment?
+      confirm_payment: Confirm payment
     show:
       heading: Your next tournament
     tournament_info:

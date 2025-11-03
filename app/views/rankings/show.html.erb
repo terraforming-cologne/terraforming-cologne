@@ -17,11 +17,11 @@
           <table class="w-full border-collapse px-(--page-padding) whitespace-nowrap">
             <thead>
               <tr>
-                <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= t(:rank) %></th>
-                <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= t(:name) %></th>
-                <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= t(:points) %></th>
-                <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= t(:opponent_points) %></th>
-                <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= t(:points_per_generation) %></th>
+                <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= t(".rank") %></th>
+                <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= t(".name") %></th>
+                <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= t(".points") %></th>
+                <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= t(".opponent_points") %></th>
+                <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= t(".points_per_generation") %></th>
                 <% @rounds_up_to_current.each do |round| %>
                   <th class="border-b border-gray-100 bg-gray-200 p-2 text-start"><%= round.board %></th>
                 <% end %>

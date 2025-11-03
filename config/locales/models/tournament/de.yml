@@ -8,5 +8,5 @@ de:
         name: Name
     models:
       tournament:
-        one: Turnier
         many: Turniere
+        one: Turnier

@@ -1,10 +1,10 @@
 ---
 de:
+  helpers:
+    label:
+      email_address: E-Mail-Adresse
   login_required: Du musst eingeloggt sein, um diese Seite anzusehen.
   'no': Nein
   try_again_later: Bitte versuche es später noch einmal.
   unauthorized: Du bist nicht dazu berechtigt, dies zu tun.
   'yes': Ja
-  helpers:
-    label:
-      email_address: E-Mail-Adresse

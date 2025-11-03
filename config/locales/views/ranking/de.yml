@@ -2,5 +2,10 @@
 de:
   rankings:
     show:
+      name: Name
       no_ranking_data: Keine Platzierungsdaten verfügbar.
+      opponent_points: Punkte Gegner:innen
+      points: Punkte
+      points_per_generation: Punkte/Gen
+      rank: Platz
       ranking: Platzierungen
