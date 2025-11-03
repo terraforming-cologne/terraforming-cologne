@@ -76,8 +76,6 @@ group :development do
   gem "i18n-debug"
   gem "i18n-tasks", require: false
 
-  gem "hotwire-spark"
-
   # Language tooling
   gem "rubocop", require: false
   gem "rubocop-rails", require: false
