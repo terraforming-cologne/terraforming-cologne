@@ -1,39 +1,10 @@
+---
 de:
+  login_required: Du musst eingeloggt sein, um diese Seite anzusehen.
+  'no': Nein
+  try_again_later: Bitte versuche es später noch einmal.
   unauthorized: Du bist nicht dazu berechtigt, dies zu tun.
-  already_registered: Du bist bereits für das nächste Turnier registriert!
-  check_out_the_tournament_overview_page: Schau dir die Turnierübersicht an!
-  create_tournament: Turnier erstellen
-  date:
-    formats:
-      date_with_weekday: "%A, %d. %B %Y"
-  de: Deutsch
-  edit: Bearbeiten
-  edit_participation: Teilnahme verwalten
-  en: Englisch
-  german_open: German Open
+  'yes': Ja
   helpers:
     label:
       email_address: E-Mail-Adresse
-  language: Sprache
-  login: Einloggen
-  login_required: Du musst eingeloggt sein, um diese Seite anzusehen.
-  logout: Ausloggen
-  max_participations_html: Maximale Teilnehmer:innenanzahl erreicht. Die Registrierung ist geschlossen. Du kannst dich auf die Warteliste setzen lassen, indem du eine E-Mail an %{email} schreibst.
-  name: Name
-  'no': Nein
-  no_games_finished_yet: Es wurden noch keine Spiele beendet.
-  opponent_points: Punkte Gegner:innen
-  points: Punkte
-  points_per_generation: Punkte/Gen
-  rank: Platz
-  ranking: Platzierungen
-  register: Jetzt registrieren!
-  signup: Registrieren
-  spots_available: Die Startplätze sind auf %{count} limitiert.
-  spots_left: Es können sich noch %{count} Personen anmelden.
-  time:
-    formats:
-      time_of_day: "%H:%M Uhr"
-      time_of_day_short: "%H:%M"
-  try_again_later: Bitte versuche es später noch einmal.
-  'yes': Ja

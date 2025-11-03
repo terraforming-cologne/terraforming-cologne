@@ -1,6 +1,6 @@
 <section class="flex flex-col gap-8">
   <div>
-    <h1 class="mb-4 text-center text-5xl font-extrabold"><%= t(".german_open") %></h1>
+    <h1 class="mb-4 text-center text-5xl font-extrabold">German Open</h1>
     <h2 class="text-center font-extrabold"><%= t(".terraforming_mars_tournament") %></h2>
   </div>
 
@@ -10,10 +10,13 @@
     <div class="self-center text-center">
       <% if authenticated? && Current.user.participations.exists?(tournament: Tournament.next) %>
         <%= tag.div class: "mb-2 rounded bg-emerald-100 p-3 text-emerald-900" do %>
-          <span><%= t("already_registered") %></span>
+          <span><%= t(".already_registered") %></span>
 
-          <%= link_to t("edit_participation"), [:edit, Participation.find_sole_by(user: Current.user, tournament: @tournament)], class: "link" %>
-          <p><%= link_to t("check_out_the_tournament_overview_page"), Tournament.next, class: "link" %></p>
+          <span>
+            <%= link_to t(".edit_participation"), [:edit, Participation.find_sole_by(user: Current.user, tournament: @tournament)], class: "link" %>.
+          </span>
+
+          <p><%= link_to t(".check_out_the_tournament_overview_page"), Tournament.next, class: "link" %></p>
         <% end %>
       <% else %>
         <%= render "shared/register_button", tournament: Tournament.next %>

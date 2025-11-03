@@ -1,8 +1,7 @@
 class ParticipationsController < ApplicationController
-  include TournamentScoped
-
   spam_protect only: :create
 
+  before_action :set_tournament, only: [:index, :new, :create]
   before_action :set_participation, only: [:show, :edit, :update, :destroy]
 
   allow_unauthorized_access only: [:new, :create]
@@ -54,6 +53,10 @@ class ParticipationsController < ApplicationController
 
   def set_participation
     @participation = Participation.find(params.expect(:id))
+  end
+
+  def set_tournament
+    @tournament = Tournament.find(params.expect(:tournament_id))
   end
 
   def participation_params

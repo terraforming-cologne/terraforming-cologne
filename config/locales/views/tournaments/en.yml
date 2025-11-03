@@ -1,18 +1,23 @@
+---
 en:
   tournaments:
-    show:
-      no_game_planned: No game planned currently.
-      your_next_game: Your next game
-      not_registered: You are not registered for this tournament.
-    next_game:
-      your_opponents: Your opponents
-      enter_results: Enter results
-      your_next_game: Your next game
-    final_rankings:
-      final_rankings: Final rankings
-    rankings:
-      rankings: Rankings
     create:
       notice: Tournament created.
+    final_rankings:
+      final_rankings: Final rankings
+    index:
+      no_planned_tournaments: No planned tournaments.
+    max_participations_reached:
+      max_participations_html: Maximum number of participants reached. Registration is closed. You can sign up for the waiting list via Email at %{email}
+    next_game:
+      enter_results: Enter results
+      your_next_game: Your next game
+      your_opponents: Your opponents
+    rankings:
+      rankings: Rankings
+    show:
+      no_game_planned: No game planned currently.
+      not_registered: You are not registered for this tournament.
+      your_next_game: Your next game
     update:
       notice: Tournament updated.

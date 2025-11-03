@@ -1,7 +1,10 @@
+---
 de:
   static_pages:
     intro:
-      german_open: German Open
+      already_registered: Du bist bereits für das Turnier registriert!
+      check_out_the_tournament_overview_page: Schau dir die Turnierübersicht an!
+      edit_participation: Teilnahme verwalten
       terraforming_mars_tournament: Terraforming Mars Turnier
     quick_info:
       date: Datum
@@ -12,12 +15,12 @@ de:
       schedule_item:
         break: Pause
         first_round: 1. Runde (Tharsis)
-        registration: Ankommen + Registrierung
+        registration: Ankommen + Erfassung der Anwesenheit
         round_up: Abschluss + Preisverleihung
         second_round: 2. Runde (Hellas)
         third_round: 3. Runde (Elysium)
       time: Zeit
-      too_late: Solltet ihr zu spät kommen, dann gebt auf jeden Fall Bescheid. Je nachdem wie viel zu spät ihr seid, versuchen wir euch euren Platz zu sichern oder erlauben uns den Platz anderweitig zu vergeben.
+      too_late: Solltet ihr zu spät kommen, dann gebt auf jeden Fall Bescheid. Je nachdem wie viel zu spät ihr seid, versuchen wir euch euren Platz zu sichern oder erlauben uns, den Platz anderweitig zu vergeben.
     spirit:
       heading: Turnierspirit
     we_are_back:

@@ -21,8 +21,8 @@ module TournamentScoped
   def set_attendance_data
     @attendance = Current.user.attendances.joins(:participation).find_by(participation: {tournament: @tournament})
     if @round.present? && @attendance.present?
-      @game = @attendance.games.joins(:round).find_by(round: @round)
-      @seat = @attendance.seats.joins(:game).find_by(game: @game)
+      @game = @attendance.game
+      @seat = @attendance.seat
       @opponent_seats = @game.seats.excluding(@seat)
     end
   end

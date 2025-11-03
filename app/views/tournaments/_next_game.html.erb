@@ -24,16 +24,16 @@
       <div class="grid grid-cols-[auto_1fr_auto] gap-4">
         <div class="font-semibold"><%= Seat.model_name.human %></div>
 
-        <div class="font-semibold"><%= t("name") %></div>
+        <div class="font-semibold"><%= t(".name") %></div>
 
-        <div class="font-semibold"><%= t("language") %></div>
+        <div class="font-semibold"><%= t(".language") %></div>
 
         <% attendance.seat.opponents.each do |opponent| %>
           <div><%= opponent.number %></div>
 
           <div><%= opponent.user.name %></div>
 
-          <div><%= opponent.user.locale %></div>
+          <div><%= t("activerecord.attributes.user.locales.#{opponent.user.locale}") %></div>
         <% end %>
       </div>
     </div>

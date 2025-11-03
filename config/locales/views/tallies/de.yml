@@ -1,3 +1,4 @@
+---
 de:
   helpers:
     submit:
@@ -8,8 +9,8 @@ de:
     already_tallied: Die Ergebnisse dieses Spiels wurden bereits eingetragen.
     create:
       notice: Deine Spielergebnisse wurden eingetragen.
-    new:
-      enter_results: Spielergebnisse eintragen
     edit:
       enter_results: Spielergebnisse ändern
+    new:
+      enter_results: Spielergebnisse eintragen
     no_current_game: Es gibt aktuell kein Spiel, für das du Ergebnisse eintragen kannst.

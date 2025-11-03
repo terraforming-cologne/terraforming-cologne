@@ -1,13 +1,9 @@
 <h1><%= t(".heading") %></h1>
 
-<div class="mb-4">
-  <%= tag.span t(".no_account_yet") %>
-  <%= link_to t("signup"), :signup, class: "link" %>
-</div>
+<div class="flex flex-col gap-4">
+  <span><%= t(".no_account_yet") %> <%= link_to t(".signup"), :signup, class: "link" %></span>
 
-<div class="mb-4">
-  <%= tag.span t(".password_forgotten") %>
-  <%= link_to t(".reset"), %i[new password_reset], class: "link" %>
-</div>
+  <span><%= t(".password_forgotten") %> <%= link_to t(".reset"), %i[new password_reset], class: "link" %></span>
 
-<%= render "form", login: @login %>
+  <%= render "form", login: @login %>
+</div>

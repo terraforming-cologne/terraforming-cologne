@@ -1,27 +1,39 @@
+---
 de:
   tournaments:
     create:
       notice: Turnier erstellt.
     edit:
       edit_tournament: Turnier bearbeiten
-    show:
-      no_game_planned: Aktuell kein Spiel geplant.
-      your_next_game: Dein nächstes Spiel
-      overview: Übersicht
-      not_registered: Du bist nicht für dieses Turnier registriert.
-      ranking: Platzierungen
-    next_game:
-      your_next_game: Dein nächstes Spiel
-      your_opponents: Deine Gegner:innen
-      enter_results: Ergebnisse eintragen
     final_rankings:
       final_rankings: Finale Platzierungen
+    index:
+      create_tournament: Turnier erstellen
+      next: Nächstes
+      no_planned_tournaments: Keine geplanten Turniere.
+      planned: Geplant
+      previous: Vergangen
+    max_participations_reached:
+      max_participations_html: Maximale Teilnehmer:innenanzahl erreicht. Die Registrierung ist geschlossen. Du kannst dich auf die Warteliste setzen lassen, indem du eine E-Mail an %{email} schreibst.
+    new:
+      create_tournament: Turnier erstellen
+    next_game:
+      enter_results: Ergebnisse eintragen
+      your_next_game: Dein nächstes Spiel
+      your_opponents: Deine Gegner:innen
     rankings:
       rankings: Platzierungen
-    tournament:
+    show:
+      no_game_planned: Aktuell kein Spiel geplant.
+      not_registered: Du bist nicht für dieses Turnier registriert.
+      overview: Übersicht
       ranking: Platzierungen
-      overview: Turnierübersicht
+      your_next_game: Dein nächstes Spiel
+    tournament:
       bridge: Brücke
+      edit: Bearbeiten
+      overview: Turnierübersicht
       participations: Anmeldungen
+      ranking: Platzierungen
     update:
       notice: Turnier aktualisiert.

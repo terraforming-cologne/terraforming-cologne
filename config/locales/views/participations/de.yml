@@ -1,3 +1,4 @@
+---
 de:
   helpers:
     label:
@@ -27,13 +28,13 @@ de:
       comment_comment: Möchtest du uns noch etwas mitteilen?
     index:
       complete_game_sets_are_available: vollständige Spielesets durch bezahlte Anmeldungen sind verfügbar.
-      paid_participations: bezahlte Anmeldungen
-      tables: Tische
-      four_player_tables: Vierertische
-      three_player_tables: Dreiertische
       confirm_confirm_payment: Möchtest du die Zahlung wirklich bestätigen?
       confirm_payment: Zahlung bestätigen
       export: Exportieren
+      four_player_tables: Vierertische
+      paid_participations: bezahlte Anmeldungen
+      tables: Tische
+      three_player_tables: Dreiertische
     new:
       heading: Bitte teile uns mit, was du zum Turnier mitbringen kannst.
       notice: Du bist bereits für das Turnier registriert.
@@ -51,5 +52,7 @@ de:
       payment_pending: Zahlung ausstehend
     show:
       heading: Dein nächstes Turnier
+    tournament_info:
+      check_out_the_tournament_overview_page: Schau dir die Turnierübersicht an!
     update:
       notice: Teilnahme aktualisiert.

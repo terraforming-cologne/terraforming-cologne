@@ -1,9 +1,42 @@
-<%= render "tournaments/heading", tournament: @tournament, sub_heading: t(".first_round") %>
+<h1><%= @tournament.name %></h1>
+
+<h2><%= t(".heading") %></h2>
 
 <div class="flex flex-col gap-8">
-  <div>
-    <p><%= t(".first_round") %>: <span class="font-bold"><%= @first_round.round.board %></span></p>
-  </div>
+  <% if @present_users.any? %>
+    <div>
+      <h3><%= t(".present_players") %> (<%= @present_users.size %>)</h3>
+      <div>
+        <% @present_users.each do |user| %>
+          <div><%= user.name %></div>
+        <% end %>
+      </div>
+    </div>
+  <% else %>
+    <p><%= t(".no_present_players") %></p>
+  <% end %>
+
+  <% if @present_unpaid_users.any? %>
+    <div>
+      <h3><%= t(".present_unpaid_players") %> (<%= @present_unpaid_users.size %>)</h3>
+      <div>
+        <% @present_unpaid_users.each do |user| %>
+          <div><%= user.name %></div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <% if @absent_users.any? %>
+    <div>
+      <h3><%= t(".absent_players") %> (<%= @absent_users.size %>)</h3>
+      <div>
+        <% @absent_users.each do |user| %>
+          <div><%= user.name %></div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 
   <%= form_with model: @first_round do |form| %>
     <div class="flex flex-col gap-2">

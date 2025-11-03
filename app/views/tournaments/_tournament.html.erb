@@ -1,15 +1,15 @@
-<div class="border border-black p-1">
-  <div class="font-bold"><%= tournament.name %></div>
+<div class="space-y-2 border border-black p-1">
+  <p class="font-bold"><%= tournament.name %> | <%= l(tournament.date) %></p>
 
-  <div><%= link_to t(".participations"), [tournament, :participations], class: "link" %></div>
+  <p>
+    <%= tournament.participations.count %> / <%= tournament.max_participations %>
+    <%= link_to t(".participations"), [tournament, :participations], class: "link" %>
+  </p>
 
-  <div><%= link_to t(".overview"), tournament, class: "link" %></div>
+  <div>
+    <%= link_to t(".overview"), tournament, class: "link" %> |
+    <%= link_to t(".bridge"), [tournament, :bridge], class: "link" %>
+  </div>
 
-  <div><%= link_to t(".bridge"), [tournament, :bridge], class: "link" %></div>
-
-  <div><%= l(tournament.date) %></div>
-
-  <div><b><%= tournament.participations.count %></b> / <%= tournament.max_participations %></div>
-
-  <%= link_to t("edit"), [:edit, tournament], class: "link" %>
+  <div><%= link_to t(".edit"), [:edit, tournament], class: "link" %></div>
 </div>

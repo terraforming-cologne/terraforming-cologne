@@ -1,4 +1,6 @@
-<%= render "tournaments/heading", tournament: @tournament, sub_heading: t(".next_round") %>
+<h1><%= @tournament.name %></h1>
+
+<h2><%= t(".heading") %></h2>
 
 <div class="flex flex-col gap-8">
   <div>
@@ -6,21 +8,16 @@
       <p><%= t(".current_round") %>: <span class="font-bold"><%= @next_round.current_round.board %></span></p>
     <% end %>
 
-    <p>
-      <%= t(".next_round") %>:
-      <span class="font-bold"><%= @next_round.next_round.number %> (<%= @next_round.next_round.board %>)</span>
-    </p>
+    <p><%= t(".next_round") %>: <span class="font-bold"><%= @next_round.next_round.board %></span></p>
   </div>
 
-  <%= form_with model: @next_round do |form| %>
-    <div class="flex flex-col gap-2">
-      <%= form.label :participation_ids %>
-      <%= form.collection_check_boxes :participation_ids, @next_round.egligible_participations, :id, ->(participation) { participation.user.name } do |b| %>
-        <div class="flex items-center gap-1"><%= b.checkbox checked: true %><%= b.label %></div>
-      <% end %>
+  <%= form_with model: @next_round, class: "flex flex-col gap-2" do |form| %>
+    <%= form.label :participation_ids %>
+    <%= form.collection_check_boxes :participation_ids, @next_round.egligible_participations, :id, ->(participation) { participation.user.name } do |b| %>
+      <div class="flex items-center gap-1"><%= b.checkbox checked: true %><%= b.label %></div>
+    <% end %>
 
-      <%= render "shared/errors", form: form %>
-      <%= form.submit class: "btn self-start btn-primary" %>
-    </div>
+    <%= render "shared/errors", form: form %>
+    <%= form.submit class: "btn self-end btn-primary" %>
   <% end %>
 </div>

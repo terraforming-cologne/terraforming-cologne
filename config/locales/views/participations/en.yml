@@ -1,3 +1,4 @@
+---
 en:
   helpers:
     label:
@@ -26,12 +27,12 @@ en:
       brings_prelude: The Prelude extension (not Prelude 2)
       comment_comment: Do you want to tell us something else?
     index:
-      paid_participations: paid participations
-      four_player_tables: four player tables
-      three_player_tables: three player tables
-      tables: tables
       complete_game_sets_are_available: complete game sets from paid registrations are available.
       confirm_confirm_payment: Do you really want to confirm the payment?
+      four_player_tables: four player tables
+      paid_participations: paid participations
+      tables: tables
+      three_player_tables: three player tables
     new:
       heading: Please tell us what you can bring to the tournament.
       notice: You are already registered for the tournament.
@@ -49,5 +50,7 @@ en:
       payment_pending: Payment pending
     show:
       heading: Your next tournament
+    tournament_info:
+      check_out_the_tournament_overview_page: Check out the tournament overview page!
     update:
       notice: Participation updated.

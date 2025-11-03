@@ -1,3 +1,4 @@
+---
 en:
   activerecord:
     attributes:
@@ -6,4 +7,6 @@ en:
         max_participations: Maximum number of participants
         name: Name
     models:
-      tournament: Tournament
+      tournament:
+        one: Tournament
+        many: Tournaments

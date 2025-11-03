@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 8.0.1"
+gem "rails", "~> 8.1"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
 # Use sqlite3 as the database for Active Record
@@ -70,11 +70,13 @@ gem "pundit", "~> 2.4"
 gem "rails-i18n", "~> 8.0.0"
 gem "reactionview", "~> 0.1.0"
 gem "rqrcode", "~> 2.0"
-gem "view_component", "~> 4.0.0.rc5"
+gem "view_component", "~> 4.1"
 
 group :development do
   gem "i18n-debug"
   gem "i18n-tasks", require: false
+
+  gem "hotwire-spark"
 
   # Language tooling
   gem "rubocop", require: false

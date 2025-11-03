@@ -1,14 +1,16 @@
+---
 en:
   helpers:
     label:
       next_round:
-        attendance_ids: Please deselect any players that will NOT participate in the next round.
+        participation_ids: Please uncheck all players who are not continuing to play.
     submit:
       next_round:
-        submit: Start next round
+        create: Start next round
   next_rounds:
+    create:
+      notice: Next round started.
     new:
       current_round: Current round
       next_round: Next round
-    create:
-      notice: Next round started.
+      heading: Start next round

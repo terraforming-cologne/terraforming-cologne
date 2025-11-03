@@ -8,9 +8,9 @@
     <div class="ms-auto flex items-center gap-4">
       <% if authenticated? %>
         <%= link_to t(".profile"), :profile, class: "font-bold hover:text-teal-500" %>
-        <%= button_to t("logout"), :logout, method: :delete, class: "btn btn-secondary" %>
+        <%= button_to t(".logout"), :logout, method: :delete, class: "btn btn-secondary" %>
       <% else %>
-        <%= link_to t("login"), :login, class: "link" %>
+        <%= link_to t(".login"), :login, class: "link" %>
       <% end %>
     </div>
   </div>

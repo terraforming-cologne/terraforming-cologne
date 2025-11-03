@@ -1,9 +1,13 @@
+---
 en:
   activerecord:
     attributes:
       user:
         email_address: Email address
         locale: Communication language
+        locales:
+          de: German
+          en: English
         name: First and last name
         password: Password
         password_confirmation: Password confirmation

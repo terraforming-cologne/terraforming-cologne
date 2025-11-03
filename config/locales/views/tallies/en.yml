@@ -1,3 +1,4 @@
+---
 en:
   helpers:
     submit:
@@ -8,8 +9,8 @@ en:
     already_tallied: This game's results were already recorded.
     create:
       notice: Your game results were recorded.
-    new:
-      enter_results: Enter game results
     edit:
       enter_results: Edit game results
+    new:
+      enter_results: Enter game results
     no_current_game: There is currently no game for which you could record results.

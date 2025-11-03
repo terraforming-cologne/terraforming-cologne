@@ -1,0 +1,40 @@
+<%# locals: (participation:, participation_counter:) %>
+
+<div class="group contents *:p-2 *:group-hover:bg-slate-100">
+  <div><%= participation_counter + 1 %></div>
+
+  <div><%= participation.user.name %></div>
+
+  <div><%= participation.user.email_address %></div>
+
+  <div><%= t("activerecord.attributes.user.locales.#{participation.user.locale}") %></div>
+
+  <div><%= l(participation.created_at.to_date) %></div>
+
+  <div><%= participation.brings_basegame_english ? t(:yes) : t(:no) %></div>
+
+  <div><%= participation.brings_basegame_german ? t(:yes) : t(:no) %></div>
+
+  <div><%= participation.brings_prelude_english ? t(:yes) : t(:no) %></div>
+
+  <div><%= participation.brings_prelude_german ? t(:yes) : t(:no) %></div>
+
+  <div><%= participation.brings_hellas_and_elysium ? t(:yes) : t(:no) %></div>
+
+  <div class="max-w-lg text-wrap"><%= participation.comment %></div>
+
+  <div><%= participation.paid ? t(:yes) : t(:no) %></div>
+
+  <div>
+    <% unless participation.paid? %>
+      <%= button_to t(".confirm_payment"),
+            [participation, :payment],
+            class:
+              "ms-auto inline-block cursor-pointer rounded-lg bg-slate-300 px-2 py-1 text-sm font-bold hover:bg-slate-400",
+            method: :post,
+            data: {
+              turbo_confirm: t(".confirm_confirm_payment")
+            } %>
+    <% end %>
+  </div>
+</div>

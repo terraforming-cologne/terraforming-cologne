@@ -1,9 +1,11 @@
+---
 de:
   bridges:
     show:
-      tally: Scoren
+      attendances: Anwesende Spieler:innen
       bridge: Brücke
+      edit: Bearbeiten
+      no_game: Kein Spiel
       start_first_round: Erste Runde starten
       start_next_round: Nächste Runde starten
-      no_game: Kein Spiel
-      attendances: Anwesende Spieler:innen
+      tally: Scoren

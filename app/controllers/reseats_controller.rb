@@ -1,6 +1,4 @@
 class ReseatsController < ApplicationController
-  include TournamentScoped
-
   def new
     authorize Reseat
     @reseat = Reseat.new

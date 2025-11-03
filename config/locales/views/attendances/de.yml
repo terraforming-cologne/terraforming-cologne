@@ -1,6 +1,7 @@
+---
 de:
   attendances:
-    new:
-      already_attending: Deine Anwesenheit wurde bereits erfasst.
     create:
       notice: Deine Anwesenheit wurde erfasst.
+    new:
+      already_attending: Deine Anwesenheit wurde bereits erfasst.

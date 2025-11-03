@@ -1,12 +1,17 @@
+---
 en:
   static_pages:
+    intro:
+      already_registered: You are already registered for this tournament!
+      check_out_the_tournament_overview_page: Check out the tournament overview page!
+      edit_participation: Manage participation
     quick_info:
       heading: At a Glance
       participation_fee: Participation fee
       schedule: Schedule
       schedule_item:
         first_round: 1st round (Tharsis)
-        registration: Arrival and registration
+        registration: Arrival and confirmation of attendance
         round_up: Closing and award ceremony
         second_round: 2nd round (Hellas)
         third_round: 3rd round (Elysium)

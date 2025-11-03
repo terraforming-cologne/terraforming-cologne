@@ -1,38 +1,5 @@
+---
 en:
-  unauthorized: You are not authorized to do this.
-  already_registered: You are already registered for the next tournament!
-  check_out_the_tournament_overview_page: Check out the tournament overview page!
-  create_tournament: Create Tournament
-  date:
-    formats:
-      date_with_weekday: "%A, %B %d %Y"
-  de: German
-  edit: Edit
-  edit_participation: Manage Participation
-  en: English
-  german_open: German Open
-  helpers:
-    label:
-      email_address: Email address
-  login: Login
   login_required: You have to be logged in to view this page.
-  logout: Logout
-  max_participations_html: Maximum number of participants reached. Registration is closed. You can sign up for the waiting list via Email at %{email}
-  name: Name
-  'no': 'No'
-  no_games_finished_yet: No games were finished yet.
-  opponent_points: Opponent Points
-  points: Points
-  points_per_generation: Points/Gen
-  rank: Rank
-  ranking: Ranking
-  register: Register now!
-  signup: Signup
-  spots_available: Starting places are limited to %{count}.
-  spots_left: "%{count} people can still register."
-  time:
-    formats:
-      time_of_day: "%H:%M h"
-      time_of_day_short: "%H:%M"
   try_again_later: Please try again later.
-  'yes': 'Yes'
+  unauthorized: You are not authorized to do this.

@@ -1,7 +1,9 @@
+---
 en:
   activemodel:
     attributes:
       tally:
+        result: Game Results
         scores: Individual Scores
     errors:
       models:

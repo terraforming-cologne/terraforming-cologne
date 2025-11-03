@@ -1,5 +1,9 @@
+---
 de:
   shared:
     navigation:
+      logout: Ausloggen
       profile: Mein Profil
       tournaments: Turniere
+    register_button:
+      register: Jetzt registrieren!

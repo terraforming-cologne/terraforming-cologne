@@ -1,4 +1,7 @@
+---
 en:
   shared:
     navigation:
       profile: My profile
+    register_button:
+      register: Register now!

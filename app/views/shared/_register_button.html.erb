@@ -2,7 +2,7 @@
 
 <% if tournament.any_spots_left? %>
   <div class="flex flex-col items-center gap-2">
-    <%= link_to t("register"), [tournament, :register], class: "btn btn-primary text-3xl" %>
+    <%= link_to t(".register"), [tournament, :register], class: "btn btn-primary text-3xl" %>
     <% if tournament.few_spots_left? %>
       <div>
         <div><%= t(:spots_available, count: tournament.max_participations) %></div>
@@ -11,10 +11,5 @@
     <% end %>
   </div>
 <% else %>
-  <%= tag.div t(
-      :max_participations_html,
-      email:
-        link_to("support@terraforming-cologne.de", "mailto:support@terraforming-cologne.de", class: "link")
-    ),
-      class: "rounded bg-amber-100 p-3 text-amber-900" %>
+  <%= render "tournaments/max_participations_reached" %>
 <% end %>

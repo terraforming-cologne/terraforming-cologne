@@ -21,15 +21,13 @@
     <%= form.collection_select :locale,
         I18n.available_locales,
         :to_s,
-        ->(locale) { t(locale) },
+        ->(locale) { t("activerecord.attributes.user.locales.#{locale}") },
         {include_blank: false},
         class: "rounded" %>
   </div>
 
-  <div class="flex items-center justify-between">
+  <div class="flex justify-between">
+    <div><%= link_to t(".edit_password"), %i[edit password], class: "link", data: {turbo_frame: "_top"} %></div>
     <%= form.submit class: "btn btn-primary" %>
-    <div>
-      <%= link_to t(".edit_password"), %i[edit password], class: "link", data: {turbo_frame: "_top"} %>
-    </div>
   </div>
 <% end %>
