@@ -1,19 +1,13 @@
 <%= turbo_frame_tag :account do %>
   <h1><%= t(".heading") %></h1>
 
-  <div>
-    <%= tag.span User.human_attribute_name(:name), class: "font-bold" %>:
-    <%= @user.name %>
-  </div>
+  <div><%= tag.span User.human_attribute_name(:name), class: "font-bold" %>: <%= @user.name %></div>
 
-  <div>
-    <%= tag.span User.human_attribute_name(:email_address), class: "font-bold" %>:
-    <%= @user.email_address %>
-  </div>
+  <div><%= tag.span User.human_attribute_name(:email_address), class: "font-bold" %>: <%= @user.email_address %></div>
 
   <div>
     <%= tag.span User.human_attribute_name(:locale), class: "font-bold" %>:
-    <%= t(@user.locale) %>
+    <%= t("activerecord.attributes.user.locales.#{@user.locale}") %>
   </div>
 
   <%= link_to t(".edit"), %i[edit account], class: "link" %>
