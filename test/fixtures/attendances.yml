@@ -1,8 +1,11 @@
 one:
   participation: one
+  round: one
 
 two:
   participation: two
+  round: one
 
 three:
   participation: three
+  round: two
