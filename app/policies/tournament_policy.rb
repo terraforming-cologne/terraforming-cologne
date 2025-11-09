@@ -4,7 +4,7 @@ class TournamentPolicy < ApplicationPolicy
   end
 
   def show?
-    participating? || user.admin?
+    record.tallied? || participating? || user.admin?
   end
 
   def create?
