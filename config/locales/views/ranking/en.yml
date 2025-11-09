@@ -2,6 +2,7 @@
 en:
   rankings:
     show:
+      heading: Ranking
       no_ranking_data: No ranking data available.
       opponent_points: Opponent points
       points_per_generation: Points/Gen

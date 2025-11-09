@@ -1,5 +1,6 @@
 class TournamentsController < ApplicationController
   before_action :set_tournament, only: [:show, :edit, :update]
+  allow_unauthorized_access only: :show
 
   def index
     authorize Tournament
@@ -9,9 +10,8 @@ class TournamentsController < ApplicationController
   end
 
   def show
-    authorize @tournament
-    @participation = Current.user.participations.find_by(tournament: @tournament)
     @round = @tournament.current_round || @tournament.first_round
+    @participation = Current.user.participations.find_by(tournament: @tournament)
     @attendance = Current.user.attendances.find_by(round: @round)
   end
 

@@ -11,9 +11,9 @@
     <div><%= link_to t(".start_first_round"), [:new, @tournament, :first_round], class: "btn btn-primary" %></div>
     <% if @tournament.next_round.present? %>
       <h2 class="mb-0"><%= t(".attendances") %> (<%= @attendances.size %>)</h2>
-      <div class="grid grid-cols-[repeat(auto-fill,minmax(--spacing(24),1fr))]">
+      <div class="flex flex-col gap-2">
         <% @attendances.each do |attendance| %>
-          <span><%= attendance.user.name %></span>
+          <p><%= attendance.user.name %></p>
         <% end %>
       </div>
     <% end %>
@@ -23,7 +23,10 @@
 
   <% @rooms.each do |room| %>
     <div>
+      <h2><%= t(".games") %></h2>
+
       <h3><%= Room.model_name.human %> <%= room.number %></h3>
+
       <div class="grid grid-cols-[repeat(auto-fill,minmax(--spacing(36),1fr))] gap-4">
         <% room.tables.each do |table| %>
           <% game = table.games.find { it.round == @round } %>

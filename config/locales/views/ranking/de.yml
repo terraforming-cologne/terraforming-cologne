@@ -2,6 +2,7 @@
 de:
   rankings:
     show:
+      heading: Platzierungen
       name: Name
       no_ranking_data: Keine Platzierungsdaten verfügbar.
       opponent_points: Punkte Gegner:innen

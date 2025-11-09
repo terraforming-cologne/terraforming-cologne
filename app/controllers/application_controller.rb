@@ -11,7 +11,14 @@ class ApplicationController < ActionController::Base
 
   private
 
+  # TODO: Locale need's to be set here again...
   def user_not_authorized
-    redirect_to :root, alert: t(:unauthorized)
+    locale = cookies[:locale]
+    locale = locale.to_s.to_sym if I18n.available_locales.map(&:to_sym).include?(locale.to_s.to_sym)
+    locale ||= I18n.default_locale
+
+    I18n.with_locale(locale) do
+      redirect_to :root, alert: t(:unauthorized)
+    end
   end
 end

@@ -6,7 +6,7 @@
   <% elsif @tournament.tallied? %>
     <%= render "final_rankings", tournament: @tournament %>
   <% elsif @participation.blank? %>
-    <p><%= t(".not_registered") %></p>
+    <%= render "not_registered", tournament: @tournament %>
   <% elsif @attendance.blank? %>
     <%= render "welcome", tournament: @tournament %>
   <% elsif @tournament.before_first_round? %>

@@ -1,5 +1,5 @@
 class RankingsController < ApplicationController
-  allow_unauthorized_access
+  allow_unauthenticated_access
 
   def show
     @tournament = Tournament.includes(games: [:result, :scores]).find(params.expect(:tournament_id))

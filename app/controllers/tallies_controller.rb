@@ -11,7 +11,8 @@ class TalliesController < ApplicationController
     @tally = Tally.new(tally_params.merge(game: @game))
     authorize @tally
     if @tally.save
-      redirect_to @game.tournament, notice: t(".notice")
+      # TODO: Ugly
+      redirect_to Current.user.admin? ? [@game.tournament, :bridge] : @game.tournament, notice: t(".notice")
     else
       render :new, status: :unprocessable_content
     end
@@ -26,7 +27,7 @@ class TalliesController < ApplicationController
     @tally = Tally.new(tally_params.merge(game: @game))
     authorize @tally
     if @tally.save
-      redirect_back_or_to [:admin, @game.tournament, :bridge], notice: t(".notice")
+      redirect_to [@game.tournament, :bridge], notice: t(".notice")
     else
       render :new, status: :unprocessable_content
     end
