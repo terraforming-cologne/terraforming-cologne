@@ -7,3 +7,4 @@ de:
     formats:
       time_of_day: "%H:%M Uhr"
       time_of_day_short: "%H:%M"
+      date_with_weekday: "%A, %d. %B %Y %H:%M Uhr"
