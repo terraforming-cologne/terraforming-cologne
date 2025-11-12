@@ -29,27 +29,27 @@
 
     <div class="font-bold">
       <%= Participation.human_attribute_name(:brings_basegame_english) %>
-      (<%= @tournament.participations.where(brings_basegame_english: true).size %>)
+      (<%= @tournament.participations.where(paid: true, brings_basegame_english: true).size %>)
     </div>
 
     <div class="font-bold">
       <%= Participation.human_attribute_name(:brings_basegame_german) %>
-      (<%= @tournament.participations.where(brings_basegame_german: true).size %>)
+      (<%= @tournament.participations.where(paid: true, brings_basegame_german: true).size %>)
     </div>
 
     <div class="font-bold">
       <%= Participation.human_attribute_name(:brings_prelude_english) %>
-      (<%= @tournament.participations.where(brings_prelude_english: true).size %>)
+      (<%= @tournament.participations.where(paid: true, brings_prelude_english: true).size %>)
     </div>
 
     <div class="font-bold">
       <%= Participation.human_attribute_name(:brings_prelude_german) %>
-      (<%= @tournament.participations.where(brings_prelude_german: true).size %>)
+      (<%= @tournament.participations.where(paid: true, brings_prelude_german: true).size %>)
     </div>
 
     <div class="font-bold">
       <%= Participation.human_attribute_name(:brings_hellas_and_elysium) %>
-      (<%= @tournament.participations.where(brings_hellas_and_elysium: true).size %>)
+      (<%= @tournament.participations.where(paid: true, brings_hellas_and_elysium: true).size %>)
     </div>
 
     <div class="font-bold"><%= Participation.human_attribute_name(:comment) %></div>
