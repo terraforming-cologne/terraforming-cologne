@@ -1,4 +1,6 @@
-<%= render "tournaments/heading", tournament: @game.tournament, sub_heading: t(".enter_results") %>
+<h1><%= @game.tournament.name %></h1>
+
+<h2><%= t(".enter_results") %></h2>
 
 <div class="flex flex-col gap-8">
   <%= render "intro", game: @game %>
