@@ -3,12 +3,16 @@
 <h1><%= @tournament.name %></h1>
 
 <% if @round.present? %>
-  <h2><%= Round.model_name.human %> <%= @round.number %> (<%= @round.board %>)</h2>
+  <h2>
+    <%= Round.model_name.human %> <%= @round.number %> (<%= @round.board %>)
+  </h2>
 <% end %>
 
 <div class="flex flex-col gap-4">
   <% if @tournament.current_round.blank? %>
-    <div><%= link_to t(".start_first_round"), [:new, @tournament, :first_round], class: "btn btn-primary" %></div>
+    <div>
+      <%= link_to t(".start_first_round"), [:new, @tournament, :first_round], class: "btn btn-primary" %>
+    </div>
     <% if @tournament.next_round.present? %>
       <h2 class="mb-0"><%= t(".attendances") %> (<%= @attendances.size %>)</h2>
       <div class="flex flex-col gap-2">
@@ -18,7 +22,9 @@
       </div>
     <% end %>
   <% elsif @tournament.next_round.present? && @round.tallied? %>
-    <div><%= link_to t(".start_next_round"), [:new, @tournament, :next_round], class: "btn btn-primary" %></div>
+    <div>
+      <%= link_to t(".start_next_round"), [:new, @tournament, :next_round], class: "btn btn-primary" %>
+    </div>
   <% end %>
 
   <% @rooms.each do |room| %>
@@ -31,17 +37,27 @@
         <% room.tables.each do |table| %>
           <% game = table.games.find { it.round == @round } %>
           <% if game.blank? %>
-            <div class="flex flex-col items-center gap-2 rounded border bg-gray-100 p-1">
+            <div
+              class="
+                flex flex-col items-center gap-2 rounded-2xl border
+                bg-gray-100 p-1
+              "
+            >
               <span><%= Table.model_name.human %> <%= table.number %></span>
               <%= t(".no_game") %>
             </div>
           <% elsif game.tallied? %>
-            <div class="flex flex-col items-center gap-2 rounded border border-teal-400 bg-teal-100 p-1">
+            <div
+              class="
+                flex flex-col items-center gap-2 rounded-2xl border-2
+                border-teal-300 bg-teal-50 p-1
+              "
+            >
               <span><%= Table.model_name.human %> <%= game.table.number %></span>
               <%= link_to t(".edit"), [:edit, game, :tally], class: "btn btn-secondary btn-sm" %>
             </div>
           <% else %>
-            <div class="flex flex-col items-center gap-2 rounded border p-1">
+            <div class="flex flex-col items-center gap-2 rounded-2xl border p-1">
               <span class="font-bold"><%= Table.model_name.human %> <%= game.table.number %></span>
               <%= link_to t(".tally"), [:new, game, :tally], class: "btn btn-primary btn-sm" %>
             </div>

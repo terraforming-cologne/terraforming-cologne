@@ -7,6 +7,8 @@
     <%= render "final_rankings", tournament: @tournament %>
   <% elsif @participation.blank? %>
     <%= render "not_registered", tournament: @tournament %>
+  <% elsif @tournament.current_round_number.present? && @attendance.blank? %>
+    <%= render "too_late" %>
   <% elsif @attendance.blank? %>
     <%= render "welcome", tournament: @tournament %>
   <% elsif @tournament.before_first_round? %>

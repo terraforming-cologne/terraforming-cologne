@@ -1,4 +1,6 @@
 <section class="flex flex-col gap-8">
+  <%= render "quick_navigation" %>
+
   <div>
     <h1 class="mb-4 text-center text-5xl font-extrabold">German Open</h1>
     <h2 class="text-center font-extrabold"><%= t(".terraforming_mars_tournament") %></h2>
@@ -9,7 +11,7 @@
   <% if Tournament.planned? %>
     <div class="self-center text-center">
       <% if authenticated? && Current.user.participations.exists?(tournament: Tournament.next) %>
-        <%= tag.div class: "mb-2 rounded bg-emerald-100 p-3 text-emerald-900" do %>
+        <%= tag.div class: "mb-2 rounded-2xl border-2 border-teal-300 bg-teal-50 p-4" do %>
           <span><%= t(".already_registered") %></span>
 
           <span>

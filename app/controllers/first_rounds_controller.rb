@@ -4,9 +4,9 @@ class FirstRoundsController < ApplicationController
   def new
     authorize :first_round
     @first_round = FirstRound.new(tournament: @tournament)
-    @present_users = @tournament.attendances.includes("user").where(round: @tournament.first_round).order("users.name").map(&:user)
+    @present_users = @tournament.attendances.includes(:user).where(round: @tournament.first_round).order("users.name").map(&:user)
     @present_unpaid_users = @present_users.reject { it.participations.find_by(tournament: @tournament).paid? }
-    @absent_users = @tournament.participations.includes("user").order("users.name").map(&:user) - @present_users
+    @absent_users = @tournament.participations.includes(:user).order("users.name").map(&:user) - @present_users
   end
 
   def create

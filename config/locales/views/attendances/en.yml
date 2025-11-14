@@ -3,5 +3,6 @@ en:
   attendances:
     create:
       notice: Your attendance was recorded.
+      too_late: Your attendance could not be recorded because the first round has already started.
     new:
       already_attending: Your attendance has already been recorded.

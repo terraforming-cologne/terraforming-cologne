@@ -3,17 +3,17 @@
 <div>
   <h2><%= t(".your_next_game") %></h2>
 
-  <div class="flex flex-col gap-8 rounded-2xl border-2 border-teal-300 bg-teal-100 p-4">
+  <div class="flex flex-col gap-8 rounded-2xl border-2 border-teal-300 bg-teal-50 p-4">
     <div class="mx-auto flex flex-wrap gap-4 text-sm">
-      <div class="rounded-lg border border-teal-500 bg-teal-100 px-4 py-2">
+      <div class="rounded-lg border border-teal-500 bg-teal-50 px-4 py-2">
         <span><%= Room.model_name.human %> <span class="font-bold"><%= attendance.room.number %></span></span>
       </div>
 
-      <div class="rounded-lg border border-teal-500 bg-teal-100 px-4 py-2">
+      <div class="rounded-lg border border-teal-500 bg-teal-50 px-4 py-2">
         <span><%= Table.model_name.human %> <span class="font-bold"><%= attendance.table.number %></span></span>
       </div>
 
-      <div class="rounded-lg border border-teal-500 bg-teal-100 px-4 py-2">
+      <div class="rounded-lg border border-teal-500 bg-teal-50 px-4 py-2">
         <span><%= Seat.model_name.human %> <span class="font-bold"><%= attendance.seat.number %></span></span>
       </div>
     </div>

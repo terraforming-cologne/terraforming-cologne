@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   shallow do
     # Tournament
     resources :tournaments, only: [:index, :show, :new, :create, :edit, :update] do
-      resources :attendances, only: [:create]
-      resources :tables, only: [:index]
+      resources :attendances, only: :create
+      resources :tables, only: :index
       resource :tally, only: [:new, :create]
 
       resource :ranking, only: :show
@@ -36,11 +36,11 @@ Rails.application.routes.draw do
 
     # User
     resource :account, only: [:show, :edit, :create, :update, :destroy]
-    resource :locale, only: [:update]
-    resource :login, only: [:create]
+    resource :locale, only: :update
+    resource :login, only: :create
     resource :password, only: [:edit, :update]
     resources :password_resets, only: [:new, :edit, :create, :update], param: :token
-    resource :profile, only: [:show]
+    resource :profile, only: :show
   end
 
   get :signup, to: "accounts#new"

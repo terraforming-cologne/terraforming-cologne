@@ -2,7 +2,7 @@
 
 <section class="flex flex-col gap-4">
   <% if participation.paid? %>
-    <%= tag.div class: "inline-flex items-center gap-1 self-start rounded-full bg-emerald-100 px-2 py-1 font-medium text-emerald-900 ring-1 ring-emerald-900/10 ring-inset" do %>
+    <%= tag.div class: "inline-flex items-center gap-1 self-start rounded-full border-2 border-teal-300 bg-teal-50 px-2 py-1 font-medium" do %>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -21,7 +21,7 @@
       <%= tag.span t(".paid") %>
     <% end %>
   <% else %>
-    <%= tag.div class: "inline-flex items-center gap-1 self-start rounded-full bg-rose-100 px-2 py-1 font-medium text-rose-900 ring-1 ring-rose-900/10 ring-inset" do %>
+    <%= tag.div class: "inline-flex items-center gap-1 self-start rounded-full border-2 border-rose-300 bg-rose-50 px-2 py-1 font-medium text-rose-800" do %>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

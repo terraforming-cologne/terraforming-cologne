@@ -30,13 +30,17 @@
   </head>
 
   <body class="my-4 [--page-padding:--spacing(4)]">
-    <nav class="mx-auto max-w-5xl px-(--page-padding)">
-      <%= render "shared/navigation" %>
-      <%= render "shared/flashes" %>
-    </nav>
+    <% if content_for?(:navbar) %>
+      <%= yield :navbar %>
+    <% else %>
+      <nav class="mx-auto max-w-5xl px-(--page-padding)">
+        <%= render "shared/navigation" %>
+        <%= render "shared/flashes" %>
+      </nav>
+    <% end %>
 
     <% if content_for?(:wide_body) %>
-      <main class="mx-auto max-w-fit px-(--page-padding)"><%= yield :wide_body %></main>
+      <main class="mx-auto max-w-full px-(--page-padding)"><%= yield :wide_body %></main>
     <% else %>
       <main class="mx-auto max-w-5xl px-(--page-padding)"><%= yield %></main>
     <% end %>

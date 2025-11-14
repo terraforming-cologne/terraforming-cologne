@@ -8,7 +8,8 @@
 
   <div>
     <%= link_to t(".overview"), tournament, class: "link" %> |
-    <%= link_to t(".bridge"), [tournament, :bridge], class: "link" %>
+    <%= link_to t(".bridge"), [tournament, :bridge], class: "link" %> |
+    <%= link_to t(".table_assignment"), [tournament, :tables], class: "link" %>
   </div>
 
   <div><%= link_to t(".edit"), [:edit, tournament], class: "link" %></div>

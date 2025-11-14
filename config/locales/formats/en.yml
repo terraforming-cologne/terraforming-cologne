@@ -5,6 +5,6 @@ en:
       date_with_weekday: "%A, %B %d %Y"
   time:
     formats:
+      date_with_weekday: "%A, %B %d %Y, %H:%M h"
       time_of_day: "%H:%M h"
       time_of_day_short: "%H:%M"
-      date_with_weekday: "%A, %B %d %Y, %H:%M h"

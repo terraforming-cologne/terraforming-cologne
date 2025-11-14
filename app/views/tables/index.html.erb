@@ -1,21 +1,30 @@
+<%= content_for :navbar do %>
+  <div class="hidden"></div>
+<% end %>
+
 <%= content_for :wide_body do %>
-  <div class="w-[1920px]">
-    <%= render "tournaments/heading", tournament: @tournament, sub_heading: t(".table_assignments") %>
+  <h2>
+    Tischzuweisung (Raum, Tisch, Sitz) / Table Assignment (Room, Table, Seat)
+  </h2>
 
-    <div class="grid grid-flow-col grid-cols-[repeat(auto-fill,minmax(--spacing(56),1fr))] grid-rows-20 gap-x-8 gap-y-2">
-      <% if @tournament.current_round.present? %>
-        <% @tournament.current_round.attendances.includes(:user, :room, :table, :seat).order("users.name").each do |attendance| %>
-          <div class="grid grid-cols-[1fr_auto_auto_auto]">
-            <div class="border-b border-gray-300"><%= attendance.user.name %></div>
+  <div
+    class="
+      columns-1 gap-12 space-y-1 md:columns-2 lg:columns-3 xl:columns-4
+      2xl:columns-5
+    "
+  >
+    <% if @tournament.current_round.present? %>
+      <% @tournament.current_round.attendances.includes(:user, :room, :table, :seat).joins(:user).order("LOWER(users.name)").each do |attendance| %>
+        <div class="grid grid-cols-[1fr_repeat(3,--spacing(8))] border px-2 py-1">
+          <div><%= attendance.user.name %></div>
 
-            <div class="border-b border-gray-300 px-2"><%= attendance.room.number %></div>
+          <div class="text-center"><%= attendance.room.number %></div>
 
-            <div class="border-b border-gray-300 px-2"><%= attendance.table.number %></div>
+          <div class="text-center"><%= attendance.table.number %></div>
 
-            <div class="border-b border-gray-300 px-2"><%= attendance.seat.number %></div>
-          </div>
-        <% end %>
+          <div class="text-center"><%= attendance.seat.number %></div>
+        </div>
       <% end %>
-    </div>
+    <% end %>
   </div>
 <% end %>
