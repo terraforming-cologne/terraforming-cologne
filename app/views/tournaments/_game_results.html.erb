@@ -1,0 +1,43 @@
+<%# locals: (tournament:) %>
+
+<div>
+  <h2><%= t(".game_results") %></h2>
+
+  <div class="flex flex-col gap-8">
+    <% tournament.rounds.where(number: ..tournament.current_round_number).reorder(number: :desc).each do |round| %>
+      <h3><%= round.board %></h3>
+      <div class="flex flex-col gap-8">
+        <% round.games.includes(:room, :table, :result, seats: [:score, :user]).order("rooms.number, tables.number").filter(&:tallied?).each do |game| %>
+          <div
+            class="
+              flex flex-col gap-4 rounded-2xl border-2 border-teal-300
+              bg-teal-50 p-4
+            "
+          >
+            <div>
+              <div class="font-semibold">
+                <%= Room.model_name.human %> <%= game.room.number %> - <%= Table.model_name.human %> <%= game.table.number %>
+              </div>
+              <div><%= game.result.generations %> <%= t(".generations") %></div>
+            </div>
+            <div class="grid grid-cols-[auto_1fr_auto] gap-2">
+              <span class="font-semibold"><%= t(".rank") %></span>
+              <span class="font-semibold"><%= t(".name") %> / <%= t(".corporation") %></span>
+              <span class="font-semibold"><%= t(".points") %></span>
+
+              <% game.seats.sort_by { it.score.rank }.each do |seat| %>
+                <span><%= seat.score.rank.ordinalize %></span>
+                <span>
+                  <span class="font-semibold"><%= seat.user.name %></span>
+                  <br>
+                  <%= seat.score.corporation %>
+                </span>
+                <span><%= seat.score.points %></span>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

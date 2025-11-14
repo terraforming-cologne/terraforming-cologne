@@ -37,5 +37,11 @@ de:
       participations: Anmeldungen
       ranking: Platzierungen
       table_assignment: Tischzuweisung
+    game_results:
+      game_results: Spielergebnisse
+      generations: Generationen
+      rank: Platz
+      corporation: Konzern
+      points: Punkte
     update:
       notice: Turnier aktualisiert.

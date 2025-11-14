@@ -24,4 +24,8 @@
   <% if !@tournament.tallied? && @tournament.previous_round.present? && @tournament.previous_round.tallied? %>
     <%= render "rankings", tournament: @tournament %>
   <% end %>
+
+  <% if @tournament.current_round_number.present? %>
+    <%= render "game_results", tournament: @tournament %>
+  <% end %>
 </div>
