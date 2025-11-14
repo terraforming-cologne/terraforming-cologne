@@ -29,8 +29,6 @@
 
   <% @rooms.each do |room| %>
     <div>
-      <h2><%= t(".games") %></h2>
-
       <h3><%= Room.model_name.human %> <%= room.number %></h3>
 
       <div class="grid grid-cols-[repeat(auto-fill,minmax(--spacing(36),1fr))] gap-4">
