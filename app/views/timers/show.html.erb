@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title><%= @page_title || "Terraforming Cologne" %></title>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= turbo_refreshes_with method: :morph, scroll: :preserve %>
+    <%# <meta name="view-transition" content="same-origin"> %>
+
+    <%= yield :head %>
+
+    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
+    <%= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
+
+    <%= render "application/favicon" %>
+
+    <%# Includes all stylesheet files in app/assets/stylesheets %>
+    <%= stylesheet_link_tag "tailwind", "lato-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+  <body>
+    <div
+      class="h-[1080px] w-[1920px] bg-(image:--image-path) bg-[length:100%_100%]"
+      style="--image-path: url(<%= asset_path("timer_background.jpeg") %>)"
+      data-controller="timer"
+      data-timer-duration-value="<%= params[:duration] %>"
+      data-timer-start-time-value="<%= params[:start_time] %>"
+    >
+      <%= image_tag "rocket.png", class: "absolute w-80", width: 1939, height: 1225, data: {timer_target: "rocket"} %>
+      <div class="absolute top-[600px] w-screen text-center text-9xl font-bold text-white" data-timer-target="timer"></div>
+    </div>
+  </body>
+</html>

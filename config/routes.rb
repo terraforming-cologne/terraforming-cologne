@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resolve("FirstRound") { [:tournament, :first_round] }
   resolve("NextRound") { [:tournament, :next_round] }
 
+  resource :timer, only: :show
+
   shallow do
     # Tournament
     resources :tournaments, only: [:index, :show, :new, :create, :edit, :update] do
