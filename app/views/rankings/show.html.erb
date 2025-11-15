@@ -13,7 +13,7 @@
         <% end %>
       <% end %>
     </div>
-    <% if !@round&.tallied? %>
+    <% if !@round&.tallied? || !@round.show_ranking? %>
       <p><%= t(".no_ranking_data") %></p>
     <% else %>
       <div class="-mx-(--page-padding) flex overflow-x-auto">

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2025_10_27_101806) do
+ActiveRecord::Schema[8.1].define(version: 2025_11_15_161717) do
   create_table "attendances", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.integer "participation_id", null: false
@@ -68,6 +68,7 @@ ActiveRecord::Schema[8.1].define(version: 2025_10_27_101806) do
     t.string "board", null: false
     t.datetime "created_at", null: false
     t.integer "number", null: false
+    t.boolean "show_ranking", default: false
     t.integer "tournament_id", null: false
     t.datetime "updated_at", null: false
     t.index ["tournament_id"], name: "index_rounds_on_tournament_id"
