@@ -13,7 +13,7 @@
       <h2 class="mb-0"><%= t(".attendances") %> (<%= @attendances.size %>)</h2>
       <div class="flex flex-col gap-2">
         <% @attendances.reorder(created_at: :desc).each do |attendance| %>
-          <p><%= attendance.user.name %> <%= attendance.created_at %></p>
+          <p><%= attendance.user.name %> <%= l(attendance.created_at) %></p>
         <% end %>
       </div>
     <% end %>
