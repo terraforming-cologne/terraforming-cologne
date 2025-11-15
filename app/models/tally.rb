@@ -40,7 +40,11 @@ class Tally
   # NOTE: The following two methods mimic the behavoir of accepts_nested_attributes_for.
 
   def result_attributes=(result_attributes)
-    @result ||= Result.new(result_attributes)
+    @result ||= if @result.present?
+      @result.assign_attributes(result_attributes)
+    else
+      Result.new(result_attributes)
+    end
   end
 
   def scores_attributes=(scores_attributes)
