@@ -3,19 +3,19 @@
 <h2><%= t(".heading") %></h2>
 
 <%= turbo_frame_tag @tournament, :ranking do %>
-  <% if !@round&.tallied? %>
-    <p><%= t(".no_ranking_data") %></p>
-  <% else %>
-    <div class="flex flex-col gap-4">
-      <div class="flex gap-2 overflow-x-auto">
-        <% @tournament.rounds.each do |round| %>
-          <% active = (params[:round].to_i == round.number) || (params[:round].blank? && @rounds_up_to_current.maximum(:number) == round.number) %>
-          <%= link_to [@tournament, :ranking, {round: round.number}],
+  <div class="flex flex-col gap-4">
+    <div class="flex gap-2 overflow-x-auto">
+      <% @tournament.rounds.each do |round| %>
+        <% active = (params[:round].to_i == round.number) || (params[:round].blank? && @rounds_up_to_current.maximum(:number) == round.number) %>
+        <%= link_to [@tournament, :ranking, {round: round.number}],
                       class: "rounded-full px-4 py-2 text-sm font-bold whitespace-nowrap transition-colors duration-200 #{active ? "bg-teal-500 text-white" : "bg-gray-200 text-gray-700 hover:bg-gray-300"}" do %>
-            <%= round.board %>
-          <% end %>
+          <%= round.board %>
         <% end %>
-      </div>
+      <% end %>
+    </div>
+    <% if !@round&.tallied? %>
+      <p><%= t(".no_ranking_data") %></p>
+    <% else %>
       <div class="-mx-(--page-padding) flex overflow-x-auto">
         <div class="grow px-(--page-padding)">
           <table class="w-full border-collapse px-(--page-padding) whitespace-nowrap">
@@ -48,6 +48,6 @@
           </table>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 <% end %>
