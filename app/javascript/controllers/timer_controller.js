@@ -44,9 +44,6 @@ export default class extends Controller {
     this.rocketTarget.style.top = "250px";
     this.rocketTarget.style.left = `${length}px`;
 
-    console.log(endTime);
-    console.log(now);
-    console.log(endTime - now);
     this.timerTarget.textContent = this.formatSeconds(Math.floor((endTime - now) / 1000));
   }
 
