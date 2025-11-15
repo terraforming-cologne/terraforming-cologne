@@ -10,7 +10,7 @@
     <div class="self-center text-center">
       <% if authenticated? && Current.user.participations.exists?(tournament: Tournament.next) %>
       <% else %>
-        <%= render "shared/register_button", tournament: Tournament.next %>
+        <%# render "shared/register_button", tournament: Tournament.next %>
       <% end %>
     </div>
   <% end %>

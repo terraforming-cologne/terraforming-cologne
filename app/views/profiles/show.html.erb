@@ -4,7 +4,7 @@
       <%= turbo_frame_tag @next_participation, src: @next_participation, target: "_top" %>
     <% else %>
       <div class="flex justify-center text-center">
-        <%= render "shared/register_button", tournament: Tournament.next %>
+        <%# render "shared/register_button", tournament: Tournament.next %>
       </div>
     <% end %>
   <% end %>
