@@ -37,7 +37,10 @@
       data-timer-start-time-value="<%= params[:start_time] %>"
     >
       <%= image_tag "rocket.png", class: "absolute w-80", width: 1939, height: 1225, data: {timer_target: "rocket"} %>
-      <div class="absolute top-[600px] w-screen text-center text-9xl font-bold text-white" data-timer-target="timer"></div>
+      <div
+        class="absolute top-[600px] w-screen text-center text-[10rem] font-bold text-white"
+        data-timer-target="timer"
+      ></div>
     </div>
   </body>
 </html>
