@@ -1,8 +1,8 @@
-<% if Tournament.next.date.today? && authenticated? && Current.user.participations.exists?(tournament: Tournament.next) %>
+<% if @tournament.present? && @tournament.date.today? && authenticated? && Current.user.participations.exists?(tournament: @tournament) %>
   <div class="flex flex-col gap-4 self-center rounded-2xl border-2 border-teal-300 bg-teal-50 p-4">
-    <span class="text-center text-xl font-bold"><%= Tournament.next.name %></span>
+    <span class="text-center text-xl font-bold"><%= @tournament.name %></span>
     <p>
-      Herzlich willkommen! Schau dir die <%= link_to "Turnierübersicht", Tournament.next, class: "link" %> für mehr
+      Herzlich willkommen! Schau dir die <%= link_to "Turnierübersicht", @tournament, class: "link" %> für mehr
       Informationen an!
     </p>
   </div>
