@@ -34,10 +34,13 @@ module Participation::Ranking
   def opponent_ranking_points_up_to(round)
     opponents(round).sum do |participation|
       real_ranking_points = participation.ranking_points_up_to(round)
-      if rounds.include?(round)
+      if participation.is_a?(VirtualParticipation) || participation.rounds.include?(round)
         real_ranking_points
       else
         [round.average_ranking_points, real_ranking_points].max
+
+        # NOTE: Different approach that seems more fair:
+        # real_ranking_points + (tournament.rounds - participation.rounds).sum { (it.average_ranking_points / it.number.to_f).round }
       end
     end
   end
