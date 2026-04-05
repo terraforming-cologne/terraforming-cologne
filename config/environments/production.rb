@@ -64,8 +64,8 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     user_name: Rails.application.credentials.dig(:smtp, :user_name),
     password: Rails.application.credentials.dig(:smtp, :password),
-    address: "smtp.useplunk.com",
-    port: 587,
+    address: "next-smtp.useplunk.com",
+    port: 2587,
     authentication: :plain
   }
 
